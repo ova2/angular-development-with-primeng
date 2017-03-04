@@ -6,7 +6,7 @@ __Book on Packt Publishing's website:__ will be published in August...
 
 __Table of Contents__
 
-* [Chapter 1, Getting Started with Angular and PrimeNG]()
+* [Chapter 1, Getting Started with Angular and PrimeNG](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter1)
   * TypeScript fundamentals you need to know
   * Advanced types, decorators, compiler options
   * Angular cheat sheet: overview of key concepts
@@ -15,14 +15,14 @@ __Table of Contents__
   * Setup PrimeNG project with SystemJS and Webpack
   * Setup PrimeNG project with Angular CLI
   
-* [Chapter 2, Theming Concept and Layouts]()
+* [Chapter 2, Theming Concept and Layouts](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter2)
   * Understanding structural and skinning CSS
   * Organize your project structure with SASS
   * Simple ways to create a new theme
   * Responsive grid system in PrimeNG
   * Bootstrap's responsive layout meets PrimeNG
   
-* [Chapter 3, Enhanced Inputs and Selects]()
+* [Chapter 3, Enhanced Inputs and Selects](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter3)
   * Formatted input with InputMask
   * Auto suggestion with AutoComplete
   * Entering multiple values with Chips
@@ -33,7 +33,7 @@ __Table of Contents__
   * Text editing with rich and in-place editors
   * Password and star-based rating inputs
   
-* [Chapter 4, Button and Panel Components]()
+* [Chapter 4, Button and Panel Components](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter4)
   * Enhanced Button, RadioButton and SplitButton
   * Selecting value by ToggleButton and SelectButton
   * Grouping buttons with Toolbar
@@ -41,7 +41,7 @@ __Table of Contents__
   * Vertical stacked panels with Accordion
   * Grouping content with tabs in TabView
   
-* [Chapter 5, Data Iteration Components]()
+* [Chapter 5, Data Iteration Components](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter5)
   * Selecting rows in DataTable
   * Sorting and filtering data in DataTable
   * Resizing, reordering and toggling columns in DataTable
@@ -60,14 +60,14 @@ __Table of Contents__
   * Managing events with Schedule by leveraging lazy loading
   * Visualizing data with DataScroller
   
-* [Chapter 6, Amazing Overlays and Messages]()
+* [Chapter 6, Amazing Overlays and Messages](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter6)
   * Displaying content in Dialog
   * Displaying content in Lightbox
   * Multipurpose scenarios with OverlayPanel
   * Notifying users with Messages and Growl
   * Tooltips for form components
   
-* [Chapter 7, Endless Menu Variations]()
+* [Chapter 7, Endless Menu Variations](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter7)
   * Statically and dynamically positioned menus
   * Creating programmatic menus by MenuModel
   * Accessing commands via Menubar
@@ -79,7 +79,7 @@ __Table of Contents__
   * Breadcrumb – providing contextual information about page hierarchy
   * Indicating steps in workflow with Steps component
   
-* [Chapter 8, Creating Charts and Maps]()
+* [Chapter 8, Creating Charts and Maps](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter8)
   * Working with chart model
   * Data representation with line and bar charts
   * Data representation with pie and doughnut charts
@@ -87,7 +87,7 @@ __Table of Contents__
   * Basic integration with Google Map API
   * Various uses cases with GMap component
   
-* [Chapter 9, Miscellaneous Use Cases and Best Practices]()
+* [Chapter 9, Miscellaneous Use Cases and Best Practices](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter9)
   * Validation with PrimeNG input components
   * Basic, automatic, drag-&-drop, and multiple file uploading
   * Learning Draggable and Droppable directives
@@ -99,7 +99,7 @@ __Table of Contents__
   * Introduction to state management with @ngrx/store
   * Reducing page load time with custom preloading strategy
   
-* [Chapter 10, Creating Robust Applications]()
+* [Chapter 10, Creating Robust Applications](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter10)
   * Setup unit testing with Jasmine and Karma
   * Unit testing of Components, Services and Pipes
   * Tip how to speed up unit testing
