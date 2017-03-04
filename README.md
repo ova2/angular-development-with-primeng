@@ -1,4 +1,4 @@
-#### Learning Angular UI Development with PrimeNG
+### Learning Angular UI Development with PrimeNG
 
 Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj)
 
