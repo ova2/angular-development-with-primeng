@@ -22,9 +22,15 @@
     "node"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "**/*.ngfactory.ts",
+    "**/*.shim.ts",
+    "src/main.aot.ts",
+    "src/polyfill.ts"
   ],
   "angularCompilerOptions": {
+    "skipMetadataEmit": true,
     "genDir": "./src/ngfactory"
   }
 }
