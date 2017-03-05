@@ -2,6 +2,7 @@
 var webpackMerge = require('webpack-merge');
 var commonConfig = require('./webpack.common.js');
 
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var SourceMapDevToolPlugin = require('webpack/lib/SourceMapDevToolPlugin');
 
 module.exports = webpackMerge(commonConfig, {
@@ -20,22 +21,12 @@ module.exports = webpackMerge(commonConfig, {
         ]
     },
     plugins: [
+        new ExtractTextPlugin({
+            filename: "[name].css"
+        }),
         new SourceMapDevToolPlugin({
             filename: '[file].map',
             exclude: ['main.css', 'manifest.js', 'polyfill.js']
         })
-    ],
-    devServer: {
-        host: 'localhost',
-        port: 3000,
-        historyApiFallback: true,
-        contentBase: 'dist/',
-        watchOptions: {
-            aggregateTimeout: 100,
-            poll: 300
-        },
-        stats: {
-            colors: true
-        }
-    }
+    ]
 });

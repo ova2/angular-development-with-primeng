@@ -4,7 +4,7 @@ var path = require('path');
 var webpackMerge = require('webpack-merge');
 var commonConfig = require('./webpack.common.js');
 
-var ngToolsWebpack = require('@ngtools/webpack');
+var AotPlugin = require('@ngtools/webpack').AotPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
@@ -19,18 +19,23 @@ module.exports = webpackMerge(commonConfig, {
     },
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: {
+                    emitErrors: true,
+                    failOnHint: true    
+                }
+            },
             {test: /\.ts$/, loader: '@ngtools/webpack'}
         ]
     },
     bail: true,
-    tslint: {
-        emitErrors: true,
-        failOnHint: true
-    },
     plugins: [
-        new ngToolsWebpack.AotPlugin({
+        new AotPlugin({
             tsConfigPath: './tsconfig.json',
-            entryModule: path.resolve(__dirname, '..') + 'src/app/app.module#AppModule'
+            entryModule: path.resolve(__dirname, '..') + '/src/app/app.module#AppModule'
         }),
         new ExtractTextPlugin({
             filename: "[name].[chunkhash].css"

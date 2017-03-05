@@ -23,15 +23,6 @@ module.exports = {
         extensions: ['.ts', '.js', '.json']
     },
     module: {
-       /*
-        preLoaders: [{
-            // TSlint loader support for *.ts files
-            // https://github.com/wbuchwalter/tslint-loader
-            test: /\.ts$/,
-            loader: 'tslint-loader',
-            exclude: [path.join(ROOT, 'node_modules')]
-        }],
-        */
         rules: [
             {test: /\.json$/, loader: 'json-loader'},
             {test: /\.html$/, loader: 'raw-loader'},
@@ -65,9 +56,6 @@ module.exports = {
             name: 'manifest',
             minChunks: Infinity
         }),
-        new ExtractTextPlugin({
-            filename: "[name].css"
-        }),
         new HashedModuleIdsPlugin(),
         new WebpackMd5Hash(),
         new OccurrenceOrderPlugin(),
@@ -87,5 +75,18 @@ module.exports = {
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             __dirname
         )
-    ]
+    ],
+    devServer: {
+        host: 'localhost',
+        port: 3000,
+        historyApiFallback: true,
+        contentBase: 'dist/',
+        watchOptions: {
+            aggregateTimeout: 100,
+            poll: 300
+        },
+        stats: {
+            colors: true
+        }
+    }
 };
