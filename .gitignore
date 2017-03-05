@@ -5,10 +5,3 @@
 .idea
 *.iml
 .vscode
-target/
-node_modules/
-typings/
-dist/
-npm-debug.log
-config/webpack-records.json
-.gitignore
