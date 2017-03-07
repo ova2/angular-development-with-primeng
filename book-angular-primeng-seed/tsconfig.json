@@ -8,6 +8,7 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noEmit": true,
     "noEmitHelpers": true,
     "importHelpers": true,
     "outDir": "dist",

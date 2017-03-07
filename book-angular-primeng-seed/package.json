@@ -60,7 +60,6 @@
     "ngc": "ngc -p tsconfig.json",
     "prebuild:prod": "npm run ngc",
     "build:prod": "webpack --config config/webpack.prod.js --progress --display-error-details",
-    "postbuild:prod": "rimraf dist/app && rimraf dist/main.jit.js && rimraf dist/polyfill.js && rimraf dist/*.js.map",
     "prestart:prod": "npm run prebuild:prod",
     "start:prod": "webpack-dev-server --config config/webpack.prod.js --inline --open"
   }
