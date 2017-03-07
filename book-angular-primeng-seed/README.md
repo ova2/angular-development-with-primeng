@@ -20,6 +20,16 @@ You can also start the application in the production mode with minified code, AO
 npm run start:prod
 ```
 
-Running application is available at [http://localhost:3000/](http://localhost:3000/).
+Running application is available at [http://localhost:3000/](http://localhost:3000/). You don't need to stop the server when you code, it runs in the watch mode.
 
-You don't need to stop the server when you code, it runs in the watch mode.
+Distributed application can be found in the `dist` folder after running
+
+```sh
+npm run build
+```
+
+or
+
+```sh
+npm run build:prod
+```
