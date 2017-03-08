@@ -1,25 +1,18 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
-// import needed PrimeNG modules here
-import {ButtonModule} from 'primeng/components/button/button';
-import {InputTextModule} from 'primeng/components/inputtext/inputtext';
-
 import {AppComponent}  from './app.component';
-import {SectionComponent}  from './section/section.component';
+import {SectionModule} from './section/section.module';
 import {routes} from './app-routing.module';
 
 @NgModule({
     imports: [
         BrowserModule,
-        routes,
-        FormsModule,
-        ButtonModule,
-        InputTextModule
+        SectionModule,
+        routes
     ],
-    declarations: [AppComponent, SectionComponent],
+    declarations: [AppComponent],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
 })
