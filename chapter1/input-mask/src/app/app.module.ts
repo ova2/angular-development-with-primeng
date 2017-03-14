@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {ButtonModule} from 'primeng/components/button/button';
 import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
@@ -17,7 +16,6 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
-        ButtonModule,
         InputMaskModule,
         GrowlModule
     ],

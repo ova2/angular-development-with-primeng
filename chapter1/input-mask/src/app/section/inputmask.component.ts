@@ -9,4 +9,9 @@ export class InputMaskComponent {
     msgs: Message[] = [];
     
     basic: string;
+    
+    onComplete() {
+        this.msgs.push(
+            {severity: 'info', summary: 'InputMask completed'});
+    }
 }
