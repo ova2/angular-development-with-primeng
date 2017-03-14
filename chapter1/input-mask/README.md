@@ -12,13 +12,13 @@ npm install
 
 #### Start application
 
-__Development mode__
+Development mode:
 
 ```sh
 npm start
 ```
 
-__Production mode (with minified code, AOT and Tree Shaking)__
+Production mode (with minified code, AOT and Tree Shaking):
 
 ```sh
 npm run start:prod
