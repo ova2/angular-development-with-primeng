@@ -1,0 +1,9 @@
+<form novalidate>
+    <label for="basic">Basic:</label>
+    <p-inputMask id="basic" mask="99-999999" name="basic"
+                 [(ngModel)]="basic" placeholder="99-999999"
+                 (onComplete)="onComplete()">
+    </p-inputMask>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

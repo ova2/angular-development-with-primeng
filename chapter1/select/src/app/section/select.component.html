@@ -1,0 +1,26 @@
+<form novalidate>
+    <h3 class="first">Single</h3>
+    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City"></p-dropdown>
+    <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+
+    <h3>Editable</h3>
+    <p-dropdown [options]="cars" [(ngModel)]="selectedCar" [style]="{'width':'150px'}" editable="editable" placeholder="Select a Brand"></p-dropdown>
+    <p>Selected Car: {{selectedCar||'none'}}</p>
+
+    <h3>Content with Filters</h3>
+    <p-dropdown [options]="cars" [(ngModel)]="selectedCar2" [style]="{'width':'150px'}" filter="filter">
+        <ng-template let-car pTemplate="item">
+            <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                <img src="showcase/resources/demo/images/car/{{car.label}}.gif" style="width:24px;position:absolute;top:1px;left:5px"/>
+                <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+            </div>
+        </ng-template>
+    </p-dropdown>
+    <p>Selected Car: {{selectedCar2||'none'}}</p>
+
+    <p-multiSelect [options]="cars" [(ngModel)]="selectedCars"></p-multiSelect>
+
+    <p>Selected Cars: {{selectedCars}}</p>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

@@ -1,0 +1,16 @@
+<form novalidate>
+    <h3 class="first">Basic</h3>
+    <p-chips [(ngModel)]="contactnames" name="basic"></p-chips>
+
+    <h3 class="first">Events</h3>
+    <p-chips [(ngModel)]="contactsnotified" name="events" (onAdd)="onAddContact()" (onRemove)="onRemoveContact()"></p-chips>
+
+    <h3>Customized display</h3>
+    <p-chips [(ngModel)]="complexcontacts" name="template">
+        <template let-item pTemplate="item">
+            <i class="fa fa-address-card"></i>-{{item}}
+        </template>
+    </p-chips>
+</form>
+
+<p-growl [value]="msgs"></p-growl>
