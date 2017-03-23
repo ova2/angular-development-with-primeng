@@ -1,0 +1,77 @@
+import {Component} from '@angular/core';
+import {Message} from 'primeng/components/common/api';
+import {SelectItem} from 'primeng/components/common/api';
+
+@Component({
+    selector: 'section',
+    templateUrl: 'calendar.component.html'
+})
+export class CalendarComponent {
+
+    basicDateInput: Date;
+
+    localizedDateInput: Date;
+
+    advancedDateInput: Date;
+
+    timeDateInput: Date;
+
+    inlineDateInput: Date;
+
+    minDate: Date;
+
+    maxDate: Date;
+
+    time: boolean;
+
+    es: any;
+
+    types: SelectItem[];
+
+    selectedType: string ='12';
+
+    msgs: Message[] = [];
+
+    constructor() {
+        this.types = [];
+        this.types.push({label: '12H Format', value: '12'});
+        this.types.push({label: '24H Format', value: '24'});
+    }
+
+    ngOnInit() {
+        this.es = {
+            firstDayOfWeek: 1,
+            dayNames: [ 'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag' ],
+            dayNamesShort: [ 'Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam' ],
+            dayNamesMin: [ 'S', 'M', 'D', 'M ', 'D', 'F ', 'S' ],
+            monthNames: [ 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember' ],
+            monthNamesShort: [ 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez' ]
+        }
+
+        let today = new Date();
+        let month = today.getMonth();
+        let year = today.getFullYear();
+        let prevMonth = (month === 0) ? 11 : month -1;
+        let prevYear = (prevMonth === 11) ? year - 1 : year;
+        let nextMonth = (month === 11) ? 0 : month + 1;
+        let nextYear = (nextMonth === 0) ? year + 1 : year;
+        this.minDate = new Date();
+        this.minDate.setMonth(prevMonth);
+        this.minDate.setFullYear(prevYear);
+        this.maxDate = new Date();
+        this.maxDate.setMonth(nextMonth);
+        this.maxDate.setFullYear(nextYear);
+    }
+
+    onSelect(){
+        this.msgs.push({severity: 'info', summary: 'The calendar date is selected'});
+    }
+
+    onBlur(){
+        this.msgs.push({severity: 'info', summary: 'Calendar lost the focus'});
+    }
+
+    onFocus(){
+        this.msgs.push({severity: 'info', summary: 'Calendar got the focus'});
+    }
+}

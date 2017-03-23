@@ -1,0 +1,44 @@
+<form novalidate>
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+            <h3>Basic</h3>
+            <p-calendar [(ngModel)]="basicDateInput" name="basic"></p-calendar>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <h3>Inline {{date8|date}}</h3>
+            <p-calendar [(ngModel)]="inlineDateInput" name="inline" [inline]="true"></p-calendar>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <h3>Localization-German</h3>
+            <p-calendar [(ngModel)]="localizedDateInput" name="localize" [locale]="es"
+                        dateFormat="dd/mm/yy"></p-calendar>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <h3>Advanced features</h3>
+            <p-calendar [(ngModel)]="advancedDateInput" name="advanced" dateFormat="dd-mm-yy" showIcon="true"
+                        [minDate]="minDate" [maxDate]="maxDate" (onSelect)="onSelect()" (onFocus)="onFocus()" (onBlur)="onBlur()"
+                        [readonlyInput]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030">
+                <p-header style="font-weight:bold;margin-left: 70px">Navigator</p-header>
+                <p-footer>Select date</p-footer>
+            </p-calendar>
+        </div>
+
+
+        <div class="ui-g-12 ui-md-4">
+            <h3>Show Time</h3>
+            <span>TimeOnly
+            <p-checkbox [(ngModel)]="time" name="timeflag" binary="true"></p-checkbox>
+            <p-calendar [(ngModel)]="timeDateInput" name="time" [showTime]="true" [hourFormat]="selectedType" *ngIf="true"
+                        [timeOnly]="time"><p-footer><p-selectButton [options]="types" [(ngModel)]="selectedType" name="selecttype"></p-selectButton></p-footer></p-calendar>
+
+            </span>
+        </div>
+
+    </div>
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>

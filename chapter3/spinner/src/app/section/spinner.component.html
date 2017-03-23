@@ -1,0 +1,25 @@
+<form novalidate>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-3">
+            <h3>Basic</h3>
+            <p-spinner size="30" [(ngModel)]="basicinput" name="basic" (onChange)="onChange()"
+                       decimalSeparator=","  thousandSeparator="."></p-spinner>
+        </div>
+        <div class="ui-g-12 ui-md-3">
+            <h3>Step</h3>
+            <p-spinner size="30" [(ngModel)]="stepinput" name="step" [step]="0.50"></p-spinner>
+        </div>
+        <div class="ui-g-12 ui-md-3">
+            <h3>Min/Max</h3>
+            <p-spinner size="30" [(ngModel)]="minmaxinput" name="minmax" [min]="0" [max]="100" placeholder="Enter your input or use spinner controls"></p-spinner>
+        </div>
+        <div class="ui-g-12 ui-md-3">
+            <h3>Readonly/Disabled</h3>
+            <p-spinner size="30" [(ngModel)]="readonlyinput" name="readonly" [readonly]="true"></p-spinner>
+            <br/><br/>
+            <p-spinner size="30" [(ngModel)]="disabledinput" name="disabled" [disabled]="true"></p-spinner>
+        </div>
+    </div>
+</form>
+
+<p-growl [value]="msgs"></p-growl>
