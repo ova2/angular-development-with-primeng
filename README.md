@@ -11,8 +11,8 @@ __Table of Contents__
   * Advanced types, decorators, compiler options
   * Angular cheat sheet: overview of key concepts
   * Angular modularity and lifecycle hooks
-  * PrimeNG - rich UI components in Angular era
-  * Setup PrimeNG project with SystemJS and Webpack
+  * Running PrimeNG with SystemJS
+  * Setup PrimeNG project with Webpack
   * Setup PrimeNG project with Angular CLI
   
 * [Chapter 2, Theming Concept and Layouts](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter2)
@@ -101,7 +101,7 @@ __Table of Contents__
   
 * [Chapter 10, Creating Robust Applications](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter10)
   * Setup unit testing with Jasmine and Karma
-  * Unit testing of Components, Services and Pipes
+  * Unit testing of Components and Services
   * Tip how to speed up unit testing
   * Hands-on setup and e2e testing with Protractor
   * Exploring PrimeNG application with Augury
