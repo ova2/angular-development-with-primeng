@@ -1,16 +1,16 @@
-# Setup PrimeNG project with SystemJS
+## Setup PrimeNG project with SystemJS
 
-## Prerequisites
+### Prerequisites
 
 Node.js version 6.x or higher, NPM 3.x or higher.
 
-## Install
+### Install
 
 ```sh
 npm install
 ```
 
-## Run it
+### Run it
 
 ```sh
 npm start

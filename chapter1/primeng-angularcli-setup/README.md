@@ -1,6 +1,6 @@
-### Setup PrimeNG project with Angular CLI
+## Setup PrimeNG project with Angular CLI
 
-## Prerequisites
+### Prerequisites
 
 Node.js version 6.x or higher, NPM 3.x or higher.
 

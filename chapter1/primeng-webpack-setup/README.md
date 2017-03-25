@@ -1,16 +1,16 @@
-### Setup PrimeNG project with Webpack
+## Setup PrimeNG project with Webpack
 
-## Prerequisites
+### Prerequisites
 
 Node.js version 6.x or higher, NPM 3.x or higher.
 
-## Install
+### Install
 
 ```sh
 npm install
 ```
 
-## Run it
+### Run it
 
 Start application in the development mode.
 
@@ -26,7 +26,7 @@ npm run start:prod
 
 Running application is available at [http://localhost:3000/](http://localhost:3000/). You don't need to stop the server when you code, it runs in the watch mode.
 
-## Distribute it
+### Distribute it
 
 Distributed application can be found in the `dist` folder after running
 
