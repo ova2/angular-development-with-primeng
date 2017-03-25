@@ -1,0 +1,14 @@
+<form novalidate>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+    <h3>Single</h3>
+    <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic"></p-selectButton>
+        </div>
+        <div class="ui-g-12 ui-md-4">
+    <h3>Multiple</h3>
+    <p-selectButton [options]="types" [(ngModel)]="selectedTypes" name="advanced" (onChange)="onChange($event)" multiple="multiple"></p-selectButton>
+        </div>
+    </div>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

@@ -1,0 +1,16 @@
+<form novalidate>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <h3>Basic</h3>
+            <p-toggleButton [(ngModel)]="basic" name="basic"></p-toggleButton>
+        </div>
+
+        <div class="ui-g-12 ui-md-4">
+            <h3>Customized</h3>
+            <p-toggleButton [(ngModel)]="customized" name="custom" onLabel="I confirm" offLabel="I reject"
+                            onIcon="fa-check-square" offIcon="fa-window-close" (onChange)="onChange($event)"></p-toggleButton>
+        </div>
+    </div>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

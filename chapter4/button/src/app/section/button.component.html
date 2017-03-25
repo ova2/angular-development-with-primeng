@@ -1,0 +1,39 @@
+<form novalidate>
+    <div>
+        <div>
+            <h3>Enhanced buttons with Icons</h3>
+            <button pButton type="text" label="ClickMe"></button>
+
+            <button pButton type="text" icon="fa-close"></button>
+
+            <button pButton type="text" icon="fa-check" label="Yes"></button>
+
+            <button pButton type="text" icon="fa-check" iconPos="right" label="Yes"></button>
+
+            <button pButton type="text" icon="fa-check" [disabled]="true" label="Disabled"></button>
+        </div>
+
+        <div>
+            <h3>Events</h3>
+            <button pButton type="text" (click)="clickMe()" label="Notify"></button>
+        </div>
+        <div>
+
+            <h3>Button severity with classes</h3>
+
+            <button pButton type="text" label="Primary"></button>
+
+            <button pButton type="text" label="Secondary" class="ui-button-secondary"></button>
+
+            <button pButton type="text" label="Success" class="ui-button-success"></button>
+
+            <button pButton type="text" label="Info" class="ui-button-info"></button>
+
+            <button pButton type="text" label="Warning" class="ui-button-warning"></button>
+
+            <button pButton type="text" label="Danger" class="ui-button-danger"></button>
+        </div>
+    </div>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

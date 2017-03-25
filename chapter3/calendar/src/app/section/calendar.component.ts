@@ -24,7 +24,7 @@ export class CalendarComponent {
 
     time: boolean;
 
-    es: any;
+    de: any;
 
     types: SelectItem[];
 
@@ -33,13 +33,11 @@ export class CalendarComponent {
     msgs: Message[] = [];
 
     constructor() {
-        this.types = [];
-        this.types.push({label: '12H Format', value: '12'});
-        this.types.push({label: '24H Format', value: '24'});
+
     }
 
     ngOnInit() {
-        this.es = {
+        this.de = {
             firstDayOfWeek: 1,
             dayNames: [ 'Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag' ],
             dayNamesShort: [ 'Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam' ],
@@ -47,6 +45,10 @@ export class CalendarComponent {
             monthNames: [ 'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember' ],
             monthNamesShort: [ 'Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez' ]
         }
+
+        this.types = [];
+        this.types.push({label: '12H Format', value: '12'});
+        this.types.push({label: '24H Format', value: '24'});
 
         let today = new Date();
         let month = today.getMonth();

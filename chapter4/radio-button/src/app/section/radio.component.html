@@ -1,0 +1,31 @@
+<form novalidate>
+    <div>
+        <h3 class="first">Basic</h3>
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p-radioButton name="group1" value="Angular" label="Angular" [(ngModel)]="basic"></p-radioButton>
+            </div>
+            <div class="ui-g-12">
+                <p-radioButton name="group1" value="React" label="React" [(ngModel)]="basic"></p-radioButton>
+            </div>
+            <div class="ui-g-12">
+                <p-radioButton name="group1" value="Polymer" label="Polymer" [(ngModel)]="basic"></p-radioButton>
+            </div>
+        </div>
+
+        <h3>Preselection with interactive events</h3>
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p-radioButton name="group2" value="Angular" label="Angular" [(ngModel)]="advanced" (onClick)="selectFramework()"></p-radioButton>
+            </div>
+            <div class="ui-g-12">
+                <p-radioButton name="group2" value="React" label="React" [(ngModel)]="advanced" (onClick)="selectFramework()"></p-radioButton>
+            </div>
+            <div class="ui-g-12">
+                <p-radioButton name="group2" value="Polymer" label="Polymer" [(ngModel)]="advanced" (onClick)="selectFramework()"></p-radioButton>
+            </div>
+        </div>
+    </div>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

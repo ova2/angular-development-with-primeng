@@ -1,0 +1,11 @@
+// Vendor files
+@import "~primeng/resources/themes/bootstrap/theme.css";
+@import "~primeng/resources/primeng.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+// Base project stuff (common settings)
+@import "global";
+
+// Specific styles for components
+@import "../../app/app.component";
+@import "../../app/section/splitbutton.component";

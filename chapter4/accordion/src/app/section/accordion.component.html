@@ -1,0 +1,55 @@
+<form novalidate>
+    <h3 class="first">Default</h3>
+    <p-accordion>
+        <p-accordionTab header="AngularJS">
+            AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
+        </p-accordionTab>
+        <p-accordionTab header="AngularV2.0">
+            The successor to the older AngularJS web framework, now simply known as "Angular". Angular takes a web component-based approach to build powerful applications for the web. It is used along with TypeScript which provides support for both older and new versions of JavaScript.
+        </p-accordionTab>
+        <p-accordionTab header="AngularV4.0">
+            Angular version 4.0.0 is a major release following announced adoption of Semantic Versioning, and is backwards compatible with 2.x.x for most applications.
+        </p-accordionTab>
+    </p-accordion>
+
+    <h3>Multiple</h3>
+    <p-accordion [multiple]="true">
+        <p-accordionTab header="AngularJS" [selected]="true">
+            AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
+        </p-accordionTab>
+        <p-accordionTab header="AngularV2.0">
+            The successor to the older AngularJS web framework, now simply known as "Angular". Angular takes a web component-based approach to build powerful applications for the web. It is used along with TypeScript which provides support for both older and new versions of JavaScript.
+        </p-accordionTab>
+        <p-accordionTab header="AngularV4.0" [disabled]="true">
+            Angular version 4.0.0 is a major release following announced adoption of Semantic Versioning, and is backwards compatible with 2.x.x for most applications.
+        </p-accordionTab>
+    </p-accordion>
+
+    <h3>Customized content with events</h3>
+    <p-accordion (onClose)="onTabClose($event)" (onOpen)="onTabOpen($event)">
+        <p-accordionTab [selected]="true">
+            <p-header>
+                <img src="../../assets/images/angularjs.png" alt="Smiley face" width="42" height="42">
+                AngularJS
+            </p-header>
+            AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
+        </p-accordionTab>
+        <p-accordionTab header="AngularV2.0">
+            <p-header>
+                <img src="../../assets/images/angular2.svg" alt="Smiley face" width="42" height="42">
+                AngularV2.0
+            </p-header>
+            The successor to the older AngularJS web framework, now simply known as "Angular". Angular takes a web component-based approach to build powerful applications for the web. It is used along with TypeScript which provides support for both older and new versions of JavaScript.
+        </p-accordionTab>
+        <p-accordionTab header="AngularV4.0">
+            <p-header>
+                <img src="../../assets/images/angular4.png" alt="Smiley face" width="42" height="42">
+                AngularV4.0
+            </p-header>
+            Angular version 4.0.0 is a major release following announced adoption of Semantic Versioning, and is backwards compatible with 2.x.x for most applications.
+        </p-accordionTab>
+    </p-accordion>
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>

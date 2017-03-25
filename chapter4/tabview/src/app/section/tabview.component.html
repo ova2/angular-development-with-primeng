@@ -1,0 +1,44 @@
+<form novalidate>
+    <h3>Basic</h3>
+    <p-tabView name="basic">
+        <p-tabPanel header="AngularJS" >
+            AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
+        </p-tabPanel>
+        <p-tabPanel header="AngularV2.0" >
+            The successor to the older AngularJS web framework, now simply known as "Angular". Angular takes a web component-based approach to build powerful applications for the web. It is used along with TypeScript which provides support for both older and new versions of JavaScript.
+        </p-tabPanel>
+        <p-tabPanel header="AngularV4.0" >
+            Angular version 4.0.0 is a major release following announced adoption of Semantic Versioning, and is backwards compatible with 2.x.x for most applications.
+        </p-tabPanel>
+    </p-tabView>
+
+    <h3>Orientation</h3>
+    <p-tabView orientation="left">
+        <p-tabPanel header="AngularJS" >
+            AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
+        </p-tabPanel>
+        <p-tabPanel header="AngularV2.0">
+            The successor to the older AngularJS web framework, now simply known as "Angular". Angular takes a web component-based approach to build powerful applications for the web. It is used along with TypeScript which provides support for both older and new versions of JavaScript.
+        </p-tabPanel>
+        <p-tabPanel header="AngularV4.0">
+            Angular version 4.0.0 is a major release following announced adoption of Semantic Versioning, and is backwards compatible with 2.x.x for most applications.
+        </p-tabPanel>
+    </p-tabView>
+
+    <h3>Advanced features</h3>
+    <p-tabView (onChange)="onTabChange($event)" (onClose)="onTabClose($event)">
+        <p-tabPanel header="AngularJS" [closable]="true" [selected]="true">
+            AngularJS (commonly referred to as "Angular.js" or "AngularJS 1.X") is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
+        </p-tabPanel>
+        <p-tabPanel header="AngularV2.0" [closable]="true" leftIcon="fa-bell-o" rightIcon="fa-bookmark-o">
+            The successor to the older AngularJS web framework, now simply known as "Angular". Angular takes a web component-based approach to build powerful applications for the web. It is used along with TypeScript which provides support for both older and new versions of JavaScript.
+        </p-tabPanel>
+        <p-tabPanel header="AngularV4.0"  [disabled]="true">
+            Angular version 4.0.0 is a major release following announced adoption of Semantic Versioning, and is backwards compatible with 2.x.x for most applications.
+        </p-tabPanel>
+    </p-tabView>
+
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>
