@@ -1,0 +1,36 @@
+{
+  "name": "primeng-systemjs-setup",
+  "version": "1.0.0",
+  "description": "Setup PrimeNG project with SystemJS",
+  "author": "Oleg Varaksin, Sudheer Jonna",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ova2/angular-development-with-primeng.git"
+  },
+  "dependencies": {
+    "@angular/common": "~2.4.9",
+    "@angular/compiler": "~2.4.9",
+    "@angular/core": "~2.4.9",
+    "@angular/forms": "~2.4.9",
+    "@angular/http": "~2.4.9",
+    "@angular/platform-browser": "~2.4.9",
+    "@angular/platform-browser-dynamic": "~2.4.9",
+    "@angular/router": "~3.4.0",
+    "core-js": "~2.4.1",
+    "rxjs": "~5.1.1",
+    "zone.js": "~0.7.6",
+    "primeng": "~2.0.2",
+    "systemjs": "0.19.39"
+  },
+  "devDependencies": {
+    "@types/node": "~6.0.42",
+    "typescript": "~2.1.5",
+    "live-server": "~1.2.0",
+    "tslint": "~4.5.1"
+  },
+  "scripts": {
+    "start": "live-server --entry-file=src/index.html"
+  }
+}

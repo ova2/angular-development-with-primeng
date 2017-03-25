@@ -1,0 +1,10 @@
+**/*.js.map
+src/app/**/*.js
+.idea
+*.iml
+.vscode
+**/node_modules/
+**/dist
+**/coverage
+**/npm-debug.log
+**/yarn-error.log

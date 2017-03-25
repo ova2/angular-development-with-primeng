@@ -1,0 +1,30 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "member-access": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-type"
+    ],
+    "no-string-literal": false,
+    "interface-name": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "no-console": [true, "error", "debug", "info", "trace"],
+    "trailing-comma": [false],
+    "object-literal-sort-keys": false,
+    "no-trailing-whitespace": false,
+    "only-arrow-functions": false,
+    "no-namespace": false,
+    "ordered-imports": false,
+    "comment-format": false
+  }
+}
