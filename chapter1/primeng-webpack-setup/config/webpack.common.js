@@ -26,7 +26,7 @@ module.exports = {
         rules: [
             {test: /\.json$/, loader: 'json-loader'},
             {test: /\.html$/, loader: 'raw-loader'},
-            {test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot|ico)$/,loader: 'file-loader?name=assets/[name].[ext]'},
+            {test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[ext]'},
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
@@ -45,11 +45,6 @@ module.exports = {
         ]
     },
     plugins: [
-        /*
-        new CommonsChunkPlugin({
-            name: 'commons',
-            chunks: ['main', 'polyfill']
-        }),*/
         // move webpack runtime code to a separate manifest file in order to support long-term caching.
         // this will avoid hash recreation for other files when only application files are changed.
         new CommonsChunkPlugin({
