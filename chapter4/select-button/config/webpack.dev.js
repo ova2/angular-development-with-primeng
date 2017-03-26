@@ -10,8 +10,7 @@ module.exports = webpackMerge(commonConfig, {
         'main': './main.jit.ts',
         'polyfill': './polyfill.ts'
     },
-    output:
-    {
+    output: {
         filename: '[name].js',
         chunkFilename: '[name].js'
     },
