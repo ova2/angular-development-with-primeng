@@ -31,14 +31,16 @@
             <h3>Show Time</h3>
             <span>TimeOnly
             <p-checkbox [(ngModel)]="time" name="timeflag" binary="true"></p-checkbox>
-            <p-calendar [(ngModel)]="timeDateInput" name="time" [showTime]="true" [hourFormat]="selectedType" *ngIf="true"
-                        [timeOnly]="time"><p-footer><p-selectButton [options]="types" [(ngModel)]="selectedType" name="selecttype"></p-selectButton></p-footer></p-calendar>
-
+            <p-calendar [(ngModel)]="timeDateInput" name="time" [showTime]="true"
+                        [hourFormat]="hourFormat" [timeOnly]="time">
+                <p-footer>
+                    <p-selectButton [options]="types" [(ngModel)]="hourFormat"
+                                    name="selecttype"></p-selectButton>
+                </p-footer>
+            </p-calendar>
             </span>
         </div>
-
     </div>
-
 </form>
 
 <p-growl [value]="msgs"></p-growl>
