@@ -3,22 +3,16 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'lightbox.component.html'
 })
-export class InputMaskComponent {
-    msgs: Message[] = [];
+export class LightboxComponent {
+    images: any[];
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
-
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+    constructor() {
+        this.images = [];
+        this.images.push({source:'showcase/resources/demo/images/sopranos/sopranos1.jpg', thumbnail: 'showcase/resources/demo/images/sopranos/sopranos1_small.jpg', title:'Sopranos 1'});
+        this.images.push({source:'showcase/resources/demo/images/sopranos/sopranos2.jpg', thumbnail: 'showcase/resources/demo/images/sopranos/sopranos2_small.jpg', title:'Sopranos 2'});
+        this.images.push({source:'showcase/resources/demo/images/sopranos/sopranos3.jpg', thumbnail: 'showcase/resources/demo/images/sopranos/sopranos3_small.jpg', title:'Sopranos 3'});
+        this.images.push({source:'showcase/resources/demo/images/sopranos/sopranos4.jpg', thumbnail: 'showcase/resources/demo/images/sopranos/sopranos4_small.jpg', title:'Sopranos 4'});
     }
 }

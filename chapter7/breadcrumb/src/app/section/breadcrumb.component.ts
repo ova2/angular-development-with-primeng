@@ -1,24 +1,23 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
+import {MenuItem} from 'primeng/primeng';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'breadcrum.component.html'
 })
-export class InputMaskComponent {
-    msgs: Message[] = [];
+export class BreadcrumbComponent {
+    private items: MenuItem[];
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
-
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+    ngOnInit() {
+        this.items = [];
+        this.items.push({label:'Categories'});
+        this.items.push({label:'Sports'});
+        this.items.push({label:'Football'});
+        this.items.push({label:'Countries'});
+        this.items.push({label:'Spain'});
+        this.items.push({label:'F.C. Barcelona'});
+        this.items.push({label:'Squad'});
+        this.items.push({label:'Lionel Messi', url: 'https://en.wikipedia.org/wiki/Lionel_Messi'});
     }
 }

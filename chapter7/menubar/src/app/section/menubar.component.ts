@@ -3,22 +3,9 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'menubar.component.html'
 })
-export class InputMaskComponent {
-    msgs: Message[] = [];
+export class MenuBarComponent {
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
 
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
-    }
 }

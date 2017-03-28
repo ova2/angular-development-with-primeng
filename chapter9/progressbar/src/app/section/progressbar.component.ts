@@ -3,22 +3,21 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'progressbar.component.html'
 })
-export class InputMaskComponent {
-    msgs: Message[] = [];
+export class ProgressBarComponent {
+    value: number = 0;
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
+    msgs: Message[];
 
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+    ngOnInit() {
+        let interval = setInterval(() => {
+            this.value = this.value + Math.floor(Math.random() * 10) + 1;
+            if(this.value >= 100) {
+                this.value = 100;
+                this.msgs = [{severity: 'info', summary: 'Success', detail: 'Process Completed'}];
+                clearInterval(interval);
+            }
+        }, 2000);
     }
 }

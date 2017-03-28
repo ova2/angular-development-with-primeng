@@ -1,10 +1,10 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {InputMaskComponent} from './section/inputmask.component';
+import {LightboxComponent} from './section/lightbox.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'chapter6/lightbox', pathMatch: 'full'},
-    {path: 'chapter6/lightbox', component: InputMaskComponent},
+    {path: 'chapter6/lightbox', component: LightboxComponent},
     {path: '**', redirectTo: 'chapter6/lightbox'}
 ];
 

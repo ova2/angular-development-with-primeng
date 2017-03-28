@@ -4,12 +4,11 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
-import {RadioButtonModule} from 'primeng/components/radiobutton/radiobutton';
+import {LightboxModule} from 'primeng/components/lightbox/lightbox';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
-import {InputMaskComponent}  from './section/inputmask.component';
+import {LightboxComponent}  from './section/lightbox.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -17,8 +16,7 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
-        InputMaskModule,
-        RadioButtonModule,
+        LightboxModule,
         GrowlModule
     ],
     declarations: [

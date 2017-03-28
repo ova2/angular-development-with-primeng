@@ -3,22 +3,19 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'fileupload.component.html'
 })
 export class InputMaskComponent {
-    msgs: Message[] = [];
+    msgs: Message[];
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
+    uploadedFiles: any[] = [];
 
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+    onUpload(event:any) {
+        for(let file of event.files) {
+            this.uploadedFiles.push(file);
+        }
+
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
     }
 }

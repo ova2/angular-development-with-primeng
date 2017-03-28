@@ -3,22 +3,24 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'overlaypanel.component.html'
 })
-export class InputMaskComponent {
-    msgs: Message[] = [];
+export class OverlaypanelComponent {
+    cars1: Car[];
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
+    cars2: Car[];
 
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+    selectedCar: Car;
+
+    constructor(private carService: CarService) { }
+
+    ngOnInit() {
+        this.carService.getCarsSmall().then(cars => this.cars1 = cars);
+        this.carService.getCarsSmall().then(cars => this.cars2 = cars);
+    }
+
+    selectCar(event,car: Car, overlaypanel: OverlayPanel) {
+        this.selectedCar = car;
+        overlaypanel.toggle(event);
     }
 }

@@ -1,4 +1,4 @@
-### Formatted input with InputMask
+### Formatted input with FileUpload
 
 #### Prerequisites
 

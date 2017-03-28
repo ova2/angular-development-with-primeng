@@ -1,10 +1,11 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {InputMaskComponent} from './section/inputmask.component';
+import {StepsComponent} from './section/steps.component';
 
 const router: Routes = [
-    {path: '', redirectTo: 'section', pathMatch: 'full'},
-    {path: 'section', component: InputMaskComponent}
+    {path: '', redirectTo: 'chapter7/steps', pathMatch: 'full'},
+    {path: 'chapter7/steps', component: StepsComponent},
+    {path: '**', redirectTo: 'chapter7/steps'}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

@@ -1,61 +1,14 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-6">
-            <h3>Basic usage:</h3>
-            <label for="simple">Basic:</label>
-            <p-inputMask id="basic" mask="99-999999" name="simple"
-                         [(ngModel)]="simple" placeholder="99-999999">
-            </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Events:</h3>
-            <label for="simple">Event:</label>
-            <p-inputMask id="event" mask="99-999999" name="event" unmask="true"
-                         [(ngModel)]="event" placeholder="99-999999"
-                         (onComplete)="onComplete()">
-            </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Select mask format</h3>
-            <div>
-                <p-radioButton name="mask" value="Option1" label="Option 1" [(ngModel)]="format"></p-radioButton>
-                <p-radioButton name="mask" value="Option2" label="Option 2" [(ngModel)]="format"></p-radioButton>
-                <p-radioButton name="mask" value="Option3" label="Option 3" [(ngModel)]="format"></p-radioButton>
-            </div>
-            <br/>
-            <div>
-                <div id="phoneformat" *ngIf="format == 'Option1'">
-                    <span>Phone</span>
-                    <p-inputMask mask="(999) 999-9999" [(ngModel)]="phone" placeholder="(999) 999-9999"
-                                 name="phone"></p-inputMask>
-                </div>
-                <div id="dateformat" *ngIf="format == 'Option2'">
-                    <span>Date</span>
-                    <p-inputMask mask="99/99/9999" [(ngModel)]="date" placeholder="99/99/9999"
-                                 name="date"></p-inputMask>
-                </div>
-                <div id="serialformat" *ngIf="format == 'Option3'">
-                    <span>Serial Number</span>
-                    <p-inputMask mask="a*-999-a999" [(ngModel)]="serial" placeholder="a*-999-a999"
-                                 name="serial"></p-inputMask>
-                </div>
-            </div>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>SlotChar</h3>
-            <span>Date</span>
-            <p-inputMask mask="99/99/9999" [(ngModel)]="slot" placeholder="99/99/9999" slotChar="mm/dd/yyyy"
-                         name="slotchar"></p-inputMask>
+    <h3 class="first">Basic</h3>
+    <p-lightbox [images]="images"></p-lightbox>
 
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Mask Optional</h3>
-            <span>Phone Ext</span>
-            <p-inputMask mask="(999) 999-9999? x99999" [(ngModel)]="optional" name="optionalmask"
-                         placeholder="(999) 999-9999? x99999"></p-inputMask>
-
-        </div>
-    </div>
+    <h3>Content</h3>
+    <p-lightbox type="content">
+        <a class="group" href="#">
+            Watch Video
+        </a>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+    </p-lightbox>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

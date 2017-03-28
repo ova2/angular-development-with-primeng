@@ -3,22 +3,34 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'messages.component.html'
 })
-export class InputMaskComponent {
+export class MessagesComponent {
     msgs: Message[] = [];
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
+    showInfo() {
+        this.msgs = [];
+        this.msgs.push({severity:'info', summary:'Info Message', detail:'PrimeNG rocks'});
+    }
 
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+    showWarn() {
+        this.msgs = [];
+        this.msgs.push({severity:'warn', summary:'Warn Message', detail:'There are unsaved changes'});
+    }
+
+    showError() {
+        this.msgs = [];
+        this.msgs.push({severity:'error', summary:'Error Message', detail:'Validation failed'});
+    }
+
+    showMultiple() {
+        this.msgs = [];
+        this.msgs.push({severity:'info', summary:'Message 1', detail:'PrimeNG rocks'});
+        this.msgs.push({severity:'info', summary:'Message 2', detail:'PrimeUI rocks'});
+        this.msgs.push({severity:'info', summary:'Message 3', detail:'PrimeFaces rocks'});
+    }
+
+    clear() {
+        this.msgs = [];
     }
 }

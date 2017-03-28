@@ -4,12 +4,11 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
-import {RadioButtonModule} from 'primeng/components/radiobutton/radiobutton';
+import {ChartModule} from 'primeng/components/charts/charts';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
-import {InputMaskComponent}  from './section/inputmask.component';
+import {ChartsComponent}  from './section/charts.component';
 import {routes} from './app-routing.module';
 
 @NgModule({

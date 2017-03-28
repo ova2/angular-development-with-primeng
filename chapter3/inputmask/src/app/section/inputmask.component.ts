@@ -17,8 +17,8 @@ export class InputMaskComponent {
     optional: string;
     format: string = "Option1";
 
-    onComplete() {
+    onComplete(e:any) {
         this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+            {severity: 'info', summary: 'InputMask is completed'});
     }
 }

@@ -4,12 +4,11 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
-import {RadioButtonModule} from 'primeng/components/radiobutton/radiobutton';
+import {BreadcrumbModule} from 'primeng/components/breadcrumb/breadcrumb';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
-import {InputMaskComponent}  from './section/inputmask.component';
+import {BreadcrumbComponent}  from './section/breadcrumb.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -17,13 +16,12 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
-        InputMaskModule,
-        RadioButtonModule,
+        BreadcrumbModule,
         GrowlModule
     ],
     declarations: [
         AppComponent,
-        InputMaskComponent
+        BreadcrumbComponent
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
