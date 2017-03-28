@@ -9,7 +9,7 @@ export class CheckboxComponent {
     msgs: Message[] = [];
     
     checked: boolean;
-    selectedVersions: string;
+    selectedVersions: string[]=['AngularJS1.0','AngularV4.0'];
     status: any;
     
     onComplete() {

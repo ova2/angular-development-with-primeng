@@ -3,8 +3,9 @@ import {ModuleWithProviders} from '@angular/core';
 import {RatingComponent} from './section/rating.component';
 
 const router: Routes = [
-    {path: '', redirectTo: 'section', pathMatch: 'full'},
-    {path: 'section', component: RatingComponent}
+    {path: '', redirectTo: 'chapter3/rating', pathMatch: 'full'},
+    {path: 'chapter3/rating', component: RatingComponent},
+    {path: '**', redirectTo: 'chapter3/rating'}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

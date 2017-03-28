@@ -2,14 +2,14 @@
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 ui-md-6">
             <h3>Basic usage:</h3>
-            <label for="simple">Basic:</label>
-            <p-inputMask id="basic" mask="99-999999" name="simple"
+            <label for="basic">Basic:</label>
+            <p-inputMask id="basic" name="basic" mask="99-999999"
                          [(ngModel)]="simple" placeholder="99-999999">
             </p-inputMask>
         </div>
         <div class="ui-g-12 ui-md-6">
             <h3>Events:</h3>
-            <label for="simple">Event:</label>
+            <label for="event">Event:</label>
             <p-inputMask id="event" mask="99-999999" name="event" unmask="true"
                          [(ngModel)]="event" placeholder="99-999999"
                          (onComplete)="onComplete()">

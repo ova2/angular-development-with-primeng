@@ -1,0 +1,15 @@
+.metadata
+.settings
+.classpath
+.project
+.idea
+*.iml
+.vscode
+target/
+node_modules/
+typings/
+dist/
+aot/
+src/main.aot.js
+npm-debug.log
+config/webpack-records.json

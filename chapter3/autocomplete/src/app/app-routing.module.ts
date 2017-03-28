@@ -3,8 +3,9 @@ import {ModuleWithProviders} from '@angular/core';
 import {AutoCompleteComponent} from './section/autocomplete.component';
 
 const router: Routes = [
-    {path: '', redirectTo: 'section', pathMatch: 'full'},
-    {path: 'section', component: AutoCompleteComponent}
+    {path: '', redirectTo: 'chapter3/autocomplete', pathMatch: 'full'},
+    {path: 'chapter3/autocomplete', component: AutoCompleteComponent},
+    {path: '**', redirectTo: 'chapter3/autocomplete'}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

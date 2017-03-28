@@ -3,8 +3,9 @@ import {ModuleWithProviders} from '@angular/core';
 import {PasswordComponent} from './section/password.component';
 
 const router: Routes = [
-    {path: '', redirectTo: 'section', pathMatch: 'full'},
-    {path: 'section', component: PasswordComponent}
+    {path: '', redirectTo: 'chapter3/password', pathMatch: 'full'},
+    {path: 'chapter3/password', component: PasswordComponent},
+    {path: '**', redirectTo: 'chapter3/password'}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

@@ -32,28 +32,28 @@ export class AutoCompleteComponent {
     constructor(private carService: CarService) { }
 
     filterCarInstances(event:any) {
-        this.carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe((cars : any) => {
             this.filterCarInstances = cars;
         });
     }
 
     filterCars(event:any) {
         let query = event.query;
-        this.carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe((cars : any) => {
             this.filteredCars = this.filterCar(query, cars);
         });
     }
 
     filterCarsMultiple(event:any) {
         let query = event.query;
-        this. carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe((cars : any) => {
             this.filteredCarsMultiple = this.filterCar(query, cars);
         });
     }
 
     filterCustomCars(event:any){
         let query = event.query;
-        this. carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe((cars : any) => {
             this.filteredCarsMultiple = this.filterCar(query, cars);
         });
     }
