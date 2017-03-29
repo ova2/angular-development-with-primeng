@@ -1,0 +1,14 @@
+<form novalidate>
+    <p-growl [value]="msgs"></p-growl>
+
+    <p-fileUpload name="demo[]" url="http://localhost:3000/upload" (onUpload)="onUpload($event)"
+                  multiple="multiple" accept="image/*" maxFileSize="1000000">
+        <ng-template pTemplate type="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+        </ng-template>
+    </p-fileUpload>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

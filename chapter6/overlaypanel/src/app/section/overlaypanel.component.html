@@ -1,0 +1,42 @@
+<form novalidate>
+    <h3 class="first">Basic</h3>
+    <p>Click the button to show the panel.</p>
+    <button type="text" pButton label="Basic" (click)="op1.toggle($event)"></button>
+
+    <p-overlayPanel #op1>
+        <img src="showcase/resources/demo/images/galleria/galleria1.jpg" alt="Galleria 1" />
+    </p-overlayPanel>
+
+    <h3>Customized</h3>
+    <p>This OverlayPanel gets displayed on hover of the icon, is not dismissable and displays a close icon.</p>
+    <i class="fa fa-search" (mouseenter)="op2.show($event)" style="font-size:24px"></i>
+
+    <p-overlayPanel #op2 [showCloseIcon]="true" [dismissable]="false">
+        <p-dataTable [value]="cars1" [style]="{'width':'500px'}">
+            <p-column field="vin" header="Vin" [sortable]="true"></p-column>
+            <p-column field="year" header="Year" [sortable]="true"></p-column>
+            <p-column field="brand" header="Brand" [sortable]="true"></p-column>
+            <p-column field="color" header="Color" [sortable]="true"></p-column>
+        </p-dataTable>
+    </p-overlayPanel>
+
+    <h3>DataTable Integration</h3>
+    <p-dataTable [value]="cars2">
+        <p-column [style]="{'width':'10%','text-align':'center'}" header="Logo">
+            <ng-template let-car="rowData" pTemplate="body">
+                <button type="button" pButton (click)="selectCar($event,car,op3);" icon="fa-search"></button>
+            </ng-template>
+        </p-column>
+        <p-column field="vin" header="Vin"></p-column>
+        <p-column field="year" header="Year"></p-column>
+        <p-column field="brand" header="Brand"></p-column>
+        <p-column field="color" header="Color"></p-column>
+    </p-dataTable>
+
+    <p-overlayPanel #op3>
+        <img src="showcase/resources/demo/images/car/{{selectedCar.brand}}-big.gif" *ngIf="selectedCar"/>
+    </p-overlayPanel>
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>

@@ -2,21 +2,19 @@
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 ui-md-6">
             <h3 class="first">Default Toolbar</h3>
-            <p-editor [(ngModel)]="basictext" [style]="{'height':'200px'}" name="basic"></p-editor>
-            <p>Value: {{basictext||'empty'}}</p>
-            <button pButton type="button" label="Clear" icon="fa-close" (click)="basictext=null"></button>
+            <p-editor name="basic" [(ngModel)]="basictext" [style]="{'height':'200px'}" ></p-editor>
+            <p>Value: {{basictext}}</p>
         </div>
         <div class="ui-g-12 ui-md-6">
             <h3 class="first">Events</h3>
-            <p-editor [(ngModel)]="eventstext" [style]="{'height':'200px'}" name="events" onTextChange="onTextChange()"
+            <p-editor  name="events" [(ngModel)]="eventstext" [style]="{'height':'200px'}"  onTextChange="onTextChange()"
                       onSelectionChange="onSelectionChange()"></p-editor>
-            <p>Value: {{eventstext||'empty'}}</p>
-            <button pButton type="button" label="Clear" icon="fa-close" (click)="eventstext=null"></button>
+            <p>Value: {{eventstext}}</p>
         </div>
 
         <div class="ui-g-12 ui-md-6">
             <h3>Custom Toolbar</h3>
-            <p-editor [(ngModel)]="customtext" [style]="{'height':'200px'}" name="custom">
+            <p-editor name="custom" [(ngModel)]="customtext" [style]="{'height':'200px'}" >
                 <p-header>
         <span class="ql-formats">
             <button class="ql-bold"></button>
@@ -26,8 +24,7 @@
         </span>
                 </p-header>
             </p-editor>
-            <p>Value: {{cusotmtext||'empty'}}</p>
-            <button pButton type="button" label="Clear" icon="fa-close" (click)="customtext=null"></button>
+            <p>Value: {{cusotmtext}}</p>
         </div>
     </div>
 </form>

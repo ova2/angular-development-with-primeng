@@ -1,11 +1,11 @@
 <form novalidate>
     <h3 class="first">Basic</h3>
-    <p-autoComplete [(ngModel)]="car" [suggestions]="filteredCars" (completeMethod)="filterCars($event)" field="name" [size]="30"
+    <p-autoComplete [(ngModel)]="car" name="basic" [suggestions]="filteredCars" (completeMethod)="filterCars($event)" field="name" [size]="30"
                     placeholder="Cars" [minLength]="1"></p-autoComplete>
     <span style="margin-left:10px">Car brand: {{car ? car.brand:'none'}}</span>
 
-    <h3>Multiple</h3>
-    <p-autoComplete [(ngModel)]="cars" [suggestions]="filteredCarsMultiple" (completeMethod)="filterCarsMultiple($event)" styleClass="wid100"
+   <h3>Multiple</h3>
+    <p-autoComplete [(ngModel)]="cars" name="multiple" [suggestions]="filteredCarsMultiple" (completeMethod)="filterCarsMultiple($event)" styleClass="wid100"
                     [minLength]="1" placeholder="Countries" field="name" [multiple]="true">
     </p-autoComplete>
     <ul>
@@ -13,17 +13,17 @@
     </ul>
 
     <h3>Dropdown</h3>
-    <p-autoComplete [(ngModel)]="brand" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30"
+    <p-autoComplete [(ngModel)]="brand" name="dropdown" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30"
                     [minLength]="1" placeholder="Type brand name" [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)">
     </p-autoComplete>
     <span style="margin-left:50px">Car brand: {{brand||'none'}}</span>
 
     <h3>Object display</h3>
-    <p-autoComplete [(ngModel)]="carInstance" [suggestions]="filteredCarInstances" (completeMethod)="filterCarInstances($event)" field="name"></p-autoComplete>
+    <p-autoComplete [(ngModel)]="carInstance" name="instance" [suggestions]="filteredCarInstances" (completeMethod)="filterCarInstances($event)" field="name"></p-autoComplete>
     <span style="margin-left:50px">Car brand: {{carInstance.name||'none'}}</span>
 
     <h3>Templating</h3>
-    <p-autoComplete [(ngModel)]="customCarDisplay" [suggestions]="filteredCustomCars" (completeMethod)="filterCustomCars($event)" [size]="30"
+    <p-autoComplete [(ngModel)]="customCarDisplay" name="tempate" [suggestions]="filteredCustomCars" (completeMethod)="filterCustomCars($event)" [size]="30"
                     [minLength]="1" placeholder="Hint: type 'v' or 'f'" [dropdown]="true" (onDropdownClick)="handleDropdownClick($event)">
         <template let-brand pTemplate="item">
             <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">

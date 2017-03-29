@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
 import {CarService} from './service/carservice';
+import Car from './service/car';
 
 @Component({
     selector: 'section',
@@ -32,28 +33,29 @@ export class AutoCompleteComponent {
     constructor(private carService: CarService) { }
 
     filterCarInstances(event:any) {
-        this.carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe((cars:any) => {
             this.filterCarInstances = cars;
         });
     }
 
     filterCars(event:any) {
         let query = event.query;
-        this.carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe(cars => {
+            console.log("cars==="+cars);
             this.filteredCars = this.filterCar(query, cars);
         });
     }
 
     filterCarsMultiple(event:any) {
         let query = event.query;
-        this. carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe(cars=> {
             this.filteredCarsMultiple = this.filterCar(query, cars);
         });
     }
 
     filterCustomCars(event:any){
         let query = event.query;
-        this. carService.getCars().then((cars : any) => {
+        this.carService.getCars().subscribe(cars => {
             this.filteredCarsMultiple = this.filterCar(query, cars);
         });
     }

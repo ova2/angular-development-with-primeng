@@ -9,6 +9,7 @@ var core_1 = require('@angular/core');
 var CheckboxComponent = (function () {
     function CheckboxComponent() {
         this.msgs = [];
+        this.selectedVersions = ['AngularJS1.0', 'AngularV4.0'];
     }
     CheckboxComponent.prototype.onComplete = function () {
         this.msgs.push({ severity: 'info', summary: 'Checkbox status is changed});

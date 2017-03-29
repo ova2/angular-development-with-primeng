@@ -1,0 +1,10 @@
+<form novalidate>
+    <h3 class="first">Default</h3>
+    <p-slideMenu [model]="items"></p-slideMenu>
+
+    <h3>Popup</h3>
+    <p-slideMenu #menu [model]="items" [popup]="true"></p-slideMenu>
+    <button #btn type="button" pButton icon="fa fa-list" label="Show" (click)="menu.toggle($event)"></button>
+</form>
+
+<p-growl [value]="msgs"></p-growl>

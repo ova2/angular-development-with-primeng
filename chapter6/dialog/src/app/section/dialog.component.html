@@ -1,0 +1,50 @@
+<form novalidate>
+    <p-dialog header="PrimeNG" [(visible)]="basic" >
+        <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+            kind and benevolent to those who give respect,
+            but given to ruthless violence whenever anything stands against the good of the family.</p>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+                <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
+            </div>
+        </p-footer>
+    </p-dialog>
+
+    <p-dialog header="PrimeNG" [(visible)]="custom" modal="modal" >
+        <p-header>
+            Header content here
+        </p-header>
+        Content
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+                <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
+            </div>
+        </p-footer>
+    </p-dialog>
+
+    <p-dialog header="PrimeNG" [(visible)]="advanced" modal="modal" minWidth="100" minHeight="100" width="200" height="150" responsive="true" dismissableMask="true" rtl="true">
+        <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+            kind and benevolent to those who give respect,
+            but given to ruthless violence whenever anything stands against the good of the family.</p>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
+                <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
+            </div>
+        </p-footer>
+    </p-dialog>
+
+
+    <button type="text" (click)="showBasicDialog()" pButton icon="fa-external-link-square" label="Basic"></button>
+    <button type="text" (click)="showCustomDialog()" pButton icon="fa-external-link-square" label="Custom"></button>
+    <button type="text" (click)="showAdvancedDialog()" pButton icon="fa-external-link-square" label="Advanced"></button>
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>
