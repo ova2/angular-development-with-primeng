@@ -13,7 +13,6 @@ export class CheckboxComponent {
     status: any;
     
     onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'Checkbox status is changed});
+        this.msgs.push({severity: 'info', summary: 'Checkbox status is changed'});
     }
 }

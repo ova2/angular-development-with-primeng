@@ -1,10 +1,8 @@
  interface Car {
-    vin?:any;
+    name:any;
     year?:any;
-    brand?:any;
     color?:any;
-    price?:any;
-    saleDate?:any;
+     vin?:any;
 };
 
  export default Car;

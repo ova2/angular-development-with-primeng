@@ -4,7 +4,7 @@
                     placeholder="Cars" [minLength]="1"></p-autoComplete>
     <span style="margin-left:10px">Car brand: {{car ? car.brand:'none'}}</span>
 
-    <h3>Multiple</h3>
+   <h3>Multiple</h3>
     <p-autoComplete [(ngModel)]="cars" name="multiple" [suggestions]="filteredCarsMultiple" (completeMethod)="filterCarsMultiple($event)" styleClass="wid100"
                     [minLength]="1" placeholder="Countries" field="name" [multiple]="true">
     </p-autoComplete>
@@ -19,7 +19,7 @@
     <span style="margin-left:50px">Car brand: {{brand||'none'}}</span>
 
     <h3>Object display</h3>
-    <p-autoComplete [(ngModel)]="carInstance" name="object" [suggestions]="filteredCarInstances" (completeMethod)="filterCarInstances($event)" field="name"></p-autoComplete>
+    <p-autoComplete [(ngModel)]="carInstance" name="instance" [suggestions]="filteredCarInstances" (completeMethod)="filterCarInstances($event)" field="name"></p-autoComplete>
     <span style="margin-left:50px">Car brand: {{carInstance.name||'none'}}</span>
 
     <h3>Templating</h3>

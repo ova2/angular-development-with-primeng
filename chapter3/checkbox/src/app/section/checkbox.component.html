@@ -1,6 +1,6 @@
 <form novalidate>
     <h3>Do you like Angular? - {{checked}}</h3>
-    <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+    <p-checkbox name="single" [(ngModel)]="checked" binary="true"></p-checkbox>
 
     <h3>Which angular versions you like more?</h3>
     <div class="ui-g" style="width:250px;margin-bottom:10px">
@@ -10,7 +10,7 @@
     </div>
 
     <h3 class="first">Status: {{value}}</h3>
-    <p-triStateCheckbox [(ngModel)]="status"></p-triStateCheckbox>
+    <p-triStateCheckbox name="tristate" [(ngModel)]="status"></p-triStateCheckbox>
 
 </form>
 

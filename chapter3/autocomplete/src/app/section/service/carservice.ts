@@ -6,12 +6,11 @@ import Car from './car'
 
 @Injectable()
 export class CarService {
-    
+
     constructor(private http: Http) {}
 
     getCars(): Observable<Car[]> {
-        console.log("fffffffff"+this.http.get("../../../assets/data/cars.json")
-            .map((response:any) => response.json().data as Car[]));
-        return null;
+        return this.http.get("autocomplete/src/assets/data/cars.json")
+            .map(response => response.json().data as Car[]);
     }
 }
