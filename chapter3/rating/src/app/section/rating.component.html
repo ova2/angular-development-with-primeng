@@ -1,33 +1,37 @@
 <form novalidate>
 
-    <h1>Rate different Single page applications</h1>
+    <h1>Rate your faviourite Single page applications</h1>
     <div class="ui-g ui-fluid">
         <div class="ui-g-12 ui-md-4">
             <h3>Basic</h3>
-            <p-rating [(ngModel)]="angular" name="basic"></p-rating>
-            Angular {{angular}}
+            Angular
+            <p-rating name="basic" [(ngModel)]="angular" ></p-rating>
+            Rating: {{angular}}
         </div>
         <div class="ui-g-12 ui-md-4">
-
             <h3>Events</h3>
-            <p-rating [(ngModel)]="react" name="events" (onRate)="handleRate($event)"
+            React
+            <p-rating name="events" [(ngModel)]="react" (onRate)="handleRate($event)"
                       (onCancel)="handleCancel($event)"></p-rating>
-            React {{react}}
+            Rating: {{react}}
         </div>
         <div class="ui-g-12 ui-md-4">
             <h3>Cancel Control</h3>
-            <p-rating [(ngModel)]="ember" name="cancel" [cancel]="false" stars="10"></p-rating>
-            Ember {{ember}}
+            Ember
+            <p-rating name="cancel" [(ngModel)]="ember" [cancel]="false" stars="10"></p-rating>
+            Rating: {{ember}}
         </div>
         <div class="ui-g-12 ui-md-4">
             <h3>ReadOnly</h3>
-            <p-rating [ngModel]="knockout" name="readonly" readonly="true"></p-rating>
-            Knockout {{knockout}}
+            Knockout
+            <p-rating name="readonly" [ngModel]="knockout" readonly="true"></p-rating>
+            Rating: {{knockout}}
         </div>
         <div class="ui-g-12 ui-md-4">
             <h3>Disabled</h3>
-            <p-rating [ngModel]="vuejs" name="disabled" disabled="true"></p-rating>
-            VueJS {{vuejs}}
+            VueJS
+            <p-rating name="disabled" [ngModel]="vuejs" disabled="true"></p-rating>
+            Rating: {{vuejs}}
         </div>
     </div>
 </form>

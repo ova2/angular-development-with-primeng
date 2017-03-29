@@ -12,15 +12,15 @@ export class RatingComponent {
 
     react: number;
 
-    ember: number;
+    ember: number = 6;
 
-    knockout:number = 4;
+    knockout:number;
 
     vuejs: number = 3;
 
     handleRate(event:any) {
         this.msgs.push(
-            {severity: 'info', summary: 'You have rated with' + event.value});
+            {severity: 'info', summary: 'You have rated with ' + event.value});
     }
 
     handleCancel(event:any) {
