@@ -10,9 +10,7 @@ export class SpinnerComponent {
 
     basicinput: number;
 
-    minmaxinput: number;
-
-    stepinput: number;
+    custominput: number;
 
     readonlyinput: number = 50;
 

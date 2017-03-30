@@ -10,7 +10,7 @@ export class SliderComponent {
 
     basicinput: number;
 
-    stepinput: number = 20;
+    custominput: number = 20;
 
     rangeinput: number;
 

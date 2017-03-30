@@ -1,21 +1,23 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-6">
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+   <div [ngSwitch]="activeIndex" class="layout-format">
+        <span *ngSwitchCase="0">
             <h3>Basic usage:</h3>
-            <label for="basic">Basic:</label>
+            <label for="basic">Number:</label>
             <p-inputMask id="basic" name="basic" mask="99-999999"
-                         [(ngModel)]="simple" placeholder="99-999999">
+                 [(ngModel)]="basic" placeholder="99-999999">
             </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+        <span *ngSwitchCase="1">
             <h3>Events:</h3>
-            <label for="event">Event:</label>
+            <label for="event">Key:</label>
             <p-inputMask id="event" mask="99-999999" name="event" unmask="true"
-                         [(ngModel)]="event" placeholder="99-999999"
+                         [(ngModel)]="event" placeholder="99-999-999"
                          (onComplete)="onComplete()">
             </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+        <span *ngSwitchCase="2">
             <h3>Select mask format</h3>
             <div>
                 <p-radioButton name="mask" value="Option1" label="Option 1" [(ngModel)]="format"></p-radioButton>
@@ -25,37 +27,42 @@
             <br/>
             <div>
                 <div id="phoneformat" *ngIf="format == 'Option1'">
-                    <span>Phone</span>
+                    <span>Phone:</span>
                     <p-inputMask mask="(999) 999-9999" [(ngModel)]="phone" placeholder="(999) 999-9999"
                                  name="phone"></p-inputMask>
                 </div>
                 <div id="dateformat" *ngIf="format == 'Option2'">
-                    <span>Date</span>
+                    <span>Date:</span>
                     <p-inputMask mask="99/99/9999" [(ngModel)]="date" placeholder="99/99/9999"
                                  name="date"></p-inputMask>
                 </div>
                 <div id="serialformat" *ngIf="format == 'Option3'">
-                    <span>Serial Number</span>
+                    <span>Serial Number:</span>
                     <p-inputMask mask="a*-999-a999" [(ngModel)]="serial" placeholder="a*-999-a999"
                                  name="serial"></p-inputMask>
                 </div>
             </div>
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+       <span *ngSwitchCase="3">
             <h3>SlotChar</h3>
-            <span>Date</span>
+            <span>Date:</span>
             <p-inputMask mask="99/99/9999" [(ngModel)]="slot" placeholder="99/99/9999" slotChar="mm/dd/yyyy"
                          name="slotchar"></p-inputMask>
-
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+       <span *ngSwitchCase="4">
             <h3>Mask Optional</h3>
-            <span>Phone Ext</span>
+            <span>Phone Ext:</span>
             <p-inputMask mask="(999) 999-9999? x99999" [(ngModel)]="optional" name="optionalmask"
                          placeholder="(999) 999-9999? x99999"></p-inputMask>
-
-        </div>
+        </span>
+       <span *ngSwitchCase="5">
+            <h3>Read Only</h3>
+            <span>Serial Number:</span>
+            <p-inputMask mask="a*-999-a99a9" [(ngModel)]="readonly" name="readonlymask"
+                         placeholder="a*-999-a99a9"></p-inputMask>
+        </span>
     </div>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

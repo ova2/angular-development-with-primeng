@@ -5,6 +5,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {InputMaskModule} from 'primeng/components/inputmask/inputmask';
+import {StepsModule} from 'primeng/components/steps/steps';
 import {RadioButtonModule} from 'primeng/components/radiobutton/radiobutton';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
@@ -18,6 +19,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         InputMaskModule,
+        StepsModule,
         RadioButtonModule,
         GrowlModule
     ],
