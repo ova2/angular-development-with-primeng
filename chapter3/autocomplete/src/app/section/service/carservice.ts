@@ -10,7 +10,7 @@ export class CarService {
     constructor(private http: Http) {}
 
     getCars(): Observable<Car[]> {
-        return this.http.get("autocomplete/src/assets/data/cars.json")
+        return this.http.get("../../../assets/data/cars.json")
             .map(response => response.json().data as Car[]);
     }
 }
