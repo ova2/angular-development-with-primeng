@@ -23,8 +23,10 @@ ng build
 or
 
 ```sh
-ng build --prod
+ng build --prod --aot
 ```
+
+The `--prod` and `--aot` options will optimize the build for production.
 
 ### Test it
 
