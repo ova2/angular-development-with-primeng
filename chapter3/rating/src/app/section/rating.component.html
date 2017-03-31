@@ -1,38 +1,44 @@
 <form novalidate>
 
-    <h1>Rate your faviourite Single page applications</h1>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-4">
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+    <div [ngSwitch]="activeIndex" class="layout-format">
+        <h1>Rate your faviourite Single page applications</h1>
+        <span *ngSwitchCase="0">
             <h3>Basic</h3>
             Angular
             <p-rating name="basic" [(ngModel)]="angular" ></p-rating>
             Rating: {{angular}}
-        </div>
-        <div class="ui-g-12 ui-md-4">
-            <h3>Events</h3>
-            React
-            <p-rating name="events" [(ngModel)]="react" (onRate)="handleRate($event)"
-                      (onCancel)="handleCancel($event)"></p-rating>
-            Rating: {{react}}
-        </div>
-        <div class="ui-g-12 ui-md-4">
+        </span>
+        <span *ngSwitchCase="0">
             <h3>Cancel Control</h3>
             Ember
             <p-rating name="cancel" [(ngModel)]="ember" [cancel]="false" stars="10"></p-rating>
             Rating: {{ember}}
-        </div>
-        <div class="ui-g-12 ui-md-4">
-            <h3>ReadOnly</h3>
+        </span>
+        <span *ngSwitchCase="0">
+           <h3>Events</h3>
+            React
+            <p-rating name="events" [(ngModel)]="react" (onRate)="handleRate($event)"
+                      (onCancel)="handleCancel($event)"></p-rating>
+            Rating: {{react}}
+        </span>
+        <span *ngSwitchCase="0">
+             <h3>ReadOnly/Disabled</h3>
+            <span *ngIf="selectedType =='readonly'">
             Knockout
             <p-rating name="readonly" [ngModel]="knockout" readonly="true"></p-rating>
+                </span>
+            <span *ngIf="selectedType =='disable'">
             Rating: {{knockout}}
-        </div>
-        <div class="ui-g-12 ui-md-4">
             <h3>Disabled</h3>
             VueJS
             <p-rating name="disabled" [ngModel]="vuejs" disabled="true"></p-rating>
             Rating: {{vuejs}}
-        </div>
+        </span>
+            <p-selectButton name="option" [options]="types" [(ngModel)]="selectedType"></p-selectButton>
+            </span>
+
     </div>
 </form>
 

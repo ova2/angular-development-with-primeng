@@ -103,15 +103,15 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 0;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic InputMask', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Basic AutoComplete', detail: event.item.label});
                 }
             },
             {
-                label: 'Multiple',
+                label: 'Multiple selection',
                 command: (event: any) => {
                     this.activeIndex = 1;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Events', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Multiple selection', detail: event.item.label});
                 }
             },
             {
@@ -119,15 +119,15 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 2;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'MaskFormat Options', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Dropdown option', detail: event.item.label});
                 }
             },
             {
-                label: 'Object display',
+                label: 'Object format display',
                 command: (event: any) => {
                     this.activeIndex = 3;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'SlotChar', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Object format display', detail: event.item.label});
                 }
             },
             {
@@ -135,7 +135,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 4;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Optional Mask values', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Templating feature', detail: event.item.label});
                 }
             },
             {

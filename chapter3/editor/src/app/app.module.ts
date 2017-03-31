@@ -6,6 +6,7 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {EditorModule,SharedModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
+import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
@@ -20,6 +21,7 @@ import {routes} from './app-routing.module';
         EditorModule,
         SharedModule,
         ButtonModule,
+        StepsModule,
         GrowlModule
     ],
     declarations: [

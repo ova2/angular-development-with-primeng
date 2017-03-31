@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message} from 'primeng/components/common/api';
+import {Message,MenuItem} from 'primeng/components/common/api';
 import {SelectItem} from 'primeng/components/common/api';
 
 @Component({
@@ -19,6 +19,35 @@ export class CalendarComponent {
     types: SelectItem[];
     selectedHourFormat: string = '12';
     msgs: Message[] = [];
+
+    private items: MenuItem[];
+    activeIndex: number = 0;
+
+
+    onSelect() {
+        this.msgs.push({severity: 'info', summary: 'The calendar date is selected'});
+    }
+
+    onBlur() {
+        this.msgs.push({severity: 'info', summary: 'Calendar lost the focus'});
+    }
+
+    onFocus() {
+        this.msgs.push({severity: 'info', summary: 'Calendar got the focus'});
+    }
+
+    set hourFormat(hourFormat: string) {
+        this.selectedHourFormat = hourFormat;
+        if (this.timeDateInput) {
+            // update reference to the input value in order to trigger proper change detection.
+            // Angular doesn't trigger change detection if the object reference stays the same.
+            this.timeDateInput = new Date(this.timeDateInput.getTime());
+        }
+    }
+
+    get hourFormat(): string {
+        return this.selectedHourFormat;
+    }
 
     ngOnInit() {
         this.de = {
@@ -50,30 +79,41 @@ export class CalendarComponent {
         this.maxDate = new Date();
         this.maxDate.setMonth(nextMonth);
         this.maxDate.setFullYear(nextYear);
-    }
 
-    onSelect() {
-        this.msgs.push({severity: 'info', summary: 'The calendar date is selected'});
-    }
+        this.items = [
+            {
+                label: 'Basic',
+                command: (event: any) => {
+                    this.activeIndex = 0;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Basic Calendar', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Localization',
+                command: (event: any) => {
+                    this.activeIndex = 1;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Localization', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Advanced features',
+                command: (event: any) => {
+                    this.activeIndex = 2;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Advanced features', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Time Display',
+                command: (event: any) => {
+                    this.activeIndex = 3;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Time display', detail: event.item.label});
+                }
+            }
+        ];
 
-    onBlur() {
-        this.msgs.push({severity: 'info', summary: 'Calendar lost the focus'});
-    }
-
-    onFocus() {
-        this.msgs.push({severity: 'info', summary: 'Calendar got the focus'});
-    }
-
-    set hourFormat(hourFormat: string) {
-        this.selectedHourFormat = hourFormat;
-        if (this.timeDateInput) {
-            // update reference to the input value in order to trigger proper change detection.
-            // Angular doesn't trigger change detection if the object reference stays the same.
-            this.timeDateInput = new Date(this.timeDateInput.getTime());
-        }
-    }
-
-    get hourFormat(): string {
-        return this.selectedHourFormat;
     }
 }

@@ -1,19 +1,21 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-6">
-            <h3 class="first">Default Toolbar</h3>
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+    <div [ngSwitch]="activeIndex" class="layout-format">
+        <span *ngSwitchCase="0">
+             <h3 class="first">Default Toolbar</h3>
             <p-editor name="basic" [(ngModel)]="basictext" [style]="{'height':'200px'}" ></p-editor>
             <p>Value: {{basictext}}</p>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3 class="first">Events</h3>
-            <p-editor  name="events" [(ngModel)]="eventstext" [style]="{'height':'200px'}"  onTextChange="onTextChange()"
-                      onSelectionChange="onSelectionChange()"></p-editor>
-            <p>Value: {{eventstext}}</p>
-        </div>
+            </span>
 
-        <div class="ui-g-12 ui-md-6">
-            <h3>Custom Toolbar</h3>
+         <span *ngSwitchCase="0">
+             <h3 class="first">Events</h3>
+            <p-editor  name="events" [(ngModel)]="eventstext" [style]="{'height':'200px'}"  onTextChange="onTextChange()"
+                       onSelectionChange="onSelectionChange()"></p-editor>
+            <p>Value: {{eventstext}}</p>
+             </span>
+             <span *ngSwitchCase="0">
+                 <h3>Custom Toolbar</h3>
             <p-editor name="custom" [(ngModel)]="customtext" [style]="{'height':'200px'}" >
                 <p-header>
         <span class="ql-formats">
@@ -25,8 +27,8 @@
                 </p-header>
             </p-editor>
             <p>Value: {{cusotmtext}}</p>
+                 </span>
         </div>
-    </div>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

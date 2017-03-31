@@ -5,6 +5,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {PasswordModule} from 'primeng/components/password/password';
+import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
@@ -17,6 +18,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         PasswordModule,
+        StepsModule,
         GrowlModule
     ],
     declarations: [

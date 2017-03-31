@@ -14,6 +14,9 @@ export class EditorComponent {
 
     customtext: string;
 
+    private items: MenuItem[];
+    activeIndex: number = 0;
+
     onTextChange() {
         this.msgs.push(
             {severity: 'info', summary: 'The editor text is changed'});
@@ -22,6 +25,35 @@ export class EditorComponent {
     onSelectionChange() {
         this.msgs.push(
             {severity: 'info', summary: 'The editor selected text is changed'});
+    }
+
+    ngOnInit() {
+        this.items = [
+            {
+                label: 'Default Toolbar',
+                command: (event: any) => {
+                    this.activeIndex = 0;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Default Toolbar', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Events',
+                command: (event: any) => {
+                    this.activeIndex = 1;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Editor events', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Customized Toolbar',
+                command: (event: any) => {
+                    this.activeIndex = 2;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Customized display of Toolbar', detail: event.item.label});
+                }
+            }
+        ];
     }
 
 

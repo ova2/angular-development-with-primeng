@@ -20,7 +20,6 @@ export class InputMaskComponent {
     format: string = "Option1";
 
     private items: MenuItem[];
-
     activeIndex: number = 0;
 
     ngOnInit() {

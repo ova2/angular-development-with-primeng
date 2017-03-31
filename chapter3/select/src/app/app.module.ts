@@ -7,6 +7,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {DropdownModule} from 'primeng/components/dropdown/dropdown';
 import {MultiSelectModule} from 'primeng/components/multiselect/multiselect';
 import {GrowlModule} from 'primeng/components/growl/growl';
+import {StepsModule} from 'primeng/components/steps/steps';
 
 import {AppComponent}  from './app.component';
 import {SelectComponent}  from './section/select.component';
@@ -19,7 +20,8 @@ import {routes} from './app-routing.module';
         FormsModule,
         DropdownModule,
         MultiSelectModule,
-        GrowlModule
+        GrowlModule,
+        StepsModule
     ],
     declarations: [
         AppComponent,
