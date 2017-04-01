@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message,MenuItem} from 'primeng/components/common/api';
+import {Message, MenuItem} from 'primeng/components/common/api';
 import {SelectItem} from 'primeng/components/common/api';
 
 @Component({
@@ -19,10 +19,9 @@ export class CalendarComponent {
     types: SelectItem[];
     selectedHourFormat: string = '12';
     msgs: Message[] = [];
-
-    private items: MenuItem[];
     activeIndex: number = 0;
 
+    private items: MenuItem[];
 
     onSelect() {
         this.msgs.push({severity: 'info', summary: 'The calendar date is selected'});
@@ -86,7 +85,7 @@ export class CalendarComponent {
                 command: (event: any) => {
                     this.activeIndex = 0;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic Calendar', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Basic Calendar', detail: event.item.label});
                 }
             },
             {
@@ -94,7 +93,7 @@ export class CalendarComponent {
                 command: (event: any) => {
                     this.activeIndex = 1;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Localization', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Localization', detail: event.item.label});
                 }
             },
             {
@@ -102,7 +101,7 @@ export class CalendarComponent {
                 command: (event: any) => {
                     this.activeIndex = 2;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Advanced features', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Advanced features', detail: event.item.label});
                 }
             },
             {
@@ -110,7 +109,7 @@ export class CalendarComponent {
                 command: (event: any) => {
                     this.activeIndex = 3;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Time display', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Time display', detail: event.item.label});
                 }
             }
         ];

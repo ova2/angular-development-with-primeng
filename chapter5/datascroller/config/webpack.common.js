@@ -24,6 +24,7 @@ module.exports = {
     },
     module: {
         rules: [
+            {enforce: 'pre', test: /\.ts$/, loader: 'tslint-loader', exclude: /(node_modules)/},
             {test: /\.json$/, loader: 'json-loader'},
             {test: /\.html$/, loader: 'raw-loader'},
             {test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot|ico)$/,loader: 'file-loader?name=assets/[name].[ext]'},
