@@ -12,6 +12,7 @@ var common_1 = require('@angular/common');
 // import needed PrimeNG modules here
 var checkbox_1 = require('primeng/components/checkbox/checkbox');
 var tristatecheckbox_1 = require('primeng/components/tristatecheckbox/tristatecheckbox');
+var steps_1 = require('primeng/components/steps/steps');
 var growl_1 = require('primeng/components/growl/growl');
 var app_component_1 = require('./app.component');
 var checkbox_component_1 = require('./section/checkbox.component');
@@ -27,6 +28,7 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 checkbox_1.CheckboxModule,
                 tristatecheckbox_1.TriStateCheckboxModule,
+                steps_1.StepsModule,
                 growl_1.GrowlModule
             ],
             declarations: [
