@@ -5,6 +5,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {OverlayPanelModule} from 'primeng/components/overlaypanel/overlaypanel';
+import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
@@ -18,6 +19,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         OverlayPanelModule,
         RadioButtonModule,
+        StepsModule,
         GrowlModule
     ],
     declarations: [

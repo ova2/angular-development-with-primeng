@@ -1,5 +1,9 @@
 <form novalidate>
-    <p-dialog header="PrimeNG" [(visible)]="basic" >
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+    <div [ngSwitch]="activeIndex" class="layout-format">
+        <span *ngSwitchCase="0">
+            <p-dialog header="PrimeNG" [(visible)]="basic" >
         <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
             His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
             Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -12,8 +16,9 @@
             </div>
         </p-footer>
     </p-dialog>
-
-    <p-dialog header="PrimeNG" [(visible)]="custom" modal="modal" >
+        </span>
+        <span *ngSwitchCase="1">
+             <p-dialog header="PrimeNG" [(visible)]="custom" modal="modal" >
         <p-header>
             Header content here
         </p-header>
@@ -26,7 +31,9 @@
         </p-footer>
     </p-dialog>
 
-    <p-dialog header="PrimeNG" [(visible)]="advanced" modal="modal" minWidth="100" minHeight="100" width="200" height="150" responsive="true" dismissableMask="true" rtl="true">
+        </span>
+        <span *ngSwitchCase="2">
+            <p-dialog header="PrimeNG" [(visible)]="advanced" modal="modal" minWidth="100" minHeight="100" width="200" height="150" responsive="true" dismissableMask="true" rtl="true">
         <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
             His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
             Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -39,6 +46,11 @@
             </div>
         </p-footer>
     </p-dialog>
+
+        </span>
+
+
+
 
 
     <button type="text" (click)="showBasicDialog()" pButton icon="fa-external-link-square" label="Basic"></button>

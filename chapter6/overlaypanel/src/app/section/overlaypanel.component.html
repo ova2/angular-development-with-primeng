@@ -1,4 +1,9 @@
 <form novalidate>
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+    <div [ngSwitch]="activeIndex" class="layout-format">
+        <span *ngSwitchCase="0">
+
     <h3 class="first">Basic</h3>
     <p>Click the button to show the panel.</p>
     <button type="text" pButton label="Basic" (click)="op1.toggle($event)"></button>
@@ -6,6 +11,8 @@
     <p-overlayPanel #op1>
         <img src="showcase/resources/demo/images/galleria/galleria1.jpg" alt="Galleria 1" />
     </p-overlayPanel>
+        </span>
+        <span *ngSwitchCase="1">
 
     <h3>Customized</h3>
     <p>This OverlayPanel gets displayed on hover of the icon, is not dismissable and displays a close icon.</p>
@@ -19,7 +26,8 @@
             <p-column field="color" header="Color" [sortable]="true"></p-column>
         </p-dataTable>
     </p-overlayPanel>
-
+        </span>
+        <span *ngSwitchCase="2">
     <h3>DataTable Integration</h3>
     <p-dataTable [value]="cars2">
         <p-column [style]="{'width':'10%','text-align':'center'}" header="Logo">
@@ -36,7 +44,8 @@
     <p-overlayPanel #op3>
         <img src="showcase/resources/demo/images/car/{{selectedCar.brand}}-big.gif" *ngIf="selectedCar"/>
     </p-overlayPanel>
-
+        </span>
+    </div>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

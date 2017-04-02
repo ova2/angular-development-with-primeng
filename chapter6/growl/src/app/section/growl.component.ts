@@ -3,10 +3,12 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'growl.component.html'
 })
-export class InputMaskComponent {
+export class GrowlComponent {
     msgs: Message[] = [];
+    private items: MenuItem[];
+    activeIndex: number = 0;
 
     showInfo() {
         this.msgs = [];
@@ -32,5 +34,34 @@ export class InputMaskComponent {
 
     clear() {
         this.msgs = [];
+    }
+
+    ngOnInit() {
+        this.items = [
+            {
+                label: 'Basic',
+                command: (event: any) => {
+                    this.activeIndex = 0;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Basic dialog', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Custom',
+                command: (event: any) => {
+                    this.activeIndex = 1;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Custom', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Advanced',
+                command: (event: any) => {
+                    this.activeIndex = 2;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Advanced', detail: event.item.label});
+                }
+            }
+        ];
     }
 }

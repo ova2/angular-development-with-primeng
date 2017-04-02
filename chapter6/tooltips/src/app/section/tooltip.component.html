@@ -1,5 +1,10 @@
 <form novalidate>
-    <h3 class="first">Positions</h3>
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+    <div [ngSwitch]="activeIndex" class="layout-format">
+        <span *ngSwitchCase="0">
+        </span>
+    <h3>Positions</h3>
     <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad">
         <div class="ui-grid-row">
             <div class="ui-grid-col-3">
