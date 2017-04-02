@@ -3,20 +3,13 @@
              [readonly]="false"></p-steps>
     <div [ngSwitch]="activeIndex" class="layout-format">
         <span *ngSwitchCase="0">
-             <h3 class="first">Default Toolbar</h3>
-            <p-editor name="basic" [(ngModel)]="basictext" [style]="{'height':'200px'}" ></p-editor>
+             <h3>Default Toolbar</h3>
+            <p-editor name="basic" [(ngModel)]="basictext" [styleClass]="editor-dimensions"></p-editor>
             <p>Value: {{basictext}}</p>
             </span>
-
-         <span *ngSwitchCase="0">
-             <h3 class="first">Events</h3>
-            <p-editor  name="events" [(ngModel)]="eventstext" [style]="{'height':'200px'}"  onTextChange="onTextChange()"
-                       onSelectionChange="onSelectionChange()"></p-editor>
-            <p>Value: {{eventstext}}</p>
-             </span>
-             <span *ngSwitchCase="0">
+        <span *ngSwitchCase="1">
                  <h3>Custom Toolbar</h3>
-            <p-editor name="custom" [(ngModel)]="customtext" [style]="{'height':'200px'}" >
+            <p-editor name="custom" [(ngModel)]="customtext" [styleClass]="editor-dimensions">
                 <p-header>
         <span class="ql-formats">
             <button class="ql-bold"></button>
@@ -26,9 +19,22 @@
         </span>
                 </p-header>
             </p-editor>
-            <p>Value: {{cusotmtext}}</p>
+            <p>Value: {{customtext}}</p>
                  </span>
-        </div>
+        <span *ngSwitchCase="2">
+             <h3>Events</h3>
+            <p-editor name="events" [(ngModel)]="eventstext" [styleClass]="editor-dimensions"
+                      onTextChange="onTextChange()"
+                      onSelectionChange="onSelectionChange()"></p-editor>
+            <p>Value: {{eventstext}}</p>
+             </span>
+    <span *ngSwitchCase="3">
+             <h3>ReadOnly</h3>
+            <p-editor name="readonly" [(ngModel)]="readonlytext" [styleClass]="editor-dimensions"
+                      [readonly]="true"></p-editor>
+            <p>Value: {{readonlytext}}</p>
+             </span>
+    </div>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

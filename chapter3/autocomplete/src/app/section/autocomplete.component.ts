@@ -1,81 +1,101 @@
 import {Component} from '@angular/core';
 import {Message, MenuItem, SelectItem} from 'primeng/components/common/api';
-import {CarService} from './service/carservice';
-import Car from './service/car';
+import {CountryService} from './service/countryservice';
+import Country from './service/country';
 
 @Component({
     selector: 'section',
     templateUrl: 'autocomplete.component.html'
 })
 export class AutoCompleteComponent {
-    car: Car;
-    cars: Car[];
-    brand: string;
-    carInstance: Car;
-    customCar: Car;
-    brands: string[] = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo', 'VW'];
-    filteredCars: Car[];
-    filteredCarsMultiple: Car[];
-    filteredBrands: string[];
-    filteredCarInstances: Car[];
-    filteredCustomCars: Car[];
+    country: Country;
+    countries: Country[];
+    topcountry: string;
+    countryInstance: Country;
+    customCountry: Country;
+    topAsiaCountries: string[] = ['Singapore', 'Hong Kong', 'South Korea', 'Japan', 'Israel', 'Brunei', 'Qatar', 'Cyprus', 'Saudi Arabia', 'United Arab Emirates'];
+    filteredCountries: Country[];
+    filteredCountriesMultiple: Country[];
+    filteredTopAsiaCountries: string[];
+    filteredCountryInstances: Country[];
+    filteredCustomCountries: Country[];
     selectedType: string = 'readonly';
     types: SelectItem[];
     msgs: Message[] = [];
     activeIndex: number = 0;
     private items: MenuItem[];
 
-    constructor(private carService: CarService) {
+    constructor(private countryService: CountryService) {
     }
 
-    filterCarInstances(event: any) {
-        this.carService.getCars().subscribe((cars: Car[]) => {
-            this.filteredCarInstances = cars;
+    onFocus(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The autocomplete gets focus'});
+    }
+
+    onBlur(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The autocomplete loses focus'});
+    }
+
+    onSelect(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The autocomplete suggestion is selected'});
+    }
+
+    onUnselect(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The autocomplete selected item is removed'});
+    }
+
+    filterCountryInstances(event: any) {
+        this.countryService.getCountries().subscribe((countries: Country[]) => {
+            this.filteredCountryInstances = countries;
         });
     }
 
-    filterCars(event: any) {
+    filterCountries(event: any) {
         let query = event.query;
-        this.carService.getCars().subscribe((cars: Car[]) => {
-            this.filteredCars = this.filterCar(query, cars);
+        this.countryService.getCountries().subscribe((countries: Country[]) => {
+            this.filteredCountries = this.filterCountry(query, countries);
         });
     }
 
-    filterCarsMultiple(event: any) {
+    filterCountriesMultiple(event: any) {
         let query = event.query;
-        this.carService.getCars().subscribe((cars: Car[]) => {
-            this.filteredCarsMultiple = this.filterCar(query, cars);
+        this.countryService.getCountries().subscribe((countries: Country[]) => {
+            this.filteredCountriesMultiple = this.filterCountry(query, countries);
         });
     }
 
-    filterCustomCars(event: any) {
+    filterCustomCountries(event: any) {
         let query = event.query;
-        this.carService.getCars().subscribe((cars: Car[]) => {
-            this.filteredCustomCars = this.filterCar(query, cars);
+        this.countryService.getCountries().subscribe((countries: Country[]) => {
+            this.filteredCustomCountries = this.filterCountry(query, countries);
         });
     }
 
-    filterBrands(event: any) {
-        this.filteredBrands = [];
-        for (let brand of this.brands) {
-            if (brand.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
-                this.filteredBrands.push(brand);
+    filterTopAsiaCountries(event: any) {
+        this.filteredTopAsiaCountries = [];
+        for (let country of this.topAsiaCountries) {
+            if (country.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+                this.filteredTopAsiaCountries.push(country);
             }
         }
     }
 
     handleDropdownClick() {
-        this.filteredBrands = [];
+        this.filteredTopAsiaCountries = [];
         setTimeout(() => {
-            this.filteredBrands = this.brands;
+            this.filteredTopAsiaCountries = this.topAsiaCountries;
         }, 100);
     }
 
-    filterCar(query: any, cars: Car[]): Car[] {
+    filterCountry(query: any, countries: Country[]): Country[] {
         let filtered: any[] = [];
-        for (let car of cars) {
-            if (car.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
-                filtered.push(car);
+        for (let country of countries) {
+            if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+                filtered.push(country);
             }
         }
         return filtered;
@@ -124,11 +144,19 @@ export class AutoCompleteComponent {
                 }
             },
             {
-                label: 'ReadOnly/Disabled',
+                label: 'Events',
                 command: (event: any) => {
                     this.activeIndex = 5;
                     this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'ReadOnly', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Events:onFocus,onBlur,onSelect,onUnselect', detail: event.item.label});
+                }
+            },
+            {
+                label: 'ReadOnly/Disabled',
+                command: (event: any) => {
+                    this.activeIndex = 6;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'ReadOnly and Disabled', detail: event.item.label});
                 }
             },
         ];

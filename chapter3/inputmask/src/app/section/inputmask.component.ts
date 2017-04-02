@@ -16,7 +16,8 @@ export class InputMaskComponent {
     serial: string;
     slot: string;
     optional: string;
-    readonly: string;
+    readonly: boolean = true;
+    disabled:boolean = true;
     format: string = "Option1";
 
     private items: MenuItem[];
@@ -33,17 +34,9 @@ export class InputMaskComponent {
                 }
             },
             {
-                label: 'Events',
-                command: (event: any) => {
-                    this.activeIndex = 1;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Events', detail: event.item.label});
-                }
-            },
-            {
                 label: 'MaskFormat Options',
                 command: (event: any) => {
-                    this.activeIndex = 2;
+                    this.activeIndex = 1;
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'MaskFormat Options', detail: event.item.label});
                 }
@@ -51,25 +44,33 @@ export class InputMaskComponent {
             {
                 label: 'Slot Char',
                 command: (event: any) => {
-                    this.activeIndex = 3;
+                    this.activeIndex = 2;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'SlotChar', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'SlotChar feature', detail: event.item.label});
                 }
             },
             {
                 label: 'Optional Mask values',
                 command: (event: any) => {
-                    this.activeIndex = 4;
+                    this.activeIndex = 3;
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'Optional Mask values', detail: event.item.label});
                 }
             },
             {
-                label: 'ReadOnly',
+                label: 'Events',
+                command: (event: any) => {
+                    this.activeIndex = 4;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Events:oncomplete,onchange', detail: event.item.label});
+                }
+            },
+            {
+                label: 'ReadOnly/Disabled',
                 command: (event: any) => {
                     this.activeIndex = 5;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'ReadOnly', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'ReadOnly and Disabled feature', detail: event.item.label});
                 }
             },
         ];

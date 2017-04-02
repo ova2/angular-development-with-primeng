@@ -11,7 +11,7 @@ import {StepsModule} from 'primeng/components/steps/steps';
 import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
 
 import {AppComponent}  from './app.component';
-import {CarService} from './section/service/carservice';
+import {CountryService} from './section/service/countryservice';
 import {AutoCompleteComponent}  from './section/autocomplete.component';
 import {routes} from './app-routing.module';
 
@@ -30,7 +30,7 @@ import {routes} from './app-routing.module';
         AppComponent,
         AutoCompleteComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}, CarService],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, CountryService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

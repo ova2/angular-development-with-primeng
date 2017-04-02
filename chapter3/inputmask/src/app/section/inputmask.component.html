@@ -3,21 +3,13 @@
              [readonly]="false"></p-steps>
    <div [ngSwitch]="activeIndex" class="layout-format">
         <span *ngSwitchCase="0">
-            <h3>Basic usage:</h3>
-            <label for="basic">Number:</label>
+            <h3>Enter phone number</h3>
+            <label for="basic">Phone:</label>
             <p-inputMask id="basic" name="basic" mask="99-999999"
                  [(ngModel)]="basic" placeholder="99-999999">
             </p-inputMask>
         </span>
         <span *ngSwitchCase="1">
-            <h3>Events:</h3>
-            <label for="event">Key:</label>
-            <p-inputMask id="event" mask="99-999999" name="event" unmask="true"
-                         [(ngModel)]="event" placeholder="99-999-999"
-                         (onComplete)="onComplete()">
-            </p-inputMask>
-        </span>
-        <span *ngSwitchCase="2">
             <h3>Select mask format</h3>
             <div>
                 <p-radioButton name="mask" value="Option1" label="Option 1" [(ngModel)]="format"></p-radioButton>
@@ -43,23 +35,33 @@
                 </div>
             </div>
         </span>
-       <span *ngSwitchCase="3">
+       <span *ngSwitchCase="2">
             <h3>SlotChar</h3>
             <span>Date:</span>
             <p-inputMask mask="99/99/9999" [(ngModel)]="slot" placeholder="99/99/9999" slotChar="mm/dd/yyyy"
                          name="slotchar"></p-inputMask>
         </span>
-       <span *ngSwitchCase="4">
+       <span *ngSwitchCase="3">
             <h3>Mask Optional</h3>
             <span>Phone Ext:</span>
             <p-inputMask mask="(999) 999-9999? x99999" [(ngModel)]="optional" name="optionalmask"
                          placeholder="(999) 999-9999? x99999"></p-inputMask>
         </span>
+       <span *ngSwitchCase="4">
+            <h3>Events - onComplete,onBlur</h3>
+            <label for="event">Product Key:</label>
+            <p-inputMask id="event" name="event" mask="99-999999" unmask="true"
+                         [(ngModel)]="event" placeholder="99-999-999"
+                         (onComplete)="onComplete()" (onComplete)="onBlur()">
+            </p-inputMask>
+        </span>
        <span *ngSwitchCase="5">
-            <h3>Read Only</h3>
+            <h3>Read Only/Disabled</h3>
             <span>Serial Number:</span>
             <p-inputMask mask="a*-999-a99a9" [(ngModel)]="readonly" name="readonlymask"
-                         placeholder="a*-999-a99a9"></p-inputMask>
+                         placeholder="a*-999-a99a9" readonly="true"></p-inputMask>
+            <p-inputMask mask="a*-999-a99a9" [(ngModel)]="disabled" name="disablemask"
+                         placeholder="a*-999-a99a9" disabled="true"></p-inputMask>
         </span>
     </div>
 
