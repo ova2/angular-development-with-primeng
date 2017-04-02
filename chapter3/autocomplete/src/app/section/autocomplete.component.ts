@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message,MenuItem,SelectItem} from 'primeng/components/common/api';
+import {Message, MenuItem, SelectItem} from 'primeng/components/common/api';
 import {CarService} from './service/carservice';
 import Car from './service/car';
 
@@ -8,71 +8,57 @@ import Car from './service/car';
     templateUrl: 'autocomplete.component.html'
 })
 export class AutoCompleteComponent {
-    car: any;
-
-    cars: any[];
-
+    car: Car;
+    cars: Car[];
     brand: string;
-
-    carInstance: any;
-
-    customCarDisplay: any[];
-
-    brands: string[] = ['Audi','BMW','Fiat','Ford','Honda','Jaguar','Mercedes','Renault','Volvo','VW'];
-
-    filteredCars: any[];
-
-    filteredCarsMultiple: any[];
-
-    filteredBrands: any[];
-
-    filteredCarInstances : any[];
-
-    filteredCustomCars: any[];
-
-    selectedType: string="readonly";
-
+    carInstance: Car;
+    customCar: Car;
+    brands: string[] = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo', 'VW'];
+    filteredCars: Car[];
+    filteredCarsMultiple: Car[];
+    filteredBrands: string[];
+    filteredCarInstances: Car[];
+    filteredCustomCars: Car[];
+    selectedType: string = 'readonly';
     types: SelectItem[];
-
-    constructor(private carService: CarService) { }
-
     msgs: Message[] = [];
-    private items: MenuItem[];
     activeIndex: number = 0;
+    private items: MenuItem[];
 
-    filterCarInstances(event:any) {
-        this.carService.getCars().subscribe((cars:any) => {
-            this.filterCarInstances = cars;
+    constructor(private carService: CarService) {
+    }
+
+    filterCarInstances(event: any) {
+        this.carService.getCars().subscribe((cars: Car[]) => {
+            this.filteredCarInstances = cars;
         });
     }
 
-    filterCars(event:any) {
+    filterCars(event: any) {
         let query = event.query;
-        this.carService.getCars().subscribe(cars => {
-            console.log("cars==="+cars);
+        this.carService.getCars().subscribe((cars: Car[]) => {
             this.filteredCars = this.filterCar(query, cars);
         });
     }
 
-    filterCarsMultiple(event:any) {
+    filterCarsMultiple(event: any) {
         let query = event.query;
-        this.carService.getCars().subscribe(cars=> {
+        this.carService.getCars().subscribe((cars: Car[]) => {
             this.filteredCarsMultiple = this.filterCar(query, cars);
         });
     }
 
-    filterCustomCars(event:any){
+    filterCustomCars(event: any) {
         let query = event.query;
-        this.carService.getCars().subscribe(cars => {
-            this.filteredCarsMultiple = this.filterCar(query, cars);
+        this.carService.getCars().subscribe((cars: Car[]) => {
+            this.filteredCustomCars = this.filterCar(query, cars);
         });
     }
 
-    filterBrands(event:any) {
+    filterBrands(event: any) {
         this.filteredBrands = [];
-        for(let i = 0; i < this.brands.length; i++) {
-            let brand = this.brands[i];
-            if(brand.toLowerCase().indexOf(event.query.toLowerCase()) == 0) {
+        for (let brand of this.brands) {
+            if (brand.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
                 this.filteredBrands.push(brand);
             }
         }
@@ -82,14 +68,13 @@ export class AutoCompleteComponent {
         this.filteredBrands = [];
         setTimeout(() => {
             this.filteredBrands = this.brands;
-        }, 100)
+        }, 100);
     }
 
-    filterCar(query:any, cars: any[]):any[] {
-        let filtered : any[] = [];
-        for(let i = 0; i < cars.length; i++) {
-            let car = cars[i];
-            if(car.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+    filterCar(query: any, cars: Car[]): Car[] {
+        let filtered: any[] = [];
+        for (let car of cars) {
+            if (car.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
                 filtered.push(car);
             }
         }
@@ -103,7 +88,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 0;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic AutoComplete', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Basic AutoComplete', detail: event.item.label});
                 }
             },
             {
@@ -111,7 +96,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 1;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Multiple selection', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Multiple selection', detail: event.item.label});
                 }
             },
             {
@@ -119,7 +104,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 2;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Dropdown option', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Dropdown option', detail: event.item.label});
                 }
             },
             {
@@ -127,7 +112,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 3;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Object format display', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Object format display', detail: event.item.label});
                 }
             },
             {
@@ -135,7 +120,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 4;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Templating feature', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Templating feature', detail: event.item.label});
                 }
             },
             {
@@ -143,7 +128,7 @@ export class AutoCompleteComponent {
                 command: (event: any) => {
                     this.activeIndex = 5;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'ReadOnly', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'ReadOnly', detail: event.item.label});
                 }
             },
         ];
@@ -152,5 +137,4 @@ export class AutoCompleteComponent {
         this.types.push({label: 'ReadOnly', value: 'readonly'});
         this.types.push({label: 'Disabled', value: 'disable'});
     }
-
 }

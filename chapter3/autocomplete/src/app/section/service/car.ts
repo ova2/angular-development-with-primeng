@@ -1,8 +1,8 @@
- interface Car {
-    name:any;
-    year?:any;
-    color?:any;
-     vin?:any;
-};
+interface Car {
+    name: any;
+    year?: any;
+    color?: any;
+    vin?: any;
+}
 
- export default Car;
+export default Car;

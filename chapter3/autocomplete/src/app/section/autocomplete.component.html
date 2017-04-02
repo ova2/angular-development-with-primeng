@@ -2,63 +2,72 @@
     <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
              [readonly]="false"></p-steps>
     <div [ngSwitch]="activeIndex" class="layout-format">
-        <span *ngSwitchCase="0">
-
-    <h3>Basic</h3>
-    <p-autoComplete [(ngModel)]="car" name="basic" [suggestions]="filteredCars" (completeMethod)="filterCars($event)"
-                    field="name" [size]="30"
-                    placeholder="Type your favourite Car" [minLength]="1"></p-autoComplete>
+    <span *ngSwitchCase="0">
+        <h3>Basic</h3>
+        <p-autoComplete [(ngModel)]="car" name="basic"
+                        [suggestions]="filteredCars"
+                        (completeMethod)="filterCars($event)"
+                        field="name" [size]="30"
+                        placeholder="Type your favourite Car" [minLength]="1"></p-autoComplete>
     </span>
-        <span *ngSwitchCase="1">
-   <h3>Multiple</h3>
-    <p-autoComplete [(ngModel)]="cars" name="multiple" [suggestions]="filteredCarsMultiple"
-                    (completeMethod)="filterCarsMultiple($event)" styleClass="wid100"
-                    [minLength]="1" placeholder="Type your favourite Car" field="name" [multiple]="true">
-    </p-autoComplete>
+    
+    <span *ngSwitchCase="1">
+        <h3>Multiple</h3>
+        <p-autoComplete [(ngModel)]="cars" name="multiple" [suggestions]="filteredCarsMultiple"
+                        (completeMethod)="filterCarsMultiple($event)"
+                        [minLength]="1" placeholder="Type Car"
+                        field="name" [multiple]="true">
+        </p-autoComplete>
     </span>
-        <span *ngSwitchCase="2">
-    <h3>Dropdown</h3>
-    <p-autoComplete [(ngModel)]="brand" name="dropdown" [suggestions]="filteredBrands"
-                    (completeMethod)="filterBrands($event)" [size]="30"
-                    [minLength]="1" placeholder="Type brand name" [dropdown]="true"
-                    (onDropdownClick)="handleDropdownClick($event)">
-    </p-autoComplete>
+        
+    <span *ngSwitchCase="2">
+        <h3>Dropdown</h3>
+        <p-autoComplete [(ngModel)]="brand" name="dropdown" [suggestions]="filteredBrands"
+                        (completeMethod)="filterBrands($event)" [size]="30"
+                        [minLength]="1" placeholder="Type brand name" [dropdown]="true"
+                        (onDropdownClick)="handleDropdownClick($event)">
+        </p-autoComplete>
     </span>
-        <!--<span *ngSwitchCase="3">
-    <h3>Object display</h3>
-    <label for="instance">Cars:</label>
-    <p-autoComplete [(ngModel)]="carInstance" name="instance" [suggestions]="filteredCarInstances"
-                    (completeMethod)="filterCarInstances($event)" field="name"></p-autoComplete>
-    </span>-->
-        <span *ngSwitchCase="4">
-    <h3>Templating</h3>
-    <p-autoComplete [(ngModel)]="customCarDisplay" name="template" [suggestions]="filteredCustomCars"
-                    (completeMethod)="filterCustomCars($event)" [size]="30"
-                    [minLength]="1" placeholder="Start your search" [dropdown]="true"
-                    (onDropdownClick)="handleDropdownClick($event)">
-        <template let-brand pTemplate="item">
-            <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-                <img src="../../assets/data/images/{{customCarDisplay}}.gif"
-                     style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
-                <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{brand}}</div>
-            </div>
-        </template>
-    </p-autoComplete>
+        
+    <span *ngSwitchCase="3">
+        <h3>Object display</h3>
+        <label for="ac">Cars:</label>
+        <p-autoComplete id="ac" [(ngModel)]="carInstance" name="instance" [suggestions]="filteredCarInstances"
+                        (completeMethod)="filterCarInstances($event)" field="name"></p-autoComplete>
+    </span>
+        
+    <span *ngSwitchCase="4">
+        <h3>Templating</h3>
+        <p-autoComplete [(ngModel)]="customCar" name="template" [suggestions]="filteredCustomCars"
+                        field="name" (completeMethod)="filterCustomCars($event)" [size]="30"
+                        [minLength]="1" placeholder="Start your search">
+            <template let-ccar pTemplate="item">
+                <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+                    <img src="/assets/data/images/car/{{ccar.name}}.gif" class="car-image"/>
+                    <div class="brand-text">{{ccar.name}}</div>
+                </div>
+            </template>
+        </p-autoComplete>
+    </span>
+     
+    <span *ngSwitchCase="5">
+        <h3>ReadOnly/Disabled</h3>
+        <span *ngIf="selectedType =='readonly'">
+        <p-autoComplete [(ngModel)]="car" name="readonly" [suggestions]="filteredCars"
+                        (completeMethod)="filterCars($event)"
+                        field="name" [size]="30"
+                        placeholder="Type your favourite Car"
+                        [minLength]="1" [readonly]="selectedType =='readonly'"></p-autoComplete>
             </span>
-        <span *ngSwitchCase="5">
-    <h3>ReadOnly/Disabled</h3>
-            <span *ngIf="selectedType =='readonly'">
-    <p-autoComplete [(ngModel)]="car" name="readonly" [suggestions]="filteredCars" (completeMethod)="filterCars($event)"
-                    field="name" [size]="30"
-                    placeholder="Type your favourite Car" [minLength]="1" [readonly]="selectedType =='readonly'"></p-autoComplete>
-            </span>
-        <span *ngIf="selectedType =='disable'">
-             <p-autoComplete [(ngModel)]="car" name="disabled" [suggestions]="filteredCars" (completeMethod)="filterCars($event)"
-                             field="name" [size]="30"
-                             placeholder="Type your favourite Car" [minLength]="1" [disabled]="selectedType =='disable'"></p-autoComplete>
+            <span *ngIf="selectedType =='disable'">
+                 <p-autoComplete [(ngModel)]="car" name="disabled" [suggestions]="filteredCars"
+                                 (completeMethod)="filterCars($event)"
+                                 field="name" [size]="30"
+                                 placeholder="Type your favourite Car" [minLength]="1"
+                                 [disabled]="selectedType =='disable'"></p-autoComplete>
             </span>
             <p-selectButton name="option" [options]="types" [(ngModel)]="selectedType"></p-selectButton>
-            </span>
+        </span>
     </div>
 
 </form>
