@@ -6,6 +6,7 @@ var commonConfig = require('./webpack.common.js');
 
 var AotPlugin = require('@ngtools/webpack').AotPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin');
 var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 module.exports = webpackMerge(commonConfig, {
@@ -40,6 +41,7 @@ module.exports = webpackMerge(commonConfig, {
         new ExtractTextPlugin({
             filename: "[name].[chunkhash].css"
         }),
+        new NoEmitOnErrorsPlugin(),
         new UglifyJsPlugin({
             compress: {
                 dead_code: true,
