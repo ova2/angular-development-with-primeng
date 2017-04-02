@@ -31,6 +31,7 @@
     "@types/node": "~6.0.42",
     "angular2-template-loader": "~0.6.2",
     "awesome-typescript-loader": "~3.0.8",
+    "copy-webpack-plugin": "~4.0.1",
     "css-loader": "~0.26.2",
     "extract-text-webpack-plugin": "~2.0.0",
     "file-loader": "~0.10.1",
