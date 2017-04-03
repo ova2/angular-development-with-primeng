@@ -16,8 +16,9 @@ export class EditorComponent {
 
     readonlytext: string = 'PrimeNG <b>Editor</b> is rich text editor component based on <i>Quill</i> Edtior 1.0.';
 
-    private items: MenuItem[];
     activeIndex: number = 0;
+    private items: MenuItem[];
+
 
     onTextChange() {
         this.msgs = [];

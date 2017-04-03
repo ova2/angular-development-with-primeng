@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
-import {SelectItem} from 'primeng/components/common/api';
+import {SelectItem,MenuItem} from 'primeng/components/common/api';
+import {CountryService} from './service/countryservice';
+import Country from './service/country';
 
 @Component({
     selector: 'section',
@@ -9,63 +11,91 @@ import {SelectItem} from 'primeng/components/common/api';
 export class SelectComponent {
     msgs: Message[] = [];
 
-    cities: SelectItem[];
+    countries: SelectItem[];
 
-    selectedCity: string;
+    selectedCountry: string;
 
-    cars: SelectItem[];
+    selectedCountries: string[] = [];
 
-    selectedCar: string = 'BMW';
-
-    constructor() {
-
+    constructor(private countryService: CountryService) {
     }
 
-    types: SelectItem[];
+    onFocus(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The dropdown gets focus'});
+    }
 
-    private items: MenuItem[];
+    onBlur(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The dropwdown loses focus'});
+    }
+
+    onChange(){
+        this.msgs=[];
+        this.msgs.push({severity: 'info', summary: 'The dropdown is changed'});
+    }
+
+    onChangeMultiselect() {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'The Multiselect selection is changed'});
+    }
+
+    generateCountries(countriesArray:Country[]) {
+        let countryList: any[] = [];
+        for (let country of countriesArray) {
+            countryList.push({label:country.name,value:{name:country.name,dial_code:country.dial_code,code:country.code}});
+        }
+        return countryList;
+    }
+
     activeIndex: number = 0;
+    private items: MenuItem[];
 
     ngOnInit(){
-        this. carService.getCars().then((cars : any) => {
-            this.filteredCarsMultiple = this.filterCar(query, cars);
+        this.countryService.getCountries().subscribe((countriesArray : Country[]) => {
+            this.countries = this.generateCountries(countriesArray);
         });
         this.items = [
             {
-                label: 'Basic',
+                label: 'Single selection',
                 command: (event: any) => {
                     this.activeIndex = 0;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic Rating', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Basic dropdown selection', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Editable',
+                command: (event: any) => {
+                    this.activeIndex = 1;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Editable dropdown', detail: event.item.label});
+                }
+            },{
+                label: 'Customized selection',
+                command: (event: any) => {
+                    this.activeIndex = 2;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Customized content with filters', detail: event.item.label});
                 }
             },
             {
                 label: 'Events',
                 command: (event: any) => {
-                    this.activeIndex = 1;
+                    this.activeIndex = 3;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Rating Events', detail: event.item.label});
-                }
-            },{
-                label: 'Cancel Control',
-                command: (event: any) => {
-                    this.activeIndex = 2;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Cancel Control Rating', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Events: onFocus,onBlur,onChange', detail: event.item.label});
                 }
             },
             {
-                label: 'ReadOnly/Disabled',
+                label: 'Disabled',
                 command: (event: any) => {
-                    this.activeIndex = 3;
+                    this.activeIndex = 4;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'ReadOnly or disabled rating', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Disabled selection', detail: event.item.label});
                 }
             },
         ];
-        this.types = [];
-        this.types.push({label: 'ReadOnly', value: 'readonly'});
-        this.types.push({label: 'Disabled', value: 'disable'});
     }
 
 }

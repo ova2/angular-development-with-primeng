@@ -8,8 +8,10 @@ import {DropdownModule} from 'primeng/components/dropdown/dropdown';
 import {MultiSelectModule} from 'primeng/components/multiselect/multiselect';
 import {GrowlModule} from 'primeng/components/growl/growl';
 import {StepsModule} from 'primeng/components/steps/steps';
+import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
 
 import {AppComponent}  from './app.component';
+import {CountryService} from './section/service/countryservice';
 import {SelectComponent}  from './section/select.component';
 import {routes} from './app-routing.module';
 
@@ -21,13 +23,14 @@ import {routes} from './app-routing.module';
         DropdownModule,
         MultiSelectModule,
         GrowlModule,
+        SelectButtonModule,
         StepsModule
     ],
     declarations: [
         AppComponent,
         SelectComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'},CountryService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

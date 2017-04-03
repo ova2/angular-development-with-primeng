@@ -4,12 +4,13 @@
     <div [ngSwitch]="activeIndex" class="layout-format">
         <span *ngSwitchCase="0">
              <h3>Default Toolbar</h3>
-            <p-editor name="basic" [(ngModel)]="basictext" [styleClass]="editor-dimensions"></p-editor>
-            <p>Value: {{basictext}}</p>
+            <p-editor name="basic" [(ngModel)]="basictext" styleClass="editor-dimensions"></p-editor>
+             <br/><br/>
+            <p>Content: {{basictext}}</p>
             </span>
         <span *ngSwitchCase="1">
                  <h3>Custom Toolbar</h3>
-            <p-editor name="custom" [(ngModel)]="customtext" [styleClass]="editor-dimensions">
+            <p-editor name="custom" [(ngModel)]="customtext" styleClass="editor-dimensions">
                 <p-header>
         <span class="ql-formats">
             <button class="ql-bold"></button>
@@ -19,20 +20,23 @@
         </span>
                 </p-header>
             </p-editor>
-            <p>Value: {{customtext}}</p>
+            <br/><br/>
+            <p>Content: {{customtext}}</p>
                  </span>
         <span *ngSwitchCase="2">
              <h3>Events</h3>
-            <p-editor name="events" [(ngModel)]="eventstext" [styleClass]="editor-dimensions"
-                      onTextChange="onTextChange()"
-                      onSelectionChange="onSelectionChange()"></p-editor>
-            <p>Value: {{eventstext}}</p>
+            <p-editor name="events" [(ngModel)]="eventstext" styleClass="editor-dimensions"
+                      (onTextChange)="onTextChange()"
+                      (onSelectionChange)="onSelectionChange()"></p-editor>
+            <br/><br/>
+            <p>Content: {{eventstext}}</p>
              </span>
-    <span *ngSwitchCase="3">
+        <span *ngSwitchCase="3">
              <h3>ReadOnly</h3>
-            <p-editor name="readonly" [(ngModel)]="readonlytext" [styleClass]="editor-dimensions"
-                      [readonly]="true"></p-editor>
-            <p>Value: {{readonlytext}}</p>
+            <p-editor name="readonlyInput" [(ngModel)]="readonlytext" styleClass="editor-dimensions"
+                      readonly="true"></p-editor>
+            <br/><br/>
+            <p>Content: {{readonlytext}}</p>
              </span>
     </div>
 </form>
