@@ -5,37 +5,37 @@
     <div [ngSwitch]="activeIndex" class="layout-format">
         <h1>Rate your faviourite Single page applications</h1>
         <span *ngSwitchCase="0">
-            <h3>Basic</h3>
+            <h3>Enter rating</h3>
             Angular
-            <p-rating name="basic" [(ngModel)]="angular" ></p-rating>
+            <p-rating name="basic" [(ngModel)]="angular"></p-rating>
             Rating: {{angular}}
         </span>
-        <span *ngSwitchCase="0">
+        <span *ngSwitchCase="1">
             <h3>Cancel Control</h3>
             Ember
             <p-rating name="cancel" [(ngModel)]="ember" [cancel]="false" stars="10"></p-rating>
             Rating: {{ember}}
         </span>
-        <span *ngSwitchCase="0">
+        <span *ngSwitchCase="2">
            <h3>Events</h3>
             React
             <p-rating name="events" [(ngModel)]="react" (onRate)="handleRate($event)"
                       (onCancel)="handleCancel($event)"></p-rating>
             Rating: {{react}}
         </span>
-        <span *ngSwitchCase="0">
+        <span *ngSwitchCase="3">
              <h3>ReadOnly/Disabled</h3>
             <span *ngIf="selectedType =='readonly'">
             Knockout
             <p-rating name="readonly" [ngModel]="knockout" readonly="true"></p-rating>
+                 Rating: {{knockout}}
                 </span>
             <span *ngIf="selectedType =='disable'">
-            Rating: {{knockout}}
-            <h3>Disabled</h3>
             VueJS
             <p-rating name="disabled" [ngModel]="vuejs" disabled="true"></p-rating>
             Rating: {{vuejs}}
         </span>
+            <br/>
             <p-selectButton name="option" [options]="types" [(ngModel)]="selectedType"></p-selectButton>
             </span>
 

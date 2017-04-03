@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message,SelectItem} from 'primeng/components/common/api';
+import {Message,SelectItem,MenuItem} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
@@ -14,11 +14,13 @@ export class RatingComponent {
 
     ember: number = 6;
 
-    knockout:number;
+    knockout:number = 2;
 
     vuejs: number = 3;
 
     types: SelectItem[];
+
+    selectedType:string = 'readonly';
 
     private items: MenuItem[];
     activeIndex: number = 0;

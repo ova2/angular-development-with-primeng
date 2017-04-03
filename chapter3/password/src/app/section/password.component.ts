@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message} from 'primeng/components/common/api';
+import {Message,MenuItem} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
@@ -7,9 +7,10 @@ import {Message} from 'primeng/components/common/api';
 })
 export class PasswordComponent {
     password: string;
-
-    private items: MenuItem[];
+    msgs: Message[] = [];
     activeIndex: number = 0;
+    private items: MenuItem[];
+
 
     ngOnInit() {
         this.items = [

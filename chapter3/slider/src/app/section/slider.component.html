@@ -1,26 +1,28 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-6">
-            <h3>Basic</h3>
+    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
+             [readonly]="false"></p-steps>
+    <div [ngSwitch]="activeIndex" class="layout-format">
+    <span *ngSwitchCase="0">
+         <h3>Basic</h3>
             <p-slider [(ngModel)]="basicinput" name="basicinput" [style]="{'width':'200px'}"></p-slider>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Customized Input</h3>
+        </span>
+     <span *ngSwitchCase="1">
+          <h3>Customized Input</h3>
             <p-slider [(ngModel)]="rangeValues" name="custominput" [style]="{'width':'200px'}" [step]="20" [range]="true" [animate]="true" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+        <span *ngSwitchCase="2">
             <h3>Input</h3>
             <input type="text" pInputText name="sliderinput" [(ngModel)]="sliderinput" style="width:190px"/>
             <p-slider [(ngModel)]="sliderinput" name="basicinput" [style]="{'width':'200px'}"></p-slider>
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+        <span *ngSwitchCase="3">
             <h3>Animate</h3>
             <p-slider [(ngModel)]="animateinp" name="animateinput" [style]="{'width':'200px'}" [animate]="true"></p-slider>
-        </div>
-        <div class="ui-g-12 ui-md-6">
+        </span>
+        <span *ngSwitchCase="4">
             <h3>Orientation</h3>
             <p-slider [(ngModel)]="val5" name="verticalinput" [style]="{'height':'200px'}" orientation="vertical"></p-slider>
-        </div>
+        </span>
     </div>
 </form>
 

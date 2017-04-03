@@ -3,22 +3,27 @@
              [readonly]="false"></p-steps>
     <div [ngSwitch]="activeIndex" class="layout-format">
         <span *ngSwitchCase="0">
-    <h3 class="first">Basic</h3>
-    <p-chips [(ngModel)]="contactnames" name="basic"></p-chips>
+    <h3>Enter contacts</h3>
+    <p-chips [(ngModel)]="contactnames" name="basic" ></p-chips>
             </span>
         <span *ngSwitchCase="1">
-             <h3 class="first">Events</h3>
-    <p-chips [(ngModel)]="contactsnotified" name="events" (onAdd)="onAddContact()"
-             (onRemove)="onRemoveContact()"></p-chips>
-            </span>
-        <span *ngSwitchCase="2">
             <h3>Customized display</h3>
-    <p-chips [(ngModel)]="complexcontacts" name="template">
+    <p-chips [(ngModel)]="complexcontacts" name="template" placeholder="Enter contacts">
         <template let-item pTemplate="item">
             <i class="fa fa-address-card"></i>-{{item}}
         </template>
     </p-chips>
             </span>
+        <span *ngSwitchCase="2">
+             <h3>Events</h3>
+    <p-chips [(ngModel)]="contactsnotified" name="events" placeholder="Enter contacts" (onAdd)="onAddContact()"
+             (onRemove)="onRemoveContact()"></p-chips>
+            </span>
+        <span *ngSwitchCase="3">
+             <h3>Disabled</h3>
+    <p-chips [(ngModel)]="disabledcontacts" name="disable" placeholder="Enter contacts" disabled="true"></p-chips>
+            </span>
+    </div>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

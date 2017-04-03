@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message} from 'primeng/components/common/api';
+import {Message,MenuItem} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
@@ -13,6 +13,8 @@ export class ChipsComponent {
     contactnotified: string[];
 
     complexcontacts: string[];
+
+    disabledcontacts:string[]=['PrimeTek','GeekoTek'];
 
     private items: MenuItem[];
     activeIndex: number = 0;
@@ -38,19 +40,27 @@ export class ChipsComponent {
                 }
             },
             {
-                label: 'Events',
+                label: 'Customized Display',
                 command: (event: any) => {
                     this.activeIndex = 1;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Customized display of Chips', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Events',
+                command: (event: any) => {
+                    this.activeIndex = 2;
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'Chips events', detail: event.item.label});
                 }
             },
             {
-                label: 'Customized Display',
+                label: 'Disabled',
                 command: (event: any) => {
-                    this.activeIndex = 2;
+                    this.activeIndex = 3;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Customized display of Chips', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Disabled chip entry', detail: event.item.label});
                 }
             }
         ];
