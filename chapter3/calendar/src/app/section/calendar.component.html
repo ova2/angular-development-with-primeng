@@ -4,24 +4,36 @@
              [readonly]="false"></p-steps>
     <div [ngSwitch]="activeIndex" class="layout-format">
         <span *ngSwitchCase="0">
-             <h3>Basic</h3>
+             <h3>Enter date input</h3>
             <p-calendar [(ngModel)]="basicDateInput" name="basic"></p-calendar>
             </span>
         <span *ngSwitchCase="1">
+        <h3>Inline</h3>
+        <p-calendar [(ngModel)]="inlineDateInput" name="inline" [inline]="true"></p-calendar>
+        </span>
+        <span *ngSwitchCase="2">
         <h3>Localization-German</h3>
         <p-calendar [(ngModel)]="localizedDateInput" name="localize" [locale]="de"
                     dateFormat="dd/mm/yy"></p-calendar>
-            </span>
-        <span *ngSwitchCase="2">
-             <h3>Advanced features</h3>
-            <p-calendar [(ngModel)]="advancedDateInput" name="advanced" dateFormat="dd-mm-yy" showIcon="true"
-                        [minDate]="minDate" [maxDate]="maxDate" (onSelect)="onSelect()" (onFocus)="onFocus()" (onBlur)="onBlur()"
-                        [readonlyInput]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030">
-                <p-header style="font-weight:bold;margin-left: 70px">Navigator</p-header>
-                <p-footer>Select date</p-footer>
-            </p-calendar>
         </span>
         <span *ngSwitchCase="3">
+        <h3>Icon</h3>
+        <p-calendar [(ngModel)]="iconDateInput" name="icon" showIcon="true"></p-calendar>
+        </span>
+        <span *ngSwitchCase="4">
+        <h3>Navigators</h3>
+        <p-calendar [(ngModel)]="navigatorDateInput" name="navigator" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2020"></p-calendar>
+        </span>
+        <span *ngSwitchCase="5">
+        <h3>Min and Max</h3>
+        <p-calendar [(ngModel)]="minmaxDateInput" name="minmax" [minDate]="minDate" [maxDate]="maxDate"></p-calendar>
+        </span>
+        <span *ngSwitchCase="6">
+        <h3>Disable days&date</h3>
+        <p-calendar [(ngModel)]="disabeDaysDateInput" name="disabledaysdate" disabledDates="invalidDates" disabledDays="[0,6]"></p-calendar>
+        </span>
+
+        <span *ngSwitchCase="7">
               <h3>Show Time</h3>
             <span>TimeOnly
             <p-checkbox [(ngModel)]="time" name="timeflag" binary="true"></p-checkbox>
@@ -33,6 +45,28 @@
                 </p-footer>
             </p-calendar>
             </span>
+        </span>
+        <span *ngSwitchCase="8">
+             <h3>Events</h3>
+            <p-calendar [(ngModel)]="eventsDateInput" name="events" (onSelect)="onSelect()" (onFocus)="onFocus()" (onBlur)="onBlur()">
+            </p-calendar>
+        </span>
+        <span *ngSwitchCase="9">
+             <h3>ReadOnly</h3>
+            <p-calendar [(ngModel)]="readonlyDateInput" name="readonly" [readonlyInput]="true">
+            </p-calendar>
+            <h3>Disable</h3>
+            <p-calendar [(ngModel)]="disableDateInput" name="disable" disabled="true">
+            </p-calendar>
+        </span>
+        <span *ngSwitchCase="10">
+             <h3>Advanced features</h3>
+            <p-calendar [(ngModel)]="advancedDateInput" name="advanced" dateFormat="dd-mm-yy" showIcon="true"
+                        [minDate]="minDate" [maxDate]="maxDate" (onSelect)="onSelect()" (onFocus)="onFocus()" (onBlur)="onBlur()"
+                        [readonlyInput]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="2000:2030">
+                <p-header style="font-weight:bold;margin-left: 70px">Navigator</p-header>
+                <p-footer>Select date</p-footer>
+            </p-calendar>
         </span>
         </div>
 </form>

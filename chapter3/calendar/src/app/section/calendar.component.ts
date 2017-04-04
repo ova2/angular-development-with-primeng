@@ -12,6 +12,14 @@ export class CalendarComponent {
     advancedDateInput: Date;
     timeDateInput: Date;
     inlineDateInput: Date;
+    iconDateInput: Date;
+    navigatorDateInput: Date;
+    minmaxDateInput: Date;
+    disabeDaysDateInput: Date;
+    eventsDateInput: Date;
+    readonlyDateInput: Date;
+    disableDateInput: Date;
+    invalidDates: Array<Date>;
     minDate: Date;
     maxDate: Date;
     time: boolean;
@@ -38,8 +46,6 @@ export class CalendarComponent {
     set hourFormat(hourFormat: string) {
         this.selectedHourFormat = hourFormat;
         if (this.timeDateInput) {
-            // update reference to the input value in order to trigger proper change detection.
-            // Angular doesn't trigger change detection if the object reference stays the same.
             this.timeDateInput = new Date(this.timeDateInput.getTime());
         }
     }
@@ -89,29 +95,86 @@ export class CalendarComponent {
                 }
             },
             {
-                label: 'Localization',
+                label: 'Inline',
                 command: (event: any) => {
                     this.activeIndex = 1;
                     this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Localization', detail: event.item.label});
+                    this.msgs.push({severity: 'info', summary: 'Inline Calendar', detail: event.item.label});
                 }
             },
             {
-                label: 'Advanced features',
+                label: 'Localization',
                 command: (event: any) => {
                     this.activeIndex = 2;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Localization-German', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Icon',
+                command: (event: any) => {
+                    this.activeIndex = 3;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Calendar with Icon', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Navigator',
+                command: (event: any) => {
+                    this.activeIndex = 4;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Calendar with Navigator', detail: event.item.label});
+                }
+            },
+            {
+                label: 'MinMax',
+                command: (event: any) => {
+                    this.activeIndex = 5;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Calendar with MinMax', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Disable days&date',
+                command: (event: any) => {
+                    this.activeIndex = 6;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Calendar with Disable days & dates', detail: event.item.label});
+                }
+            },
+            {
+                label: 'ShowTime',
+                command: (event: any) => {
+                    this.activeIndex = 7;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Calendar ShowTime', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Events',
+                command: (event: any) => {
+                    this.activeIndex = 8;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Events:onSelect,onFocus,onBlur', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Readonly/Disable',
+                command: (event: any) => {
+                    this.activeIndex = 9;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity: 'info', summary: 'Readonly/Disable', detail: event.item.label});
+                }
+            },
+            {
+                label: '(Advanced features)',
+                command: (event: any) => {
+                    this.activeIndex = 10;
                     this.msgs.length = 0;
                     this.msgs.push({severity: 'info', summary: 'Advanced features', detail: event.item.label});
                 }
             },
-            {
-                label: 'Time Display',
-                command: (event: any) => {
-                    this.activeIndex = 3;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Time display', detail: event.item.label});
-                }
-            }
+
         ];
 
     }

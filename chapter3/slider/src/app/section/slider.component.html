@@ -3,25 +3,40 @@
              [readonly]="false"></p-steps>
     <div [ngSwitch]="activeIndex" class="layout-format">
     <span *ngSwitchCase="0">
-         <h3>Basic</h3>
-            <p-slider [(ngModel)]="basicinput" name="basicinput" [style]="{'width':'200px'}"></p-slider>
+         <h3>Drag handle for input</h3>
+            <p-slider [(ngModel)]="basicinput" name="basicinput" styleClass="slider-width"></p-slider>
+             <br/>
+            Value: {{basicinput}}
         </span>
      <span *ngSwitchCase="1">
-          <h3>Customized Input</h3>
-            <p-slider [(ngModel)]="rangeValues" name="custominput" [style]="{'width':'200px'}" [step]="20" [range]="true" [animate]="true" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
+          <h3>Range Input</h3>
+            <p-slider [(ngModel)]="rangeValues" name="rangeinput" styleClass="slider-width" [step]="20" [range]="true"></p-slider>
         </span>
         <span *ngSwitchCase="2">
-            <h3>Input</h3>
-            <input type="text" pInputText name="sliderinput" [(ngModel)]="sliderinput" style="width:190px"/>
-            <p-slider [(ngModel)]="sliderinput" name="basicinput" [style]="{'width':'200px'}"></p-slider>
+            <h3>Slider with Input</h3>
+            <input type="text" pInputText name="sliderinput" [(ngModel)]="sliderinput" styleClass="input-width"/>
+            <p-slider [(ngModel)]="sliderinput" name="basicinput" styleClass="slider-width"></p-slider>
         </span>
         <span *ngSwitchCase="3">
             <h3>Animate</h3>
-            <p-slider [(ngModel)]="animateinp" name="animateinput" [style]="{'width':'200px'}" [animate]="true"></p-slider>
+            <p-slider [(ngModel)]="animateinput" name="animateinput" styleClass="slider-width" [animate]="true"></p-slider>
         </span>
         <span *ngSwitchCase="4">
             <h3>Orientation</h3>
-            <p-slider [(ngModel)]="val5" name="verticalinput" [style]="{'height':'200px'}" orientation="vertical"></p-slider>
+            <p-slider [(ngModel)]="verticalinput" name="verticalinput" styleClass="slider-width" orientation="vertical"></p-slider>
+        </span>
+        <span *ngSwitchCase="5">
+         <h3>Events</h3>
+            <p-slider [(ngModel)]="eventsinput" name="basicinput" styleClass="slider-width" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
+        </span>
+        <span *ngSwitchCase="6">
+         <h3>Disabled</h3>
+            <p-slider [(ngModel)]="disabledinput" name="basicinput" styleClass="slider-width" disabled="true"></p-slider>
+        </span>
+        <span *ngSwitchCase="7">
+         <h3>Customized</h3>
+            <input type="text" pInputText name="customizedinput" [(ngModel)]="customizedinput" styleClass="input-width"/>
+            <p-slider [(ngModel)]="customizedinput" name="customizedinput" styleClass="slider-width" [step]="20" [animate]="true" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
         </span>
     </div>
 </form>

@@ -67,6 +67,45 @@ export class CheckboxComponent {
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'Disabled feature', detail: event.item.label});
                 }
+            },{
+                label: 'Single selection',
+                command: (event: any) => {
+                    this.activeIndex = 0;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Single checkbox feature', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Multiple selection',
+                command: (event: any) => {
+                    this.activeIndex = 1;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Multiple checkbox feature', detail: event.item.label});
+                }
+            },
+            {
+                label: 'TriState',
+                command: (event: any) => {
+                    this.activeIndex = 2;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'TriState Checkbox feature', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Events',
+                command: (event: any) => {
+                    this.activeIndex = 3;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Events feature', detail: event.item.label});
+                }
+            },
+            {
+                label: 'Disabled',
+                command: (event: any) => {
+                    this.activeIndex = 4;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'Disabled feature', detail: event.item.label});
+                }
             },
         ];
     }

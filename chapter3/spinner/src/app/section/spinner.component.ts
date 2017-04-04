@@ -30,7 +30,7 @@ export class SpinnerComponent {
     onChange(event:any) {
         this.msgs = [];
         this.msgs.push(
-            {severity: 'info', summary: 'Spinner new value is '+this.basicinput});
+            {severity: 'info', summary: 'Spinner value is changed'});
     }
 
     ngOnInit() {
