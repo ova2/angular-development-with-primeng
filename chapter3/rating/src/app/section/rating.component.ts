@@ -46,18 +46,19 @@ export class RatingComponent {
                 }
             },
             {
-                label: 'Events',
+                label: 'Cancel Control',
                 command: (event: any) => {
                     this.activeIndex = 1;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Rating Events', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Cancel Control Rating', detail: event.item.label});
                 }
-            },{
-                label: 'Cancel Control',
+            },
+            {
+                label: 'Events',
                 command: (event: any) => {
                     this.activeIndex = 2;
                     this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Cancel Control Rating', detail: event.item.label});
+                    this.msgs.push({severity:'info', summary:'Rating Events', detail: event.item.label});
                 }
             },
             {
