@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
@@ -20,6 +21,7 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
+        HttpModule,
         DropdownModule,
         MultiSelectModule,
         GrowlModule,
