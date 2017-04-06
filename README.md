@@ -32,6 +32,7 @@ __Table of Contents__
   * Spinner and Slider – different ways to provide input
   * Text editing with rich and in-place editors
   * Password and star-based rating inputs
+  * Validation with model driven forms
   
 * [Chapter 4, Button and Panel Components](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter4)
   * Enhanced Button, RadioButton and SplitButton
@@ -77,7 +78,6 @@ __Table of Contents__
   * MegaMenu – the multicolumn menu
   * PanelMenu – hybrid of accordion and tree
   * Breadcrumb – providing contextual information about page hierarchy
-  * Indicating steps in workflow with Steps component
   
 * [Chapter 8, Creating Charts and Maps](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter8)
   * Working with chart model
@@ -88,7 +88,6 @@ __Table of Contents__
   * Various uses cases with GMap component
   
 * [Chapter 9, Miscellaneous Use Cases and Best Practices](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter9)
-  * Validation with PrimeNG input components
   * Basic, automatic, drag-&-drop, and multiple file uploading
   * Learning Draggable and Droppable directives
   * Displaying collection of images with Galleria
@@ -96,8 +95,8 @@ __Table of Contents__
   * Blocking page pieces during long-running AJAX calls
   * Process status indicator in action
   * Displaying confirmation dialog with guarded routes
+  * Implementing custom wizard component with Steps
   * Introduction to state management with @ngrx/store
-  * Reducing page load time with custom preloading strategy
   
 * [Chapter 10, Creating Robust Applications](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter10)
   * Setup unit testing with Jasmine and Karma
@@ -105,13 +104,3 @@ __Table of Contents__
   * Tip how to speed up unit testing
   * Hands-on setup and e2e testing with Protractor
   * Exploring PrimeNG application with Augury
-
-
-
-
-  
-
-
-
-
-
