@@ -1,21 +1,23 @@
 import {
-    Component, ContentChildren, QueryList, AfterContentInit,
-    OnChanges, SimpleChanges, EventEmitter, Input, Output
+    Component,
+    ContentChildren,
+    QueryList,
+    AfterContentInit,
+    OnChanges,
+    SimpleChanges,
+    EventEmitter,
+    Input,
+    Output
 } from '@angular/core';
 import {MenuItem} from 'primeng/components/common/api';
 import {StepComponent} from './step.component';
 
 @Component({
     selector: 'pe-steps',
-    styles: ['.pe-step-container {padding: 45px 25px 45px 25px; margin-bottom: 20px;}'],
     template: `
         <p-steps [model]="items" [(activeIndex)]="activeIndex"
-            [class]="styleClass" [readonly]="false"></p-steps>
-            
-        <div class="ui-widget-content ui-corner-all pe-step-container">
-            <ng-content></ng-content>
-        </div>
-        
+            [class]="styleClass" [readonly]="false"></p-steps>            
+        <ng-content></ng-content>
         <button pButton type="text" *ngIf="activeIndex > 0"
             (click)="previous()" icon="fa-hand-o-left" label="Previous"></button>
         <button pButton type="text" *ngIf="activeIndex < items.length - 1"
