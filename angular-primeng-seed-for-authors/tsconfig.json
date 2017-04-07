@@ -8,10 +8,10 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "declaration": true,
     "noEmit": true,
     "noEmitHelpers": true,
     "importHelpers": true,
-    "outDir": "dist",
     "lib": [
       "es2015",
       "dom"
@@ -29,6 +29,6 @@
   ],
   "angularCompilerOptions": {
     "genDir": "aot",
-    "skipMetadataEmit": true
+    "skipMetadataEmit": false
   }
 }
