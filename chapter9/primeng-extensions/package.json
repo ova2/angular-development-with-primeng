@@ -1,5 +1,5 @@
 {
-  "name": "primeng-extensions-wizard",
+  "name": "primeng-extensions",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -14,6 +14,7 @@
   "keywords": [
     "primeng",
     "angular",
+    "primeng-extensions",
     "primeng extensions",
     "primeng steps",
     "angular components",
