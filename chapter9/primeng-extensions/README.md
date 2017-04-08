@@ -122,3 +122,11 @@ import {WizardModule} from 'primeng-extensions/components/wizard';
 export class AppModule {
 }
 ```
+
+## Publish to NPM registry
+
+```sh
+npm run ngc
+npm publish
+```
+
