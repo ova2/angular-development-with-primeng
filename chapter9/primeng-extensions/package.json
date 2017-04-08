@@ -47,7 +47,7 @@
   "scripts": {
     "tsc": "tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
-    "clean": "del-cli src/**/*.d.ts src/**/*.js src/**/*.js.map src/**/*.metadata.json",
+    "clean": "del-cli aot components/**/*.d.ts components/**/*.js src/**/*.js.map components/**/*.metadata.json",
     "prengc": "npm run clean",
     "ngc": "ngc -p tsconfig.json"
   }
