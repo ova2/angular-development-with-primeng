@@ -74,8 +74,24 @@ __Attributes__
 | label      | string  | null    | Label of this step shown above       |
 | active     | boolean | false   | Flag if this step is currently shown |
 
+__Styling__
+
+| Name              | Element                                    |
+| ------------------|--------------------------------------------|
+| pe-step-container | Container element of single step component |
+
 `<pe-steps>`
 
 __Attributes__
 
-__Styling__
+| Name        | Type    | Default | Description                                |
+| ------------|---------| --------| ------------------------------------------ |
+| activeIndex | number  | 0       | Index of the active step (two way binding) |
+| styleClass  | string  |  null   | Style class of wizard's container element  |
+| stepClass   / string  | null    | Style class of each step component         |
+
+__Events__
+
+| Name   | Parameters                           | Description                           |
+| -------|--------------------------------------| --------------------------------------|
+| change | label: label of currently shown step | Callback invoked when switching steps |
