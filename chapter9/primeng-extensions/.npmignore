@@ -10,6 +10,7 @@
 !*.d.ts
 .git
 .gitignore
+.npmignore
 .github
 *.iml
 *.log
