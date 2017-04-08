@@ -2,7 +2,7 @@
 
 There are two components `<pe-steps>` and `<pe-step>` which allow to implement a wizard like behavior. The navigation between wizard steps happens by clicking on breadcrumb items, buttons or setting step's index programmatically.
 
-![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter9/primeng-extensions/wizard.png)
+![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter9/primeng-extensions-wizard/wizard.png)
 
 ## Usage example
 
@@ -109,7 +109,7 @@ npm install primeng-extensions-wizard --save
 and import `WizardModule`.
 
 ```sh
-import {WizardModule} from 'primeng-extensions/components/wizard';
+import {WizardModule} from 'primeng-extensions-wizard/components';
 ...
 
 @NgModule({
@@ -122,11 +122,3 @@ import {WizardModule} from 'primeng-extensions/components/wizard';
 export class AppModule {
 }
 ```
-
-## Publish to NPM registry
-
-```sh
-npm run ngc
-npm publish
-```
-

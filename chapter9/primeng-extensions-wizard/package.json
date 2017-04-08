@@ -1,5 +1,5 @@
 {
-  "name": "primeng-extensions",
+  "name": "primeng-extensions-wizard",
   "version": "1.0.0",
   "license": "MIT",
   "author": {
@@ -50,6 +50,7 @@
     "lint": "tslint -c tslint.json src/**/*.ts",
     "clean": "del-cli aot components/**/*.d.ts components/**/*.js src/**/*.js.map components/**/*.metadata.json",
     "prengc": "npm run clean",
-    "ngc": "ngc -p tsconfig.json"
+    "ngc": "ngc -p tsconfig.json",
+    "pub": "npm run ngc && npm publish"
   }
 }

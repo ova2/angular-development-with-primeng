@@ -9,10 +9,10 @@ import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
+import {WizardModule} from 'primeng-extensions-wizard/components
+
 import {AppComponent}  from './app.component';
 import {SectionComponent}  from './section/section.component';
-import {StepsComponent}  from './wizard/steps.component';
-import {StepComponent}  from './wizard/step.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -25,7 +25,7 @@ import {routes} from './app-routing.module';
         StepsModule,
         GrowlModule
     ],
-    declarations: [AppComponent, SectionComponent, StepsComponent, StepComponent],
+    declarations: [AppComponent, SectionComponent],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
 })

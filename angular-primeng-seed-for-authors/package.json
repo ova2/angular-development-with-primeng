@@ -20,10 +20,10 @@
     "@angular/platform-server": "~2.4.9",
     "@angular/router": "~3.4.9",
     "core-js": "~2.4.1",
-    "rxjs": "~5.1.1",
-    "zone.js": "~0.7.6",
+    "font-awesome": "~4.7.0",
     "primeng": "~2.0.2",
-    "font-awesome": "~4.7.0"
+    "rxjs": "~5.1.1",
+    "zone.js": "~0.7.6"
   },
   "devDependencies": {
     "@ngtools/webpack": "~1.2.12",
