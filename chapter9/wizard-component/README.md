@@ -88,7 +88,7 @@ __Attributes__
 | ------------|---------| --------| ------------------------------------------ |
 | activeIndex | number  | 0       | Index of the active step (two way binding) |
 | styleClass  | string  |  null   | Style class of wizard's container element  |
-| stepClass   / string  | null    | Style class of each step component         |
+| stepClass   | string  | null    | Style class of each step component         |
 
 __Events__
 
