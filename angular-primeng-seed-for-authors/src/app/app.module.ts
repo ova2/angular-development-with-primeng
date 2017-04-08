@@ -8,7 +8,7 @@ import {ButtonModule} from 'primeng/components/button/button';
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
-import {WizardModule} from 'primeng-extensions-wizard/components/step.module';
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {SectionComponent}  from './section/section.component';
