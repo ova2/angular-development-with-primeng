@@ -13,11 +13,14 @@ export class SelectComponent {
 
     countries: SelectItem[];
 
-    selectedCountry: string;
+    countrycodes: SelectItem[];
+
+    selectedCountry: any;
 
     selectedCountries: string[] = [];
 
     constructor(private countryService: CountryService) {
+
     }
 
     onFocus(){
@@ -42,18 +45,22 @@ export class SelectComponent {
 
     generateCountries(countriesArray:Country[]) {
         let countryList: any[] = [];
+        let countryCodes: any[] = [];
         for (let country of countriesArray) {
             countryList.push({label:country.name,value:{name:country.name,dial_code:country.dial_code,code:country.code}});
+            countryCodes.push({label:country.code,value:{name:country.name,dial_code:country.dial_code,code:country.code}});
         }
-        return countryList;
+        this.countries = countryList;
+        this.countrycodes = countryCodes;
     }
 
     activeIndex: number = 0;
     private items: MenuItem[];
 
     ngOnInit(){
+
         this.countryService.getCountries().subscribe((countriesArray : Country[]) => {
-            this.countries = this.generateCountries(countriesArray);
+             this.generateCountries(countriesArray);
         });
         this.items = [
             {
@@ -78,11 +85,18 @@ export class SelectComponent {
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'Customized content with filters', detail: event.item.label});
                 }
+            },{
+                label: 'MultiSelect',
+                command: (event: any) => {
+                    this.activeIndex = 3;
+                    this.msgs.length = 0;
+                    this.msgs.push({severity:'info', summary:'MultiSelect dropdown', detail: event.item.label});
+                }
             },
             {
                 label: 'Events',
                 command: (event: any) => {
-                    this.activeIndex = 3;
+                    this.activeIndex = 4;
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'Events: onFocus,onBlur,onChange', detail: event.item.label});
                 }
@@ -90,7 +104,7 @@ export class SelectComponent {
             {
                 label: 'Disabled',
                 command: (event: any) => {
-                    this.activeIndex = 4;
+                    this.activeIndex = 5;
                     this.msgs.length = 0;
                     this.msgs.push({severity:'info', summary:'Disabled selection', detail: event.item.label});
                 }

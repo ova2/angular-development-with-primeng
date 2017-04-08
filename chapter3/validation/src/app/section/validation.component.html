@@ -1,0 +1,93 @@
+<form [formGroup]="registrationform" (ngSubmit)="onSubmit(registrationform.value)">
+    <p-panel header="Registration Form">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    First Name *:
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText type="text" formControlName="firstname" placeholder="Enter firstname"/>
+                </div>
+                <div class="ui-grid-col-4">
+            <span class="ui-message ui-messages-error ui-corner-all"
+                  *ngIf="!registrationform.controls['firstname'].valid&&registrationform.controls['firstname'].dirty">
+                                <i class="fa fa-close"></i>
+                                Firstname is required
+                            </span>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <span class="label-width">Last Name *:</span>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText type="text" formControlName="lastname" placeholder="Enter lastname"/>
+                </div>
+                <div class="ui-grid-col-4">
+            <span class="ui-message ui-messages-error ui-corner-all"
+                  *ngIf="!registrationform.controls['lastname'].valid&&registrationform.controls['lastname'].dirty">
+                                <i class="fa fa-close"></i>
+                                Lastname is required
+                            </span>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    Password *
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText type="password" formControlName="password"
+                           placeholder="Enter password with minimum 8 characters"/>
+                </div>
+                <div class="ui-grid-col-4">
+            <span class="ui-message ui-messages-error ui-corner-all"
+                  *ngIf="!registrationform.controls['password'].valid&&registrationform.controls['password'].dirty">
+                                <i class="fa fa-close"></i>
+                                <span *ngIf="registrationform.controls['password'].errors['required']">Password is required</span>
+                                <span *ngIf="registrationform.controls['password'].errors['minlength']">Must be longer than 8 characters</span>
+                            </span>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    Address
+                </div>
+                <div class="ui-grid-col-6">
+                    <textarea pInputTextarea type="text" formControlName="address"></textarea>
+                </div>
+                </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    Phone:
+                    </div>
+                <div class="ui-grid-col-4">
+                    <p-inputMask mask="(999) 999-9999" formControlName="phone"
+                                 placeholder="(999) 999-9999"></p-inputMask>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <span class="label-width">Gender *:</span>
+                </div>
+                <div class="ui-grid-col-2">
+                    <p-dropdown [options]="genders" formControlName="gender" [autoWidth]="false"></p-dropdown>
+                </div>
+                <div class="ui-grid-col-2">
+            <span class="ui-message ui-messages-error ui-corner-all"
+                  *ngIf="!registrationform.controls['gender'].valid&&registrationform.controls['gender'].dirty">
+                                <i class="fa fa-close"></i>
+                                Gender is required
+                            </span>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2"></div>
+                <div class="ui-grid-col-6">
+                <button pButton type="submit" label="Submit" [disabled]="!registrationform.valid"></button>
+                </div>
+                <div class="ui-grid-col-4"></div>
+            </div>
+        </div>
+    </p-panel>
+</form>
+<p-growl [value]="msgs"></p-growl>

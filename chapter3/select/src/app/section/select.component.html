@@ -5,34 +5,34 @@
     <div [ngSwitch]="activeIndex" class="layout-format">
         <span *ngSwitchCase="0">
             <h3>Single selection</h3>
-            <p-dropdown name="singleselect" [options]="countries" [(ngModel)]="selectedCountry" placeholder="Select a Country" styleClass="dropdown-width"></p-dropdown>
+            <p-dropdown name="singleselect" [options]="countries" [(ngModel)]="selectedCountry" placeholder="Select a Country" [styleClass]="dropdown-width"></p-dropdown>
             </span>
         <span *ngSwitchCase="1">
              <h3>Editable dropdown</h3>
-             <p-dropdown name="editableselect" [options]="countries" [(ngModel)]="selectedCountry"  editable="editable" styleClass="dropdown-width"
+             <p-dropdown name="editableselect" [options]="countries" [(ngModel)]="selectedCountry"  editable="editable" [styleClass]="dropdown-width"
                 placeholder="Select a Country"></p-dropdown>
             </span>
         <span *ngSwitchCase="2">
              <h3>Content with Filters</h3>
-    <p-dropdown name="customizedselect" [options]="countries" [(ngModel)]="selectedCountry" styleClass="dropdown-width" filter="filter">
+    <p-dropdown name="customizedselect" [options]="countrycodes" [(ngModel)]="selectedCountry" styleClass="dropdown-width" filter="filter">
         <template let-country pTemplate="item">
             <div class="ui-helper-clearfix" class="template-border">
-                    <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" class="country-image"/>
-                    <div class="country-text">{{country.name}}</div>
+                    <img src="/assets/data/images/country/{{country.label.toLowerCase()}}.png" class="country-image"/>
+                    <span class="country-text">{{country.label}}</span>
             </div>
         </template>
     </p-dropdown>
             </span>
         <span *ngSwitchCase="3">
              <p-multiSelect name="multiselect" [options]="countries" [(ngModel)]="selectedCountries"></p-multiSelect>
-    <p>Selected Cars: {{selectedCars}}</p>
+                 <p>Selected Countries: {{selectedCountries}}</p>
             </span>
         <span *ngSwitchCase="4">
         <h3>Drodown Events:onFocus,onBlur,onChange</h3>
-            <h3>MultiSelect Events:onChange</h3>
        <p-dropdown name="dropdownevents" [options]="countries" [(ngModel)]="selectedCountry" placeholder="Select a Country" (onFocus)="onFocus()" (onBlur)="onBlur()" (onChange)="onChange()"></p-dropdown>
             <br/>
-            <p-multiSelect name="multiselectevents" n[options]="countries" [(ngModel)]="selectedCountries" (onChange)="onChangeMultiselect()"></p-multiSelect>
+       <h3>MultiSelect Events:onChange</h3>
+            <p-multiSelect name="multiselectevents" [options]="countries" [(ngModel)]="selectedCountries" (onChange)="onChangeMultiselect()"></p-multiSelect>
     </span>
         <span *ngSwitchCase="5">
         <h3>Disabled</h3>
