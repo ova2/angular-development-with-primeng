@@ -4,7 +4,7 @@ There are two components `<pe-steps>` and `<pe-step>` which allow to implement a
 
 ![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter9/primeng-extensions/wizard.png)
 
-### :arrow_forward: Usage example
+### :arrow_right: Usage example
 
 ```sh
 import {Component} from '@angular/core';
@@ -64,7 +64,7 @@ export class UserDataWizardComponent {
 }
 ```
 
-### :arrow_forward: API
+### :arrow_right: API
 
 `<pe-step>`
 
@@ -98,7 +98,7 @@ __Events__
 | -------|--------------------------------------| --------------------------------------|
 | change | label: label of currently shown step | Callback invoked when switching steps |
 
-### :arrow_forward: Installation
+### :arrow_right: Installation
 
 Just import `WizardModule`.
 
