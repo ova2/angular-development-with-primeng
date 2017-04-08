@@ -1,6 +1,8 @@
 ## Custom wizard component implemented with Angular 2+ and PrimeNG
 
-There are two components `<pe-steps>` and `<pe-step>` which allow to implement a wizard like behavior.
+There are two components `<pe-steps>` and `<pe-step>` which allow to implement a wizard like behavior. The navigation between wizard steps happens by clicking on breadcrumb items, buttons or setting step's index programmatically.
+
+![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter9/wizard-component/wizard.png)
 
 ### Usage example
 
@@ -95,3 +97,22 @@ __Events__
 | Name   | Parameters                           | Description                           |
 | -------|--------------------------------------| --------------------------------------|
 | change | label: label of currently shown step | Callback invoked when switching steps |
+
+### Installation
+
+Just import `WizardModule`.
+
+```sh
+import {WizardModule} from 'primeng-extensions/components/wizard';
+...
+
+@NgModule({
+    imports: [
+        ...
+        WizardModule
+    ],
+    ...
+})
+export class AppModule {
+}
+```
