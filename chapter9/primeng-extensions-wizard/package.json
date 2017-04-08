@@ -51,6 +51,6 @@
     "clean": "del-cli aot components/**/*.d.ts components/**/*.js src/**/*.js.map components/**/*.metadata.json",
     "prengc": "npm run clean",
     "ngc": "ngc -p tsconfig.json",
-    "pub": "npm run ngc && npm publish"
+    "update": "npm run ngc && npm version"
   }
 }

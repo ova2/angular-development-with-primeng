@@ -20,9 +20,7 @@
     "node"
   ],
   "exclude": [
-    "node_modules",
-    "dist",
-    "components/src/main.aot.ts"
+    "node_modules"
   ],
   "angularCompilerOptions": {
     "genDir": "aot",
