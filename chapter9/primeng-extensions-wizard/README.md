@@ -109,7 +109,7 @@ npm install primeng-extensions-wizard --save
 and import `WizardModule`.
 
 ```sh
-import {WizardModule} from 'primeng-extensions-wizard/components/step.module';
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 ...
 
 @NgModule({
