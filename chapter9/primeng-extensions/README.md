@@ -2,9 +2,9 @@
 
 There are two components `<pe-steps>` and `<pe-step>` which allow to implement a wizard like behavior. The navigation between wizard steps happens by clicking on breadcrumb items, buttons or setting step's index programmatically.
 
-![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter9/wizard-component/wizard.png)
+![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter9/primeng-extensions/wizard.png)
 
-### Usage example
+### :arrow_forward: Usage example
 
 ```sh
 import {Component} from '@angular/core';
@@ -64,7 +64,7 @@ export class UserDataWizardComponent {
 }
 ```
 
-### API
+### :arrow_forward: API
 
 `<pe-step>`
 
@@ -98,7 +98,7 @@ __Events__
 | -------|--------------------------------------| --------------------------------------|
 | change | label: label of currently shown step | Callback invoked when switching steps |
 
-### Installation
+### :arrow_forward: Installation
 
 Just import `WizardModule`.
 
