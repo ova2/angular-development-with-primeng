@@ -1,5 +1,7 @@
 ## Custom wizard component implemented with Angular 2+ and PrimeNG
 
+There are two components `<pe-steps>` and `<pe-step>` which allow to implement a wizard like behavior.
+
 ### Usage example
 
 ```sh
@@ -62,4 +64,18 @@ export class UserDataWizardComponent {
 
 ### API
 
-Coming soon
+`<pe-step>`
+
+__Attributes__
+
+| Name       | Type    | Default | Description                          |
+| -----------|---------| --------| ------------------------------------ |
+| styleClass | string  | null    | Style class of single step component |
+| label      | string  | null    | Label of this step shown above       |
+| active     | boolean | false   | Flag if this step is currently shown |
+
+`<pe-steps>`
+
+__Attributes__
+
+__Styling__
