@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
-import {MenuItem} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
