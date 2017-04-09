@@ -17,7 +17,7 @@ __Table of Contents__
   
 * [Chapter 2, Theming Concept and Layouts](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter2)
   * Understanding structural and skinning CSS
-  * Organize your project structure with SASS
+  * Organize your project structure with Sass
   * Simple ways to create a new theme
   * Responsive grid system in PrimeNG
   * Bootstrap's responsive layout meets PrimeNG
