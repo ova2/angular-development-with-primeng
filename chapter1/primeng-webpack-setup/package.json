@@ -51,6 +51,7 @@
     "webpack-merge": "~3.0.0"
   },
   "scripts": {
+    "lint": "tslint -c tslint.json src/**/*.ts",
     "rimraf": "rimraf dist && rimraf aot",
     "prebuild": "npm run rimraf",
     "build": "webpack --config config/webpack.dev.js --progress --display-error-details",

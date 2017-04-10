@@ -1,0 +1,43 @@
+@import '../../assets/css/helpers/_mixins';
+
+.container-fluid {
+  margin-top: 60px;
+}
+
+.col-drawing-area {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-toolbar {
+  margin-top: 90px;
+}
+
+.drawing-area {
+  width: 100%;
+  height: 770px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+.ge-drawing-area {
+  width: 100%;
+  height: 100%;
+}
+
+@include respond-to('small') {
+  .col-toolbar {
+    margin-top: inherit;
+  }
+
+  .col-drawing-area {
+    margin-top: inherit;
+  }
+}
+
+@include respond-to('medium') {
+  .col-drawing-area {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

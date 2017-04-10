@@ -1,9 +1,8 @@
-body {
-  padding: 0 20px 0 20px;
-}
+@import "../helpers/variables";
 
-body .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
-  width: 35px;
+body {
+  font-family: $font-family;
+  background-color: $brand-color-background;
 }
 
 [hidden] {

@@ -1,11 +1,27 @@
-import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {SectionComponent} from './section/section.component';
+import {Routes, RouterModule} from '@angular/router';
+import {MainComponent} from './main/main.component';
+import {SvgDrawingComponent} from './drawing/svg/svg-drawing.component';
+import {CanvasDrawingComponent} from './drawing/canvas/canvas-drawing.component';
 
-const router: Routes = [
-    {path: '', redirectTo: 'chapter/section', pathMatch: 'full'},
-    {path: 'chapter/section', component: SectionComponent},
-    {path: '**', redirectTo: 'chapter/section'}
+const APP_ROUTES: Routes = [
+    {
+        path: '',
+        redirectTo: '/main',
+        pathMatch: 'full'
+    },
+    {
+        path: 'main',
+        component: MainComponent
+    },
+    {
+        path: 'svg',
+        component: SvgDrawingComponent
+    },
+    {
+        path: 'canvas',
+        component: CanvasDrawingComponent
+    }
 ];
 
-export const routes: ModuleWithProviders = RouterModule.forRoot(router);
+export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
