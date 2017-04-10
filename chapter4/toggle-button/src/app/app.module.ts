@@ -7,6 +7,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import {ToggleButtonModule} from 'primeng/components/togglebutton/togglebutton';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+
 import {AppComponent}  from './app.component';
 import {ToggleButtonComponent}  from './section/togglebutton.component';
 import {routes} from './app-routing.module';
@@ -17,6 +19,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         ToggleButtonModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

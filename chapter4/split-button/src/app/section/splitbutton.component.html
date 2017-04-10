@@ -1,6 +1,27 @@
 <form novalidate>
-    <label for="basic">Basic:</label>
-    <p-splitButton label="Create" icon="fa-check" (onClick)="create()" [model]="items"></p-splitButton>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)" >
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <h3>Manage AngularConnect User Account</h3>
+            <p-splitButton label="Create" (onClick)="create()" [model]="items"></p-splitButton>
+        </pe-step>
+        <!-- Icons and Theming -->
+        <pe-step label="Icons and Theming">
+            <h3>Manage AngularConnect User Account</h3>
+            <p-splitButton label="Create" icon="fa-check" iconPos="right" menuStyleClass="customized-menu" [model]="itemsIcons"></p-splitButton>
+        </pe-step>
+        <!-- Events -->
+        <pe-step label="Events">
+            <h3>Manage AngularConnect User Account</h3>
+            <p-splitButton label="Create" icon="fa-check" (onClick)="create()" [model]="items"></p-splitButton>
+        </pe-step>
+        <!-- Disabled -->
+        <pe-step label="Disabled">
+            <h3>Manage AngularConnect User Account</h3>
+            <p-splitButton label="Create" icon="fa-check" [model]="items" disabled="true"></p-splitButton>
+        </pe-step>
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

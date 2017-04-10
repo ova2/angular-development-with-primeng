@@ -11,6 +11,8 @@ export class PanelComponent {
 
     items: MenuItem[];
 
+    activeIndex: number = 0;
+
     ngOnInit() {
         this.items = [
             {label: 'Showcase', icon: 'fa-briefcase', url: 'https://www.primefaces.org/primeng/'},
@@ -20,12 +22,19 @@ export class PanelComponent {
     }
 
     beforeToggle() {
+        this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'Before toggle the content'});
     }
 
     afterToggle() {
+        this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'After toggle the content'});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

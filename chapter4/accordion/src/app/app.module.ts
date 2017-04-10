@@ -8,6 +8,8 @@ import {AccordionModule} from 'primeng/components/accordion/accordion';
 import {GrowlModule} from 'primeng/components/growl/growl';
 import {SharedModule} from 'primeng/primeng';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+
 import {AppComponent}  from './app.component';
 import {AccordionComponent}  from './section/accordion.component';
 import {routes} from './app-routing.module';
@@ -19,6 +21,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         AccordionModule,
         SharedModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

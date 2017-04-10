@@ -1,14 +1,30 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-4">
-    <h3>Single</h3>
-    <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic"></p-selectButton>
-        </div>
-        <div class="ui-g-12 ui-md-4">
-    <h3>Multiple</h3>
-    <p-selectButton [options]="types" [(ngModel)]="selectedTypes" name="advanced" (onChange)="onChange($event)" multiple="multiple"></p-selectButton>
-        </div>
-    </div>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <h3>Single</h3>
+            <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic"></p-selectButton>
+        </pe-step>
+
+        <!-- Multiple -->
+        <pe-step label="Basic">
+            <h3>Multiple</h3>
+            <p-selectButton [options]="types" [(ngModel)]="selectedTypes" name="advanced" multiple="multiple"></p-selectButton>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <h3>Single</h3>
+            <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic" (onChange)="handleChange($event)"></p-selectButton>
+        </pe-step>
+
+        <!-- Disabled -->
+        <pe-step label="Basic">
+            <h3>Single</h3>
+            <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic" disabled="true"></p-selectButton>
+        </pe-step>
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

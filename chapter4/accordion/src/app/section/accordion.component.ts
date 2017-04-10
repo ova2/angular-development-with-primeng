@@ -6,7 +6,8 @@ import {Message} from 'primeng/components/common/api';
     templateUrl: 'accordion.component.html'
 })
 export class AccordionComponent {
-    msgs: Message[];
+    msgs: Message[] = [];
+    activeIndex: number = 0;
 
     onTabClose(event:any) {
         this.msgs = [];
@@ -17,4 +18,11 @@ export class AccordionComponent {
         this.msgs = [];
         this.msgs.push({severity:'info', summary:'Tab Expanded', detail: 'Index: ' + event.index});
     }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
+
+
 }

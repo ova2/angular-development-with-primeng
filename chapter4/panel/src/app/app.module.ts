@@ -8,6 +8,8 @@ import {PanelModule} from 'primeng/components/panel/panel';
 import {GrowlModule} from 'primeng/components/growl/growl';
 import {SplitButtonModule} from 'primeng/components/splitbutton/splitbutton';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module'
+
 import {AppComponent}  from './app.component';
 import {PanelComponent}  from './section/panel.component';
 import {routes} from './app-routing.module';
@@ -19,6 +21,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         PanelModule,
         SplitButtonModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

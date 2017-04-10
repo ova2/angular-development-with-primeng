@@ -9,10 +9,19 @@ export class RadioButtonComponent {
     msgs: Message[] = [];
     
     basic: string;
-    advanced: string = "Angular";
+    defaultSelection: string = "Angular";
+    eventsSelection: string;
+    disabledSelection: string = "Angular";
 
-    selectFramework() {
+    activeIndex: number = 0;
+
+    selectFramework(e:any) {
         this.msgs=[];
-        this.msgs.push({severity: 'info', summary: this.advanced+' is selected as SPA technology'});
+        this.msgs.push({severity: 'info', summary: this.defaultSelection+' is selected as SPA technology'});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

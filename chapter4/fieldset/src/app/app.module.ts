@@ -6,6 +6,9 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {FieldsetModule} from 'primeng/components/fieldset/fieldset';
 import {GrowlModule} from 'primeng/components/growl/growl';
+import {SharedModule} from 'primeng/primeng';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module'
 
 import {AppComponent}  from './app.component';
 import {FieldsetComponent}  from './section/fieldset.component';
@@ -17,6 +20,8 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         FieldsetModule,
+        WizardModule,
+        SharedModule,
         GrowlModule
     ],
     declarations: [

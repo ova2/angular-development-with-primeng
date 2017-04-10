@@ -1,16 +1,27 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-4">
-            <h3>Basic</h3>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
             <p-toggleButton [(ngModel)]="basic" name="basic"></p-toggleButton>
-        </div>
+        </pe-step>
 
-        <div class="ui-g-12 ui-md-4">
-            <h3>Customized</h3>
+        <!-- Customization -->
+        <pe-step label="Customization">
             <p-toggleButton [(ngModel)]="customized" name="custom" onLabel="I confirm" offLabel="I reject"
-                            onIcon="fa-check-square" offIcon="fa-window-close" (onChange)="onChange($event)"></p-toggleButton>
-        </div>
-    </div>
+                            onIcon="fa-check-square" offIcon="fa-window-close" ></p-toggleButton>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <p-toggleButton [(ngModel)]="events" name="events"  (onChange)="onToggleButton($event)"></p-toggleButton>
+        </pe-step>
+
+        <!-- Disabled -->
+        <pe-step label="Disabled">
+            <p-toggleButton [(ngModel)]="disabled" name="disabled" disabled="true"></p-toggleButton>
+        </pe-step>
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

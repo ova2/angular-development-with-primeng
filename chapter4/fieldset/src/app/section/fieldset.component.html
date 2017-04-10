@@ -1,15 +1,47 @@
 <form novalidate>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <h3>Basic</h3>
     <p-fieldset legend="PrimeNG">
         PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
         All widgets are open source and free to use under MIT License.
         PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components.
     </p-fieldset>
+        </pe-step>
 
-    <p-fieldset legend="PrimeNG" [toggleable]="true" (onBeforeToggle)="beforeToggle()" (onAfterToggle)="afterToggle()">
-        PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
-        All widgets are open source and free to use under MIT License.
-        PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components.
-    </p-fieldset>
+        <!-- Toggleable -->
+        <pe-step label="Basic">
+            <p-fieldset legend="PrimeNG" [toggleable]="true" [collapsed]="true">
+                PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
+                All widgets are open source and free to use under MIT License.
+                PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components.
+            </p-fieldset>
+        </pe-step>
+
+        <!-- Customized Legend -->
+        <pe-step label="Customized Legend">
+            <p-fieldset>
+                <p-header>
+                    <b>PrimeNG</b>
+                </p-header>
+                PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
+                All widgets are open source and free to use under MIT License.
+                PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components.
+            </p-fieldset>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Basic">
+            <p-fieldset legend="PrimeNG" [toggleable]="true" (onBeforeToggle)="beforeToggle()" (onAfterToggle)="afterToggle()">
+                PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
+                All widgets are open source and free to use under MIT License.
+                PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components.
+            </p-fieldset>
+        </pe-step>
+
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>
