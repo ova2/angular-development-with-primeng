@@ -5,7 +5,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 import {AppComponent} from './app.component';
 import {MainComponent}  from './main/main.component';
-import {routes} from "./app-routing.module';
+import {routes} from './app-routing.module';
 import {LayoutComponent} from './layout/layout.component';
 import {SvgDrawingComponent} from './drawing/svg/svg-drawing.component';
 import {CanvasDrawingComponent} from './drawing/canvas/canvas-drawing.component';
@@ -34,7 +34,7 @@ import {ToolbarComponent} from './panel/toolbar/toolbar.component';
         CanvasDrawingComponent
     ],
     providers: [
-        {provide: APP_BASE_HREF, useValue: "/"}
+        {provide: APP_BASE_HREF, useValue: '/'}
     ],
     bootstrap: [AppComponent]
 })
