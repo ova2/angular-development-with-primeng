@@ -2,22 +2,26 @@
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
         <!-- Basic -->
         <pe-step label="Basic">
+            <h3>Do you like Angular Framework?</h3>
             <p-toggleButton [(ngModel)]="basic" name="basic"></p-toggleButton>
         </pe-step>
 
         <!-- Customization -->
         <pe-step label="Customization">
+            <h3>Are you ready to book your ticket for ng-conf</h3>
             <p-toggleButton [(ngModel)]="customized" name="custom" onLabel="I confirm" offLabel="I reject"
                             onIcon="fa-check-square" offIcon="fa-window-close" ></p-toggleButton>
         </pe-step>
 
         <!-- Events -->
         <pe-step label="Events">
+            <h3>Do you like Angular Framework?</h3>
             <p-toggleButton [(ngModel)]="events" name="events"  (onChange)="onToggleButton($event)"></p-toggleButton>
         </pe-step>
 
         <!-- Disabled -->
         <pe-step label="Disabled">
+            <h3>Do you like Angular Framework?</h3>
             <p-toggleButton [(ngModel)]="disabled" name="disabled" disabled="true"></p-toggleButton>
         </pe-step>
     </pe-steps>
