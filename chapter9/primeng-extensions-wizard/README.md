@@ -100,13 +100,23 @@ __Events__
 
 ## Installation
 
+__Angular 2.x__
+
+Run
+
+```sh
+npm install primeng-extensions-wizard@">=1.0.3 <2.0.0" --save
+```
+
+__Angular 4.x__
+
 Run
 
 ```sh
 npm install primeng-extensions-wizard --save
 ```
 
-and import `WizardModule`.
+Import `WizardModule`.
 
 ```sh
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
