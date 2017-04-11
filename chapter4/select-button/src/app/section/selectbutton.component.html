@@ -2,26 +2,24 @@
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
         <!-- Basic -->
         <pe-step label="Basic">
-            <h3>Single</h3>
+            <h3>Select any one of your favourite Prime libraries?(Single)</h3>
             <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic"></p-selectButton>
         </pe-step>
 
         <!-- Multiple -->
-        <pe-step label="Basic">
-            <h3>Multiple</h3>
+        <pe-step label="Multiple">
+            <h3>Choose your favourite Prime libraries?(Multiple)</h3>
             <p-selectButton [options]="types" [(ngModel)]="selectedTypes" name="advanced" multiple="multiple"></p-selectButton>
         </pe-step>
 
         <!-- Events -->
         <pe-step label="Events">
-            <h3>Single</h3>
-            <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic" (onChange)="handleChange($event)"></p-selectButton>
+            <p-selectButton [options]="types" [(ngModel)]="selectedTypeEvents" name="events" (onChange)="handleChange($event)"></p-selectButton>
         </pe-step>
 
         <!-- Disabled -->
-        <pe-step label="Basic">
-            <h3>Single</h3>
-            <p-selectButton [options]="types" [(ngModel)]="selectedType" name="basic" disabled="true"></p-selectButton>
+        <pe-step label="Disabled">
+            <p-selectButton [options]="types" [(ngModel)]="selectedTypeDisabled" name="disabled" disabled="true"></p-selectButton>
         </pe-step>
     </pe-steps>
 

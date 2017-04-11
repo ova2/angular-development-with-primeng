@@ -12,7 +12,12 @@ export class SelectButtonComponent {
 
     types: SelectItem[];
     selectedType: string;
+    selectedTypeEvents: string;
+    selectedTypeDisabled: string;
+
     selectedTypes: string[] = ['PrimeNG','PrimeReact'];
+
+    activeIndex: number = 0;
 
     ngOnInit() {
         this.types = [];
@@ -24,6 +29,11 @@ export class SelectButtonComponent {
     onChange(e:any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The selected options are '+e.value});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 
 }
