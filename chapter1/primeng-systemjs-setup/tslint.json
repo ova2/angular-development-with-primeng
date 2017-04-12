@@ -18,13 +18,17 @@
     "no-string-literal": false,
     "interface-name": false,
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
-    "no-console": [true, "error", "debug", "info", "trace"],
     "trailing-comma": [false],
     "object-literal-sort-keys": false,
     "no-trailing-whitespace": false,
     "only-arrow-functions": false,
     "no-namespace": false,
     "ordered-imports": false,
-    "comment-format": false
+    "comment-format": false,
+    "arrow-parens": false,
+    "no-console": false,
+    "no-angle-bracket-type-assertion": false,
+    "import-spacing": false,
+    "prefer-const": false
   }
 }
