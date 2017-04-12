@@ -70,8 +70,8 @@ module.exports = {
             }
         }),
         new ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-            __dirname
+            /angular(\\|\/)core(\\|\/)@angular/,
+            path.resolve(__dirname, '../src')
         )
     ],
     devServer: {
