@@ -88,14 +88,20 @@ export class StepsComponent implements AfterContentInit, OnChanges {
             }
         }
     }
-    
+
     private previous() {
         this.activeIndex--;
         // emit currently selected index (two-way binding)
         this.activeIndexChange.emit(this.activeIndex);
         // show / hide steps and emit selected label
-        this.ngOnChanges({activeIndex:
-            {currentValue: this.activeIndex, previousValue: this.activeIndex + 1, isFirstChange: () => false}});
+        this.ngOnChanges({
+            activeIndex: {
+                currentValue: this.activeIndex,
+                previousValue: this.activeIndex + 1,
+                firstChange: false,
+                isFirstChange: () => false
+            }
+        });
     }
 
     private next() {
@@ -103,7 +109,13 @@ export class StepsComponent implements AfterContentInit, OnChanges {
         // emit currently selected index (two-way binding)
         this.activeIndexChange.emit(this.activeIndex);
         // show / hide steps and emit selected label
-        this.ngOnChanges({activeIndex:
-            {currentValue: this.activeIndex, previousValue: this.activeIndex - 1, isFirstChange: () => false}});
+        this.ngOnChanges({
+            activeIndex: {
+                currentValue: this.activeIndex,
+                previousValue: this.activeIndex - 1,
+                firstChange: false,
+                isFirstChange: () => false
+            }
+        });
     }
 }
