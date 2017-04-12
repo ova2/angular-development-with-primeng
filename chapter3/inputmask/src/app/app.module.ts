@@ -10,8 +10,8 @@ import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
-import {AppComponent}  from './app.component';
-import {InputMaskComponent}  from './section/inputmask.component';
+import {AppComponent} from './app.component';
+import {InputMaskComponent} from './section/inputmask.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
