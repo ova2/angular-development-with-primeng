@@ -10,16 +10,16 @@ export class LightboxComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    constructor() {
-    }
     ngOnInit() {
-
         this.images = [];
-        this.images.push({source:'assets/data/images/primefaces.png', thumbnail: 'assets/data/images/primefaces.png', title:'PrimeFaces'});
-        this.images.push({source:'assets/data/images/primeng.png', thumbnail: 'assets/data/images/primeng.png', title:'PrimeNG'});
-        this.images.push({source:'assets/data/images/primereact.png', thumbnail: 'assets/data/images/primereact.png', title:'PrimeReact'});
-        this.images.push({source:'assets/data/images/primeui.svg', thumbnail: 'assets/data/images/primeui.svg', title:'PrimeUI'});
-
+        this.images.push({source: '/assets/data/images/primefaces.png',
+            thumbnail: '/assets/data/images/primefaces.png', title: 'PrimeFaces'});
+        this.images.push({source: '/assets/data/images/primeng.png',
+            thumbnail: '/assets/data/images/primeng.png', title: 'PrimeNG'});
+        this.images.push({source: '/assets/data/images/primereact.png',
+            thumbnail: '/assets/data/images/primereact.png', title: 'PrimeReact'});
+        this.images.push({source: '/assets/data/images/primeui.svg',
+            thumbnail: '/assets/data/images/primeui.svg', title: 'PrimeUI'});
     }
 
     onChangeStep(label: string) {
