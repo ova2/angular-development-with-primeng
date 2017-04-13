@@ -1,51 +1,51 @@
 <form novalidate>
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-        <span *ngSwitchCase="0">
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <p>View PrimeNG Logo</p>
+            <p-overlayPanel #overlay>
+                <img src="showcase/resources/demo/images/galleria/galleria1.jpg" alt="PrimeNG Logo" />
+            </p-overlayPanel>
+            <button type="button" pButton label="Logo" (click)="overlay.toggle($event)"></button>
+        </pe-step>
+        <!-- Customization -->
+        <pe-step label="Customization">
+            <i class="fa fa-search" (mouseenter)="overlay.show($event)" ></i>
+            <p-overlayPanel #overlay [showCloseIcon]="true" [dismissable]="false">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
+            </p-overlayPanel>
 
-    <h3 class="first">Basic</h3>
-    <p>Click the button to show the panel.</p>
-    <button type="text" pButton label="Basic" (click)="op1.toggle($event)"></button>
+        </pe-step>
 
-    <p-overlayPanel #op1>
-        <img src="showcase/resources/demo/images/galleria/galleria1.jpg" alt="Galleria 1" />
-    </p-overlayPanel>
-        </span>
-        <span *ngSwitchCase="1">
+        <!-- DataTable Integration -->
+        <pe-step label="DataTable Integration">
+            <p-dataTable [value]="cars2">
+                <p-column [style]="&#123;'width':'10%','text-align':'center'&#125;" header="Logo">
+                    <ng-template let-car="rowData" pTemplate="body">
+                        <button type="button" pButton (click)="selectCar($event,car,op3);" icon="fa-search"></button>
+                    </ng-template>
+                </p-column>
+                <p-column field="vin" header="Vin"></p-column>
+                <p-column field="year" header="Year"></p-column>
+                <p-column field="brand" header="Brand"></p-column>
+                <p-column field="color" header="Color"></p-column>
+            </p-dataTable>
 
-    <h3>Customized</h3>
-    <p>This OverlayPanel gets displayed on hover of the icon, is not dismissable and displays a close icon.</p>
-    <i class="fa fa-search" (mouseenter)="op2.show($event)" style="font-size:24px"></i>
+            <p-overlayPanel #op3>
+                <img src="showcase/resources/demo/images/car/{{selectedCar.brand}}-big.gif" *ngIf="selectedCar"/>
+            </p-overlayPanel>
+        </pe-step>
 
-    <p-overlayPanel #op2 [showCloseIcon]="true" [dismissable]="false">
-        <p-dataTable [value]="cars1" [style]="{'width':'500px'}">
-            <p-column field="vin" header="Vin" [sortable]="true"></p-column>
-            <p-column field="year" header="Year" [sortable]="true"></p-column>
-            <p-column field="brand" header="Brand" [sortable]="true"></p-column>
-            <p-column field="color" header="Color" [sortable]="true"></p-column>
-        </p-dataTable>
-    </p-overlayPanel>
-        </span>
-        <span *ngSwitchCase="2">
-    <h3>DataTable Integration</h3>
-    <p-dataTable [value]="cars2">
-        <p-column [style]="{'width':'10%','text-align':'center'}" header="Logo">
-            <ng-template let-car="rowData" pTemplate="body">
-                <button type="button" pButton (click)="selectCar($event,car,op3);" icon="fa-search"></button>
-            </ng-template>
-        </p-column>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-    </p-dataTable>
+        <!-- Events -->
+        <pe-step label="Events">
+            <p-overlayPanel #overlay>
+                <img src="showcase/resources/demo/images/galleria/galleria1.jpg" alt="PrimeNG Logo" />
+            </p-overlayPanel>
+            <button type="button" pButton label="Logo" (click)="overlay.toggle($event)"></button>
+        </pe-step>
 
-    <p-overlayPanel #op3>
-        <img src="showcase/resources/demo/images/car/{{selectedCar.brand}}-big.gif" *ngIf="selectedCar"/>
-    </p-overlayPanel>
-        </span>
-    </div>
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

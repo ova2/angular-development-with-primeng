@@ -4,7 +4,8 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {DialogModule} from 'primeng/components/dialog/dialog';
+import {ConfirmDialogModule} from 'primeng/components/confirmdialog/confirmdialog';
+import {ConfirmationService} from 'primeng/components/common/api';
 import {ButtonModule} from 'primeng/components/button/button';
 import {GrowlModule} from 'primeng/components/growl/growl';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +14,7 @@ import {CommonModule} from '@angular/common';
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
-import {DialogComponent}  from './section/dialog.component';
+import {ConfirmDialogComponent}  from './section/confirmdialog.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -22,7 +23,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         BrowserAnimationsModule,
-        DialogModule,
+        ConfirmDialogModule,
         ButtonModule,
         CommonModule,
         WizardModule,
@@ -30,9 +31,9 @@ import {routes} from './app-routing.module';
     ],
     declarations: [
         AppComponent,
-        DialogComponent
+        ConfirmDialogComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'},ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

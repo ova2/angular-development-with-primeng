@@ -24,35 +24,7 @@ export class OverlaypanelComponent {
     }
 
     ngOnInit() {
-
         this.carService.getCarsSmall().then(cars => this.cars1 = cars);
         this.carService.getCarsSmall().then(cars => this.cars2 = cars);
-
-        this.items = [
-            {
-                label: 'Basic',
-                command: (event: any) => {
-                    this.activeIndex = 0;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic lightbox', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Custom',
-                command: (event: any) => {
-                    this.activeIndex = 1;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Custom  content', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Advanced',
-                command: (event: any) => {
-                    this.activeIndex = 2;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Advanced', detail: event.item.label});
-                }
-            }
-        ];
     }
 }

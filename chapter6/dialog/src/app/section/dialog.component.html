@@ -2,57 +2,68 @@
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
         <!-- Basic -->
         <pe-step label="Basic">
-            <p-dialog header="PrimeNG" [(visible)]="basic" >
-        <p>PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
-            All widgets are open source and free to use under MIT License.
-            PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components..</p>
+            <p-dialog header="PrimeNG" [(visible)]="basic">
+                <p>PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular
+                    JavaServer Faces Component Suite, PrimeFaces.
+                    All widgets are open source and free to use under MIT License.
+                    PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open
+                    source UI components..</p>
             </p-dialog>
-            <button type="text" (click)="showBasicDialog()" pButton icon="fa-external-link-square" label="Basic"></button>
+            <button type="button" (click)="showBasicDialog()" pButton icon="fa-external-link-square"
+                    label="Basic"></button>
         </pe-step>
         <!-- Custom Header -->
         <pe-step label="Custom Header">
-             <p-dialog header="PrimeNG" [(visible)]="custom" modal="modal" >
-        <p-header>
-            PrimeNG License declaration
-        </p-header>
-                 All widgets are open source and free to use under MIT License.If agree with the license please click 'Yes' otherwise click 'No'
-        <p-footer>
-            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-                <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
-                <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
-            </div>
-        </p-footer>
-    </p-dialog>
-            <button type="text" (click)="showCustomDialog()" pButton icon="fa-external-link-square" label="Custom"></button>
+            <p-dialog header="PrimeNG" [(visible)]="custom" modal="true">
+                <p-header>
+                    PrimeNG License declaration
+                </p-header>
+                All widgets are open source and free to use under MIT License.If agree with the license please click
+                'Yes' otherwise click 'No'
+                <p-footer>
+                    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                        <button type="button" pButton icon="fa-close" (click)="onComplete()" label="No"></button>
+                        <button type="button" pButton icon="fa-check" (click)="onComplete()" label="Yes"></button>
+                    </div>
+                </p-footer>
+            </p-dialog>
+            <button type="button" (click)="showCustomDialog()" pButton icon="fa-external-link-square"
+                    label="Custom"></button>
         </pe-step>
         <!-- Advanced features -->
         <pe-step label="Advanced">
-            <p-dialog header="PrimeNG" [(visible)]="advanced" modal="modal" minWidth="100" minHeight="100" width="200" height="150" responsive="true" closable="true" dismissableMask="true" rtl="true">
-        <p>TPrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
-            All widgets are open source and free to use under MIT License.
-            PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components.</p>
-        <p-footer>
-            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-                <button type="button" pButton icon="fa-close" (click)="display=false" label="No"></button>
-                <button type="button" pButton icon="fa-check" (click)="display=false" label="Yes"></button>
-            </div>
-        </p-footer>
-    </p-dialog>
-            <button type="text" (click)="showAdvancedDialog()" pButton icon="fa-external-link-square" label="Advanced"></button>
+            <p-dialog header="PrimeNG" [(visible)]="advanced" modal="true" minWidth="100" minHeight="100" width="500"
+                      height="300" responsive="true" closable="true" dismissableMask="true" rtl="true">
+                <p>TPrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular
+                    JavaServer Faces Component Suite, PrimeFaces.
+                    All widgets are open source and free to use under MIT License.
+                    PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open
+                    source UI components.</p>
+                <p-footer>
+                    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                        <button type="button" pButton icon="fa-close" (click)="onComplete()" label="No"></button>
+                        <button type="button" pButton icon="fa-check" (click)="onComplete()" label="Yes"></button>
+                    </div>
+                </p-footer>
+            </p-dialog>
+            <button type="button" (click)="showAdvancedDialog()" pButton icon="fa-external-link-square"
+                    label="Advanced"></button>
         </pe-step>
 
         <!-- Events -->
         <pe-step label="Events">
-            <p-dialog header="PrimeNG" [(visible)]="events" >
-                <p>PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular JavaServer Faces Component Suite, PrimeFaces.
+            <p-dialog name="events" header="PrimeNG" [(visible)]="events" (onShow)="showDialog()" (onHide)="hideDialog()">
+                <p>PrimeNG is a collection of rich UI components for Angular. PrimeNG is a sibling of the popular
+                    JavaServer Faces Component Suite, PrimeFaces.
                     All widgets are open source and free to use under MIT License.
-                    PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open source UI components..</p>
+                    PrimeNG is developed by PrimeTek Informatics, a company with years of expertise in developing open
+                    source UI components..</p>
             </p-dialog>
-            <button type="text" (click)="showBasicDialog()" pButton icon="fa-external-link-square" label="Basic"></button>
+            <button type="button" (click)="showEventsDialog()" pButton icon="fa-external-link-square"
+                    label="Events"></button>
         </pe-step>
 
     </pe-steps>
-
 
 
 </form>
