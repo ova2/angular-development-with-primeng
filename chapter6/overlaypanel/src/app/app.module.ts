@@ -8,6 +8,8 @@ import {OverlayPanelModule} from 'primeng/components/overlaypanel/overlaypanel';
 import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+
 import {AppComponent}  from './app.component';
 import {OverlaypanelComponent}  from './section/overlaypanel.component';
 import {routes} from './app-routing.module';
@@ -19,7 +21,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         OverlayPanelModule,
         RadioButtonModule,
-        StepsModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

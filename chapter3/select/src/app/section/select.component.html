@@ -15,12 +15,12 @@
         <span *ngSwitchCase="2">
              <h3>Content with Filters</h3>
     <p-dropdown name="customizedselect" [options]="countrycodes" [(ngModel)]="selectedCountry" styleClass="dropdown-width" filter="filter">
-        <template let-country pTemplate="item">
+        <ng-template let-country pTemplate="item">
             <div class="ui-helper-clearfix" class="template-border">
                     <img src="/assets/data/images/country/{{country.label.toLowerCase()}}.png" class="country-image"/>
                     <span class="country-text">{{country.label}}</span>
             </div>
-        </template>
+        </ng-template>
     </p-dropdown>
             </span>
         <span *ngSwitchCase="3">

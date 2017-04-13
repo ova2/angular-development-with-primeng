@@ -26,6 +26,9 @@
     "ordered-imports": false,
     "comment-format": false,
     "arrow-parens": false,
-    "no-console": false
+    "no-console": false,
+    "no-angle-bracket-type-assertion": false,
+    "import-spacing": false,
+    "prefer-const": false
   }
 }

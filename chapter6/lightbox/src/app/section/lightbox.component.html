@@ -1,20 +1,27 @@
 <form novalidate>
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-        <span *ngSwitchCase="0">
-    <h3>Basic</h3>
-    <p-lightbox [images]="images"></p-lightbox>
-        </span>
-        <span *ngSwitchCase="1">
-    <h3>Content</h3>
-    <p-lightbox type="content">
-        <a class="group" href="#">
-            Watch Video
-        </a>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allowfullscreen></iframe>
-    </p-lightbox>
-        </span>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Images -->
+        <pe-step label="Images">
+            <p-lightbox [images]="images" name="image"></p-lightbox>
+        </pe-step>
+
+        <!-- Content Type -->
+        <pe-step label="Content Type">
+            <p-lightbox type="content" name="content">
+                <a class="group" href="#">
+                    Watch PrimeNG Video
+                </a>
+                <iframe width="500" height="300" src="https://www.youtube.com/watch?v=Jf9nQ36e0Fw&t=754s" frameborder="0" allowfullscreen></iframe>
+            </p-lightbox>
+        </pe-step>
+
+        <!-- Effects -->
+        <pe-step label="Effects">
+            <p-lightbox [images]="images" name="effects" easing="ease-out" effectDuration="1000ms"></p-lightbox>
+        </pe-step>
+
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

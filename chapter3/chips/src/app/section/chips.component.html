@@ -9,9 +9,9 @@
         <span *ngSwitchCase="1">
             <h3>Customized display</h3>
     <p-chips [(ngModel)]="complexcontacts" name="template" placeholder="Enter contacts">
-        <template let-item pTemplate="item">
+        <ng-template let-item pTemplate="item">
             <i class="fa fa-address-card"></i>-{{item}}
-        </template>
+        </ng-template>
     </p-chips>
             </span>
         <span *ngSwitchCase="2">

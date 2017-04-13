@@ -1,14 +1,38 @@
 <form novalidate>
-    <p-messages [value]="msgs"></p-messages>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <p-messages [value]="messages" name="basic"></p-messages>
+            <button type="button" pButton (click)="showMessage()" label="ClickMe"></button>
+        </pe-step>
 
-    <div>
-        <button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"></button>
-        <button type="button" pButton (click)="showInfo()" label="Info" class="ui-button-info"></button>
-        <button type="button" pButton (click)="showWarn()" label="Warn" class="ui-button-warning"></button>
-        <button type="button" pButton (click)="showError()" label="Error" class="ui-button-danger"></button>
-        <button type="button" pButton (click)="showMultiple()" label="Multiple"></button>
-        <button type="button" pButton (click)="clear()" icon="fa-close" style="float:right" label="Clear"></button>
-    </div>
+        <!-- Severity -->
+        <pe-step label="Severity" [styleClass]="">
+            <div [ngClass]="'center-align'">
+                <p-messages [value]="messages" name="severity"></p-messages>
+                <button type="button" pButton (click)="showSuccess()" label="Success" class="ui-button-success"></button><br/><br/>
+                <button type="button" pButton (click)="showInfo()" label="Info" class="ui-button-info"></button><br/><br/>
+                <button type="button" pButton (click)="showWarn()" label="Warn" class="ui-button-warning"></button><br/><br/>
+                <button type="button" pButton (click)="showError()" label="Error" class="ui-button-danger"></button><br/><br/>
+
+            </div>
+        </pe-step>
+
+        <!-- Multiple -->
+        <pe-step label="Multiple">
+            <p-messages [value]="messages" name="multiple"></p-messages>
+            <button type="button" pButton (click)="showMultiple()" label="Multiple"></button><br/><br/>
+            <button type="button" pButton (click)="clearMessages()" icon="fa-close"  label="Clear"></button>
+        </pe-step>
+
+        <!-- Unclosable Messages -->
+        <pe-step label="Unclosable Messages">
+            <p-messages [value]="messages" name="unclosable" [closable]="false"></p-messages>
+            <button type="button" pButton (click)="showMessage()" label="ClickMe" ></button>
+        </pe-step>
+
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

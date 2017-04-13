@@ -11,8 +11,8 @@ export class DialogComponent {
     advanced: boolean = false;
 
     msgs: Message[] = [];
-    private items: MenuItem[];
     activeIndex: number = 0;
+    private items: MenuItem[];
 
     showBasicDialog() {
         this.basic = true;
@@ -20,7 +20,7 @@ export class DialogComponent {
         this.advanced = false;
     }
 
-    showCustomDialog() {
+    showCustomDialog() {^^>
         this.basic = false;
         this.custom = true;
         this.advanced = false;
@@ -32,32 +32,12 @@ export class DialogComponent {
         this.advanced = true;
     }
 
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
+
     ngOnInit() {
-        this.items = [
-            {
-                label: 'Basic',
-                command: (event: any) => {
-                    this.activeIndex = 0;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic dialog', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Custom',
-                command: (event: any) => {
-                    this.activeIndex = 1;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Custom', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Advanced',
-                command: (event: any) => {
-                    this.activeIndex = 2;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Advanced', detail: event.item.label});
-                }
-            }
-        ];
+
     }
 }

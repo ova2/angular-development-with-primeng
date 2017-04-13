@@ -41,12 +41,12 @@
         <p-autoComplete [(ngModel)]="customCountry" name="template" [suggestions]="filteredCustomCountries"
                         field="name" (completeMethod)="filterCustomCountries($event)" [size]="30"
                         [minLength]="1" placeholder="Start your search">
-            <template let-country pTemplate="item">
+            <ng-template let-country pTemplate="item">
                 <div class="ui-helper-clearfix" class="template-border">
                     <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" class="country-image"/>
                     <div class="country-text">{{country.name}}</div>
                 </div>
-            </template>
+            </ng-template>
         </p-autoComplete>
     </span>
 

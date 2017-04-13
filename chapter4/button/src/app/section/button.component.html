@@ -2,34 +2,34 @@
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
         <!-- Basic -->
         <pe-step label="Basic">
-            <button name="basic" pButton type="text" label="ClickMe"></button>
+            <button name="basic" pButton type="button" label="ClickMe"></button>
          </pe-step>
 
         <!-- Enhanced buttons with Icons -->
         <pe-step label="Enhanced buttons with Icons">
-            <button pButton type="text" icon="fa-close"></button>
-            <button pButton type="text" icon="fa-check" label="Yes"></button>
-            <button pButton type="text" icon="fa-check" iconPos="right" label="Yes"></button>
+            <button pButton type="button" icon="fa-close"></button>
+            <button pButton type="button" icon="fa-check" label="Yes"></button>
+            <button pButton type="button" icon="fa-check" iconPos="right" label="Yes"></button>
         </pe-step>
 
         <!-- Button severity with classes -->
         <pe-step label="Button severity with classes">
-            <button pButton type="text" label="Primary"></button>
-            <button pButton type="text" label="Secondary" class="ui-button-secondary"></button>
-            <button pButton type="text" label="Success" class="ui-button-success"></button>
-            <button pButton type="text" label="Info" class="ui-button-info"></button>
-            <button pButton type="text" label="Warning" class="ui-button-warning"></button>
-            <button pButton type="text" label="Danger" class="ui-button-danger"></button>
+            <button pButton type="button" label="Primary"></button>
+            <button pButton type="button" label="Secondary" class="ui-button-secondary"></button>
+            <button pButton type="button" label="Success" class="ui-button-success"></button>
+            <button pButton type="button" label="Info" class="ui-button-info"></button>
+            <button pButton type="button" label="Warning" class="ui-button-warning"></button>
+            <button pButton type="button" label="Danger" class="ui-button-danger"></button>
         </pe-step>
 
         <!-- Events -->
         <pe-step label="Events:click">
-            <button pButton type="text" (click)="clickMe()" label="Notify"></button>
+            <button pButton type="button" (click)="clickMe()" label="Notify"></button>
         </pe-step>
 
         <!-- Disable Button -->
         <pe-step label="Disabled">
-            <button pButton type="text" [disabled]="true" label="Disabled"></button>
+            <button pButton type="button" [disabled]="true" label="Disabled"></button>
         </pe-step>
     </pe-steps>
 </form>

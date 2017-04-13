@@ -6,7 +6,8 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {LightboxModule} from 'primeng/components/lightbox/lightbox';
 import {GrowlModule} from 'primeng/components/growl/growl';
-import {StepsModule} from 'primeng/components/steps/steps';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {LightboxComponent}  from './section/lightbox.component';
@@ -18,12 +19,12 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         LightboxModule,
-        StepsModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [
         AppComponent,
-        InputMaskComponent
+        LightboxComponent
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
