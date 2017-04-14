@@ -1,0 +1,12 @@
+{
+    "data": [
+        {"name": "Chamila", "java": 88, "scala": 76, "play": 97, "marks": 261, "percentage":87},
+        {"name": "Alex", "java": 87, "scala": 93, "play": 84, "marks": 264, "percentage":88},
+        {"name": "Raghu", "java": 88, "scala": 83, "play": 85, "marks": 256, "percentage":85},
+        {"name": "Kelum", "java": 92, "scala": 74, "play": 92, "marks": 258, "percentage":86},
+        {"name": "Darth", "java": 83, "scala": 96, "play": 84, "marks": 263, "percentage":87},
+        {"name": "Oleg", "java": 90, "scala": 80, "play": 94, "marks": 264, "percentage":88},
+        {"name": "Sudheer", "java": 88, "scala": 87, "play": 82, "marks": 257, "percentage":85}
+        
+    ]
+}

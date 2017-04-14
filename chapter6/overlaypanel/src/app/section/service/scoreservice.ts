@@ -10,8 +10,8 @@ export class ScoreService {
     constructor(private http: Http) {
     }
 
-    getCountries(): Observable<Score[]> {
+    getScores(): Observable<Score[]> {
         return this.http.get('/assets/data/scores.json')
-            .map(response => response.json().data as Country[]);
+            .map(response => response.json().data as Score[]);
     }
 }

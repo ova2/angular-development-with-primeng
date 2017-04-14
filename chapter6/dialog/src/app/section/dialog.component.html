@@ -14,12 +14,12 @@
         </pe-step>
         <!-- Custom Header -->
         <pe-step label="Custom Header">
-            <p-dialog header="PrimeNG" [(visible)]="custom" modal="true">
+            <p-dialog [(visible)]="custom" modal="true">
                 <p-header>
                     PrimeNG License declaration
                 </p-header>
-                All widgets are open source and free to use under MIT License.If agree with the license please click
-                'Yes' otherwise click 'No'
+                All widgets are open source and free to use under MIT License.
+                If agree with the license please click 'Yes' otherwise click 'No'
                 <p-footer>
                     <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
                         <button type="button" pButton icon="fa-close" (click)="onComplete()" label="No"></button>

@@ -1,30 +1,56 @@
 import {Component} from '@angular/core';
-import {Message,MenuItem} from 'primeng/components/common/api';
+import {Message} from 'primeng/components/common/api';
+import {OverlayPanel} from 'primeng/components/overlaypanel/overlaypanel';
+import {ScoreService} from './service/scoreservice';
+import Score from './service/score';
 
 @Component({
     selector: 'section',
     templateUrl: 'overlaypanel.component.html'
 })
-export class OverlaypanelComponent {
-    cars1: Car[];
+export class OverlayPanelComponent {
+    scores: Score[];
 
-    cars2: Car[];
+    marks: string;
+    percentage: string;
 
-    selectedCar: Car;
-
-    constructor(private carService: CarService) { }
+    constructor(private scoreService: ScoreService) { }
 
     msgs: Message[] = [];
-    private items: MenuItem[];
     activeIndex: number = 0;
 
-    selectCar(event,car: Car, overlaypanel: OverlayPanel) {
-        this.selectedCar = car;
+    selectScore(event:any,score: Score, overlaypanel: OverlayPanel) {
+        this.marks = score.marks;
+        this.percentage = score.percentage
         overlaypanel.toggle(event);
     }
 
     ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars1 = cars);
-        this.carService.getCarsSmall().then(cars => this.cars2 = cars);
+        this.scoreService.getScores().subscribe((scores:Score[]) => this.scores = scores);
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
+
+    onBeforeShow(){
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'Show dialog', detail:'Before shown'});
+    }
+
+    onAfterShow(){
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'Show dialog', detail:'After shown'});
+    }
+
+    onBeforeHide(){
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail:'Before hide'});
+    }
+
+    onAfterHide(){
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail:'After hide'});
     }
 }

@@ -2,22 +2,20 @@
 
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
         <!-- Basic -->
-        <pe-step label="Basic">
-            <p-confirmDialog></p-confirmDialog>
-
+        <pe-step label="Basic">-->
+            <p-confirmDialog style="z-index:1003"></p-confirmDialog>
                 <button type="button" (click)="confirmAccept()" pButton icon="fa-check" label="Confirm"></button>
                 <button type="button" (click)="confirmDelete()" pButton icon="fa-trash" label="Delete"></button>
         </pe-step>
         <!-- Customization -->
         <pe-step label="Customization">
-            <p-confirmDialog header="Confirmation" message="Do you like to use DataTable component"  icon="fa fa-question-circle" width="400" height="200" #confirmation>
+            <p-confirmDialog header="Confirmation" message="Do you like to use DataTable component"  icon="fa fa-heart" width="600" height="200" #confirmation>
                 <p-footer>
                     <button type="button" pButton icon="fa-close" label="No" (click)="confirmation.reject()"></button>
                     <button type="button" pButton icon="fa-check" label="Yes" (click)="confirmation.accept()"></button>
                 </p-footer>
             </p-confirmDialog>
-            <button type="button" (click)="confirmAccept()" pButton icon="fa-check" label="Confirm"></button>
-            <button type="button" (click)="confirmDelete()" pButton icon="fa-trash" label="Delete"></button>
+            <button type="button" (click)="confirmCusotmAccept()" pButton icon="fa-check" label="Confirm"></button>
         </pe-step>
 
     </pe-steps>

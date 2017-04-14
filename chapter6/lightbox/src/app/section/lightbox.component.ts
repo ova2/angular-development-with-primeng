@@ -18,8 +18,8 @@ export class LightboxComponent {
             thumbnail: '/assets/data/images/primeng.png', title: 'PrimeNG'});
         this.images.push({source: '/assets/data/images/primereact.png',
             thumbnail: '/assets/data/images/primereact.png', title: 'PrimeReact'});
-        this.images.push({source: '/assets/data/images/primeui.svg',
-            thumbnail: '/assets/data/images/primeui.svg', title: 'PrimeUI'});
+        this.images.push({source: '/assets/data/images/primeui.png',
+            thumbnail: '/assets/data/images/primeui.png', title: 'PrimeUI'});
     }
 
     onChangeStep(label: string) {

@@ -15,8 +15,8 @@ export class ConfirmDialogComponent {
 
     confirmAccept() {
         this.confirmationService.confirm({
-            message: 'Do you want to subscribe AngularNews?',
-            header: 'Subscribe Confirmation',
+            message: 'Do you want to subscribe for Angular news feeds?',
+            header: 'Subscribe',
             icon: 'fa fa-question-circle',
             accept: () => {
                 this.msgs = [];
@@ -28,7 +28,7 @@ export class ConfirmDialogComponent {
     confirmDelete() {
         this.confirmationService.confirm({
             message: 'Do you want to delete AngularNews account?',
-            header: 'Delete Confirmation',
+            header: 'UnSubscribe',
             icon: 'fa fa-trash',
             accept: () => {
                 this.msgs = [];
@@ -37,6 +37,15 @@ export class ConfirmDialogComponent {
         });
     }
 
+    confirmCusotmAccept() {
+        this.confirmationService.confirm({
+            message: 'Do you like to use DataTable component?',
+            accept: () => {
+                this.msgs = [];
+                this.msgs.push({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+            }
+        });
+    }
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
