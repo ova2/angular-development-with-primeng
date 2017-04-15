@@ -1,0 +1,8 @@
+<form [formGroup]="userform" (ngSubmit)="onSubmit()" novalidate>
+    <p-panel header="Custom theme">
+        <label for="username">Username:</label>
+        <input id="username" pInputText formControlName="username" type="text"/>
+
+        <button type="submit" pButton label="Confirm"></button>
+    </p-panel>
+</form>
