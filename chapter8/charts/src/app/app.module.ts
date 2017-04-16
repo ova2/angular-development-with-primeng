@@ -4,11 +4,13 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {ChartModule} from 'primeng/components/charts/charts';
+import {ChartModule} from 'primeng/components/chart/chart';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+
 import {AppComponent}  from './app.component';
-import {ChartsComponent}  from './section/charts.component';
+import {ChartComponent}  from './section/charts.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -16,13 +18,13 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
-        InputMaskModule,
-        RadioButtonModule,
+        ChartModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [
         AppComponent,
-        InputMaskComponent
+        ChartComponent
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]

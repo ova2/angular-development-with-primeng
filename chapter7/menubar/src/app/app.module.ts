@@ -7,6 +7,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import {MenubarModule} from 'primeng/components/menubar/menubar';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+
 import {AppComponent}  from './app.component';
 import {MenuBarComponent}  from './section/menubar.component';
 import {routes} from './app-routing.module';
@@ -17,6 +19,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         MenubarModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

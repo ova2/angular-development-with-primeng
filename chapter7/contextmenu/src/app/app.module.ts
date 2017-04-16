@@ -7,6 +7,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import {ContextMenuModule} from 'primeng/components/contextmenu/contextmenu';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+
 import {AppComponent}  from './app.component';
 import {ContextMenuComponent}  from './section/contextmenu.component';
 import {routes} from './app-routing.module';
@@ -17,7 +19,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         ContextMenuModule,
-        RadioButtonModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

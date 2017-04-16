@@ -1,10 +1,10 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {ChartsComponent} from './section/charts.component';
+import {ChartComponent} from './section/charts.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'chapter8/charts', pathMatch: 'full'},
-    {path: 'chapter8/charts', component: ChartsComponent},
+    {path: 'chapter8/charts', component: ChartComponent},
     {path: '**', redirectTo: 'chapter8/charts'}
 ];
 

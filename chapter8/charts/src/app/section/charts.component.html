@@ -1,5 +1,47 @@
 <form novalidate>
-    <p-chart type="pie" [data]="data"></p-chart>
+
+
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+        <!-- Pie chart -->
+        <pe-step label="Pie chart" >
+            <p-chart type="pie" [data]="piedata" width="300" height="100"></p-chart>
+        </pe-step>
+        <!-- Bar chart -->
+        <pe-step label="Bar chart">
+            <p-chart type="bar" [data]="bardata" width="300" height="100"></p-chart>
+        </pe-step>
+        <!-- Line Chart -->
+        <pe-step label="Line Chart">
+            <p-chart type="line" [data]="linedata" width="300" height="100"></p-chart>
+        </pe-step>
+
+        <!-- Doughnut Chart -->
+        <pe-step label="Doughnut Chart">
+            <p-chart type="doughnut" [data]="doughnutdata" width="300" height="100"></p-chart>
+        </pe-step>
+
+        <!-- Polar Chart -->
+        <pe-step label="Polar Chart">
+            <p-chart type="polarArea" [data]="polardata" width="300" height="100"></p-chart>
+        </pe-step>
+
+        <!-- Radar Chart -->
+        <pe-step label="Radar Chart">
+            <p-chart type="radar" [data]="radardata" width="300" height="100"></p-chart>
+        </pe-step>
+
+        <!-- Customization-->
+        <pe-step label="Customization" >
+            <p-chart type="bar" [data]="bardata" [options]="options" width="300" height="100"></p-chart>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <p-chart type="radar" [data]="radardata" (onDataSelect)="selectData($event)" width="300" height="100"></p-chart>
+        </pe-step>
+
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

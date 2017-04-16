@@ -5,8 +5,12 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {GMapModule} from 'primeng/components/gmap/gmap';
-import {RadioButtonModule} from 'primeng/components/radiobutton/radiobutton';
 import {GrowlModule} from 'primeng/components/growl/growl';
+import {DialogModule} from 'primeng/components/dialog/dialog';
+import {CheckboxModule} from 'primeng/components/checkbox/checkbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {GMapComponent}  from './section/gmap.component';
@@ -17,8 +21,11 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
-        InputMaskModule,
-        RadioButtonModule,
+        GMapModule,
+        WizardModule,
+        DialogModule,
+        CheckboxModule,
+        BrowserAnimationsModule,
         GrowlModule
     ],
     declarations: [

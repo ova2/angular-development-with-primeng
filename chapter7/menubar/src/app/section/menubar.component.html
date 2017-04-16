@@ -1,5 +1,11 @@
 <form novalidate>
-    ccid
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+        <!-- Menubar -->
+        <pe-step label="Menubar" >
+            <p-menubar [model]="items"></p-menubar>
+        </pe-step>
+
+    </pe-steps>
 </form>
 
 <p-growl [value]="msgs"></p-growl>
