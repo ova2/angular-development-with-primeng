@@ -1,0 +1,98 @@
+<h3>Basic principles (column wrapping)</h3>
+<div class="ui-g">
+    <div class="ui-g-2">2</div>
+    <div class="ui-g-4">4</div>
+    <div class="ui-g-6">6</div>
+    <div class="ui-g-8">8</div>
+    <div class="ui-g-4">4</div>
+</div>
+
+<br/><br/>
+
+<h3>Basic principles (two rows)</h3>
+<div class="ui-g">
+    <div class="ui-g-2">2</div>
+    <div class="ui-g-4">4</div>
+    <div class="ui-g-6">6</div>
+</div>
+<div class="ui-g">
+    <div class="ui-g-8">8</div>
+    <div class="ui-g-4">4</div>
+</div>
+
+<br/><br/>
+
+<h3>Nested columns (simple)</h3>
+<div class="ui-g">
+    <div class="ui-g-8 ui-g-nopad">
+        <div class="ui-g-6">6</div>
+        <div class="ui-g-6">6</div>
+        <div class="ui-g-12">12</div>
+    </div>
+    <div class="ui-g-4">4</div>
+</div>
+
+<br/><br/>
+
+<h3>Nested columns (long content)</h3>
+<div class="ui-g">
+    <div class="ui-g ui-g-8 ui-g-nopad">
+        <div class="ui-g-6">6<br/>6<br/>6<br/>6<br/>6<br/>6<br/></div>
+        <div class="ui-g-6">6</div>
+        <div class="ui-g-12">12</div>
+    </div>
+    <div class="ui-g-4">4</div>
+</div>
+
+<br/><br/>
+
+<h3>Responsive layout</h3>
+<div class="ui-g">
+    <div class="ui-g-12 ui-md-6 ui-lg-2">ui-g-12 ui-md-6 ui-lg-2</div>
+    <div class="ui-g-12 ui-md-6 ui-lg-2">ui-g-12 ui-md-6 ui-lg-2</div>
+    <div class="ui-g-12 ui-md-4 ui-lg-8">ui-g-12 ui-md-4 ui-lg-8</div>
+</div>
+
+<br/><br/>
+
+<h3>Responsive fluid layout with components</h3>
+<div class="ui-fluid ui-corner-all">
+    <div class="ui-g">
+        <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
+            <div class="ui-g-12 ui-md-3 ui-label">
+                Username
+            </div>
+            <div class="ui-g-12 ui-md-9">
+                <input pInputText type="text"/>
+            </div>
+        </div>
+        <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
+            <div class="ui-g-12 ui-md-3 ui-label">
+                Comment
+            </div>
+            <div class="ui-g-12 ui-md-9">
+                <textarea pInputTextarea type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
+            <div class="ui-g-12 ui-md-3 ui-label">
+                Flight day
+            </div>
+            <div class="ui-g-12 ui-md-9">
+                <p-calendar [(ngModel)]="date" [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+        <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
+            <div class="ui-g-12 ui-md-3 ui-label">
+                Destination
+            </div>
+            <div class="ui-g-12 ui-md-9">
+                <p-listbox [options]="cities" [(ngModel)]="selectedCity"></p-listbox>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br/><br/>

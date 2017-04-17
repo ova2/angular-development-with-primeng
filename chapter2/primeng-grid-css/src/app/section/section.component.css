@@ -1,0 +1,27 @@
+.ui-g div {
+    background-color: #ededed;
+    text-align: center;
+    border: 1px solid #fafafa;
+}
+
+.ui-fluid {
+    border: 1px solid #b6b6b6;
+    padding: 10px;
+}
+
+.ui-fluid .ui-g div {
+    background-color: white;
+    text-align: left;
+    border: none;
+}
+
+.ui-fluid .ui-g .ui-label {
+    text-align: right;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 640px) {
+    .ui-fluid .ui-g .ui-label {
+        text-align: left;
+    }
+}
