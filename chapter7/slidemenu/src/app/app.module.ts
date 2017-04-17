@@ -19,6 +19,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         SlideMenuModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

@@ -9,6 +9,7 @@ import {MenuItem} from 'primeng/components/common/api';
 export class SlideMenuComponent {
     private items: MenuItem[];
     activeIndex: number = 0;
+    msgs: Message[] = [];
 
     ngOnInit() {
         this.items = [
