@@ -1,0 +1,16 @@
+.metadata
+.settings
+.classpath
+.project
+.idea
+.vscode
+*.iml
+*.log
+target
+node_modules
+typings
+dist
+aot
+**/*.js.map
+src/app/**/*.js
+src/assets/themes/crazy/*.css

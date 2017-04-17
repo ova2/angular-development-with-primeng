@@ -1,0 +1,36 @@
+@import 'variables';
+// the path is found thanks to "node-sass --include-path node_modules/ ..."
+@import "primeng/resources/themes/theme";
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('fonts/Quicksand-Regular.eot');
+  src: local('☺'),
+  url('fonts/Quicksand-Regular.woff') format('woff'),
+  url('fonts/Quicksand-Regular.ttf') format('truetype'),
+  url('fonts/Quicksand-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ui-widget-header {
+  background: linear-gradient(to bottom, #fffcfc 0%, #f0a9df 100%);
+}
+
+/* Validation */
+.ui-inputtext.ng-dirty.ng-invalid,
+p-dropdown.ng-dirty.ng-invalid > .ui-dropdown,
+p-autocomplete.ng-dirty.ng-invalid > .ui-autocomplete > .ui-inputtext,
+p-calendar.ng-dirty.ng-invalid > .ui-inputtext,
+p-chips.ng-dirty.ng-invalid > .ui-inputtext,
+p-inputmask.ng-dirty.ng-invalid > .ui-inputtext,
+p-checkbox.ng-dirty.ng-invalid .ui-chkbox-box,
+p-radiobutton.ng-dirty.ng-invalid .ui-radiobutton-box,
+p-inputswitch.ng-dirty.ng-invalid .ui-inputswitch,
+p-listbox.ng-dirty.ng-invalid .ui-inputtext,
+p-multiselect.ng-dirty.ng-invalid > .ui-multiselect,
+p-spinner.ng-dirty.ng-invalid > .ui-inputtext,
+p-selectbutton.ng-dirty.ng-invalid .ui-button,
+p-togglebutton.ng-dirty.ng-invalid .ui-button {
+  border-color: $invalidInputBorderColor;
+}

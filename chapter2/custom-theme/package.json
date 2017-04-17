@@ -1,0 +1,53 @@
+{
+  "name": "primeng-systemjs-setup",
+  "version": "1.0.0",
+  "description": "Setup PrimeNG project with SystemJS",
+  "author": "Oleg Varaksin, Sudheer Jonna",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ova2/angular-development-with-primeng.git"
+  },
+  "dependencies": {
+    "@angular/animations": "~4.0.2",
+    "@angular/common": "~4.0.2",
+    "@angular/compiler": "~4.0.2",
+    "@angular/compiler-cli": "~4.0.2",
+    "@angular/core": "~4.0.2",
+    "@angular/forms": "~4.0.2",
+    "@angular/http": "~4.0.2",
+    "@angular/platform-browser": "~4.0.2",
+    "@angular/platform-browser-dynamic": "~4.0.2",
+    "@angular/platform-server": "~4.0.2",
+    "@angular/router": "~4.0.2",
+    "core-js": "~2.4.1",
+    "rxjs": "~5.3.0",
+    "zone.js": "~0.8.4",
+    "primeng": "4.0.0-rc.3",
+    "systemjs": "0.19.39"
+  },
+  "devDependencies": {
+    "@types/node": "~6.0.46",
+    "autoprefixer": "~6.7.7",
+    "cssnano": "~3.10.0",
+    "live-server": "~1.2.0",
+    "node-sass": "~4.5.0",
+    "postcss": "~5.2.17",
+    "postcss-cli": "~3.1.1",
+    "tslint": "~5.1.0",
+    "typescript": "~2.2.2"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "scripts": {
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "premakecss": "node-sass --include-path node_modules/ src/assets/themes/crazy/theme.scss -o src/assets/themes/crazy/",
+    "makecss": "postcss src/assets/themes/crazy/theme.css --use autoprefixer -d src/assets/themes/crazy/",
+    "prebuild:css": "npm run makecss",
+    "build:css": "postcss src/assets/themes/crazy/theme.css --use cssnano > src/assets/themes/crazy/theme.min.css",
+    "prestart": "npm run build:css",
+    "start": "live-server --entry-file=src/index.html"
+  }
+}
