@@ -16,6 +16,8 @@ npm install
 npm start
 ```
 
+![Screenshot](https://raw.githubusercontent.com/ova2/angular-development-with-primeng/master/chapter2/custom-theme/theme.png)
+
 ### Build the new theme for distribution
 
 ```sh
