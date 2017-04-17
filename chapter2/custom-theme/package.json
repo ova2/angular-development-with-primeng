@@ -43,7 +43,7 @@
   ],
   "scripts": {
     "lint": "tslint -c tslint.json src/**/*.ts",
-    "premakecss": "node-sass src/assets/themes/crazy/theme.scss -o src/assets/themes/crazy/",
+    "premakecss": "node-sass --include-path node_modules/ src/assets/themes/crazy/theme.scss -o src/assets/themes/crazy/",
     "makecss": "postcss src/assets/themes/crazy/theme.css --use autoprefixer -d src/assets/themes/crazy/",
     "prebuild:css": "npm run makecss",
     "build:css": "postcss src/assets/themes/crazy/theme.css --use cssnano > src/assets/themes/crazy/theme.min.css",

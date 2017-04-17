@@ -1,5 +1,6 @@
 @import 'variables';
-@import '../_theme';
+// the path is found thanks to "node-sass --include-path node_modules/ ..."
+@import "primeng/resources/themes/theme";
 
 @font-face {
   font-family: 'Quicksand';
