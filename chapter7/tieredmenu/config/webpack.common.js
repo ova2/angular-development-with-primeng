@@ -15,7 +15,8 @@ var CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
 // Common configuration for development and production
 module.exports = {
     output: {
-        path: path.join(ROOT, 'dist')
+        path: path.join(ROOT, 'dist'),
+        publicPath: '/'
     },
     context: path.join(ROOT, 'src'),
     // See https://medium.com/webpack/harnessing-the-power-of-webpack-2cd0e20ff1bf#.q9do1u54o
@@ -47,9 +48,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {from: 'assets/data', to: 'assets/data'}
-        ]),
+
         // move webpack runtime code to a separate manifest file in order to support long-term caching.
         // this will avoid hash recreation for other files when only application files are changed.
         new CommonsChunkPlugin({

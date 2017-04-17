@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {PanelMenuComponent} from './section/inputmask.component';
+import {PanelMenuComponent} from './section/panelmenu.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'chapter7/panelmenu', pathMatch: 'full'},

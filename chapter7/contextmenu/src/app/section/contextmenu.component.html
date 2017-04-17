@@ -1,9 +1,14 @@
-<form novalidate>
-    <p-contextMenu [global]="true" [model]="items1"></p-contextMenu>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+        <p-contextMenu [global]="true" [model]="documentitems"></p-contextMenu>
+        <!-- Basic -->
+        <pe-step label="Basic" >
 
-    <p-contextMenu [target]="img" [model]="items2" ></p-contextMenu>
-
-    <img #img src="/showcase/resources/images/primeng.svg" alt="Logo">
-</form>
+        </pe-step>
+        <!-- Customization -->
+        <pe-step label="Customization">
+            <p-contextMenu [target]="img" [model]="targetitems" ></p-contextMenu>
+            <img #img src="/assets/data/images/primeng.png" alt="Logo">
+        </pe-step>
+    </pe-steps>
 
 <p-growl [value]="msgs"></p-growl>

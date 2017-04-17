@@ -8,6 +8,8 @@ import {MenuItem} from 'primeng/components/common/api';
 })
 export class TieredMenuComponent {
     private items: MenuItem[];
+    activeIndex: number = 0;
+    msgs: Message[] = [];
 
     ngOnInit() {
         this.items = [
@@ -84,5 +86,10 @@ export class TieredMenuComponent {
                 label: 'Quit', icon: 'fa-minus'
             }
         ];
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

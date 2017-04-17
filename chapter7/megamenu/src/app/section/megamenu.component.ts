@@ -8,120 +8,127 @@ import {MenuItem} from 'primeng/components/common/api';
 })
 export class MegaMenuComponent {
     private items: MenuItem[];
+    activeIndex: number = 0;
+    msgs: Message[] = [];
 
     ngOnInit() {
         this.items = [
             {
-                label: 'TV', icon: 'fa-check',
+                label: 'HOME & FURNITURE', icon: 'fa-home',
                 items: [
                     [
                         {
-                            label: 'TV 1',
-                            items: [{label: 'TV 1.1'},{label: 'TV 1.2'}]
+                            label: 'Home Furnishing',
+                            items: [{label: 'Cushions'},{label: 'Throws'},{label: 'Rugs & Doormats'},{label: 'Curtains'}]
                         },
                         {
-                            label: 'TV 2',
-                            items: [{label: 'TV 2.1'},{label: 'TV 2.2'}]
+                            label: 'Home Accessories',
+                            items: [{label: 'Artificial Flowers'},{label: 'Lighting'},{label: 'Storage'},{label: 'Photo Frames'}]
                         }
                     ],
                     [
                         {
-                            label: 'TV 3',
-                            items: [{label: 'TV 3.1'},{label: 'TV 3.2'}]
+                            label: 'Cooking & Dinner',
+                            items: [{label: 'Cookware'},{label: 'Dinnerware'},{label: 'Bakerware'}]
                         },
                         {
-                            label: 'TV 4',
-                            items: [{label: 'TV 4.1'},{label: 'TV 4.2'}]
+                            label: 'Bed & Bath',
+                            items: [{label: 'Towels'},{label: 'Bath Mats'}]
                         }
                     ]
                 ]
             },
             {
-                label: 'Sports', icon: 'fa-soccer-ball-o',
+                label: 'Men', icon: 'fa-male',
                 items: [
                     [
                         {
-                            label: 'Sports 1',
-                            items: [{label: 'Sports 1.1'},{label: 'Sports 1.2'}]
+                            label: 'Clothing',
+                            items: [{label: 'Shirts'},{label: 'Trousers'},{label: 'Jeans'}]
                         },
                         {
-                            label: 'Sports 2',
-                            items: [{label: 'Sports 2.1'},{label: 'Sports 2.2'}]
+                            label: 'Shoes & Boots',
+                            items: [{label: 'Boots'},{label: 'Slippers'},{label: 'Casual Shoes'}]
                         },
 
                     ],
                     [
                         {
-                            label: 'Sports 3',
-                            items: [{label: 'Sports 3.1'},{label: 'Sports 3.2'}]
+                            label: 'Suits',
+                            items: [{label: 'Luxury suits'},{label: 'Summer suits'}]
                         },
                         {
-                            label: 'Sports 4',
-                            items: [{label: 'Sports 4.1'},{label: 'Sports 4.2'}]
+                            label: 'Accessories',
+                            items: [{label: 'Bags'},{label: 'Hats'},{label: 'Ties'}]
                         }
                     ],
                     [
                         {
-                            label: 'Sports 5',
-                            items: [{label: 'Sports 5.1'},{label: 'Sports 5.2'}]
+                            label: 'Collections',
+                            items: [{label: 'Gadgets'},{label: 'Holiday shop'}]
                         },
                         {
-                            label: 'Sports 6',
-                            items: [{label: 'Sports 6.1'},{label: 'Sports 6.2'}]
+                            label: 'Underware & pyjamas',
+                            items: [{label: 'Socks'},{label: 'Underware'}]
                         }
                     ]
                 ]
             },
             {
-                label: 'Entertainment', icon: 'fa-child',
+                label: 'Women', icon: 'fa-female',
                 items: [
                     [
                         {
-                            label: 'Entertainment 1',
-                            items: [{label: 'Entertainment 1.1'},{label: 'Entertainment 1.2'}]
+                            label: 'Clothing',
+                            items: [{label: 'Blazers'},{label: 'Shorts'},{label: 'Skirts'}]
                         },
                         {
-                            label: 'Entertainment 2',
-                            items: [{label: 'Entertainment 2.1'},{label: 'Entertainment 2.2'}]
+                            label: 'Footwear',
+                            items: [{label: 'Boots'},{label: 'Sandals'}]
+                        },
+                        {
+                            label: 'Bags',
+                            items: [{label: 'Hand bags'},{label: 'Hats'}]
                         }
                     ],
                     [
                         {
-                            label: 'Entertainment 3',
-                            items: [{label: 'Entertainment 3.1'},{label: 'Entertainment 3.2'}]
-                        },
-                        {
-                            label: 'Entertainment 4',
-                            items: [{label: 'Entertainment 4.1'},{label: 'Entertainment 4.2'}]
+                            label: 'Fit',
+                            items: [{label: 'Maternity'},{label: 'Fuller bust'}]
                         }
                     ]
                 ]
             },
             {
-                label: 'Technology', icon: 'fa-gears',
+                label: 'Kids', icon: 'fa-child',
                 items: [
                     [
                         {
-                            label: 'Technology 1',
-                            items: [{label: 'Technology 1.1'},{label: 'Technology 1.2'}]
+                            label: 'Boys',
+                            items: [{label: 'Coats'},{label: 'Shirts'}]
                         },
                         {
-                            label: 'Technology 2',
-                            items: [{label: 'Technology 2.1'},{label: 'Technology 2.2'}]
-                        },
-                        {
-                            label: 'Technology 3',
-                            items: [{label: 'Technology 3.1'},{label: 'Technology 3.2'}]
+                            label: 'Girls',
+                            items: [{label: 'Tops'},{label: 'Skirts'}]
                         }
                     ],
                     [
                         {
-                            label: 'Technology 4',
-                            items: [{label: 'Technology 4.1'},{label: 'Technology 4.2'}]
+                            label: 'Toys',
+                            items: [{label: 'Toys'},{label: 'Fancy Dress'}]
+                        },
+                        {
+                            label: 'Collections',
+                            items: [{label: 'Wedding'},{label: 'Holiday'}]
                         }
                     ]
                 ]
             }
         ];
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

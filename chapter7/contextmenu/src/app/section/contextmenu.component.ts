@@ -7,12 +7,13 @@ import {MenuItem} from 'primeng/components/common/api';
     templateUrl: 'contextmenu.component.html'
 })
 export class ContextMenuComponent {
-    private items: MenuItem[];
-
-    private items2: MenuItem[];
+    private documentitems: MenuItem[];
+    private targetitems: MenuItem[];
+    msgs: Message[] = [];
+    activeIndex: number = 0;
 
     ngOnInit() {
-        this.items = [
+        this.documentitems = [
             {
                 label: 'File',
                 icon: 'fa-file-o',
@@ -22,18 +23,55 @@ export class ContextMenuComponent {
                     items: [
                         {label: 'Project'},
                         {label: 'Other'},
-                    ]
+                    ],
+                    expanded: true
                 },
                     {label: 'Open'},
                     {label: 'Quit'}
-                ]
+                ],
             },
+
             {
                 label: 'Edit',
                 icon: 'fa-edit',
                 items: [
+                    {label: 'Cut', icon: 'fa-cut'},
+                    {label: 'Copy', icon: 'fa-copy'},
+                    {label: 'Paste', icon: 'fa-paste'},
                     {label: 'Undo', icon: 'fa-mail-forward'},
-                    {label: 'Redo', icon: 'fa-mail-reply'}
+                    {label: 'Redo', icon: 'fa-mail-reply'},
+                    {
+                        label: 'Find', icon: 'fa-search', items: [
+                        {label: 'Find Next'},
+                        {label: 'Find Previous'},
+                    ]
+                    }
+                ]
+            },
+            {
+                label: 'View',
+                icon: 'fa-question',
+                items: [
+                    {
+                        label: ''
+                    },
+                    {
+                        label: 'Tool windows',
+                        icon: 'fa-search',
+                        items: [
+                            {
+                                label: 'Project',
+                                items: [
+                                    {
+                                        label: 'Workspace'
+                                    }
+                                ]
+                            },
+                            {
+                                label: 'Run'
+                            }
+                        ]
+                    }
                 ]
             },
             {
@@ -58,36 +96,13 @@ export class ContextMenuComponent {
                             {
                                 label: 'File'
                             }
-                        ]}
-                ]
-            },
-            {
-                label: 'Actions',
-                icon: 'fa-gear',
-                items: [
-                    {
-                        label: 'Edit',
-                        icon: 'fa-refresh',
-                        items: [
-                            {label: 'Save', icon: 'fa-save'},
-                            {label: 'Update', icon: 'fa-save'},
-                        ]
-                    },
-                    {
-                        label: 'Other',
-                        icon: 'fa-phone',
-                        items: [
-                            {label: 'Delete', icon: 'fa-minus'}
                         ]
                     }
                 ]
-            },
-            {
-                label: 'Quit', icon: 'fa-minus'
             }
         ];
 
-        this.items2 = [
+        this.targetitems = [
             {
                 label: 'Next',
                 icon: 'fa-chevron-right'
@@ -97,5 +112,10 @@ export class ContextMenuComponent {
                 icon: 'fa-chevron-left'
             }
         ];
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

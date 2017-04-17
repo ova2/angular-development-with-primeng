@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {MegaMenuComponent} from './section/inputmask.component';
+import {MegaMenuComponent} from './section/megamenu.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'chapter7/megamenu', pathMatch: 'full'},

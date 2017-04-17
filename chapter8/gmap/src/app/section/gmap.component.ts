@@ -1,11 +1,13 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
 
+declare var google: any;
+
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'gmap.component.html'
 })
-export class InputMaskComponent {
+export class GMapComponent {
     options: any;
 
     overlays: any[];
@@ -20,11 +22,13 @@ export class InputMaskComponent {
 
     draggable: boolean;
 
+    activeIndex: number = 0;
+
     msgs: Message[] = [];
 
     ngOnInit() {
         this.options = {
-            center: {lat: 36.890257, lng: 30.707417},
+            center: {lat: 14.4426, lng: 79.9865},
             zoom: 12
         };
 
@@ -33,12 +37,12 @@ export class InputMaskComponent {
         this.infoWindow = new google.maps.InfoWindow();
     }
 
-    handleMapClick(event) {
+    handleMapClick(event:any) {
         this.dialogVisible = true;
         this.selectedPosition = event.latLng;
     }
 
-    handleOverlayClick(event) {
+    handleOverlayClick(event:any) {
         this.msgs = [];
         let isMarker = event.overlay.getTitle != undefined;
 
@@ -61,7 +65,7 @@ export class InputMaskComponent {
         this.dialogVisible = false;
     }
 
-    handleDragEnd(event) {
+    handleDragEnd(event:any) {
         this.msgs = [];
         this.msgs.push({severity:'info', summary:'Marker Dragged', detail: event.overlay.getTitle()});
     }
@@ -82,15 +86,21 @@ export class InputMaskComponent {
         }
     }
 
-    zoomIn(map) {
+    zoomIn(map:any) {
         map.setZoom(map.getZoom()+1);
     }
 
-    zoomOut(map) {
+    zoomOut(map:any) {
         map.setZoom(map.getZoom()-1);
     }
 
     clear() {
         this.overlays = [];
     }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
+
 }
