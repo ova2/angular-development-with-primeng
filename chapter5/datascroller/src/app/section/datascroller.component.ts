@@ -3,9 +3,9 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'inputmask.component.html'
+    templateUrl: 'datascroller.component.html'
 })
-export class InputMaskComponent {
+export class DataScrollerComponent {
     msgs: Message[] = [];
 
     simple: string;

@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {InputMaskComponent} from './section/inputmask.component';
+import {DataScrollerComponent} from './section/datascroller.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'section', pathMatch: 'full'},

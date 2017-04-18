@@ -1,61 +1,70 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-6">
-            <h3>Basic usage:</h3>
-            <label for="simple">Basic:</label>
-            <p-inputMask id="basic" mask="99-999999" name="simple"
-                         [(ngModel)]="simple" placeholder="99-999999">
-            </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Events:</h3>
-            <label for="simple">Event:</label>
-            <p-inputMask id="event" mask="99-999999" name="event" unmask="true"
-                         [(ngModel)]="event" placeholder="99-999999"
-                         (onComplete)="onComplete()">
-            </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Select mask format</h3>
-            <div>
-                <p-radioButton name="mask" value="Option1" label="Option 1" [(ngModel)]="format"></p-radioButton>
-                <p-radioButton name="mask" value="Option2" label="Option 2" [(ngModel)]="format"></p-radioButton>
-                <p-radioButton name="mask" value="Option3" label="Option 3" [(ngModel)]="format"></p-radioButton>
-            </div>
-            <br/>
-            <div>
-                <div id="phoneformat" *ngIf="format == 'Option1'">
-                    <span>Phone</span>
-                    <p-inputMask mask="(999) 999-9999" [(ngModel)]="phone" placeholder="(999) 999-9999"
-                                 name="phone"></p-inputMask>
-                </div>
-                <div id="dateformat" *ngIf="format == 'Option2'">
-                    <span>Date</span>
-                    <p-inputMask mask="99/99/9999" [(ngModel)]="date" placeholder="99/99/9999"
-                                 name="date"></p-inputMask>
-                </div>
-                <div id="serialformat" *ngIf="format == 'Option3'">
-                    <span>Serial Number</span>
-                    <p-inputMask mask="a*-999-a999" [(ngModel)]="serial" placeholder="a*-999-a999"
-                                 name="serial"></p-inputMask>
-                </div>
-            </div>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>SlotChar</h3>
-            <span>Date</span>
-            <p-inputMask mask="99/99/9999" [(ngModel)]="slot" placeholder="99/99/9999" slotChar="mm/dd/yyyy"
-                         name="slotchar"></p-inputMask>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+        <!-- Basic -->
+        <pe-step label="Basic" >
+            <p-dataList [value]="cars" [paginator]="true" [rows]="5">
+                <p-header>
+                    List of Cars
+                </p-header>
+                <ng-template let-car pTemplate="item">
+                    <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px;border-bottom:1px solid #D5D5D5;">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3" style="text-align:center"><i class="fa fa-search" (click)="selectCar(car)" style="cursor:pointer;float:left;margin-top:40px"></i><img src="showcase/resources/demo/images/car/{{car.brand}}-big.gif"></div>
+                            <div class="ui-grid-col-9">
+                                <div class="ui-grid ui-grid-responsive ui-fluid">
+                                    <div class="ui-grid-row">
+                                        <div class="ui-grid-col-2">Vin: </div>
+                                        <div class="ui-grid-col-10">{{car.vin}}</div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-grid-col-2">Year: </div>
+                                        <div class="ui-grid-col-10">{{car.year}}</div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-grid-col-2">Brand: </div>
+                                        <div class="ui-grid-col-10">{{car.brand}}</div>
+                                    </div>
+                                    <div class="ui-grid-row">
+                                        <div class="ui-grid-col-2">Color: </div>
+                                        <div class="ui-grid-col-10">{{car.color}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataList>
 
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Mask Optional</h3>
-            <span>Phone Ext</span>
-            <p-inputMask mask="(999) 999-9999? x99999" [(ngModel)]="optional" name="optionalmask"
-                         placeholder="(999) 999-9999? x99999"></p-inputMask>
+            <p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()">
+                <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="selectedCar" style="font-size:16px;text-align:center;padding:20px">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12" style="text-align:center"><img src="showcase/resources/demo/images/car/{{selectedCar.brand}}-big.gif"></div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Vin: </div>
+                        <div class="ui-grid-col-8">{{selectedCar.vin}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Year: </div>
+                        <div class="ui-grid-col-8">{{selectedCar.year}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Brand: </div>
+                        <div class="ui-grid-col-8">{{selectedCar.brand}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Color: </div>
+                        <div class="ui-grid-col-8">{{selectedCar.color}}</div>
+                    </div>
+                </div>
+            </p-dialog>
+        </pe-step>
+        <!-- Customization -->
+        <pe-step label="Customization">
+        </pe-step>
 
-        </div>
-    </div>
+
+    </pe-steps>
 </form>
 
 <p-growl [value]="msgs"></p-growl>
