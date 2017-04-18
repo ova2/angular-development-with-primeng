@@ -62,13 +62,13 @@ export class ChartComponent {
             datasets: [
                 {
                     label: 'PrimeNG',
-                    backgroundColor: '#66ff00',
+                    backgroundColor: '#66ffcc',
                     borderColor: '#6544a9',
                     data: [10, 15, 13, 27, 22, 34, 44, 48, 42, 64, 77, 89]
                 },
                 {
                     label: 'PrimeUI',
-                    backgroundColor: '#ffb870',
+                    backgroundColor: '#ffb8f0',
                     borderColor: '#cc4e0e',
                     data: [5, 14, 15, 22, 26, 24, 32, 42, 48, 62, 66, 72]
                 }
@@ -86,7 +86,7 @@ export class ChartComponent {
                 },
                 {
                     label: 'PrimeUI',
-                    backgroundColor: '#66ff00',
+                    backgroundColor: '#00ff00',
                     borderColor: '#6544a9',
                     data: [15, 11, 18, 28, 32, 32, 42, 52, 48, 62, 77, 84]
                 }
@@ -155,8 +155,8 @@ export class ChartComponent {
             legend: {
                 position: 'bottom'
             },
-            responsive: false,
-            maintainAspectRatio: false
+            //responsive: false,
+            //maintainAspectRatio: false
         };
     }
 

@@ -32,12 +32,12 @@
 
         <!-- Customization-->
         <pe-step label="Customization" >
-            <p-chart type="bar" [data]="bardata" [options]="options" width="300" height="100"></p-chart>
+            <p-chart type="line" [data]="linedata" [options]="options" width="300" height="100"></p-chart>
         </pe-step>
 
         <!-- Events -->
         <pe-step label="Events">
-            <p-chart type="radar" [data]="radardata" (onDataSelect)="selectData($event)" width="300" height="100"></p-chart>
+            <p-chart type="line" [data]="linedata" (onDataSelect)="selectData($event)" width="300" height="100"></p-chart>
         </pe-step>
 
     </pe-steps>
