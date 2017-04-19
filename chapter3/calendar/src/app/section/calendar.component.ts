@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message, MenuItem} from 'primeng/components/common/api';
+import {Message} from 'primeng/components/common/api';
 import {SelectItem} from 'primeng/components/common/api';
 
 @Component({
@@ -29,7 +29,6 @@ export class CalendarComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    private items: MenuItem[];
 
     onSelect() {
         this.msgs.push({severity: 'info', summary: 'The calendar date is selected'});
@@ -85,97 +84,10 @@ export class CalendarComponent {
         this.maxDate.setMonth(nextMonth);
         this.maxDate.setFullYear(nextYear);
 
-        this.items = [
-            {
-                label: 'Basic',
-                command: (event: any) => {
-                    this.activeIndex = 0;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Basic Calendar', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Inline',
-                command: (event: any) => {
-                    this.activeIndex = 1;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Inline Calendar', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Localization',
-                command: (event: any) => {
-                    this.activeIndex = 2;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Localization-German', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Icon',
-                command: (event: any) => {
-                    this.activeIndex = 3;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Calendar with Icon', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Navigator',
-                command: (event: any) => {
-                    this.activeIndex = 4;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Calendar with Navigator', detail: event.item.label});
-                }
-            },
-            {
-                label: 'MinMax',
-                command: (event: any) => {
-                    this.activeIndex = 5;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Calendar with MinMax', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Disable days&date',
-                command: (event: any) => {
-                    this.activeIndex = 6;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Calendar with Disable days & dates', detail: event.item.label});
-                }
-            },
-            {
-                label: 'ShowTime',
-                command: (event: any) => {
-                    this.activeIndex = 7;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Calendar ShowTime', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Events',
-                command: (event: any) => {
-                    this.activeIndex = 8;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Events:onSelect,onFocus,onBlur', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Readonly/Disable',
-                command: (event: any) => {
-                    this.activeIndex = 9;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Readonly/Disable', detail: event.item.label});
-                }
-            },
-            {
-                label: '(Advanced features)',
-                command: (event: any) => {
-                    this.activeIndex = 10;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity: 'info', summary: 'Advanced features', detail: event.item.label});
-                }
-            },
+    }
 
-        ];
-
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

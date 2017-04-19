@@ -7,8 +7,9 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {AutoCompleteModule} from 'primeng/components/autocomplete/autocomplete';
 import {GrowlModule} from 'primeng/components/growl/growl';
-import {StepsModule} from 'primeng/components/steps/steps';
 import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module'
 
 import {AppComponent}  from './app.component';
 import {CountryService} from './section/service/countryservice';
@@ -22,7 +23,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         HttpModule,
         AutoCompleteModule,
-        StepsModule,
+        WizardModule,
         SelectButtonModule,
         GrowlModule
     ],
