@@ -1,29 +1,36 @@
 <form novalidate>
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-        <span *ngSwitchCase="0">
-    <h3>Enter contacts</h3>
-    <p-chips [(ngModel)]="contactnames" name="basic" ></p-chips>
-            </span>
-        <span *ngSwitchCase="1">
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <h3>Enter contacts</h3>
+            <p-chips [(ngModel)]="contactnames" name="basic"></p-chips>
+        </pe-step>
+
+        <!-- Customized -->
+        <pe-step label="Customized" [styleClass]="'multicheckbox-height'">
             <h3>Customized display</h3>
-    <p-chips [(ngModel)]="complexcontacts" name="template" placeholder="Enter contacts">
-        <ng-template let-item pTemplate="item">
-            <i class="fa fa-address-card"></i>-{{item}}
-        </ng-template>
-    </p-chips>
-            </span>
-        <span *ngSwitchCase="2">
-             <h3>Events</h3>
-    <p-chips [(ngModel)]="contactsnotified" name="events" placeholder="Enter contacts" (onAdd)="onAddContact()"
-             (onRemove)="onRemoveContact()"></p-chips>
-            </span>
-        <span *ngSwitchCase="3">
-             <h3>Disabled</h3>
-    <p-chips [(ngModel)]="disabledcontacts" name="disable" placeholder="Enter contacts" disabled="true"></p-chips>
-            </span>
-    </div>
+            <p-chips [(ngModel)]="complexcontacts" name="template" placeholder="Enter contacts">
+                <ng-template let-item pTemplate="item">
+                    <i class="fa fa-address-card"></i>-{{item}}
+                </ng-template>
+            </p-chips>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <h3>Events</h3>
+            <p-chips [(ngModel)]="contactsnotified" name="events" placeholder="Enter contacts" (onAdd)="onAddContact()"
+                     (onRemove)="onRemoveContact()"></p-chips>
+        </pe-step>
+
+        <!-- Disabled -->
+        <pe-step label="Disabled">
+            <h3>Disabled</h3>
+            <p-chips [(ngModel)]="disabledcontacts" name="disable" placeholder="Enter contacts"
+                     disabled="true"></p-chips>
+        </pe-step>
+
+    </pe-steps>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

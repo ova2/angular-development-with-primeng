@@ -1,58 +1,65 @@
 <form novalidate>
-
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-        <span *ngSwitchCase="0">
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
             <h3>Do you like Angular? </h3>
-    <p-checkbox name="single" [(ngModel)]="checked" binary="true"></p-checkbox>  {{checked ? 'Yes' : 'No'}}
-            </span>
-        <span *ngSwitchCase="1">
-             <h3>Which angular versions you like more?</h3>
-    <div class="ui-g"  class="multicheckbox-width">
-        <div class="ui-g-12">
-            <p-checkbox name="angulargroup" value="AngularJS1.0" label="AngularJS V1.0"
-                        [(ngModel)]="selectedVersions"></p-checkbox>
-        </div>
-        <div class="ui-g-12">
-            <p-checkbox name="angulargroup" value="AngularV2.0" label="Angular V2.0"
-                        [(ngModel)]="selectedVersions"></p-checkbox>
-        </div>
-        <div class="ui-g-12">
-            <p-checkbox name="angulargroup" value="AngularV4.0" label="Angular V4.0"
-                        [(ngModel)]="selectedVersions"></p-checkbox>
-        </div>
-    </div>
-            </span>
-        <span *ngSwitchCase="2">
+            <p-checkbox name="single" [(ngModel)]="checked" binary="true"></p-checkbox>  {{checked ? 'Yes' : 'No'}}
+        </pe-step>
+
+        <!-- MultiCheckbox -->
+        <pe-step label="MultiCheckbox" [styleClass]="'multicheckbox-height'">
+            <h3>Which angular versions you like more?</h3>
+            <div class="ui-g"  class="multicheckbox-width">
+                <div class="ui-g-12">
+                    <p-checkbox name="angulargroup" value="AngularJS1.0" label="AngularJS V1.0"
+                                [(ngModel)]="selectedVersions"></p-checkbox>
+                </div>
+                <div class="ui-g-12">
+                    <p-checkbox name="angulargroup" value="AngularV2.0" label="Angular V2.0"
+                                [(ngModel)]="selectedVersions"></p-checkbox>
+                </div>
+                <div class="ui-g-12">
+                    <p-checkbox name="angulargroup" value="AngularV4.0" label="Angular V4.0"
+                                [(ngModel)]="selectedVersions"></p-checkbox>
+                </div>
+            </div>
+        </pe-step>
+
+        <!-- TriStateCheckbox -->
+        <pe-step label="TriStateCheckbox">
             <h3>How you feel about AngularV4?</h3>
-    <p-triStateCheckbox name="tristate" [(ngModel)]="status"></p-triStateCheckbox>
-    <span [ngSwitch]="status">
+            <p-triStateCheckbox name="tristate" [(ngModel)]="status"></p-triStateCheckbox>
+            <span [ngSwitch]="status">
         <span *ngSwitchCase="true">Excellent</span>
         <span *ngSwitchCase="false">Good</span>
         <span *ngSwitchCase="null">Bad</span>
     </span>
-            </span>
-        <span *ngSwitchCase="3">
-        <h3>Events - onChange</h3>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <h3>Events - onChange</h3>
             <label for="checkbox">Checkbox</label>
-         <p-checkbox name="checkboxevent" inputId="checkbox" binary="true" (onChange)="onChangeCheckbox()"></p-checkbox>
+            <p-checkbox name="checkboxevent" inputId="checkbox" binary="true" (onChange)="onChangeCheckbox()"></p-checkbox>
             <br/>
             <br/>
             <label for="tristate">TriState Checkbox</label>
             <p-triStateCheckbox name="tristateevent" inputId="tristate"
                                 (onChange)="onChangeTristate()"></p-triStateCheckbox>
-        </span>
-        <span *ngSwitchCase="4">
+        </pe-step>
+
+        <!-- Disabled -->
+        <pe-step label="Disabled">
             <h3>Do you like AOT feature?</h3>
             <label for="checkbox">Checkbox</label>
-           <p-checkbox name="disabled" [(ngModel)]="feature" binary="true" disabled="true"></p-checkbox>
+            <p-checkbox name="disabled" [(ngModel)]="feature" binary="true" disabled="true"></p-checkbox>
             <br/>
             <br/>
             <label for="tristate">TriState Checkbox</label>
             <p-triStateCheckbox name="disabled" [(ngModel)]="!feature" disabled="true"></p-triStateCheckbox>
-        </span>
-    </div>
+        </pe-step>
+
+    </pe-steps>
 
 </form>
 

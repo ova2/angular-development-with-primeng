@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message,MenuItem} from 'primeng/components/common/api';
+import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
@@ -17,7 +17,6 @@ export class EditorComponent {
     readonlytext: string = 'PrimeNG <b>Editor</b> is rich text editor component based on <i>Quill</i> Edtior 1.0.';
 
     activeIndex: number = 0;
-    private items: MenuItem[];
 
 
     onTextChange() {
@@ -33,41 +32,11 @@ export class EditorComponent {
     }
 
     ngOnInit() {
-        this.items = [
-            {
-                label: 'Default Toolbar',
-                command: (event: any) => {
-                    this.activeIndex = 0;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Default Toolbar', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Customized Toolbar',
-                command: (event: any) => {
-                    this.activeIndex = 1;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Customized display of Toolbar', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Events',
-                command: (event: any) => {
-                    this.activeIndex = 2;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Editor events: onTextChange, onSelectionChange', detail: event.item.label});
-                }
-            },
-            {
-                label: 'ReadOnly',
-                command: (event: any) => {
-                    this.activeIndex = 3;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'ReadOny editor', detail: event.item.label});
-                }
-            }
-        ];
+
     }
 
-
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
 }

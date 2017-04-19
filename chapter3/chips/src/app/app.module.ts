@@ -6,7 +6,8 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {ChipsModule} from 'primeng/components/chips/chips';
 import {GrowlModule} from 'primeng/components/growl/growl';
-import {StepsModule} from 'primeng/components/steps/steps';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {ChipsComponent}  from './section/chips.component';
@@ -18,7 +19,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         ChipsModule,
-        StepsModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

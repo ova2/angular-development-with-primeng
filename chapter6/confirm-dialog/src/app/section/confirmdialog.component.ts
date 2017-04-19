@@ -37,7 +37,7 @@ export class ConfirmDialogComponent {
         });
     }
 
-    confirmCusotmAccept() {
+    confirmCustomAccept() {
         this.confirmationService.confirm({
             message: 'Do you like to use DataTable component?',
             accept: () => {

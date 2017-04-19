@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message,MenuItem,SelectItem} from 'primeng/components/common/api';
+import {Message,SelectItem} from 'primeng/components/common/api';
 import {Validators,FormControl,FormGroup,FormBuilder} from '@angular/forms';
 
 @Component({

@@ -12,8 +12,9 @@ import {InputTextareaModule} from 'primeng/components/inputtextarea/inputtextare
 import {ButtonModule} from 'primeng/components/button/button';
 import {CheckboxModule} from 'primeng/components/checkbox/checkbox';
 import {TriStateCheckboxModule} from 'primeng/components/tristatecheckbox/tristatecheckbox';
-import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {ValidationComponent}  from './section/validation.component';
@@ -26,7 +27,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         CheckboxModule,
         TriStateCheckboxModule,
-        StepsModule,
+        WizardModule,
         ReactiveFormsModule,
         PanelModule,
         DropdownModule,

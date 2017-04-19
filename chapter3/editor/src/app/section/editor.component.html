@@ -1,15 +1,16 @@
 <form novalidate>
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-        <span *ngSwitchCase="0">
-             <h3>Default Toolbar</h3>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Default Toolbar -->
+        <pe-step label="Default Toolbar">
+            <h3>Default Toolbar</h3>
             <p-editor name="basic" [(ngModel)]="basictext" styleClass="editor-dimensions"></p-editor>
-             <br/><br/>
+            <br/><br/>
             <p>Content: {{basictext}}</p>
-            </span>
-        <span *ngSwitchCase="1">
-                 <h3>Custom Toolbar</h3>
+        </pe-step>
+
+        <!-- Custom Toolbar -->
+        <pe-step label="Custom Toolbar" [styleClass]="'multicheckbox-height'">
+            <h3>Custom Toolbar</h3>
             <p-editor name="custom" [(ngModel)]="customtext" styleClass="editor-dimensions">
                 <p-header>
         <span class="ql-formats">
@@ -22,23 +23,28 @@
             </p-editor>
             <br/><br/>
             <p>Content: {{customtext}}</p>
-                 </span>
-        <span *ngSwitchCase="2">
-             <h3>Events</h3>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <h3>Events</h3>
             <p-editor name="events" [(ngModel)]="eventstext" styleClass="editor-dimensions"
                       (onTextChange)="onTextChange()"
                       (onSelectionChange)="onSelectionChange()"></p-editor>
             <br/><br/>
             <p>Content: {{eventstext}}</p>
-             </span>
-        <span *ngSwitchCase="3">
-             <h3>ReadOnly</h3>
+        </pe-step>
+
+        <!-- ReadOnly -->
+        <pe-step label="ReadOnly">
+            <h3>ReadOnly</h3>
             <p-editor name="readonlyInput" [(ngModel)]="readonlytext" styleClass="editor-dimensions"
                       readonly="true"></p-editor>
             <br/><br/>
             <p>Content: {{readonlytext}}</p>
-             </span>
-    </div>
+        </pe-step>
+
+    </pe-steps>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

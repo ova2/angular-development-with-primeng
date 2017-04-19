@@ -6,8 +6,9 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {CheckboxModule} from 'primeng/components/checkbox/checkbox';
 import {TriStateCheckboxModule} from 'primeng/components/tristatecheckbox/tristatecheckbox';
-import {StepsModule} from 'primeng/components/steps/steps';
 import {GrowlModule} from 'primeng/components/growl/growl';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {CheckboxComponent}  from './section/checkbox.component';
@@ -20,7 +21,7 @@ import {routes} from './app-routing.module';
         FormsModule,
         CheckboxModule,
         TriStateCheckboxModule,
-        StepsModule,
+        WizardModule,
         GrowlModule
     ],
     declarations: [

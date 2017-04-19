@@ -1,41 +1,49 @@
 <form novalidate>
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-    <span *ngSwitchCase="0">
-        <h3>Enter input</h3>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <h3>Enter input</h3>
             <p-spinner name="basic" size="30" [(ngModel)]="basicinput">
             </p-spinner>
-        </span>
-          <span *ngSwitchCase="1">
-               <h3>Customized Input</h3>
+        </pe-step>
+
+        <!-- Customized Input -->
+        <pe-step label="Customized Input" [styleClass]="'multicheckbox-height'">
+            <h3>Customized Input</h3>
             <p-spinner name="minmax" size="40" [(ngModel)]="customizedinput" [min]="0" [max]="100" [step]="0.50"
                        placeholder="Enter your input or use spinner controls"></p-spinner>
-        </span>
-        <span *ngSwitchCase="2">
-               <h3>Separators</h3>
+        </pe-step>
+
+        <!-- Separators -->
+        <pe-step label="Separators">
+            <h3>Separators</h3>
             <p-spinner name="minmax" size="40" [(ngModel)]="eventsinput" decimalSeparator="," thousandSeparator="."
                        placeholder="Enter your input or use spinner controls"></p-spinner>
-        </span>
-        <span *ngSwitchCase="3">
-               <h3>Events</h3>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events" [styleClass]="'multicheckbox-height'">
+            <h3>Events</h3>
             <p-spinner name="minmax" size="40" [(ngModel)]="eventsinput" (onChange)="onChange()"
                        placeholder="Enter your input or use spinner controls"></p-spinner>
-        </span>
-          <span *ngSwitchCase="4">
-              <h3>ReadOnly/Disabled</h3>
-              <span *ngIf="selectedType =='readonly'">
+        </pe-step>
+
+
+        <!-- ReadOnly/Disabled -->
+        <pe-step label="ReadOnly/Disabled">
+            <h3>ReadOnly/Disabled</h3>
+            <span *ngIf="selectedType =='readonly'">
             <p-spinner name="readonly" size="30" [(ngModel)]="separatorinput" readonly="true"></p-spinner>
                   </span>
 
-              <span *ngIf="selectedType =='disable'">
+            <span *ngIf="selectedType =='disable'">
             <p-spinner name="disabled" size="30" [(ngModel)]="disabledinput" disabled="true"></p-spinner>
                   </span>
-              <br/><br/>
-              <p-selectButton name="option" [options]="types" [(ngModel)]="selectedType"></p-selectButton>
-        </span>
+            <br/><br/>
+            <p-selectButton name="option" [options]="types" [(ngModel)]="selectedType"></p-selectButton>
+        </pe-step>
 
-    </div>
+    </pe-steps>
 </form>
 
 <p-growl [value]="msgs"></p-growl>

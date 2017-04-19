@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
-import {SelectItem,MenuItem} from 'primeng/components/common/api';
+import {SelectItem} from 'primeng/components/common/api';
 import {CountryService} from './service/countryservice';
 import Country from './service/country';
 
@@ -18,6 +18,8 @@ export class SelectComponent {
     selectedCountry: any;
 
     selectedCountries: string[] = [];
+
+    activeIndex: number = 0;
 
     constructor(private countryService: CountryService) {
 
@@ -54,62 +56,15 @@ export class SelectComponent {
         this.countrycodes = countryCodes;
     }
 
-    activeIndex: number = 0;
-    private items: MenuItem[];
-
     ngOnInit(){
-
         this.countryService.getCountries().subscribe((countriesArray : Country[]) => {
              this.generateCountries(countriesArray);
         });
-        this.items = [
-            {
-                label: 'Single selection',
-                command: (event: any) => {
-                    this.activeIndex = 0;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Basic dropdown selection', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Editable',
-                command: (event: any) => {
-                    this.activeIndex = 1;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Editable dropdown', detail: event.item.label});
-                }
-            },{
-                label: 'Customized selection',
-                command: (event: any) => {
-                    this.activeIndex = 2;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Customized content with filters', detail: event.item.label});
-                }
-            },{
-                label: 'MultiSelect',
-                command: (event: any) => {
-                    this.activeIndex = 3;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'MultiSelect dropdown', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Events',
-                command: (event: any) => {
-                    this.activeIndex = 4;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Events: onFocus,onBlur,onChange', detail: event.item.label});
-                }
-            },
-            {
-                label: 'Disabled',
-                command: (event: any) => {
-                    this.activeIndex = 5;
-                    this.msgs.length = 0;
-                    this.msgs.push({severity:'info', summary:'Disabled selection', detail: event.item.label});
-                }
-            },
-        ];
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 
 }

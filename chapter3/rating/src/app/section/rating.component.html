@@ -1,30 +1,34 @@
 <form novalidate>
-
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-        <h1>Rate your faviourite Single page applications</h1>
-        <span *ngSwitchCase="0">
+    <h1>Rate your faviourite Single page applications</h1>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
             <h3>Enter rating</h3>
             Angular
             <p-rating name="basic" [(ngModel)]="angular"></p-rating>
             Rating: {{angular}}
-        </span>
-        <span *ngSwitchCase="1">
+        </pe-step>
+
+        <!-- Cancel Control -->
+        <pe-step label="Cancel Control" [styleClass]="'multicheckbox-height'">
             <h3>Cancel Control</h3>
             Ember
             <p-rating name="cancel" [(ngModel)]="ember" [cancel]="false" stars="10"></p-rating>
             Rating: {{ember}}
-        </span>
-        <span *ngSwitchCase="2">
-           <h3>Events</h3>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events">
+            <h3>Events</h3>
             React
             <p-rating name="events" [(ngModel)]="react" (onRate)="handleRate($event)"
                       (onCancel)="handleCancel($event)"></p-rating>
             Rating: {{react}}
-        </span>
-        <span *ngSwitchCase="3">
-             <h3>ReadOnly/Disabled</h3>
+        </pe-step>
+
+        <!-- ReadOnly/Disabled -->
+        <pe-step label="ReadOnly/Disabled" [styleClass]="'multicheckbox-height'">
+            <h3>ReadOnly/Disabled</h3>
             <span *ngIf="selectedType =='readonly'">
             Knockout
             <p-rating name="readonly" [ngModel]="knockout" readonly="true"></p-rating>
@@ -37,9 +41,11 @@
         </span>
             <br/>
             <p-selectButton name="option" [options]="types" [(ngModel)]="selectedType"></p-selectButton>
-            </span>
+        </pe-step>
 
-    </div>
+    </pe-steps>
+
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

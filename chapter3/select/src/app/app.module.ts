@@ -3,13 +3,15 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import needed PrimeNG modules here
 import {DropdownModule} from 'primeng/components/dropdown/dropdown';
 import {MultiSelectModule} from 'primeng/components/multiselect/multiselect';
 import {GrowlModule} from 'primeng/components/growl/growl';
-import {StepsModule} from 'primeng/components/steps/steps';
 import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {CountryService} from './section/service/countryservice';
@@ -22,11 +24,12 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         HttpModule,
+        BrowserAnimationsModule,
         DropdownModule,
         MultiSelectModule,
         GrowlModule,
         SelectButtonModule,
-        StepsModule
+        WizardModule
     ],
     declarations: [
         AppComponent,

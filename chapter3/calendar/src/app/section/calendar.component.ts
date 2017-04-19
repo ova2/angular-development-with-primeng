@@ -84,6 +84,10 @@ export class CalendarComponent {
         this.maxDate.setMonth(nextMonth);
         this.maxDate.setFullYear(nextYear);
 
+        let invalidDate = new Date();
+        invalidDate.setDate(today.getDate() - 3);
+        this.invalidDates = [today,invalidDate];
+
     }
 
     onChangeStep(label: string) {

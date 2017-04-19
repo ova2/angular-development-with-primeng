@@ -5,9 +5,10 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {SpinnerModule} from 'primeng/components/spinner/spinner';
-import {StepsModule} from 'primeng/components/steps/steps';
 import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
 import {GrowlModule} from 'primeng/components/growl/growl';
+
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {SpinnerComponent}  from './section/spinner.component';
@@ -19,7 +20,7 @@ import {routes} from './app-routing.module';
         routes,
         FormsModule,
         SpinnerModule,
-        StepsModule,
+        WizardModule,
         SelectButtonModule,
         GrowlModule
     ],

@@ -1,44 +1,65 @@
 <form novalidate>
-    <p-steps name="features" [model]="items" [(activeIndex)]="activeIndex"
-             [readonly]="false"></p-steps>
-    <div [ngSwitch]="activeIndex" class="layout-format">
-    <span *ngSwitchCase="0">
-         <h3>Drag handle for input</h3>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <h3>Drag handle for input</h3>
             <p-slider [(ngModel)]="basicinput" name="basicinput" styleClass="slider-width"></p-slider>
-             <br/>
+            <br/>
             Value: {{basicinput}}
-        </span>
-     <span *ngSwitchCase="1">
-          <h3>Range Input</h3>
-            <p-slider [(ngModel)]="rangeValues" name="rangeinput" styleClass="slider-width" [step]="20" [range]="true"></p-slider>
-        </span>
-        <span *ngSwitchCase="2">
+        </pe-step>
+
+        <!-- Step -->
+        <pe-step label="Step" [styleClass]="'multicheckbox-height'">
+            <h3>Step Input</h3>
+            <p-slider [(ngModel)]="rangeValues" name="rangeinput" styleClass="slider-width" [step]="20"
+                      [range]="true"></p-slider>
+        </pe-step>
+
+        <!-- Slider with Input -->
+        <pe-step label="Slider with Input">
             <h3>Slider with Input</h3>
             <input type="text" pInputText name="sliderinput" [(ngModel)]="sliderinput" styleClass="input-width"/>
             <p-slider [(ngModel)]="sliderinput" name="basicinput" styleClass="slider-width"></p-slider>
-        </span>
-        <span *ngSwitchCase="3">
+        </pe-step>
+
+        <!-- Animate -->
+        <pe-step label="Animate" [styleClass]="'multicheckbox-height'">
             <h3>Animate</h3>
-            <p-slider [(ngModel)]="animateinput" name="animateinput" styleClass="slider-width" [animate]="true"></p-slider>
-        </span>
-        <span *ngSwitchCase="4">
+            <p-slider [(ngModel)]="animateinput" name="animateinput" styleClass="slider-width"
+                      [animate]="true"></p-slider>
+        </pe-step>
+
+
+        <!-- Orientation -->
+        <pe-step label="Orientation">
             <h3>Orientation</h3>
-            <p-slider [(ngModel)]="verticalinput" name="verticalinput" styleClass="slider-width" orientation="vertical"></p-slider>
-        </span>
-        <span *ngSwitchCase="5">
-         <h3>Events</h3>
-            <p-slider [(ngModel)]="eventsinput" name="basicinput" styleClass="slider-width" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
-        </span>
-        <span *ngSwitchCase="6">
-         <h3>Disabled</h3>
-            <p-slider [(ngModel)]="disabledinput" name="basicinput" styleClass="slider-width" disabled="true"></p-slider>
-        </span>
-        <span *ngSwitchCase="7">
-         <h3>Customized</h3>
-            <input type="text" pInputText name="customizedinput" [(ngModel)]="customizedinput" styleClass="input-width"/>
-            <p-slider [(ngModel)]="customizedinput" name="customizedinput" styleClass="slider-width" [step]="20" [animate]="true" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
-        </span>
-    </div>
+            <p-slider [(ngModel)]="verticalinput" name="verticalinput" styleClass="slider-width"
+                      orientation="vertical"></p-slider>
+        </pe-step>
+
+        <!-- Events -->
+        <pe-step label="Events" [styleClass]="'multicheckbox-height'">
+            <h3>Events</h3>
+            <p-slider [(ngModel)]="eventsinput" name="basicinput" styleClass="slider-width" (onChange)="onChange()"
+                      (onSlideEnd)="onSlideEnd()"></p-slider>
+        </pe-step>
+
+        <!-- Disabled -->
+        <pe-step label="Disabled" [styleClass]="'multicheckbox-height'">
+            <h3>Disabled</h3>
+            <p-slider [(ngModel)]="disabledinput" name="basicinput" styleClass="slider-width"
+                      disabled="true"></p-slider>
+        </pe-step>
+
+        <!-- Customized -->
+        <pe-step label="(Customized)" [styleClass]="'multicheckbox-height'">
+            <h3>Customized</h3>
+            <input type="text" pInputText name="customizedinput" [(ngModel)]="customizedinput"
+                   styleClass="input-width"/>
+            <p-slider [(ngModel)]="customizedinput" name="customizedinput" styleClass="slider-width" [step]="20"
+                      [animate]="true" (onChange)="onChange()" (onSlideEnd)="onSlideEnd()"></p-slider>
+        </pe-step>
+    </pe-steps>
 </form>
 
 <p-growl [value]="msgs"></p-growl>
