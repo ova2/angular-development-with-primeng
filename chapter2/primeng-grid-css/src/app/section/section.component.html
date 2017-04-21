@@ -60,7 +60,7 @@
     <div class="ui-g">
         <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
             <div class="ui-g-12 ui-md-3 ui-label">
-                Username
+                Passenger
             </div>
             <div class="ui-g-12 ui-md-9">
                 <input pInputText type="text"/>
@@ -68,20 +68,20 @@
         </div>
         <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
             <div class="ui-g-12 ui-md-3 ui-label">
-                Comment
+                Flight day
             </div>
             <div class="ui-g-12 ui-md-9">
-                <textarea pInputTextarea type="text"></textarea>
+                <p-calendar [(ngModel)]="date" [showIcon]="true"></p-calendar>
             </div>
         </div>
     </div>
     <div class="ui-g">
         <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
             <div class="ui-g-12 ui-md-3 ui-label">
-                Flight day
+                Notice
             </div>
             <div class="ui-g-12 ui-md-9">
-                <p-calendar [(ngModel)]="date" [showIcon]="true"></p-calendar>
+                <textarea pInputTextarea type="text"></textarea>
             </div>
         </div>
         <div class="ui-g ui-g-12 ui-md-6 ui-g-nopad">
