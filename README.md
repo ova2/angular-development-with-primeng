@@ -1,8 +1,8 @@
 ### Learning Angular UI Development with PrimeNG
 
-Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj)
+Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj). Developed with Angular 4 and PrimeNG 4.
 
-__Book on Packt Publishing's website:__ will be published in August... 
+__Book on Packt Publishing's website:__ coming soon... 
 
 __Table of Contents__
 
