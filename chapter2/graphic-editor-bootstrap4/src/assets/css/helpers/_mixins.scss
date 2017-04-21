@@ -1,0 +1,44 @@
+@import "variables";
+
+/**
+* Mixin to center any content
+*/
+@mixin center($axis: "both") {
+  position: absolute;
+  @if $axis == "y" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @if $axis == "x" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $axis == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/**
+* Responsive breakpoint manager
+* S. https://sass-guidelin.es/#architecture
+*/
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}

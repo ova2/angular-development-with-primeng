@@ -1,0 +1,26 @@
+@import "../helpers/variables";
+
+.fa-ul {
+  li {
+    div {
+      margin-bottom: 8px;
+
+      &:hover {
+        cursor: pointer;
+        color: blue;
+      }
+    }
+  }
+
+  li:last-child {
+    div {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.panel-item-selected {
+  color: blue;
+  font-weight: bold;
+}
+

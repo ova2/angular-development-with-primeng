@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-toolbar">
+            <ge-toolbar></ge-toolbar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-push-2 col-drawing-area">
+            <div class="panel panel-default panel-shadow drawing-area">
+                <ng-content select=".ge-drawing-area"></ng-content>
+            </div>
+        </div>
+        <div class="col-md-2 col-md-push-2">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ge-palette></ge-palette>
+                </div>
+                <div class="col-xs-12">
+                    <ge-shapes></ge-shapes>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-md-pull-10">
+            <ge-properties></ge-properties>
+        </div>
+    </div>
+</div>

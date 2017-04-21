@@ -1,0 +1,13 @@
+$breakpoints: (
+  'small': (min-width: 768px),
+  'medium': (min-width: 992px),
+  'large': (min-width: 1200px),
+);
+
+$brand-color-background: white;
+
+$brand-color-content: black;
+
+$brand-color-lighter: lighten($brand-color-content, 50%);
+
+$font-family: Helvetica, sans-serif;

@@ -1,0 +1,21 @@
+@import "../assets/css/helpers/_variables";
+@import "../assets/css/helpers/_mixins";
+
+.app {
+  &.navbar-inverse {
+    .navbar-nav > li {
+      > a {
+        color: #ffcfcf;
+      }
+
+      > a:hover,
+      > a.active {
+        color: white;
+      }
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+}

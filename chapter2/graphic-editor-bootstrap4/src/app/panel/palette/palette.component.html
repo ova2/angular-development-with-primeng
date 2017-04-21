@@ -1,0 +1,21 @@
+<ge-panel>
+    <span data-panel-heading>
+        Palette
+    </span>
+    <div data-panel-body class="palette">
+        <ul class="fa-ul">
+            <li>
+                <div (click)="onClick('Select')" [ngClass]="{'panel-item-selected': isSelected('Select')}">
+                    <i class="fa-li fa fa-mouse-pointer"></i>
+                    Select
+                </div>
+            </li>
+            <li>
+                <div (click)="onClick('Marquee')" [ngClass]="{'panel-item-selected': isSelected('Marquee')}">
+                    <i class="fa-li fa fa-yelp"></i>
+                    Marquee
+                </div>
+            </li>
+        </ul>
+    </div>
+</ge-panel>

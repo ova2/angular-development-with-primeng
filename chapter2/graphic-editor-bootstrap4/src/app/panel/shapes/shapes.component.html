@@ -1,0 +1,27 @@
+<ge-panel>
+    <span data-panel-heading>
+        Shapes
+    </span>
+    <div data-panel-body>
+        <ul class="fa-ul">
+            <li>
+                <div (click)="onClick('Task')" [ngClass]="{'panel-item-selected': isSelected('Task')}">
+                    <i class="fa-li fa fa-square-o"></i>
+                    Task
+                </div>
+            </li>
+            <li>
+                <div (click)="onClick('Event')" [ngClass]="{'panel-item-selected': isSelected('Event')}">
+                    <i class="fa-li fa fa-circle-o"></i>
+                    Event
+                </div>
+            </li>
+            <li>
+                <div (click)="onClick('Connector')" [ngClass]="{'panel-item-selected': isSelected('Connector')}">
+                    <i class="fa-li fa fa-level-up"></i>
+                    Connector
+                </div>
+            </li>
+        </ul>
+    </div>
+</ge-panel>
