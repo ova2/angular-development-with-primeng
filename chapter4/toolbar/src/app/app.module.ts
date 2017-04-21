@@ -9,7 +9,7 @@ import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {SplitButtonModule} from 'primeng/components/splitbutton/splitbutton';
 import {ButtonModule} from 'primeng/components/button/button';
 
-import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module'
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {ToolbarComponent}  from './section/toolbar.component';

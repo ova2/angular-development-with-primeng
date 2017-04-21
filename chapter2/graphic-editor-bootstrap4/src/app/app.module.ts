@@ -3,6 +3,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
+// import needed PrimeNG modules here
+import {ToolbarModule} from 'primeng/components/toolbar/toolbar';
+import {ButtonModule} from 'primeng/components/button/button';
+import {TabMenuModule} from 'primeng/components/tabmenu/tabmenu';
+
 import {AppComponent} from './app.component';
 import {MainComponent}  from './main/main.component';
 import {routes} from './app-routing.module';
@@ -19,7 +24,10 @@ import {ToolbarComponent} from './panel/toolbar/toolbar.component';
     imports: [
         BrowserModule,
         FormsModule,
-        routes
+        routes,
+        ToolbarModule,
+        ButtonModule,
+        TabMenuModule
     ],
     declarations: [
         AppComponent,

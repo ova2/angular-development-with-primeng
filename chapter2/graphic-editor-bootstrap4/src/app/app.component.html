@@ -1,28 +1,9 @@
-<nav class="app navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a routerLink="/svg" routerLinkActive="active">
-                        <i class="fa fa-angle-double-right"></i>SVG Graphic-Engine
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/canvas" routerLinkActive="active">
-                        <i class="fa fa-angle-double-right"></i>Canvas Graphic-Engine
-                    </a>
-                </li>
-            </ul>
+<div class="container-fluid main-navigation">
+    <div class="row">
+        <div class="col">
+            <p-tabMenu [model]="items"></p-tabMenu>
         </div>
     </div>
-</nav>
+</div>
 
 <router-outlet></router-outlet>

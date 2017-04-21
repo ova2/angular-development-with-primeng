@@ -1,5 +1,4 @@
 var path = require('path');
-var autoprefixer = require('autoprefixer');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,7 +7,6 @@ var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
 var HashedModuleIdsPlugin = require('webpack/lib/HashedModuleIdsPlugin');
 var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
-var LoaderOptionsPlugin = require("webpack/lib/LoaderOptionsPlugin");
 
 var ROOT = path.resolve(__dirname, '..');
 var CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
@@ -35,29 +33,22 @@ module.exports = {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: ['css-loader', 'postcss-loader']
+                    use: "css-loader"
                 })
             },
             {
                 test: /\.scss/,
                 loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: ['css-loader', 'postcss-loader', 'sass-loader']
+                    use: ['css-loader', 'sass-loader']
                 }),
                 exclude: /^\_.*\.scss/
             }
         ]
     },
     plugins: [
-        new LoaderOptionsPlugin({
-            options: {
-                postcss: [
-                    autoprefixer()
-                ]
-            }
-        }),    
         // move webpack runtime code to a separate manifest file in order to support long-term caching.
-        // this will avoid hash recreation for vendor files when only application files are changed.
+        // this will avoid hash recreation for other files when only application files are changed.
         new CommonsChunkPlugin({
             name: 'manifest',
             minChunks: Infinity
