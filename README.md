@@ -20,7 +20,7 @@ __Table of Contents__
   * Organize your project structure with Sass
   * Simple ways to create a new theme
   * Responsive grid system in PrimeNG
-  * Bootstrap's responsive layout meets PrimeNG
+  * Bootstrap flexbox layout meets PrimeNG
   
 * [Chapter 3, Enhanced Inputs and Selects](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter3)
   * Formatted input with InputMask
