@@ -1,0 +1,39 @@
+{
+   "data": [
+      {
+         "name": "India",
+         "dial_code": "+91",
+         "code": "IN"
+      },
+      {
+         "name": "Singapore",
+         "dial_code": "+65",
+         "code": "SG"
+      },
+      {
+         "name": "Germany",
+         "dial_code": "+49",
+         "code": "DE"
+      },
+      {
+         "name": "Switzerland",
+         "dial_code": "+41",
+         "code": "CH"
+      },
+      {
+         "name": "UK",
+         "dial_code": "+44",
+         "code": "GB"
+      },
+      {
+         "name": "US",
+         "dial_code": "+1",
+         "code": "US"
+      },
+      {
+         "name": "Australia",
+         "dial_code": "+61",
+         "code": "AU"
+      }
+   ]
+}
