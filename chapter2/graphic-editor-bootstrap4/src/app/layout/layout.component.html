@@ -1,26 +1,26 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row align-items-center ge-toolbar">
         <div class="col">
             <ge-toolbar></ge-toolbar>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 col-md-push-2 col-drawing-area">
-            <div class="panel panel-default panel-shadow drawing-area">
+    <div class="row no-gutters">
+        <div class="col-md-8 flex-md-unordered col-drawing-area">
+            <div class="drawing-area">
                 <ng-content select=".ge-drawing-area"></ng-content>
             </div>
         </div>
-        <div class="col-md-2 col-md-push-2">
-            <div class="row">
-                <div class="col-xs-12">
+        <div class="col-md-2 flex-md-last">
+            <div class="flex-column no-gutters">
+                <div class="col ge-palette">
                     <ge-palette></ge-palette>
                 </div>
-                <div class="col-xs-12">
+                <div class="col ge-shapes">
                     <ge-shapes></ge-shapes>
                 </div>
             </div>
         </div>
-        <div class="col-md-2 col-md-pull-10">
+        <div class="col-md-2 flex-md-first">
             <ge-properties></ge-properties>
         </div>
     </div>

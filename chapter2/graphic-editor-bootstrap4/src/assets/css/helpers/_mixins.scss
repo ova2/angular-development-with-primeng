@@ -19,26 +19,3 @@
     transform: translate(-50%, -50%);
   }
 }
-
-/**
-* Responsive breakpoint manager
-* S. https://sass-guidelin.es/#architecture
-*/
-@mixin respond-to($breakpoint) {
-  $raw-query: map-get($breakpoints, $breakpoint);
-
-  @if $raw-query {
-    $query: if(
-      type-of($raw-query) == 'string',
-      unquote($raw-query),
-      inspect($raw-query)
-    );
-
-    @media #{$query} {
-      @content;
-    }
-  } @else {
-    @error 'No value found for `#{$breakpoint}`. '
-         + 'Please make sure it is defined in `$breakpoints` map.';
-  }
-}

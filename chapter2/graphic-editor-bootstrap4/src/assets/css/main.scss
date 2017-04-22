@@ -2,7 +2,8 @@
 @import "~primeng/resources/themes/omega/theme.css";
 @import "~primeng/resources/primeng.min.css";
 @import "~font-awesome/css/font-awesome.min.css";
-@import "~bootstrap/dist/css/bootstrap-grid.css";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/utilities/flex";
 
 // 2. Helpers (variables, mixins, functions, ...)
 @import "helpers/variables";
@@ -16,5 +17,4 @@
 @import "../../app/app.component";
 @import "../../app/main/main.component";
 @import "../../app/layout/layout.component";
-@import "../../app/panel/panel.component";
 @import "../../app/panel/toolbar/toolbar.component";

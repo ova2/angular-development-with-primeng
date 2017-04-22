@@ -1,8 +1,7 @@
-.container-fluid {
-  padding-left: 5px;
-  padding-right: 5px;
-}
+@import "~bootstrap/scss/mixins/breakpoints";
 
-.main-navigation {
-  margin-bottom: 1em;
+@include media-breakpoint-down(md) {
+  body {
+    font-size: 0.9em;
+  }
 }
