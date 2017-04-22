@@ -5,9 +5,22 @@
             <p-slideMenu [model]="items"></p-slideMenu>
         </pe-step>
         <!-- Popup -->
-        <pe-step label="Popup">
+        <pe-step label="Popup" [styleClass]="'layout-format'">
+            <p-slideMenu #popmenu [model]="items" [popup]="true"></p-slideMenu>
+            <button type="button" pButton icon="fa fa-list" label="Show" (click)="popmenu.toggle($event)"></button>
+        </pe-step>
+
+        <!-- Methods -->
+        <pe-step label="Methods" [styleClass]="'layout-format'">
             <p-slideMenu #menu [model]="items" [popup]="true"></p-slideMenu>
-            <button #btn type="button" pButton icon="fa fa-list" label="Show" (click)="menu.toggle($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Toggle" (click)="menu.toggle($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Show" (click)="menu.show($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Hide" (click)="menu.hide()"></button>
+        </pe-step>
+
+        <!-- Effects -->
+        <pe-step label="Effects">
+            <p-slideMenu [model]="items" effectDuration="1000" easing="ease-in"></p-slideMenu>
         </pe-step>
     </pe-steps>
 

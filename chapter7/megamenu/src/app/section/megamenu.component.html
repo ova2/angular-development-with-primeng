@@ -1,11 +1,11 @@
 <form novalidate>
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
         <!-- Basic -->
-        <pe-step label="Basic" >
-            <p-megaMenu [model]="items"></p-megaMenu>
+        <pe-step label="Basic" [styleClass]="'layout-format'">
+            <p-megaMenu [model]="items" ></p-megaMenu>
         </pe-step>
         <!-- Customization -->
-        <pe-step label="Customization">
+        <pe-step label="Customization" [styleClass]="'layout-format'">
             <p-megaMenu [model]="items" orientation="vertical"></p-megaMenu>
         </pe-step>
     </pe-steps>

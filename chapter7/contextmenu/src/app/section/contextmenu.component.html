@@ -1,14 +1,27 @@
-    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
-        <p-contextMenu [global]="true" [model]="documentitems"></p-contextMenu>
-        <!-- Basic -->
-        <pe-step label="Basic" >
+<pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+    <!-- Basic -->
+    <pe-step label="Basic" [styleClass]="'container-format'">
+        <p-contextMenu [global]="true" [model]="documentItems"></p-contextMenu>
+    </pe-step>
+    <!-- Customization -->
+    <pe-step label="Customization">
+        <p-contextMenu [target]="image" [model]="targetItems"></p-contextMenu>
+        <img #image src="/assets/data/images/primeng.png" alt="Logo">
+    </pe-step>
 
-        </pe-step>
-        <!-- Customization -->
-        <pe-step label="Customization">
-            <p-contextMenu [target]="img" [model]="targetitems" ></p-contextMenu>
-            <img #img src="/assets/data/images/primeng.png" alt="Logo">
-        </pe-step>
-    </pe-steps>
+    <!-- DataTable Integration-->
+
+    <pe-step label="DataTable Integration">
+        <p-contextMenu #contextmenu [model]="tableItems"></p-contextMenu>
+        <p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee" [contextMenu]="contextmenu">
+            <p-header>Employee Information</p-header>
+            <p-column field="id" header="Employee ID"></p-column>
+            <p-column field="name" header="Name"></p-column>
+            <p-column field="email" header="Email"></p-column>
+            <p-column field="contact" header="Telephone"></p-column>
+        </p-dataTable>
+    </pe-step>
+
+</pe-steps>
 
 <p-growl [value]="msgs"></p-growl>

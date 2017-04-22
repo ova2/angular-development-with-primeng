@@ -5,9 +5,17 @@
             <p-tieredMenu [model]="items"></p-tieredMenu>
         </pe-step>
         <!-- Popup -->
-        <pe-step label="Popup">
+        <pe-step label="Popup" [styleClass]="'layout-format'">
+            <p-tieredMenu #popmenu [model]="items" [popup]="true"></p-tieredMenu>
+            <button type="button" pButton icon="fa fa-list" label="Show" (click)="popmenu.toggle($event)"></button>
+        </pe-step>
+
+        <!-- Methods -->
+        <pe-step label="Methods" [styleClass]="'layout-format'">
             <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
-            <button #btn type="button" pButton icon="fa fa-list" label="Show" (click)="menu.toggle($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Toggle" (click)="menu.toggle($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Show" (click)="menu.show($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Hide" (click)="menu.hide()"></button>
         </pe-step>
     </pe-steps>
 </form>

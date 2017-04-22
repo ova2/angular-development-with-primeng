@@ -1,7 +1,7 @@
 <form novalidate>
-    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);" >
         <!-- Menubar -->
-        <pe-step label="Menubar" >
+        <pe-step label="Menubar" [styleClass]="'layout-format'">
             <p-menubar [model]="items"></p-menubar>
         </pe-step>
 

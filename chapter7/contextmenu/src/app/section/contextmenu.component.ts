@@ -1,19 +1,30 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
 import {MenuItem} from 'primeng/components/common/api';
+import {EmployeeService} from './service/employeeService';
+import Employee from './service/employee';
 
 @Component({
     selector: 'section',
     templateUrl: 'contextmenu.component.html'
 })
 export class ContextMenuComponent {
-    private documentitems: MenuItem[];
-    private targetitems: MenuItem[];
+    private documentItems: MenuItem[];
+    private targetItems: MenuItem[];
+    private tableItems: MenuItem[];
+    selectedEmployee: Employee;
     msgs: Message[] = [];
     activeIndex: number = 0;
+    employees: Employee[];
+
+    constructor(private employeeService: EmployeeService) {
+    }
 
     ngOnInit() {
-        this.documentitems = [
+        this.employeeService.getEmployees().subscribe((employees: Employee[]) => {
+            this.employees = employees;
+        });
+        this.documentItems = [
             {
                 label: 'File',
                 icon: 'fa-file-o',
@@ -102,7 +113,7 @@ export class ContextMenuComponent {
             }
         ];
 
-        this.targetitems = [
+        this.targetItems = [
             {
                 label: 'Next',
                 icon: 'fa-chevron-right'
@@ -112,6 +123,28 @@ export class ContextMenuComponent {
                 icon: 'fa-chevron-left'
             }
         ];
+
+        this.tableItems = [
+            {label: 'View', icon: 'fa-search', command: (event) => this.viewEmployee(this.selectedEmployee)},
+            {label: 'Delete', icon: 'fa-close', command: (event) => this.deleteEmployee(this.selectedEmployee)},
+            {label: 'Help', icon: 'fa-close', url: 'https://www.opm.gov/policy-data-oversight/worklife/employee-assistance-programs/'}
+        ];
+    }
+
+    viewEmployee(employee: Employee) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Employee Selected', detail: employee.name + ' - ' + employee.id});
+    }
+
+    deleteEmployee(employee: Employee) {
+        this.msgs = [];
+        for(let i = 0; i < this.employees.length; i++) {
+            if(this.employees[i].id == employee.id) {
+                this.employees.splice(i, 1);
+                this.msgs.push({severity: 'info', summary: 'Employee Deleted', detail: employee.name + ' - ' + employee.id});
+                break;
+            }
+        }
     }
 
     onChangeStep(label: string) {
