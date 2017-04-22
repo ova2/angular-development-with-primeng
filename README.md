@@ -1,6 +1,6 @@
 ### Learning Angular UI Development with PrimeNG
 
-Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj). Developed with Angular 4 and PrimeNG 4.
+Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj). Powered by Angular 4 and PrimeNG 4.
 
 __Book on Packt Publishing's website:__ coming soon... 
 
@@ -77,6 +77,7 @@ __Table of Contents__
   * TieredMenu – submenus in nested overlays
   * MegaMenu – the multicolumn menu
   * PanelMenu – hybrid of accordion and tree
+  * TabMenu - menu items as tabs
   * Breadcrumb – providing contextual information about page hierarchy
   
 * [Chapter 8, Creating Charts and Maps](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter8)
