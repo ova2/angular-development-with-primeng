@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
+import {CountryService} from './service/countryservice';
+import Country from './service/country';
 
 @Component({
     selector: 'section',
@@ -8,17 +10,24 @@ import {Message} from 'primeng/components/common/api';
 export class OrderListComponent {
     msgs: Message[] = [];
 
-    simple: string;
-    event: string;
-    phone: string;
-    date: string;
-    serial: string;
-    slot: string;
-    optional: string;
-    format: string = "Option1";
+    countries: Country[];
 
-    onComplete() {
+    constructor(private countryService: CountryService) { }
+
+    ngOnInit() {
+        this.countryService.getCountries().subscribe((countries: Country[]) => {
+            this.countries = countries;
+        });
+    }
+
+    onReorder(event:any){
+        this.msgs = [];
         this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
+            {severity: 'info', summary: 'onReorder Event', detail: event.items});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

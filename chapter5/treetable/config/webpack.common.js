@@ -15,7 +15,8 @@ var CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
 // Common configuration for development and production
 module.exports = {
     output: {
-        path: path.join(ROOT, 'dist')
+        path: path.join(ROOT, 'dist'),
+        publicPath: '/'
     },
     context: path.join(ROOT, 'src'),
     // See https://medium.com/webpack/harnessing-the-power-of-webpack-2cd0e20ff1bf#.q9do1u54o
