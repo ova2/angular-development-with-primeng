@@ -7,6 +7,7 @@ import {Message} from 'primeng/components/common/api';
 })
 export class TreeComponent {
     msgs: Message[] = [];
+    activeIndex: number = 0;
 
     simple: string;
     event: string;
@@ -20,5 +21,10 @@ export class TreeComponent {
     onComplete() {
         this.msgs.push(
             {severity: 'info', summary: 'InputMask completed'});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

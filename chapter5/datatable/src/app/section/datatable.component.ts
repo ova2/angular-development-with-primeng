@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
+import {CarService} from './service/carservice';
+import Car from './service/car';
 
 @Component({
     selector: 'section',
@@ -7,6 +9,7 @@ import {Message} from 'primeng/components/common/api';
 })
 export class DataTableComponent {
     msgs: Message[];
+    activeIndex: number = 0;
 
     cars: Car[];
 
@@ -21,6 +24,11 @@ export class DataTableComponent {
     selectedCars2: Car[];
 
     constructor(private carService: CarService) { }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
 
     ngOnInit() {
         this.carService.getCarsSmall().then(cars => this.cars = cars);

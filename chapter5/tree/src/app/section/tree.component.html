@@ -1,61 +1,96 @@
 <form novalidate>
-    <div class="ui-g ui-fluid">
-        <div class="ui-g-12 ui-md-6">
-            <h3>Basic usage:</h3>
-            <label for="simple">Basic:</label>
-            <p-inputMask id="basic" mask="99-999999" name="simple"
-                         [(ngModel)]="simple" placeholder="99-999999">
-            </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Events:</h3>
-            <label for="simple">Event:</label>
-            <p-inputMask id="event" mask="99-999999" name="event" unmask="true"
-                         [(ngModel)]="event" placeholder="99-999999"
-                         (onComplete)="onComplete()">
-            </p-inputMask>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Select mask format</h3>
-            <div>
-                <p-radioButton name="mask" value="Option1" label="Option 1" [(ngModel)]="format"></p-radioButton>
-                <p-radioButton name="mask" value="Option2" label="Option 2" [(ngModel)]="format"></p-radioButton>
-                <p-radioButton name="mask" value="Option3" label="Option 3" [(ngModel)]="format"></p-radioButton>
-            </div>
-            <br/>
-            <div>
-                <div id="phoneformat" *ngIf="format == 'Option1'">
-                    <span>Phone</span>
-                    <p-inputMask mask="(999) 999-9999" [(ngModel)]="phone" placeholder="(999) 999-9999"
-                                 name="phone"></p-inputMask>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <p-tree [value]="filesTree1"></p-tree>
+        </pe-step>
+        <!-- Single Selection -->
+        <pe-step label="Single Selection">
+            <p-tree [value]="filesTree2" selectionMode="single" [(selection)]="selectedFile"
+                    (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
+            <div style="margin-top:8px">Selected Node: {selectedFile ? selectedFile.label : 'none'}</div>
+        </pe-step>
+        <!-- Multiple Selection -->
+        <pe-step label="Multiple Selection">
+            <p-tree [value]="filesTree3" selectionMode="multiple" [(selection)]="selectedFiles"
+                    (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
+            <div>Selected Nodes: <span *ngFor="let file of selectedFiles">{file.label} </span></div>
+        </pe-step>
+        <!-- Multiple Selection with Checkbox-->
+        <pe-step label="Single Selection">
+            <p-tree [value]="filesTree4" selectionMode="checkbox" [(selection)]="selectedFiles2"></p-tree>
+            <div>Selected Nodes: <span *ngFor="let file of selectedFiles2">{file.label} </span></div>
+        </pe-step>
+        <!-- Lazy loading -->
+        <pe-step label="Lazy loading">
+            <p-tree [value]="lazyFiles" (onNodeExpand)="nodeExpand($event)"
+                    [style]="{'max-height':'200px','overflow':'auto'}"></p-tree>
+        </pe-step>
+        <!-- Customized content -->
+        <pe-step label="Customized content">
+            <p-tree [value]="filesTree5">
+                <ng-template let-node pTemplate="default">
+                    <input [(ngModel)]="node.label" type="text" style="width:100%">
+                </ng-template>
+            </p-tree>
+        </pe-step>
+        <!-- Contextmenu -->
+        <pe-step label="Contextmenu">
+            <p-tree [value]="filesTree6" selectionMode="single" [(selection)]="selectedFile2"
+                    [contextMenu]="cm"></p-tree>
+            <p-contextMenu #cm [model]="items"></p-contextMenu>
+        </pe-step>
+        <!-- Drag and Drop -->
+        <pe-step label="Drag and Drop">
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-3">
+                    <h4>Files</h4>
+                    <p-tree [value]="filesTree7" draggableNodes="true" droppableNodes="true"
+                            dragdropScope="files"></p-tree>
                 </div>
-                <div id="dateformat" *ngIf="format == 'Option2'">
-                    <span>Date</span>
-                    <p-inputMask mask="99/99/9999" [(ngModel)]="date" placeholder="99/99/9999"
-                                 name="date"></p-inputMask>
-                </div>
-                <div id="serialformat" *ngIf="format == 'Option3'">
-                    <span>Serial Number</span>
-                    <p-inputMask mask="a*-999-a999" [(ngModel)]="serial" placeholder="a*-999-a999"
-                                 name="serial"></p-inputMask>
-                </div>
-            </div>
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>SlotChar</h3>
-            <span>Date</span>
-            <p-inputMask mask="99/99/9999" [(ngModel)]="slot" placeholder="99/99/9999" slotChar="mm/dd/yyyy"
-                         name="slotchar"></p-inputMask>
 
-        </div>
-        <div class="ui-g-12 ui-md-6">
-            <h3>Mask Optional</h3>
-            <span>Phone Ext</span>
-            <p-inputMask mask="(999) 999-9999? x99999" [(ngModel)]="optional" name="optionalmask"
-                         placeholder="(999) 999-9999? x99999"></p-inputMask>
+                <div class="ui-g-12 ui-md-1" style="text-align:center">
+                    <i class="fa fa-exchange" style="font-size:36px;margin-top: 28px;"></i>
+                </div>
 
-        </div>
-    </div>
+                <div class="ui-g-12 ui-md-3">
+                    <h4>Server 1</h4>
+                    <p-tree [value]="filesTree8" draggableNodes="true" droppableNodes="true"
+                            dragdropScope="files"></p-tree>
+                </div>
+
+                <div class="ui-g-12 ui-md-1" style="text-align:center">
+                    <i class="fa fa-exchange" style="font-size:36px;margin-top: 28px;"></i>
+                </div>
+
+                <div class="ui-g-12 ui-md-3">
+                    <h4>Server 2</h4>
+                    <p-tree [value]="filesTree9" draggableNodes="true" droppableNodes="true"
+                            dragdropScope="other"></p-tree>
+                </div>
+
+                <div class="ui-g-12 ui-md-1">
+
+                </div>
+            </div>
+        </pe-step>
+        <!-- Programmatic Tree expansion -->
+        <pe-step label="Programmatic Tree expansion">
+            <p-tree #expandingTree [value]="filesTree10"></p-tree>
+            <div style="margin-top: 8px">
+                <button pButton type="text" label="Expand all" (click)="expandAll()"></button>
+                <button pButton type="text" label="Collapse all" (click)="collapseAll()"></button>
+            </div>
+        </pe-step>
+        <!-- Horizontal Tree -->
+        <pe-step label="Horizontal Tree ">
+            <p-tree [value]="filesTree11" layout="horizontal" selectionMode="single"
+                    [(selection)]="selectedFile3"></p-tree>
+            <div style="margin-top:8px">Selected Node: {selectedFile3 ? selectedFile3.label : 'none'}</div>
+        </pe-step>
+
+    </pe-steps>
+
 </form>
 
 <p-growl [value]="msgs"></p-growl>

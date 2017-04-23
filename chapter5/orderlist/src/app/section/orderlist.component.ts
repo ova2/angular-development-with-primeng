@@ -9,6 +9,7 @@ import Country from './service/country';
 })
 export class OrderListComponent {
     msgs: Message[] = [];
+    activeIndex: number = 0;
 
     countries: Country[];
 

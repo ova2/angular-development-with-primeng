@@ -7,6 +7,7 @@ import {Message} from 'primeng/components/common/api';
 })
 export class TreeTableComponent {
     msgs: Message[] = [];
+    activeIndex: number = 0;
 
     files1: TreeNode[];
 
@@ -33,6 +34,11 @@ export class TreeTableComponent {
     items: MenuItem[];
 
     constructor(private nodeService: NodeService) { }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
+    }
 
     ngOnInit() {
         this.nodeService.getFilesystem().then(files => this.files1 = files);

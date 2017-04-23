@@ -9,6 +9,7 @@ import Country from './service/country';
 })
 export class PickListComponent {
     msgs: Message[] = [];
+    activeIndex: number = 0;
 
     sourceCountries: Country[];
 
@@ -21,11 +22,6 @@ export class PickListComponent {
             this.sourceCountries = countries;
         });
         this.targetCountries = [];
-    }
-
-    onChangeStep(label: string) {
-        this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: label});
     }
 
     onMoveToTarget(event:any){
@@ -50,5 +46,10 @@ export class PickListComponent {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'onTargetReorder Event', detail: event.items});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

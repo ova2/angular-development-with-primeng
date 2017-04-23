@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
+import {BrowserService} from './service/browserservice';
+import Browser from './service/browser';
 
 @Component({
     selector: 'section',
@@ -7,29 +9,35 @@ import {Message} from 'primeng/components/common/api';
 })
 export class DataListComponent {
     msgs: Message[] = [];
+    activeIndex: number = 0;
 
-    cars: Car[];
+    browsers: Browser[];
 
-    selectedCar: Car;
+    selectedBrowser: Browser;
 
     displayDialog: boolean;
 
-    constructor(private carService: CarService) { }
+    constructor(private browserService: BrowserService) { }
 
     ngOnInit() {
-        this.carService.getCarsLarge().then(cars => this.cars = cars);
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.browsers = browsers);
     }
 
-    selectCar(car: Car) {
-        this.selectedCar = car;
+    selectBrowser(browser: Browser) {
+        this.selectedBrowser = browser;
         this.displayDialog = true;
     }
 
     onDialogHide() {
-        this.selectedCar = null;
+        this.selectedBrowser = null;
     }
     onComplete() {
         this.msgs.push(
             {severity: 'info', summary: 'InputMask completed'});
+    }
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }
