@@ -8,9 +8,15 @@
 }
 
 .layout-format {
-  margin: auto;
-  border: 1px solid #ccc !important;
-  border-radius: 16px !important;
-  padding: 10px 60px 60px 60px;
-  width: 320px;
+  width: 800px;
+}
+
+.content-layout {
+  font-size:16px;
+  padding:20px;
+  border-bottom:1px solid #D5D5D5;
+}
+
+.align-logo{
+  text-align:center;
 }

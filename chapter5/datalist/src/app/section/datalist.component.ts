@@ -11,7 +11,12 @@ export class DataListComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    browsers: Browser[];
+    basicBrowsers: Browser[];
+    facetBrowsers: Browser[];
+    paginationBrowsers: Browser[];
+    lazyloadingBrowsers: Browser[];
+    eventsBrowsers: Browser[];
+    advancedBrowsers: Browser[];
 
     selectedBrowser: Browser;
 
@@ -20,7 +25,12 @@ export class DataListComponent {
     constructor(private browserService: BrowserService) { }
 
     ngOnInit() {
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.browsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.basicBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.facetBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.paginationBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.eventsBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.advancedBrowsers = browsers.slice(0,4));
     }
 
     selectBrowser(browser: Browser) {
@@ -31,6 +41,17 @@ export class DataListComponent {
     onDialogHide() {
         this.selectedBrowser = null;
     }
+
+    onPagination($event:any) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: "The first record of this page is "+$event.first+" among total pages "+$event.rows});
+    }
+
+    loadData(event:any) {
+        //event.first = First row offset
+        //event.rows = Number of rows per page
+    }
+
     onComplete() {
         this.msgs.push(
             {severity: 'info', summary: 'InputMask completed'});

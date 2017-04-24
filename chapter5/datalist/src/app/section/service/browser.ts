@@ -4,6 +4,7 @@ interface Browser {
     browser: any;
     platform: any;
     version: any;
+    code: any;
     grade: any;
 }
 

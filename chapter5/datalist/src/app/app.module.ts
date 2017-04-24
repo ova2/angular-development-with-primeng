@@ -6,6 +6,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {DataListModule} from 'primeng/components/datalist/datalist';
+import {DialogModule} from 'primeng/components/dialog/dialog';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
@@ -23,6 +24,7 @@ import {routes} from './app-routing.module';
         HttpModule,
         DataListModule,
         WizardModule,
+        DialogModule,
         GrowlModule
     ],
     declarations: [
