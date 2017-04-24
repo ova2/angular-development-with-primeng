@@ -1,4 +1,4 @@
-### Formatted input with FileUpload
+### Cutting-edge file uploading at a glance
 
 #### Prerequisites
 

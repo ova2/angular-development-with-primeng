@@ -7,7 +7,6 @@ var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
 var HashedModuleIdsPlugin = require('webpack/lib/HashedModuleIdsPlugin');
 var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var ROOT = path.resolve(__dirname, '..');
 var CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
@@ -15,7 +14,8 @@ var CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
 // Common configuration for development and production
 module.exports = {
     output: {
-        path: path.join(ROOT, 'dist')
+        path: path.join(ROOT, 'dist'),
+        publicPath: '/'
     },
     context: path.join(ROOT, 'src'),
     // See https://medium.com/webpack/harnessing-the-power-of-webpack-2cd0e20ff1bf#.q9do1u54o
@@ -28,7 +28,7 @@ module.exports = {
             {enforce: 'pre', test: /\.ts$/, loader: 'tslint-loader', exclude: /(node_modules)/},
             {test: /\.json$/, loader: 'json-loader'},
             {test: /\.html$/, loader: 'raw-loader'},
-            {test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot|ico)$/,loader: 'file-loader?name=assets/[name].[ext]'},
+            {test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[ext]'},
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
@@ -47,9 +47,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {from: 'assets/data', to: 'assets/data'}
-        ]),
         // move webpack runtime code to a separate manifest file in order to support long-term caching.
         // this will avoid hash recreation for other files when only application files are changed.
         new CommonsChunkPlugin({

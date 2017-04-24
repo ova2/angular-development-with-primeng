@@ -1,14 +1,23 @@
-<form novalidate>
-    <p-growl [value]="msgs"></p-growl>
+<pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+    <!-- Basic, Multiple, Auto Upload -->
+    <pe-step label="Basic, Multiple, Auto Upload">
+        <p-fileUpload name="demofiles[]" url="http://localhost:3000/fileupload"
+                      [multiple]="multiple" [auto]="auto">
+        </p-fileUpload>
 
-    <p-fileUpload name="demo[]" url="http://localhost:3000/upload" (onUpload)="onUpload($event)"
-                  multiple="multiple" accept="image/*" maxFileSize="1000000">
-        <ng-template pTemplate type="content">
-            <ul *ngIf="uploadedFiles.length">
-                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-            </ul>
-        </ng-template>
-    </p-fileUpload>
-</form>
+        <table cellpadding="0" cellspacing="0" class="checkboxes">
+            <tr>
+                <td class="checkbox">
+                    <p-checkbox binary="true" label="Multiple"
+                                [(ngModel)]="multiple"></p-checkbox>
+                </td>
+                <td class="checkbox">
+                    <p-checkbox binary="true" label="Auto"
+                                [(ngModel)]="auto"></p-checkbox>
+                </td>
+            </tr>
+        </table>
+    </pe-step>
+</pe-steps>
 
 <p-growl [value]="msgs"></p-growl>
