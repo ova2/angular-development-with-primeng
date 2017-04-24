@@ -89,7 +89,7 @@ __Table of Contents__
   * Various uses cases with GMap component
   
 * [Chapter 9, Miscellaneous Use Cases and Best Practices](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter9)
-  * Basic, automatic, drag-&-drop, and multiple file uploading
+  * Cutting-edge file uploading at a glance
   * Learning Draggable and Droppable directives
   * Displaying collection of images with Galleria
   * CRUD sample implementation with DataTable
