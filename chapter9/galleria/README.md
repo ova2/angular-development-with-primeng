@@ -1,4 +1,4 @@
-### Formatted input with Galleria
+### Displaying collection of images with Galleria
 
 #### Prerequisites
 

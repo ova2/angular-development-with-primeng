@@ -1,4 +1,4 @@
-### Formatted input with Dialog
+### Displaying content using confirm dialog
 
 #### Prerequisites
 

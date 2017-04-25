@@ -1,4 +1,4 @@
-### Formatted input with PickList
+### Listing data with PickList
 
 #### Prerequisites
 

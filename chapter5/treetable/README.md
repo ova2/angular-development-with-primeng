@@ -1,4 +1,4 @@
-### Formatted input with TreeTable
+### Visualizing data with TreeTable
 
 #### Prerequisites
 

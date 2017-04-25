@@ -1,4 +1,4 @@
-### Formatted input with DragDrop
+### Draggable and Droppable features with DragDrop
 
 #### Prerequisites
 

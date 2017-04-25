@@ -1,4 +1,4 @@
-### Formatted input with OrderList
+### Listing data with OrderList
 
 #### Prerequisites
 

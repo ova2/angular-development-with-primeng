@@ -1,4 +1,4 @@
-### Formatted input with Breadcrumb
+### Breadcrumb – providing contextual information about page hierarchy
 
 #### Prerequisites
 

@@ -1,4 +1,4 @@
-### Formatted input with ProgressBar
+### Process status indicator with ProgressBar
 
 #### Prerequisites
 

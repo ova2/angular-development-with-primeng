@@ -1,4 +1,4 @@
-### Formatted input with MenuBar
+### Accessing commands via Menubar
 
 #### Prerequisites
 

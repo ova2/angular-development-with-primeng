@@ -1,4 +1,4 @@
-### Formatted input with SlideMenu
+### SlideMenu – menu in the iPod style
 
 #### Prerequisites
 

@@ -1,4 +1,4 @@
-### Formatted input with Growl
+### Notifying users with Growl
 
 #### Prerequisites
 

@@ -1,4 +1,4 @@
-### Formatted input with BlockUI
+### Blocking pages with BlockUI
 
 #### Prerequisites
 

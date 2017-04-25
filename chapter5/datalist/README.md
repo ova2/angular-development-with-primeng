@@ -1,4 +1,4 @@
-### Formatted input with DataList
+### Listing data with DataList
 
 #### Prerequisites
 

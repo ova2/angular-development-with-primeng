@@ -1,4 +1,4 @@
-### Formatted input with TieredMenu
+### TieredMenu – submenus in nested overlays
 
 #### Prerequisites
 

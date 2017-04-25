@@ -1,4 +1,4 @@
-### Formatted input with Messages
+### Notifying users with Messages
 
 #### Prerequisites
 

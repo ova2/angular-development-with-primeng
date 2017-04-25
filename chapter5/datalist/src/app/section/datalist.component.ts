@@ -10,6 +10,7 @@ import Browser from './service/browser';
 export class DataListComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
+    totalRecords: number = 100;
 
     basicBrowsers: Browser[];
     facetBrowsers: Browser[];
@@ -28,7 +29,7 @@ export class DataListComponent {
         this.browserService.getBrowsers().subscribe((browsers:any) => this.basicBrowsers = browsers.slice(0,4));
         this.browserService.getBrowsers().subscribe((browsers:any) => this.facetBrowsers = browsers.slice(0,4));
         this.browserService.getBrowsers().subscribe((browsers:any) => this.paginationBrowsers = browsers);
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers);
+        //this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers);//.slice(0,9));
         this.browserService.getBrowsers().subscribe((browsers:any) => this.eventsBrowsers = browsers);
         this.browserService.getBrowsers().subscribe((browsers:any) => this.advancedBrowsers = browsers.slice(0,4));
     }
@@ -44,18 +45,15 @@ export class DataListComponent {
 
     onPagination($event:any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: "The first record of this page is "+$event.first+" among total pages "+$event.rows});
+        this.msgs.push({severity: 'info', summary: "The first record  is "+$event.first+"th one.", detail:"There are " +$event.rows + " rows in this current page"});
     }
 
     loadData(event:any) {
-        //event.first = First row offset
-        //event.rows = Number of rows per page
+        let start = event.first;//event.first = First row offset
+        let end = start + event.rows;//event.rows = Number of rows per page
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers.slice(start,end));
     }
 
-    onComplete() {
-        this.msgs.push(
-            {severity: 'info', summary: 'InputMask completed'});
-    }
 
     onChangeStep(label: string) {
         this.msgs.length = 0;

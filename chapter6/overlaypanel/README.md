@@ -1,4 +1,4 @@
-### Formatted input with OverlayPanel
+### Multipurpose scenarios with OverlayPanel
 
 #### Prerequisites
 

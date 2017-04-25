@@ -1,4 +1,4 @@
-### Formatted input with DataScroller
+### On demand loading data with DataScroller
 
 #### Prerequisites
 

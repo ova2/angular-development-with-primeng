@@ -1,5 +1,4 @@
-## Discovering checkbox: Boolean, Many and TriState
-
+## Validation with Input and Select components
 ### Prerequisites
 
 Node.js version 6.x or higher, NPM 3.x or higher.
