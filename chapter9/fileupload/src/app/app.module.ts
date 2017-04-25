@@ -3,8 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
-import {MockBackend, MockConnection} from '@angular/http/testing';
-import {BaseRequestOptions} from '@angular/http';
 
 // import needed PrimeNG modules here
 import {FileUploadModule} from 'primeng/components/fileupload/fileupload';
@@ -16,7 +14,6 @@ import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 import {AppComponent}  from './app.component';
 import {FileUploadComponent}  from './section/fileupload.component';
 import {routes} from './app-routing.module';
-import {fakeBackendProvider} from './backend/fake-backend';
 
 @NgModule({
     imports: [
@@ -33,12 +30,7 @@ import {fakeBackendProvider} from './backend/fake-backend';
         AppComponent,
         FileUploadComponent
     ],
-    providers: [
-        {provide: APP_BASE_HREF, useValue: '/'},
-        fakeBackendProvider,
-        MockBackend,
-        BaseRequestOptions
-    ],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
 })
 export class AppModule {

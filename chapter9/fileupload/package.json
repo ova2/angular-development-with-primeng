@@ -38,6 +38,7 @@
     "file-loader": "~0.10.1",
     "html-webpack-plugin": "~2.28.0",
     "image-webpack-loader": "~3.2.0",
+    "json-server": "~0.9.6",
     "node-sass": "~4.5.0",
     "raw-loader": "~0.5.1",
     "rimraf": "~2.6.1",
@@ -54,6 +55,7 @@
     "webpack-merge": "~3.0.0"
   },
   "scripts": {
+    "lint": "tslint -c tslint.json src/**/*.ts",
     "rimraf": "rimraf dist && rimraf aot",
     "prebuild": "npm run rimraf",
     "build": "webpack --config config/webpack.dev.js --progress --display-error-details",
@@ -64,6 +66,7 @@
     "prebuild:prod": "npm run ngc",
     "build:prod": "webpack --config config/webpack.prod.js --progress --display-error-details",
     "prestart:prod": "npm run prebuild:prod",
-    "start:prod": "webpack-dev-server --config config/webpack.prod.js --inline --open"
+    "start:prod": "webpack-dev-server --config config/webpack.prod.js --inline --open",
+    "jsonserver": "json-server db.json --port 3004"
   }
 }

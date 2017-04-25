@@ -1,8 +1,8 @@
 <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
     <!-- Basic, Multiple, Auto Upload -->
     <pe-step label="Basic, Multiple, Auto Upload">
-        <p-fileUpload name="demofiles[]" url="http://localhost:3000/fileupload"
-                      [multiple]="multiple" [auto]="auto">
+        <p-fileUpload name="demofiles[]" url="http://localhost:3004/fake-backend"
+                      [multiple]="multiple" [auto]="auto" (onUpload)="onUpload($event)">
         </p-fileUpload>
 
         <table cellpadding="0" cellspacing="0" class="checkboxes">
@@ -20,4 +20,4 @@
     </pe-step>
 </pe-steps>
 
-<p-growl [value]="msgs"></p-growl>
+<p-growl [value]="uploadMsgs"></p-growl>

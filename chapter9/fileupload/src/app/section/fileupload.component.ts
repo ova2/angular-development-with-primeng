@@ -11,6 +11,7 @@ export class FileUploadComponent {
     multiple: boolean = false;
     auto: boolean = false;
     msgs: Message[] = [];
+    uploadMsgs: Message[] = [];
     uploadedFiles: any[] = [];
 
     onUpload(event: any) {
@@ -18,8 +19,8 @@ export class FileUploadComponent {
             this.uploadedFiles.push(file);
         }
 
-        this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
+        this.uploadMsgs = [];
+        this.uploadMsgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
     }
 
     onChangeStep(label: string) {

@@ -10,7 +10,13 @@ Node.js version 6.x or higher, NPM 3.x or higher.
 npm install
 ```
 
-#### Start application
+### In the 1. terminal: start json-server as mock backend
+
+```sh
+npm run jsonserver
+```
+
+#### In the 2. terminal: start demo application
 
 Development mode:
 
