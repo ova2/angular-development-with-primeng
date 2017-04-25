@@ -1,4 +1,4 @@
-### Formatted input with Lightbox
+### Displaying content in Lightbox
 
 #### Prerequisites
 

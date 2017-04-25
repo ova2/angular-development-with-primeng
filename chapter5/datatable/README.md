@@ -1,4 +1,4 @@
-### Formatted input with DataTable
+### Tabular format data with DataTable
 
 #### Prerequisites
 

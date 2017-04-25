@@ -1,4 +1,4 @@
-### Formatted input with PanelMenu
+### PanelMenu – hybrid of accordion and tree
 
 #### Prerequisites
 

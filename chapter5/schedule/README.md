@@ -1,4 +1,4 @@
-### Formatted input with Schedule
+### Managing events with Schedule
 
 #### Prerequisites
 

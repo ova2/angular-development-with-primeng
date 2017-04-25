@@ -1,4 +1,4 @@
-### Formatted input with Charts
+### Create Awesome types of charts
 
 #### Prerequisites
 

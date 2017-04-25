@@ -1,4 +1,4 @@
-### Formatted input with InputMask
+### Tooltips for form components
 
 #### Prerequisites
 

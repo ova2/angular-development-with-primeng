@@ -1,4 +1,4 @@
-### Formatted input with Tree
+### Visualizing data with Tree
 
 #### Prerequisites
 

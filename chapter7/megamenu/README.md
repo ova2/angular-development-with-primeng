@@ -1,4 +1,4 @@
-### Formatted input with MegaMenu
+### MegaMenu – the multicolumn menu
 
 #### Prerequisites
 

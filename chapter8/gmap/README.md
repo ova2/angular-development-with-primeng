@@ -1,4 +1,4 @@
-### Formatted input with GMap
+### GMap-Creating Maps using Google Maps API
 
 #### Prerequisites
 
