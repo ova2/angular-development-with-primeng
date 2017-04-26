@@ -13,6 +13,10 @@ export class FileUploadComponent {
     msgs: Message[] = [];
     uploadMsgs: Message[] = [];
     uploadedFiles: any[] = [];
+    
+    onBeforeSend(event: any) {
+        (<XMLHttpRequest>event.xhr).setRequestHeader('jwt', 'xyz123');
+    }
 
     onUpload(event: any) {
         for (let file of event.files) {

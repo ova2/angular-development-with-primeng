@@ -18,6 +18,57 @@
             </tr>
         </table>
     </pe-step>
+
+    <!-- Restricted file types and size -->
+    <pe-step label="Restricted by file types and size">
+        <p-fileUpload name="demofiles[]" url="http://localhost:3004/fake-backend"
+                      multiple="true" accept="image/*" maxFileSize="50000" (onUpload)="onUpload($event)">
+        </p-fileUpload>
+    </pe-step>
+
+    <!-- Customized messages and buttons -->
+    <pe-step label="Customized messages and buttons">
+        <p-fileUpload name="demofiles[]" url="http://localhost:3004/fake-backend"
+                      multiple="true" accept="image/*" maxFileSize="50000" (onUpload)="onUpload($event)"
+                      invalidFileSizeMessageSummary="{0} has wrong size, "
+                      invalidFileSizeMessageDetail="it exceeds {0}."
+                      invalidFileTypeMessageSummary="{0} has wrong file type, "
+                      invalidFileTypeMessageDetail="it doesn't match: {0}."
+                      chooseLabel="Select file"
+                      uploadLabel="Upload it!"
+                      cancelLabel="Abort">
+        </p-fileUpload>
+    </pe-step>
+
+    <!-- Templating -->
+    <pe-step label="Templating">
+        <p-fileUpload name="demofiles[]" url="http://localhost:3004/fake-backend"
+                      multiple="true" accept=".pdf" maxFileSize="1000000" (onUpload)="onUpload($event)">
+            <ng-template pTemplate="toolbar">
+                <div style="font-size: 0.9em; margin-top: 0.5em;">
+                    Please select your PDF documents
+                </div>
+            </ng-template>
+            <ng-template let-file pTemplate="file">
+                <div style="margin: 0.5em 0 0.5em 0;">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                    {{file.name}}
+                </div>
+            </ng-template>
+            <ng-template pTemplate="content">
+                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                Drag and drop files onto this area
+            </ng-template>
+        </p-fileUpload>
+    </pe-step>
+
+    <!-- Events -->
+    <pe-step label="Events">
+        <p-fileUpload name="demofiles[]" url="http://localhost:3004/fake-backend"
+                      accept="image/*" maxFileSize="1000000"
+                      (onBeforeSend)="onBeforeSend($event)" (onUpload)="onUpload($event)">
+        </p-fileUpload>
+    </pe-step>
 </pe-steps>
 
 <p-growl [value]="uploadMsgs"></p-growl>
