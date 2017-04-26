@@ -199,14 +199,14 @@
 
         <!-- Multi feature -->
         <pe-step label="(Multi feature)">
-            <p-dataList [value]="advancedBrowsers" [paginator]="true" [rows]="5" (onPage)="onPagination($event)">
+            <p-dataList [value]="advancedBrowsers" [paginator]="true" [rows]="5" (onPage)="onPagination($event)" [rowsPerPageOptions]="[5,10,15]" [paginatorPosition]="both" [emptyMessage]="'No records found'">
                 <p-header>
                     List of Browsers
                 </p-header>
                 <ng-template let-browser pTemplate="item">
                     <div class="ui-grid ui-grid-responsive ui-fluid" class="content-layout">
                         <div class="ui-grid-row">
-                            <div class="ui-grid-col-3" style="text-align:center"><i class="fa fa-search" (click)="selectBrowser(browser)" style="cursor:pointer;float:left;margin-top:40px"></i><img src="/assets/data/images/{{browser.code}}.png" width="100" height="100"></div>
+                            <div class="ui-grid-col-3 align-logo"><i class="fa fa-search" (click)="selectBrowser(browser)" class="more-details"></i><img src="/assets/data/images/{{browser.code}}.png" width="100" height="100"></div>
                             <div class="ui-grid-col-9">
                                 <div class="ui-grid ui-grid-responsive ui-fluid">
                                     <div class="ui-grid-row">
@@ -234,6 +234,9 @@
                         </div>
                     </div>
                 </ng-template>
+                <p-footer>
+                    Note: Grades are 3 types.A,B and C.
+                </p-footer>
             </p-dataList>
             <p-dialog header="Browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()">
                 <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="selectedBrowser" style="font-size:16px;text-align:center;padding:20px">

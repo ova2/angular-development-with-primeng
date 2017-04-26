@@ -6,6 +6,9 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {DataScrollerModule} from 'primeng/components/datascroller/datascroller';
+import {DialogModule} from 'primeng/components/dialog/dialog';
+import {ButtonModule} from 'primeng/components/button/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
@@ -22,6 +25,9 @@ import {routes} from './app-routing.module';
         FormsModule,
         DataScrollerModule,
         HttpModule,
+        BrowserAnimationsModule,
+        DialogModule,
+        ButtonModule,
         WizardModule,
         GrowlModule
     ],

@@ -11,7 +11,14 @@ export class DataScrollerComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    browsers: Browser[];
+    totalRecords: number = 100;
+
+    basicBrowsers: Browser[];
+    facetBrowsers: Browser[];
+    paginationBrowsers: Browser[];
+    lazyloadingBrowsers: Browser[];
+    eventsBrowsers: Browser[];
+    advancedBrowsers: Browser[];
 
     selectedBrowser: Browser;
 
@@ -20,7 +27,11 @@ export class DataScrollerComponent {
     constructor(private browserService: BrowserService) { }
 
     ngOnInit() {
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.browsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.basicBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.facetBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.paginationBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.eventsBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.advancedBrowsers = browsers);
     }
 
     selectBrowser(browser: Browser) {
@@ -30,6 +41,12 @@ export class DataScrollerComponent {
 
     onDialogHide() {
         this.selectedBrowser = null;
+    }
+
+    loadData(event: any) {
+        let start = event.first;//event.first = First row offset
+        let end = start + event.rows;//event.rows = Number of rows per page
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.lazyloadingBrowsers = browsers.slice(start,end));
     }
 
     onChangeStep(label: string) {

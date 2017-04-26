@@ -29,9 +29,8 @@ export class DataListComponent {
         this.browserService.getBrowsers().subscribe((browsers:any) => this.basicBrowsers = browsers.slice(0,4));
         this.browserService.getBrowsers().subscribe((browsers:any) => this.facetBrowsers = browsers.slice(0,4));
         this.browserService.getBrowsers().subscribe((browsers:any) => this.paginationBrowsers = browsers);
-        //this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers);//.slice(0,9));
         this.browserService.getBrowsers().subscribe((browsers:any) => this.eventsBrowsers = browsers);
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.advancedBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers:any) => this.advancedBrowsers = browsers);
     }
 
     selectBrowser(browser: Browser) {
