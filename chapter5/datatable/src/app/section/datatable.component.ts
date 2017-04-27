@@ -1,97 +1,206 @@
 import {Component} from '@angular/core';
-import {Message} from 'primeng/components/common/api';
-import {CarService} from './service/carservice';
-import Car from './service/car';
+import {Message,SelectItem} from 'primeng/components/common/api';
+import {LazyLoadEvent} from 'primeng/components/common/api';
+import {BrowserService} from './service/browserservice';
+import Browser from './service/browser';
 
 @Component({
     selector: 'section',
     templateUrl: 'datatable.component.html'
 })
 export class DataTableComponent {
-    msgs: Message[];
+    msgs: Message[] = [];
+
     activeIndex: number = 0;
 
-    cars: Car[];
+    browser: Browser;
 
-    selectedCar1: Car;
+    browsers: Browser[];
 
-    selectedCar2: Car;
+    selectedBrowser: Browser;
 
-    selectedCar3: Car;
+    selectedBrowsers: Browser[];
 
-    selectedCars1: Car[];
+    displayDialog: boolean;
 
-    selectedCars2: Car[];
+    newBrowser: boolean;
 
-    constructor(private carService: CarService) { }
+    totalRecords: number;
+
+    platforms: SelectItem[];
+
+    grades: SelectItem[];
+
+    cols: any[];
+
+    columnOptions: SelectItem[];
+
+    constructor(private browserService: BrowserService) { }
+
+    ngOnInit() {
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.browsers = browsers);
+        this.cols = [
+            {field: 'engine', header: 'Engine'},
+            {field: 'browser', header: 'Browser'},
+            {field: 'platform', header: 'Platform'},
+            {field: 'grade', header: 'Grade'}
+        ];
+        this.columnOptions = [];
+        for(let i = 0; i < this.cols.length; i++) {
+            this.columnOptions.push({label: this.cols[i].header, value: this.cols[i]});
+        }
+    }
+
+    onRowClick(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Browser clicked', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onRowDblClick(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Browser double clicked', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onRowSelect(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Type of selection:', detail: event.type});
+        this.msgs.push({severity: 'info', summary: 'Browser Selected', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onRowUnselect(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Type of selection:', detail: event.type});
+        this.msgs.push({severity: 'info', summary: 'Browser Unselected', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onHeaderCheckboxToggle(event: any){
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Header checkbox toggled:', detail: event.checked});
+    }
+
+    onContextMenuSelect(event: any){
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Selected data', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onColResize(event: any){
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Resized column header'+event.element, detail: 'Change of column width'+  event.delta +'px'});
+    }
+
+    onColReorder(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Index of dragged column', detail: event.dragIndex});
+        this.msgs.push({severity: 'info', summary: 'Index of dropped column', detail: event.dropIndex});
+        this.msgs.push({severity: 'info', summary: 'Columns array after reorder', detail: event.columns});
+    }
+
+    onEditInit(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Column is ', detail: event.column});
+        this.msgs.push({severity: 'info', summary: 'Row data', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onEdit(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Row index', detail: event.index});
+        this.msgs.push({severity: 'info', summary: 'Column is ', detail: event.column});
+        this.msgs.push({severity: 'info', summary: 'Row data', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+    onEditComplete(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Row index', detail: event.index});
+        this.msgs.push({severity: 'info', summary: 'Column is ', detail: event.column});
+        this.msgs.push({severity: 'info', summary: 'Row data', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onEditCancel(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Row index', detail: event.index});
+        this.msgs.push({severity: 'info', summary: 'Column is ', detail: event.column});
+        this.msgs.push({severity: 'info', summary: 'Row data', detail: event.data.engine + ' - ' + event.data.browser});
+    }
+
+    onPage(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Index of first record:', detail: event.first});
+        this.msgs.push({severity: 'info', summary: 'Number of rows: ', detail: event.rows});
+    }
+
+    onSort(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Sort field:', detail: event.field});
+        this.msgs.push({severity: 'info', summary: 'Sort order: ', detail: event.order});
+        this.msgs.push({severity: 'info', summary: 'Multisort Meta data:', detail: event.multisortmeta});
+    }
+
+    onFilter(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Filter object(field,value and matchmode):', detail: event.filters});
+    }
+
+    onRowExpand(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Expanded row:', detail: event.data});
+    }
+    onRowCollapse(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Collapsed row:', detail: event.data});
+    }
+
+    onRowGroupExpand(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Row group expanded:', detail: event.group});
+    }
+
+    onRowGroupCollapse(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Row group collapsed:', detail: event.group});
+    }
+
+    loadBrowsersLazy(event: LazyLoadEvent) {
+        //in a real application, make a remote request to load data using state metadata from event
+        //event.first = First row offset
+        //event.rows = Number of rows per page
+        //event.sortField = Field name to sort with
+        //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
+        //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
+
+        this.browserService.getBrowsers().subscribe((browsers:any) =>
+            this.browsers = browsers.slice(event.first, (event.first + event.rows)));
+    }
+
+    addBrowser() {
+        this.newBrowser = true;
+        this.browser = null;
+        this.displayDialog = true;
+    }
+
+    save() {
+        if(this.newBrowser) {
+            this.browsers.push(this.browser);
+        }
+        else {
+            this.browsers[this.findSelectedBrowserIndex()] = this.browser;
+        }
+
+        this.browser = null;
+        this.displayDialog = false;
+    }
+
+    delete() {
+        this.browsers.splice(this.findSelectedBrowserIndex(), 1);
+        this.browser = null;
+        this.displayDialog = false;
+    }
+
+    findSelectedBrowserIndex(): number {
+        return this.browsers.indexOf(this.selectedBrowser);
+    }
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
         this.msgs.push({severity: 'info', summary: label});
     }
-
-    ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars = cars);
-    }
-
-    onRowSelect(event) {
-        this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'Car Selected', detail: event.data.vin + ' - ' + event.data.brand});
-    }
-
-    onRowUnselect(event) {
-        this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'Car Unselected', detail: event.data.vin + ' - ' + event.data.brand});
-    }
-////////
-    cars1: Car[];
-
-    cars2: Car[];
-
-    constructor(private carService: CarService) { }
-
-    ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars1 = cars);
-        this.carService.getCarsSmall().then(cars => this.cars2 = cars);
-    }
-
-////////////
-    cars: Car[];
-
-    brands: SelectItem[];
-
-    colors: SelectItem[];
-
-    constructor(private carService: CarService) {}
-
-    ngOnInit() {
-        this.carService.getCarsMedium().then(cars => this.cars = cars);
-
-        this.brands = [];
-        this.brands.push({label: 'All Brands', value: null});
-        this.brands.push({label: 'Audi', value: 'Audi'});
-        this.brands.push({label: 'BMW', value: 'BMW'});
-        this.brands.push({label: 'Fiat', value: 'Fiat'});
-        this.brands.push({label: 'Honda', value: 'Honda'});
-        this.brands.push({label: 'Jaguar', value: 'Jaguar'});
-        this.brands.push({label: 'Mercedes', value: 'Mercedes'});
-        this.brands.push({label: 'Renault', value: 'Renault'});
-        this.brands.push({label: 'VW', value: 'VW'});
-        this.brands.push({label: 'Volvo', value: 'Volvo'});
-
-        this.colors = [];
-        this.colors.push({label: 'White', value: 'White'});
-        this.colors.push({label: 'Green', value: 'Green'});
-        this.colors.push({label: 'Silver', value: 'Silver'});
-        this.colors.push({label: 'Black', value: 'Black'});
-        this.colors.push({label: 'Red', value: 'Red'});
-        this.colors.push({label: 'Maroon', value: 'Maroon'});
-        this.colors.push({label: 'Brown', value: 'Brown'});
-        this.colors.push({label: 'Orange', value: 'Orange'});
-        this.colors.push({label: 'Blue', value: 'Blue'});
-    }
-}
-/////////////
-
 
 }

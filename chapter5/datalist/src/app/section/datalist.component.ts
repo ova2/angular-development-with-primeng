@@ -42,12 +42,12 @@ export class DataListComponent {
         this.selectedBrowser = null;
     }
 
-    onPagination($event:any) {
+    onPagination($event: any) {
         this.msgs.length = 0;
         this.msgs.push({severity: 'info', summary: "The first record  is "+$event.first+"th one.", detail:"There are " +$event.rows + " rows in this current page"});
     }
 
-    loadData(event:any) {
+    loadData(event: any) {
         let start = event.first;//event.first = First row offset
         let end = start + event.rows;//event.rows = Number of rows per page
         this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers.slice(start,end));

@@ -1,115 +1,447 @@
-<form novalidate>
-    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
-        <!-- Basic -->
-        <pe-step label="Basic" >
-    <h3 class="first">Single</h3>
-    <p>In single mode, a row is selected on click event of a row. If the row is already selected then the row gets unselected.</p>
-    <p-dataTable [value]="cars" selectionMode="single" [(selection)]="selectedCar1">
-        <p-header>Single Selection</p-header>
-        <p-footer><div style="text-align: left">Selected Car: {{selectedCar1 ? selectedCar1.vin + ' - ' + selectedCar1.brand + ' - ' + selectedCar1.year + ' - ' + selectedCar1.color: 'none'}}</div></p-footer>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-    </p-dataTable>
+<pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+    <!-- Basic -->
+    <pe-step label="Basic">
+        <p-dataTable [value]="browsers">
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
 
-    <h3>Multiple</h3>
-    <p></p>
-    <p-dataTable [value]="cars" selectionMode="multiple" [(selection)]="selectedCars">
-        <p-header>Multiple Selection</p-header>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-        <p-footer>
-            <ul>
-                <li *ngFor="let car of selectedCars" style="text-align: left">{{car.vin + ' - ' + car.brand + ' - ' + car.year + ' - ' + car.color}}</li>
-            </ul>
-        </p-footer>
-    </p-dataTable>
+    <!-- Dynamic columns-->
+    <pe-step label="Dynamic columns">
+        <p-dataTable [value]="browsers">
+            <p-header>
+                <div style="text-align:left">
+                    <p-multiSelect [options]="columnOptions" [(ngModel)]="cols"></p-multiSelect>
+                </div>
+            </p-header>
+            <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+        </p-dataTable>
+    </pe-step>
 
-    <h3>Events</h3>
-    <p>DataTable provides onRowSelect and onRowUnselect as optional callbacks.</p>
-    <p-dataTable [value]="cars" selectionMode="single" [(selection)]="selectedCar2" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
-        <p-header>Selection with Events</p-header>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-    </p-dataTable>
+    <!-- Custom content-->
+    <pe-step label="customization">
+        <p-dataTable [value]="browsers">
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade">
+                <ng-template let-col let-browser="rowData" pTemplate="body">
+                    <span [style.color]="green" *ngIf="browser[col.field]=='A'">{{browser[col.field]}}</span>
+                    <span [style.color]="blue" *ngIf="browser[col.field]=='B'">{{browser[col.field]}}</span>
+                    <span [style.color]="red" *ngIf="browser[col.field]=='C'">{{browser[col.field]}}</span>
+                </ng-template>
+            </p-column>
+            <p-column styleClass="col-button">
+                <ng-template pTemplate="header">
+                    <button type="button" pButton icon="fa-refresh"></button>
+                </ng-template>
+                <ng-template let-browser="rowData" pTemplate="body">
+                    <button type="button" pButton (click)="selectBrowser(browser)" icon="fa-search"></button>
+                </ng-template>
+            </p-column>
+        </p-dataTable>
+    </pe-step>
 
-    <h3>RadioButton</h3>
-    <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column as "single".</p>
-    <p-dataTable [value]="cars" [(selection)]="selectedCar3">
-        <p-header>Single Selection</p-header>
-        <p-footer><div style="text-align: left">Selected Car: {{selectedCar3 ? selectedCar3.vin + ' - ' + selectedCar3.brand + ' - ' + selectedCar3.year + ' - ' + selectedCar3.color: 'none'}}</div></p-footer>
-        <p-column [style]="{'width':'38px'}" selectionMode="single"></p-column>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-    </p-dataTable>
+    <!-- Facets -->
+    <pe-step label="Facets">
+        <p-dataTable [value]="browsers">
+            <p-header>List of browsers</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+            <p-footer>There are 3 types of browser grades.A,B and C</p-footer>
+        </p-dataTable>
+    </pe-step>
 
-    <h3>Checkbox</h3>
-    <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column as "multiple".</p>
-    <p-dataTable [value]="cars" [(selection)]="selectedCars2">
-        <p-header>Single Selection</p-header>
-        <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
-        <p-column field="vin" header="Vin"></p-column>
-        <p-column field="year" header="Year"></p-column>
-        <p-column field="brand" header="Brand"></p-column>
-        <p-column field="color" header="Color"></p-column>
-        <p-footer>
-            <ul>
-                <li *ngFor="let car of selectedCars2" style="text-align: left">{{car.vin + ' - ' + car.brand + ' - ' + car.year + ' - ' + car.color}}</li>
-            </ul>
-        </p-footer>
-    </p-dataTable>
+    <!-- Progress status -->
+    <pe-step label="Loading status">
+        <p-dataTable [value]="cars" [loading]="loading">
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
 
-
-    <h3 class="first">Single Column</h3>
-    <p-dataTable [value]="cars1">
-        <p-column field="vin" header="Vin" [sortable]="true"></p-column>
-        <p-column field="year" header="Year" [sortable]="true"></p-column>
-        <p-column field="brand" header="Brand" [sortable]="true"></p-column>
-        <p-column field="color" header="Color" [sortable]="true"></p-column>
-    </p-dataTable>
-
-    <h3>Multiple Columns</h3>
-    <p-dataTable [value]="cars2" sortMode="multiple">
-        <p-column field="vin" header="Vin" [sortable]="true"></p-column>
-        <p-column field="year" header="Year" [sortable]="true"></p-column>
-        <p-column field="brand" header="Brand" [sortable]="true"></p-column>
-        <p-column field="color" header="Color" [sortable]="true"></p-column>
-    </p-dataTable>
-
-    <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
-        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-        <input #gb type="text" pInputText size="50" placeholder="Global Filter">
-    </div>
-    <p-dataTable [value]="cars" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
-        <p-header>List of Cars</p-header>
-        <p-column field="vin" header="Vin (startsWith)" [filter]="true" filterPlaceholder="Search"></p-column>
-        <p-column field="year" header="Year ({{yearFilter||'No Filter'}}" [filter]="true" filterMatchMode="equals">
-            <ng-template pTemplate="filter" let-col>
-                <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null,col.field,col.filterMatchMode)"></i>
-                <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="1970" [max]="2010" (onSlideEnd)="dt.filter($event.value,col.field,col.filterMatchMode)"></p-slider>
+    <!-- Single selection -->
+    <pe-step label="Single selection">
+        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedBrowser">
+            <p-header>Single Selection</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+            <p-footer>
+                <div style="text-align: left">Selected Browser: {{selectedBrowser ? selectedBrowser.engine + ' - ' +
+                    selectedBrowser.browser + ' - ' + selectedBrowser.platform + ' - ' + selectedBrowser.grade:
+                    'none'}}
+                </div>
+            </p-footer>
+        </p-dataTable>
+    </pe-step>
+    <!-- Multiple selection -->
+    <pe-step label="Multiple selection">
+        <p-dataTable [value]="browsers" selectionMode="multiple" [(selection)]="selectedBrowsers">
+            <p-header>Multiple Selection</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+            <p-footer>
+                <ul>
+                    <li *ngFor="let browser of selectedBrowsers" style="text-align: left">{{browser.engine + ' - ' +
+                        browser.browser +
+                        ' - ' + browser.platform + ' - ' + browser.grade}}
+                    </li>
+                </ul>
+            </p-footer>
+        </p-dataTable>
+    </pe-step>
+    <!-- Selection events-->
+    <pe-step label="Selection events">
+        <h3>Selection events</h3>
+        <p>DataTable provides onRowSelect and onRowUnselect as optional callbacks.</p>
+        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedBrowser"
+                     (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+            <p-header>Selection with Events</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- RadioButton selection -->
+    <pe-step label="RadioButton selection">
+        <h3>RadioButton</h3>
+        <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column
+            as "single".</p>
+        <p-dataTable [value]="browsers" [(selection)]="selectedBrowser">
+            <p-header> RadioButton selection (Single Selection)</p-header>
+            <p-column [style]="{'width':'38px'}" selectionMode="single"></p-column>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+            <p-footer>
+                <div style="text-align: left">Selected Browser: {{selectedBrowser ? selectedBrowser.engine + ' - ' +
+                    selectedBrowser.browser + ' - ' + selectedBrowser.platform + ' - ' + selectedBrowser.grade:
+                    'none'}}
+                </div>
+            </p-footer>
+        </p-dataTable>
+    </pe-step>
+    <!-- Checkbox selection -->
+    <pe-step label="Checkbox selection">
+        <h3>Checkbox</h3>
+        <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column
+            as "multiple".</p>
+        <p-dataTable [value]="browsers" [(selection)]="selectedBrowsers">
+            <p-header>Multiple Selection</p-header>
+            <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+            <p-footer>
+                <ul>
+                    <li *ngFor="let browser of selectedBrowsers" style="text-align: left">{{browser.engine + ' - ' +
+                        browser.browser +
+                        ' - ' + browser.platform + ' - ' + browser.grade}}
+                    </li>
+                </ul>
+            </p-footer>
+        </p-dataTable>
+    </pe-step>
+    <!-- Sorting -->
+    <pe-step label="Sorting">
+        <h3 class="first">Single Column</h3>
+        <p-dataTable [value]="browsers">
+            <p-column field="engine" header="Engine" [sortable]="true"></p-column>
+            <p-column field="browser" header="Browser" [sortable]="true"></p-column>
+            <p-column field="platform" header="Platform" [sortable]="true"></p-column>
+            <p-column field="grade" header="Grade" [sortable]="true"></p-column>
+        </p-dataTable>
+        <h3>Multiple Columns</h3>
+        <p-dataTable [value]="browsers" sortMode="multiple">
+            <p-column field="engine" header="Engine" [sortable]="true"></p-column>
+            <p-column field="browser" header="Browser" [sortable]="true"></p-column>
+            <p-column field="platform" header="Platform" [sortable]="true"></p-column>
+            <p-column field="grade" header="Grade" [sortable]="true"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Filtering -->
+    <pe-step label="Filtering">
+        <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input #gb type="text" pInputText size="50" placeholder="Global Filter">
+        </div>
+        <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [globalFilter]="gb" #datatable>
+            <p-header>List of Browsers</p-header>
+            <p-column field="engine" header="Engine (startsWith)" [filter]="true"
+                      filterPlaceholder="Search"></p-column>
+            <p-column field="browser" header="Browser ({{browserFilter||'No Filter'}}" [filter]="true"
+                      filterMatchMode="equals">
+                <ng-template pTemplate="filter" let-col>
+                    <i class="fa fa-close"
+                       (click)="browserFilter=null;datatable.filter(null,col.field,col.filterMatchMode)"></i>
+                    <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="browserFilter" [min]="1970"
+                              [max]="2010"
+                              (onSlideEnd)="datatable.filter($event.value,col.field,col.filterMatchMode)"></p-slider>
+                </ng-template>
+            </p-column>
+            <p-column field="platform" header="Platform (Custom)" [filter]="true" [style]="{'overflow':'visible'}"
+                      filterMatchMode="equals">
+                <ng-template pTemplate="filter" let-col>
+                    <p-dropdown [options]="platforms" [style]="{'width':'100%'}"
+                                (onChange)="datatable.filter($event.value,col.field,col.filterMatchMode)"
+                                styleClass="ui-column-filter"></p-dropdown>
+                </ng-template>
+            </p-column>
+            <p-column field="grade" header="Grade (Custom)" [filter]="true" filterMatchMode="in"
+                      [style]="{'overflow':'visible'}">
+                <ng-template pTemplate="filter" let-col>
+                    <p-multiSelect [options]="grades" defaultLabel="All grades"
+                                   (onChange)="datatable.filter($event.value,col.field,col.filterMatchMode)"
+                                   styleClass="ui-column-filter"></p-multiSelect>
+                </ng-template>
+            </p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Editable -->
+    <pe-step label="Editable">
+        <p-dataTable [value]="browsers" [editable]="true">
+            <p-column field="engine" header="Engine" [editable]="true"></p-column>
+            <p-column field="browser" header="Browser" [editable]="true"></p-column>
+            <p-column field="platform" header="Platform" [editable]="true" [style]="{'overflow':'visible'}">
+                <ng-template let-col let-browser="rowData" pTemplate="editor">
+                    <p-dropdown [(ngModel)]="browser[col.field]" [options]="brands" [autoWidth]="false"
+                                [style]="{'width':'100%'}" required="true"></p-dropdown>
+                </ng-template>
+            </p-column>
+            <p-column field="grade" header="Grade" [editable]="true"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Row expansion -->
+    <pe-step label="Row expansion">
+        <p-dataTable [value]="browsers" expandableRows="true">
+            <p-column expander="true" styleClass="col-icon"></p-column>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+            <ng-template let-browser pTemplate="rowexpansion">
+                <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-9">
+                            <div class="ui-grid ui-grid-responsive ui-grid-pad">
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-2 label">Engine:</div>
+                                    <div class="ui-grid-col-10">{{browser.engine}}</div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-2 label">Browser:</div>
+                                    <div class="ui-grid-col-10">{{browser.browser}}</div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-2 label">Plaftform:</div>
+                                    <div class="ui-grid-col-10">{{browser.platform}}</div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-2 label">Grade:</div>
+                                    <div class="ui-grid-col-10">{{browser.grade}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ng-template>
-        </p-column>
-        <p-column field="brand" header="Brand (Custom)" [filter]="true" [style]="{'overflow':'visible'}" filterMatchMode="equals">
-            <ng-template pTemplate="filter" let-col>
-                <p-dropdown [options]="brands" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-dropdown>
-            </ng-template>
-        </p-column>
-        <p-column field="color" header="Color (Custom)" [filter]="true" filterMatchMode="in" [style]="{'overflow':'visible'}">
-            <ng-template pTemplate="filter" let-col>
-                <p-multiSelect [options]="colors" defaultLabel="All Colors" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-multiSelect>
-            </ng-template>
-        </p-column>
-    </p-dataTable>
-        </pe-step>
-    </pe-steps>
+        </p-dataTable>
+    </pe-step>
+    <!-- Resizable -->
+    <pe-step label="Resizable">
+        <h3 class="first">Fit Mode</h3>
+        <p-dataTable [value]="browsers" resizableColumns="true">
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
 
-</form>
+        <h3>Expand Mode</h3>
+        <p-dataTable [value]="browsers" resizableColumns="true" columnResizeMode="expand">
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Reorder -->
+    <pe-step label="Reorder">
+        <p-dataTable [value]="browsers" reorderableColumns="true">
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Lazy loading -->
+    <pe-step label="Lazy loading ">
+        <p-dataTable [value]="browsers" [lazy]="true" [rows]="10" [paginator]="true"
+                     [totalRecords]="totalRecords" (onLazyLoad)="loadBrowsersLazy($event)">
+            <p-header>List of browsers</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Scrolling -->
+    <pe-step label="Scrolling">
+        <p-dataTable [value]="browsers" scrollable="true" scrollHeight="200px">
+            <p-header>Vertical</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+
+        <p-dataTable [value]="browsers" scrollable="true" scrollHeight="200px" [rows]="20"
+                     virtualScroll="virtualScroll" [style]="{'margin-top':'30px'}"
+                     [lazy]="true" [totalRecords]="totalRecords" (onLazyLoad)="loadBrowsersLazy($event)">
+            <p-header>Virtual Scrolling</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+
+        <p-dataTable [value]="browsers" scrollable="true" scrollHeight="200px" scrollWidth="600px"
+                     [style]="{'margin-top':'30px'}">
+            <p-header>Vertical and Horizontal</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+
+        <p-dataTable [value]="browsers" scrollable="true" scrollHeight="200px" frozenWidth="200px"
+                     unfrozenWidth="600px" [style]="{'margin-top':'30px'}">
+            <p-header>Frozen Columns</p-header>
+            <p-column field="engine" header="Engine" [style]="{'width':'250px'}" frozen="true"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+
+    <!-- Responsive -->
+    <pe-step label="Responsive">
+        <button pButton type="button" (click)="toggle()" style="margin-bottom:10px" label="Toggle"
+                icon="fa-list"></button>
+        <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [pageLinks]="3" [responsive]="true"
+                     [stacked]="stacked">
+            <p-header>Responsive</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Column Toggler -->
+    <pe-step label="Column Toggler">
+        <p-dataTable [value]="browsers">
+            <p-header>
+                <div style="text-align:left">
+                    <p-multiSelect [options]="columnOptions" [(ngModel)]="cols"></p-multiSelect>
+                </div>
+            </p-header>
+            <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Export-->
+    <pe-step label="Export">
+        <p-dataTable #dt [value]="browsers" exportFilename="browsers">
+            <p-header>
+                <div class="ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV"
+                            (click)="dt.exportCSV()" style="float:left"></button>
+                </div>
+            </p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+
+    <!-- DataTable Contextmenu Integration-->
+    <pe-step label="DataTable + ContextMenu">
+        <p-contextMenu #contextmenu [model]="tableItems"></p-contextMenu>
+        <p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee"
+                     [contextMenu]="contextmenu">
+            <p-header>Browser Information</p-header>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- CRUD Operations -->
+    <pe-step label="CRUD Operations">
+        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedbrowser"
+                     (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+            <p-header>CRUD for browsers</p-header>
+            <p-column field="engine" header="Engine" [sortable]="true"></p-column>
+            <p-column field="browser" header="Browser" [sortable]="true"></p-column>
+            <p-column field="platform" header="Platform" [sortable]="true"></p-column>
+            <p-column field="grade" header="Grade" [sortable]="true"></p-column>
+            <p-footer>
+                <div class="ui-helper-clearfix" style="width:100%">
+                    <button type="button" pButton icon="fa-plus" style="float:left" (click)="addBrowser()"
+                            label="Add"></button>
+                </div>
+            </p-footer>
+        </p-dataTable>
+
+        <p-dialog header="browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade"
+                  [modal]="true">
+            <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="browser">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="engine">Engine</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="engine" [(ngModel)]="browser.engine"/></div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="browser">Browser</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="browser" [(ngModel)]="browser.browser"/></div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="platform">Platform</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="platform" [(ngModel)]="browser.platform"/></div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="grade">Grade</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="grade" [(ngModel)]="browser.grade"/></div>
+                </div>
+            </div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+                    <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+
+    </pe-step>
+    <pe-step>
+
+    </pe-step>
+
+
+</pe-steps>
+
 
 <p-growl [value]="msgs"></p-growl>
