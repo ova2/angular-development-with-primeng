@@ -52,6 +52,7 @@ export class TreeComponent {
         this.nodeService.getTouristPlaces().subscribe((places: any) => this.programmaticTree = places);
         this.nodeService.getTouristPlaces().subscribe((places: any) => this.lazyTree = places);
         this.nodeService.getTouristPlaces().subscribe((places: any) => this.contextMenuTree = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.dragDropTreeOne = places);
         this.nodeService.getTouristPlaces().subscribe((places: any) => {
             this.horizontalTree = [{
                 label: 'Root',
