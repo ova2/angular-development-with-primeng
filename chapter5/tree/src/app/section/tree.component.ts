@@ -24,10 +24,8 @@ export class TreeComponent {
     contextMenuTree: TreeNode[];
     dragDropTreeOne: TreeNode[];
     dragDropTreeTwo: TreeNode[];
-    dragDropTreeThree: TreeNode[];
     programmaticTree: TreeNode[];
 
-    lazyFiles: TreeNode[];
 
     selectedPlace: TreeNode;
 
