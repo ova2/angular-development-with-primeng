@@ -1,42 +1,50 @@
-<form novalidate>
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
         <!-- Basic -->
         <pe-step label="Basic">
-            <p-tree [value]="filesTree1"></p-tree>
+            <p-tree [value]="basicTree"></p-tree>
         </pe-step>
         <!-- Single Selection -->
         <pe-step label="Single Selection">
-            <p-tree [value]="filesTree2" selectionMode="single" [(selection)]="selectedFile"
+            <p-tree [value]="singleSelectionTree" selectionMode="single" [(selection)]="selectedPlace"
                     (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
-            <div style="margin-top:8px">Selected Node: {selectedFile ? selectedFile.label : 'none'}</div>
+            <div style="margin-top:8px">Selected Node: {{selectedPlace ? selectedPlace.label : 'none'}}</div>
         </pe-step>
         <!-- Multiple Selection -->
         <pe-step label="Multiple Selection">
-            <p-tree [value]="filesTree3" selectionMode="multiple" [(selection)]="selectedFiles"
+            <p-tree [value]="multipleSelectionTree" selectionMode="multiple" [(selection)]="selectedPlaces"
                     (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"></p-tree>
-            <div>Selected Nodes: <span *ngFor="let file of selectedFiles">{file.label} </span></div>
+            <div>Selected Nodes: <span *ngFor="let place of selectedPlaces">{{place.label}} </span></div>
         </pe-step>
-        <!-- Multiple Selection with Checkbox-->
-        <pe-step label="Single Selection">
-            <p-tree [value]="filesTree4" selectionMode="checkbox" [(selection)]="selectedFiles2"></p-tree>
-            <div>Selected Nodes: <span *ngFor="let file of selectedFiles2">{file.label} </span></div>
-        </pe-step>
-        <!-- Lazy loading -->
-        <pe-step label="Lazy loading">
-            <p-tree [value]="lazyFiles" (onNodeExpand)="nodeExpand($event)"
-                    [style]="{'max-height':'200px','overflow':'auto'}"></p-tree>
+        <!-- Multiple Selection(with Checkbox)-->
+        <pe-step label="Checkbox Selection">
+            <p-tree [value]="checkboxSelectionTree" selectionMode="checkbox" [(selection)]="selectMultiplePlaces"></p-tree>
+            <div>Selected Nodes: <span *ngFor="let place of selectMultiplePlaces">{{place.label}} </span></div>
         </pe-step>
         <!-- Customized content -->
         <pe-step label="Customized content">
-            <p-tree [value]="filesTree5">
+            <p-tree [value]="templateTree">
                 <ng-template let-node pTemplate="default">
-                    <input [(ngModel)]="node.label" type="text" style="width:100%">
+                    <input [(ngModel)]="node.label" type="text" style="width:100%"/>
                 </ng-template>
             </p-tree>
         </pe-step>
+
+        <!-- Horizontal Tree -->
+        <pe-step label="Horizontal">
+            <p-tree [value]="horizontalTree" layout="horizontal" selectionMode="single"
+                    [(selection)]="selectedTour"></p-tree>
+            <div style="margin-top:8px">Selected Node: {{selectedTour ? selectedTour.label : 'none'}}</div>
+        </pe-step>
+
+        <!-- Lazy loading -->
+        <pe-step label="Lazy loading">
+            <p-tree [value]="lazyTree" (onNodeExpand)="nodeExpand($event)"
+                    [style]="{'max-height':'200px','overflow':'auto'}"></p-tree>
+        </pe-step>
+
         <!-- Contextmenu -->
         <pe-step label="Contextmenu">
-            <p-tree [value]="filesTree6" selectionMode="single" [(selection)]="selectedFile2"
+            <p-tree [value]="contextMenuTree" selectionMode="single" [(selection)]="selectedTouristPlace"
                     [contextMenu]="cm"></p-tree>
             <p-contextMenu #cm [model]="items"></p-contextMenu>
         </pe-step>
@@ -44,8 +52,8 @@
         <pe-step label="Drag and Drop">
             <div class="ui-g ui-fluid">
                 <div class="ui-g-12 ui-md-3">
-                    <h4>Files</h4>
-                    <p-tree [value]="filesTree7" draggableNodes="true" droppableNodes="true"
+                    <h4>Available Packages</h4>
+                    <p-tree [value]="dragDropTreeOne" draggableNodes="true" droppableNodes="true"
                             dragdropScope="files"></p-tree>
                 </div>
 
@@ -54,19 +62,9 @@
                 </div>
 
                 <div class="ui-g-12 ui-md-3">
-                    <h4>Server 1</h4>
-                    <p-tree [value]="filesTree8" draggableNodes="true" droppableNodes="true"
-                            dragdropScope="files"></p-tree>
-                </div>
-
-                <div class="ui-g-12 ui-md-1" style="text-align:center">
-                    <i class="fa fa-exchange" style="font-size:36px;margin-top: 28px;"></i>
-                </div>
-
-                <div class="ui-g-12 ui-md-3">
-                    <h4>Server 2</h4>
-                    <p-tree [value]="filesTree9" draggableNodes="true" droppableNodes="true"
-                            dragdropScope="other"></p-tree>
+                    <h4>Choose your package</h4>
+                    <p-tree [value]="dragDropTreeTwo" draggableNodes="true" droppableNodes="true"
+                            dragdropScope="others"></p-tree>
                 </div>
 
                 <div class="ui-g-12 ui-md-1">
@@ -76,21 +74,13 @@
         </pe-step>
         <!-- Programmatic Tree expansion -->
         <pe-step label="Programmatic Tree expansion">
-            <p-tree #expandingTree [value]="filesTree10"></p-tree>
+            <p-tree #expandingTree [value]="programmaticTree"></p-tree>
             <div style="margin-top: 8px">
                 <button pButton type="text" label="Expand all" (click)="expandAll()"></button>
                 <button pButton type="text" label="Collapse all" (click)="collapseAll()"></button>
             </div>
         </pe-step>
-        <!-- Horizontal Tree -->
-        <pe-step label="Horizontal Tree ">
-            <p-tree [value]="filesTree11" layout="horizontal" selectionMode="single"
-                    [(selection)]="selectedFile3"></p-tree>
-            <div style="margin-top:8px">Selected Node: {selectedFile3 ? selectedFile3.label : 'none'}</div>
-        </pe-step>
 
     </pe-steps>
-
-</form>
 
 <p-growl [value]="msgs"></p-growl>
