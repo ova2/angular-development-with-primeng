@@ -2,32 +2,32 @@
     <!-- Basic -->
     <pe-step label="Basic">
 
-        <p-schedule [events]="events" [height]="600" [aspectRatio]="1"></p-schedule>
+        <p-schedule [events]="events" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
     </pe-step>
     <!-- Header customization -->
     <pe-step label="Header customization">
 
-        <p-schedule [events]="events" [header]="headerConfig"></p-schedule>
+        <p-schedule [events]="events" [header]="headerConfig" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
     </pe-step>
     <!-- Lazy loading -->
     <pe-step label="Lazy loading">
 
-        <p-schedule [events]="events" (onViewRender)="loadEvents($event)"></p-schedule>
+        <p-schedule [events]="events" (onViewRender)="loadEvents($event)" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
     </pe-step>
     <!-- Localization -->
     <pe-step label="Localization">
 
-        <p-schedule [events]="events" locale="de"></p-schedule>
+        <p-schedule [events]="events" locale="de" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
     </pe-step>
     <!-- CRUD Operations -->
     <pe-step label="CRUD Operations">
 
-        <p-schedule [events]="events" [header]="header" defaultDate="2017-02-01" [eventLimit]="4" [editable]="true"
-                    (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
+        <p-schedule [events]="events" [header]="header" defaultDate="2017-05-01" [eventLimit]="4" [editable]="true"
+                    (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
         <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
                   [modal]="false" [contentStyle]="{'overflow':'visible'}"
@@ -76,7 +76,7 @@
                     (onEventDragStart)="handleEventDragStart($event)" (onEventDragStop)="handleEventDragStop($event)"
                     (onEventDrop)="handleEventDrop($event)" (onEventResizeStart)="handleEventResizeStart($event)"
                     (onEventResizeStop)="handleEventResizeStop($event)" (onEventResize)="handleEventResize($event)"
-                    (onViewRender)="loadEvents($event)" (onDrop)="handleDrop($event)"></p-schedule>
+                    (onViewRender)="loadEvents($event)" (onDrop)="handleDrop($event)" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
         <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
                   [modal]="false" [contentStyle]="{'overflow':'visible'}"
