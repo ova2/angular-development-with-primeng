@@ -1,40 +1,120 @@
-<form novalidate>
-    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
-        <!-- Basic -->
-        <pe-step label="Basic" >
+<pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);" [stepClass]="'layout-dimension'">
+    <!-- Basic -->
+    <pe-step label="Basic">
 
-    <p-schedule [events]="events" [header]="header" defaultDate="2017-02-01" [eventLimit]="4" [editable]="true"
-                (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
+        <p-schedule [events]="events" [height]="600" [aspectRatio]="1"></p-schedule>
 
-    <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade" [modal]="false" [contentStyle]="{'overflow':'visible'}"
-              [style]="{'overflow':'visible'}" [resizable]="false">
-        <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-4"><label for="vin">Title</label></div>
-                <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title" /></div>
+    </pe-step>
+    <!-- Header customization -->
+    <pe-step label="Header customization">
+
+        <p-schedule [events]="events" [header]="headerConfig"></p-schedule>
+
+    </pe-step>
+    <!-- Lazy loading -->
+    <pe-step label="Lazy loading">
+
+        <p-schedule [events]="events" (onViewRender)="loadEvents($event)"></p-schedule>
+
+    </pe-step>
+    <!-- Localization -->
+    <pe-step label="Localization">
+
+        <p-schedule [events]="events" locale="de"></p-schedule>
+
+    </pe-step>
+    <!-- CRUD Operations -->
+    <pe-step label="CRUD Operations">
+
+        <p-schedule [events]="events" [header]="header" defaultDate="2017-02-01" [eventLimit]="4" [editable]="true"
+                    (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"></p-schedule>
+
+        <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
+                  [modal]="false" [contentStyle]="{'overflow':'visible'}"
+                  [style]="{'overflow':'visible'}" [resizable]="false">
+            <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="vin">Title</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title"/></div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="start">Start</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-calendar [(ngModel)]="event.start" dateFormat="yy-mm-dd" dataType="string"></p-calendar>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="end">End</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-calendar [(ngModel)]="event.end" dateFormat="yy-mm-dd" dataType="string"></p-calendar>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-checkbox [(ngModel)]="event.allDay" binary="checkbox"></p-checkbox>
+                    </div>
+                </div>
             </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-4"><label for="start">Start</label></div>
-                <div class="ui-grid-col-8"><p-calendar [(ngModel)]="event.start" dateFormat="yy-mm-dd" dataType="string"></p-calendar></div>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete"
+                            [disabled]="!event?.id"></button>
+                    <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save"
+                            [disabled]="!event?.start"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+    </pe-step>
+
+    <!-- Events -->
+    <pe-step label="Events">
+
+        <p-schedule [events]="events" [header]="header" [eventLimit]="4" [editable]="true"
+                    (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)"
+                    (onEventMouseover)="handleEventMouseover($event)" (onEventMouseout)="handleEventMouseout($event)"
+                    (onEventDragStart)="handleEventDragStart($event)" (onEventDragStop)="handleEventDragStop($event)"
+                    (onEventDrop)="handleEventDrop($event)" (onEventResizeStart)="handleEventResizeStart($event)"
+                    (onEventResizeStop)="handleEventResizeStop($event)" (onEventResize)="handleEventResize($event)"
+                    (onViewRender)="loadEvents($event)" (onDrop)="handleDrop($event)"></p-schedule>
+
+        <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
+                  [modal]="false" [contentStyle]="{'overflow':'visible'}"
+                  [style]="{'overflow':'visible'}" [resizable]="false">
+            <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="event">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="vin">Title</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="title" [(ngModel)]="event.title"/></div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="start">Start</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-calendar [(ngModel)]="event.start" dateFormat="yy-mm-dd" dataType="string"></p-calendar>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="end">End</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-calendar [(ngModel)]="event.end" dateFormat="yy-mm-dd" dataType="string"></p-calendar>
+                    </div>
+                </div>
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
+                    <div class="ui-grid-col-8">
+                        <p-checkbox [(ngModel)]="event.allDay" binary="checkbox"></p-checkbox>
+                    </div>
+                </div>
             </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-4"><label for="end">End</label></div>
-                <div class="ui-grid-col-8"><p-calendar [(ngModel)]="event.end" dateFormat="yy-mm-dd" dataType="string"></p-calendar></div>
-            </div>
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-4"><label for="allday">All Day</label></div>
-                <div class="ui-grid-col-8"><p-checkbox [(ngModel)]="event.allDay" binary="checkbox"></p-checkbox></div>
-            </div>
-        </div>
-        <p-footer>
-            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-                <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete" [disabled]="!event?.id"></button>
-                <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save" [disabled]="!event?.start"></button>
-            </div>
-        </p-footer>
-    </p-dialog>
-        </pe-step>
-    </pe-steps>
-</form>
+            <p-footer>
+                <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-close" (click)="deleteEvent()" label="Delete"
+                            [disabled]="!event?.id"></button>
+                    <button type="button" pButton icon="fa-check" (click)="saveEvent()" label="Save"
+                            [disabled]="!event?.start"></button>
+                </div>
+            </p-footer>
+        </p-dialog>
+    </pe-step>
+</pe-steps>
 
 <p-growl [value]="msgs"></p-growl>

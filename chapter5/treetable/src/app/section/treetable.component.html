@@ -1,62 +1,61 @@
-<form novalidate>
     <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
         <!-- Basic -->
         <pe-step label="Basic">
-            <p-treeTable [value]="files1">
+            <p-treeTable [value]="basicTreeTable">
                 <p-header>Basic</p-header>
                 <p-column field="name" header="Name"></p-column>
-                <p-column field="size" header="Size"></p-column>
+                <p-column field="days" header="Days"></p-column>
                 <p-column field="type" header="Type"></p-column>
             </p-treeTable>
         </pe-step>
         <!-- Singe Selection-->
         <pe-step label="Singe Selection">
-            <p-treeTable [value]="files2" selectionMode="single" [(selection)]="selectedFile"
+            <p-treeTable [value]="singleSelectionTreeTable" selectionMode="single" [(selection)]="selectedTouristPlace"
                          (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"
                          [style]="{'margin-top':'50px'}">
                 <p-header>Singe Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
-                <p-column field="size" header="Size"></p-column>
+                <p-column field="days" header="Days"></p-column>
                 <p-column field="type" header="Type"></p-column>
             </p-treeTable>
-            <p>Selected Node: {{selectedFile ? selectedFile.data.name : 'none'}}</p>
+            <p>Selected Node: {{selectedTouristPlace ? selectedTouristPlace.data.name : 'none'}}</p>
         </pe-step>
         <!-- Multiple Selection -->
         <pe-step label="Multiple Selection">
-            <p-treeTable [value]="files3" selectionMode="multiple" [(selection)]="selectedFiles"
+            <p-treeTable [value]="multipleSelectionTreeTable" selectionMode="multiple" [(selection)]="selectedTouristPlaces"
                          (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"
                          [style]="{'margin-top':'50px'}">
                 <p-header>Multiple Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
-                <p-column field="size" header="Size"></p-column>
+                <p-column field="days" header="Days"></p-column>
                 <p-column field="type" header="Type"></p-column>
             </p-treeTable>
-            <p>Selected Nodes: <span *ngFor="let file of selectedFiles">{{file.data.name}} </span></p>
+            <p>Selected Nodes: <span *ngFor="let place of selectedTouristPlaces">{{place.data.name}} </span></p>
         </pe-step>
         <!-- Checkbox Selection -->
         <pe-step label="Checkbox Selection">
-            <p-treeTable [value]="files4" selectionMode="checkbox" [(selection)]="selectedFiles2"
+            <p-treeTable [value]="checkboxSelectionTreeTable" selectionMode="checkbox" [(selection)]="selectedMultiTouristPlaces"
                          [style]="{'margin-top':'50px'}">
                 <p-header>Checkbox Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
-                <p-column field="size" header="Size"></p-column>
+                <p-column field="days" header="Days"></p-column>
                 <p-column field="type" header="Type"></p-column>
             </p-treeTable>
-            <p>Selected Nodes: <span *ngFor="let file of selectedFiles2">{{file.data.name}} </span></p>
+            <p>Selected Nodes: <span *ngFor="let place of selectedMultiTouristPlaces">{{place.data.name}} </span></p>
         </pe-step>
 
         <!-- Editable Cells with Templating -->
         <pe-step label="Editable Cells with Templating">
-            <p-treeTable [value]="files5" [style]="{'margin-top':'50px'}">
+            <p-treeTable [value]="templateTreeTable" [style]="{'margin-top':'50px'}">
                 <p-header>Editable Cells with Templating</p-header>
                 <p-column field="name" header="Name">
                     <ng-template let-node="rowData" pTemplate="body">
                         <input type="text" [(ngModel)]="node.data.name" style="width:100%;border-width:0px 0px 1px 0px">
                     </ng-template>
                 </p-column>
-                <p-column field="size" header="Size">
+                <p-column field="days" header="Days">
                     <ng-template let-node="rowData" pTemplate="body">
-                        <input type="text" [(ngModel)]="node.data.size" style="width:100%;border-width:0px 0px 1px 0px">
+                        <input type="text" [(ngModel)]="node.data.days" style="width:100%;border-width:0px 0px 1px 0px">
                     </ng-template>
                 </p-column>
                 <p-column field="type" header="Type">
@@ -68,28 +67,26 @@
         </pe-step>
         <!-- Context Menu -->
         <pe-step label="Context Menu">
-            <p-treeTable [value]="files6" selectionMode="single" [(selection)]="selectedFile2"
+            <p-treeTable [value]="contextmenuTreeTable" selectionMode="single" [(selection)]="selectedPlace"
                          [style]="{'margin-top':'50px'}" [contextMenu]="cm">
                 <p-header>Context Menu</p-header>
                 <p-column field="name" header="Name"></p-column>
-                <p-column field="size" header="Size"></p-column>
+                <p-column field="days" header="Days"></p-column>
                 <p-column field="type" header="Type"></p-column>
             </p-treeTable>
         </pe-step>
 
         <!-- Lazy Loading-->
         <pe-step label="Lazy Loading">
-            <p-treeTable [value]="lazyFiles" [style]="{'margin-top':'50px'}"
+            <p-treeTable [value]="lazyTreeTable" [style]="{'margin-top':'50px'}"
                          (onNodeExpand)="nodeExpand($event)">
                 <p-header>Lazy Loading</p-header>
                 <p-column field="name" header="Name"></p-column>
-                <p-column field="size" header="Size"></p-column>
+                <p-column field="days" header="Days"></p-column>
                 <p-column field="type" header="Type"></p-column>
             </p-treeTable>
         </pe-step>
 
     </pe-steps>
-
-</form>
 
 <p-growl [value]="msgs"></p-growl>

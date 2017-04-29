@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {Message} from 'primeng/components/common/api';
+import {Message,TreeNode,MenuItem} from 'primeng/components/common/api';
+import {TreeNodeService} from './service/treenodeservice';
 
 @Component({
     selector: 'section',
@@ -9,31 +10,31 @@ export class TreeTableComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    files1: TreeNode[];
+    basicTreeTable: TreeNode[];
 
-    files2: TreeNode[];
+    singleSelectionTreeTable: TreeNode[];
 
-    files3: TreeNode[];
+    multipleSelectionTreeTable: TreeNode[];
 
-    files4: TreeNode[];
+    checkboxSelectionTreeTable: TreeNode[];
 
-    files5: TreeNode[];
+    templateTreeTable: TreeNode[];
 
-    files6: TreeNode[];
+    contextmenuTreeTable: TreeNode[];
 
-    lazyFiles: TreeNode[];
+    lazyTreeTable: TreeNode[];
 
-    selectedFile: TreeNode;
+    selectedTouristPlace: TreeNode;
 
-    selectedFile2: TreeNode;
+    selectedPlace: TreeNode;
 
-    selectedFiles: TreeNode[];
+    selectedTouristPlaces: TreeNode[];
 
-    selectedFiles2: TreeNode[];
+    selectedMultiTouristPlaces: TreeNode[];
 
     items: MenuItem[];
 
-    constructor(private nodeService: NodeService) { }
+    constructor(private nodeService: TreeNodeService) { }
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
@@ -41,34 +42,34 @@ export class TreeTableComponent {
     }
 
     ngOnInit() {
-        this.nodeService.getFilesystem().then(files => this.files1 = files);
-        this.nodeService.getFilesystem().then(files => this.files2 = files);
-        this.nodeService.getFilesystem().then(files => this.files3 = files);
-        this.nodeService.getFilesystem().then(files => this.files4 = files);
-        this.nodeService.getFilesystem().then(files => this.files5 = files);
-        this.nodeService.getFilesystem().then(files => this.files6 = files);
-        this.nodeService.getLazyFilesystem().then(files => this.lazyFiles = files);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.basicTreeTable = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.singleSelectionTreeTable = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.multipleSelectionTreeTable = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.checkboxSelectionTreeTable = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.templateTreeTable = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.contextmenuTreeTable = places);
+        this.nodeService.getTouristPlaces().subscribe((places: any) => this.lazyTreeTable = places);
 
         this.items = [
-            {label: 'View', icon: 'fa-search', command: (event) => this.viewNode(this.selectedFile2)},
-            {label: 'Delete', icon: 'fa-close', command: (event) => this.deleteNode(this.selectedFile2)}
+            {label: 'View', icon: 'fa-search', command: (event) => this.viewNode(this.selectedPlace)},
+            {label: 'Delete', icon: 'fa-close', command: (event) => this.deleteNode(this.selectedPlace)}
         ];
     }
 
-    nodeSelect(event) {
+    nodeSelect(event: any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Node Selected', detail: event.node.data.name});
     }
 
-    nodeUnselect(event) {
+    nodeUnselect(event: any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Node Unselected', detail: event.node.data.name});
     }
 
-    nodeExpand(event) {
-        if(event.node) {
+    nodeExpand(event: any) {
+        if (event.node) {
             //in a real application, make a call to a remote url to load children of the current node and add the new nodes as children
-            this.nodeService.getLazyFilesystem().then(nodes => event.node.children = nodes);
+            this.nodeService.getTouristPlaces().subscribe(nodes => event.node.children = nodes);
         }
     }
 
