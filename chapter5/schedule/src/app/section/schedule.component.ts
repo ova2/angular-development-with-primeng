@@ -21,6 +21,8 @@ export class ScheduleComponent {
 
     idGen: number = 100;
 
+    de: any;
+
     constructor(private eventService: EventService) { }
 
     ngOnInit() {
@@ -30,6 +32,18 @@ export class ScheduleComponent {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
+        };
+
+        this.de = {
+            firstDayOfWeek: 1,
+            dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+            dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+            dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
+            monthNames: [
+                'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli',
+                'August', 'September', 'Oktober', 'November', 'Dezember'
+            ],
+            monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
         };
     }
 
