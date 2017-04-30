@@ -1,9 +1,10 @@
 interface Browser {
-    id: any,
+    id: any;
     engine: any;
     browser: any;
     platform: any;
     version: any;
+    code: any;
     grade: any;
 }
 

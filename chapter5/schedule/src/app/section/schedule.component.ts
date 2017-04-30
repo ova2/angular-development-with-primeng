@@ -50,6 +50,7 @@ export class ScheduleComponent {
     loadEvents(event: any) {
         let start = event.view.start;
         let end = event.view.end;
+        // In real time the service call filtered based on start and end dates
         this.eventService.getEvents().subscribe((events: any) => {this.events = events;});
     }
 

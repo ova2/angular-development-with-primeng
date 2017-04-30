@@ -13,7 +13,7 @@
         </pe-step>
         <!-- Control Selection -->
         <pe-step label="Control Selection">
-            <p-orderList [value]="countries" metaKeySelection="false" [listStyle]="{'width':'200px', 'height':'300px'}" >
+            <p-orderList [value]="countries" [metaKeySelection]="false" >
                 <ng-template let-country pTemplate="item">
                     <div class="ui-helper-clearfix">
                         <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />
@@ -61,7 +61,7 @@
 
         <!-- Customized-->
         <pe-step label="(Customized)">
-            <p-orderList [value]="countries"  header="Favourite countries" [responsive]="true"  (onReorder)="onReorder($event)" [listStyle]="{'width':'200px', 'height':'300px'}">
+            <p-orderList [value]="countries"  header="Favourite countries" [responsive]="true"  (onReorder)="onReorder($event)" [listStyle]="{'width':'100%', 'height':'300px'}">
                 <ng-template let-country pTemplate="item">
                     <div class="ui-helper-clearfix">
                         <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />

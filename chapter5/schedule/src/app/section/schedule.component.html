@@ -26,7 +26,7 @@
     <!-- CRUD Operations -->
     <pe-step label="CRUD Operations">
 
-        <p-schedule [events]="events" [header]="header" defaultDate="2017-05-01" [eventLimit]="4" [editable]="true"
+        <p-schedule [events]="events" [header]="header" defaultDate="2017-05-03" [eventLimit]="4" [editable]="true"
                     (onDayClick)="handleDayClick($event)" (onEventClick)="handleEventClick($event)" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
         <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"

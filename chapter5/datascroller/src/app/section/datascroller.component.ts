@@ -15,11 +15,9 @@ export class DataScrollerComponent {
 
     basicBrowsers: Browser[];
     facetBrowsers: Browser[];
-    paginationBrowsers: Browser[];
+    inlineBrowsers: Browser[];
     lazyloadingBrowsers: Browser[];
-    eventsBrowsers: Browser[];
-    advancedBrowsers: Browser[];
-
+    loaderBrowsers: Browser[];
     selectedBrowser: Browser;
 
     displayDialog: boolean;
@@ -29,9 +27,9 @@ export class DataScrollerComponent {
     ngOnInit() {
         this.browserService.getBrowsers().subscribe((browsers: any) => this.basicBrowsers = browsers.slice(0,4));
         this.browserService.getBrowsers().subscribe((browsers: any) => this.facetBrowsers = browsers.slice(0,4));
-        this.browserService.getBrowsers().subscribe((browsers: any) => this.paginationBrowsers = browsers);
-        this.browserService.getBrowsers().subscribe((browsers: any) => this.eventsBrowsers = browsers);
-        this.browserService.getBrowsers().subscribe((browsers: any) => this.advancedBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.inlineBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.loaderBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.lazyloadingBrowsers = browsers.slice(0,4));
     }
 
     selectBrowser(browser: Browser) {
