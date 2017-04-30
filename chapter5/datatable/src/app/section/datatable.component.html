@@ -1,7 +1,7 @@
 <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
     <!-- Basic -->
     <pe-step label="Basic">
-        <p-dataTable [value]="browsers">
+        <p-dataTable [value]="basicBrowsers">
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
@@ -11,9 +11,9 @@
 
     <!-- Dynamic columns-->
     <pe-step label="Dynamic columns">
-        <p-dataTable [value]="browsers">
+        <p-dataTable [value]="basicBrowsers">
             <p-header>
-                <div style="text-align:left">
+                <div class="algin-left">
                     <p-multiSelect [options]="columnOptions" [(ngModel)]="cols"></p-multiSelect>
                 </div>
             </p-header>
@@ -23,15 +23,15 @@
 
     <!-- Custom content-->
     <pe-step label="customization">
-        <p-dataTable [value]="browsers">
+        <p-dataTable [value]="basicBrowsers">
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
             <p-column field="grade" header="Grade">
                 <ng-template let-col let-browser="rowData" pTemplate="body">
-                    <span [style.color]="green" *ngIf="browser[col.field]=='A'">{{browser[col.field]}}</span>
-                    <span [style.color]="blue" *ngIf="browser[col.field]=='B'">{{browser[col.field]}}</span>
-                    <span [style.color]="red" *ngIf="browser[col.field]=='C'">{{browser[col.field]}}</span>
+                    <span [style.color]="'Green'" *ngIf="browser[col.field]=='A'">{{browser[col.field]}}</span>
+                    <span [style.color]="'Blue'" *ngIf="browser[col.field]=='B'">{{browser[col.field]}}</span>
+                    <span [style.color]="'Red'" *ngIf="browser[col.field]=='C'">{{browser[col.field]}}</span>
                 </ng-template>
             </p-column>
             <p-column styleClass="col-button">
@@ -47,7 +47,7 @@
 
     <!-- Facets -->
     <pe-step label="Facets">
-        <p-dataTable [value]="browsers">
+        <p-dataTable [value]="basicBrowsers">
             <p-header>List of browsers</p-header>
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
@@ -59,7 +59,7 @@
 
     <!-- Progress status -->
     <pe-step label="Loading status">
-        <p-dataTable [value]="cars" [loading]="loading">
+        <p-dataTable [value]="basicBrowsers" [loading]="true">
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
@@ -69,7 +69,7 @@
 
     <!-- Single selection -->
     <pe-step label="Single selection">
-        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedBrowser">
+        <p-dataTable [value]="basicBrowsers" selectionMode="single" [(selection)]="selectedBrowser">
             <p-header>Single Selection</p-header>
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
@@ -85,7 +85,7 @@
     </pe-step>
     <!-- Multiple selection -->
     <pe-step label="Multiple selection">
-        <p-dataTable [value]="browsers" selectionMode="multiple" [(selection)]="selectedBrowsers">
+        <p-dataTable [value]="basicBrowsers" selectionMode="multiple" [(selection)]="selectedBrowsers">
             <p-header>Multiple Selection</p-header>
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
@@ -105,7 +105,7 @@
     <pe-step label="Selection events">
         <h3>Selection events</h3>
         <p>DataTable provides onRowSelect and onRowUnselect as optional callbacks.</p>
-        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedBrowser"
+        <p-dataTable [value]="basicBrowsers" selectionMode="single" [(selection)]="selectedBrowser"
                      (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
             <p-header>Selection with Events</p-header>
             <p-column field="engine" header="Engine"></p-column>
@@ -119,7 +119,7 @@
         <h3>RadioButton</h3>
         <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column
             as "single".</p>
-        <p-dataTable [value]="browsers" [(selection)]="selectedBrowser">
+        <p-dataTable [value]="basicBrowsers" [(selection)]="selectedBrowser">
             <p-header> RadioButton selection (Single Selection)</p-header>
             <p-column [style]="{'width':'38px'}" selectionMode="single"></p-column>
             <p-column field="engine" header="Engine"></p-column>
@@ -139,7 +139,7 @@
         <h3>Checkbox</h3>
         <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column
             as "multiple".</p>
-        <p-dataTable [value]="browsers" [(selection)]="selectedBrowsers">
+        <p-dataTable [value]="basicBrowsers" [(selection)]="selectedBrowsers">
             <p-header>Multiple Selection</p-header>
             <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
             <p-column field="engine" header="Engine"></p-column>

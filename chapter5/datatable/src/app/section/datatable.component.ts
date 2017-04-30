@@ -15,6 +15,8 @@ export class DataTableComponent {
 
     browser: Browser;
 
+    basicBrowsers: Browser[];
+
     browsers: Browser[];
 
     selectedBrowser: Browser;
@@ -39,6 +41,7 @@ export class DataTableComponent {
 
     ngOnInit() {
         this.browserService.getBrowsers().subscribe((browsers: any) => this.browsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.basicBrowsers = browsers.slice(0,10));
         this.cols = [
             {field: 'engine', header: 'Engine'},
             {field: 'browser', header: 'Browser'},
@@ -46,8 +49,8 @@ export class DataTableComponent {
             {field: 'grade', header: 'Grade'}
         ];
         this.columnOptions = [];
-        for(let i = 0; i < this.cols.length; i++) {
-            this.columnOptions.push({label: this.cols[i].header, value: this.cols[i]});
+        for (let col of this.cols) {
+            this.columnOptions.push({label: col.header, value: col});
         }
     }
 
@@ -73,19 +76,20 @@ export class DataTableComponent {
         this.msgs.push({severity: 'info', summary: 'Browser Unselected', detail: event.data.engine + ' - ' + event.data.browser});
     }
 
-    onHeaderCheckboxToggle(event: any){
+    onHeaderCheckboxToggle(event: any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Header checkbox toggled:', detail: event.checked});
     }
 
-    onContextMenuSelect(event: any){
+    onContextMenuSelect(event: any) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Selected data', detail: event.data.engine + ' - ' + event.data.browser});
     }
 
-    onColResize(event: any){
+    onColResize(event: any) {
         this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'Resized column header'+event.element, detail: 'Change of column width'+  event.delta +'px'});
+        this.msgs.push({severity: 'info', summary: 'Resized column header' + event.element,
+            detail: 'Change of column width' +  event.delta + 'px'});
     }
 
     onColReorder(event: any) {
@@ -166,7 +170,7 @@ export class DataTableComponent {
         //event.sortOrder = Sort order as number, 1 for asc and -1 for dec
         //filters: FilterMetadata object having field as key and filter value, filter matchMode as value
 
-        this.browserService.getBrowsers().subscribe((browsers:any) =>
+        this.browserService.getBrowsers().subscribe((browsers: any) =>
             this.browsers = browsers.slice(event.first, (event.first + event.rows)));
     }
 
@@ -177,10 +181,9 @@ export class DataTableComponent {
     }
 
     save() {
-        if(this.newBrowser) {
+        if (this.newBrowser) {
             this.browsers.push(this.browser);
-        }
-        else {
+        } else {
             this.browsers[this.findSelectedBrowserIndex()] = this.browser;
         }
 
@@ -196,6 +199,11 @@ export class DataTableComponent {
 
     findSelectedBrowserIndex(): number {
         return this.browsers.indexOf(this.selectedBrowser);
+    }
+
+    selectBrowser(browser: Browser) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Browser selected', detail: 'Browser: ' + browser.browser});
     }
 
     onChangeStep(label: string) {
