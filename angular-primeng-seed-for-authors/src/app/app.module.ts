@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
@@ -17,6 +18,7 @@ import {routes} from './app-routing.module';
 @NgModule({
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         routes,
         FormsModule,
         ButtonModule,
