@@ -1,4 +1,4 @@
-### Draggable and Droppable features with DragDrop
+### Learning Draggable and Droppable directives
 
 #### Prerequisites
 

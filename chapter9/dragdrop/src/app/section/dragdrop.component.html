@@ -1,38 +1,34 @@
-<form novalidate>
-    <h3 class="first">Drag Only</h3>
-    <div pDraggable="pnl"  dragHandle=".ui-panel-titlebar">
-        <p-panel header="Drag Header">
-            The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-            Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-            kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-        </p-panel>
+<div class="dnd-container">
+    <p-dataGrid [value]="availableDocs">
+        <p-header>
+            Available Documents
+        </p-header>
+        <ng-template let-doc pTemplate="item">
+            <div class="ui-g-12 ui-md-4" pDraggable="docs"
+                 dragHandle=".ui-panel-titlebar" dragEffect="move"
+                 (onDragStart)="dragStart($event, doc)" (onDragEnd)="dragEnd($event)">
+                <p-panel [header]="doc.title" [style]="{'text-align':'center'}">
+                    <img src="/assets/data/images/docs/{{doc.extension}}.png">
+                </p-panel>
+            </div>
+        </ng-template>
+    </p-dataGrid>
+
+    <br/><br/>
+
+    <div pDroppable="docs" (onDrop)="drop($event)" [ngClass]="{'dragged-doc': draggedDoc}">
+        <p-dataTable [value]="deletedDocs">
+            <p-header>Recycle Bin</p-header>
+            <p-column field="title" header="Title"></p-column>
+            <p-column field="size" header="Size (bytes)"></p-column>
+            <p-column field="creator" header="Creator"></p-column>
+            <p-column field="creationDate" header="Creation Date">
+                <ng-template let-col let-doc="rowData" pTemplate="body">
+                    {{doc[col.field].toLocaleDateString()}}
+                </ng-template>
+            </p-column>
+        </p-dataTable>
     </div>
 
-    <h3>Drag and Drop to DataTable</h3>
-    <div class="ui-grid ui-grid-pad ui-grid-responsive">
-        <div class="ui-grid-row">
-            <div class="ui-grid-col-6 ui-widget-content" style="border-right:0 none">
-                <ul style="margin:0;padding:0">
-                    <li *ngFor="let car of availableCars" class="ui-state-default ui-helper-clearfix" pDraggable="cars"
-                        (onDragStart)="dragStart($event,car)" (onDragEnd)="dragEnd($event)">
-                        <i class="fa fa-arrows fa-2x" style="float:right;margin-top:8px"></i>
-                        <img src="showcase/resources/demo/images/car/{{car.brand}}.gif" style="float:left" draggable="false">
-                        <div style="margin:8px 0 0 8px;float:left">{{car.vin}} - {{car.year}}</div>
-                    </li>
-                </ul>
-            </div>
-            <div class="ui-grid-col-6 ui-widget-content" pDroppable="cars" (onDrop)="drop($event)"
-                 [ngClass]="{'ui-state-highlight':draggedCar}">
-                <p-dataTable [value]="selectedCars">
-                    <p-column field="vin" header="Vin"></p-column>
-                    <p-column field="year" header="Year"></p-column>
-                    <p-column field="brand" header="Brand"></p-column>
-                    <p-column field="color" header="Color"></p-column>
-                </p-dataTable>
-            </div>
-        </div>
-    </div>
-</form>
-
-<p-growl [value]="msgs"></p-growl>
+    <br/><br/>
+</div>

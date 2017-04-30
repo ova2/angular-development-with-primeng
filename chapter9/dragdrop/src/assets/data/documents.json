@@ -1,0 +1,67 @@
+{
+  "data": [
+    {
+      "title": "Perl script",
+      "size": 120,
+      "creator": "Sara Schmidt",
+      "creationDate": "2016-12-17T03:24:00",
+      "extension": "perl"
+    },
+    {
+      "title": "Alex's master thesis",
+      "size": 850,
+      "creator": "Alex Konradi",
+      "creationDate": "2017-04-04T08:12:00",
+      "extension": "dvi"
+    },
+    {
+      "title": "jQuery presentation",
+      "size": 687,
+      "creator": "Jasper Morgan",
+      "creationDate": "2015-08-22T14:19:00",
+      "extension": "ppt"
+    },
+    {
+      "title": "Russian songs",
+      "size": 1020,
+      "creator": "Urmel Night",
+      "creationDate": "2016-10-15T17:04:00",
+      "extension": "mid"
+    },
+    {
+      "title": "German songs",
+      "size": 2268,
+      "creator": "Nicole Konradi",
+      "creationDate": "2017-05-23T09:30:00",
+      "extension": "mp3"
+    },
+    {
+      "title": "Cool flash multimedia",
+      "size": 4268,
+      "creator": "John Wiese",
+      "creationDate": "2014-11-02T10:11:00",
+      "extension": "swf"
+    },
+    {
+      "title": "Windows custom sound",
+      "size": 84,
+      "creator": "Sebastian Schwarz",
+      "creationDate": "2013-05-18T12:06:00",
+      "extension": "wav"
+    },
+    {
+      "title": "Currency exchange table",
+      "size": 1300,
+      "creator": "Nadja Swift",
+      "creationDate": "2015-06-01T01:12:00",
+      "extension": "xls"
+    },
+    {
+      "title": "Web shop configuration",
+      "size": 67,
+      "creator": "Oleg Varaksin",
+      "creationDate": "2017-02-19T21:09:00",
+      "extension": "xml"
+    }
+  ]
+}
