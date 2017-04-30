@@ -1,6 +1,7 @@
 {
   "data": [
     {
+      "id": "1",
       "title": "Perl script",
       "size": 120,
       "creator": "Sara Schmidt",
@@ -8,6 +9,7 @@
       "extension": "perl"
     },
     {
+      "id": "2",
       "title": "Alex's master thesis",
       "size": 850,
       "creator": "Alex Konradi",
@@ -15,6 +17,7 @@
       "extension": "dvi"
     },
     {
+      "id": "3",
       "title": "jQuery presentation",
       "size": 687,
       "creator": "Jasper Morgan",
@@ -22,6 +25,7 @@
       "extension": "ppt"
     },
     {
+      "id": "4",
       "title": "Russian songs",
       "size": 1020,
       "creator": "Urmel Night",
@@ -29,6 +33,7 @@
       "extension": "mid"
     },
     {
+      "id": "5",
       "title": "German songs",
       "size": 2268,
       "creator": "Nicole Konradi",
@@ -36,6 +41,7 @@
       "extension": "mp3"
     },
     {
+      "id": "6",
       "title": "Cool flash multimedia",
       "size": 4268,
       "creator": "John Wiese",
@@ -43,6 +49,7 @@
       "extension": "swf"
     },
     {
+      "id": "7",
       "title": "Windows custom sound",
       "size": 84,
       "creator": "Sebastian Schwarz",
@@ -50,6 +57,7 @@
       "extension": "wav"
     },
     {
+      "id": "8",
       "title": "Currency exchange table",
       "size": 1300,
       "creator": "Nadja Swift",
@@ -57,6 +65,7 @@
       "extension": "xls"
     },
     {
+      "id": "9",
       "title": "Web shop configuration",
       "size": 67,
       "creator": "Oleg Varaksin",

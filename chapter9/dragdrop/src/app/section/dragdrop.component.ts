@@ -26,24 +26,15 @@ export class DragDropComponent {
 
     drop(event: any) {
         if (this.draggedDoc) {
+            // add draggable element to the deleted documents list 
             this.deletedDocs.push(this.draggedDoc);
-            this.availableDocs.splice(this.findIndex(this.draggedDoc), 1);
+            // remove draggable element from available documents list
+            this.availableDocs = this.availableDocs.filter((e: Document) => e.id !== this.draggedDoc.id);
             this.draggedDoc = null;
         }
     }
 
     dragEnd(event: any) {
         this.draggedDoc = null;
-    }
-
-    findIndex(doc: Document) {
-        let index = -1;
-        for (let i = 0; i < this.availableDocs.length; i++) {
-            if (doc.title === this.availableDocs[i].title) {
-                index = i;
-                break;
-            }
-        }
-        return index;
     }
 }

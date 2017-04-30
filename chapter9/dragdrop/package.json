@@ -23,7 +23,7 @@
     "core-js": "~2.4.1",
     "rxjs": "~5.3.0",
     "zone.js": "0.8.5",
-    "primeng": "4.0.0-rc.5",
+    "primeng": "4.0.0-rc.4",
     "font-awesome": "~4.7.0"
   },
   "devDependencies": {
