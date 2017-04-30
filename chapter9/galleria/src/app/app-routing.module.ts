@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {GalleriaComponent} from './section/inputmask.component';
+import {GalleriaComponent} from './section/galleria.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'chapter9/galleria', pathMatch: 'full'},

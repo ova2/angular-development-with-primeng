@@ -10,7 +10,6 @@ import {DragDropModule} from 'primeng/components/dragdrop/dragdrop';
 import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {DataGridModule} from 'primeng/components/datagrid/datagrid';
 import {PanelModule} from 'primeng/components/panel/panel';
-import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {AppComponent}  from './app.component';
 import {DragDropComponent}  from './section/dragdrop.component';
@@ -27,8 +26,7 @@ import {DocumentService} from './section/service/document.service';
         DragDropModule,
         DataTableModule,
         DataGridModule,
-        PanelModule,
-        GrowlModule
+        PanelModule
     ],
     declarations: [
         AppComponent,

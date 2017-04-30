@@ -6,21 +6,56 @@ import {Message} from 'primeng/components/common/api';
     templateUrl: 'galleria.component.html'
 })
 export class GalleriaComponent {
+    activeIndex: number = 0;
+    msgs: Message[] = [];
+
     images: any[];
 
     ngOnInit() {
         this.images = [];
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria1.jpg', alt:'Description for Image 1', title:'Title 1'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria2.jpg', alt:'Description for Image 2', title:'Title 2'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria3.jpg', alt:'Description for Image 3', title:'Title 3'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria4.jpg', alt:'Description for Image 4', title:'Title 4'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria5.jpg', alt:'Description for Image 5', title:'Title 5'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria6.jpg', alt:'Description for Image 6', title:'Title 6'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria7.jpg', alt:'Description for Image 7', title:'Title 7'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria8.jpg', alt:'Description for Image 8', title:'Title 8'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria9.jpg', alt:'Description for Image 9', title:'Title 9'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria10.jpg', alt:'Description for Image 10', title:'Title 10'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria11.jpg', alt:'Description for Image 11', title:'Title 11'});
-        this.images.push({source:'showcase/resources/demo/images/galleria/galleria12.jpg', alt:'Description for Image 12', title:'Title 12'});
+        this.images.push({
+            source: '/assets/data/images/cars/Yeni.png',
+            alt: 'This is a first car',
+            title: 'Yeni Vollkswagen CC'
+        });
+        this.images.push({
+            source: '/assets/data/images/cars/Golf.png',
+            alt: 'This is a second car',
+            title: 'Golf'
+        });
+        this.images.push({
+            source: '/assets/data/images/cars/Jetta.png',
+            alt: 'This is a third car',
+            title: 'Jetta'
+        });
+        this.images.push({
+            source: '/assets/data/images/cars/Passat.png',
+            alt: 'This is a fourth car',
+            title: 'Passat'
+        });
+        this.images.push({
+            source: '/assets/data/images/cars/Polo.png',
+            alt: 'This is a fifth car',
+            title: 'Polo'
+        });
+        this.images.push({
+            source: '/assets/data/images/cars/Scirocco.png',
+            alt: 'This is a sixth car',
+            title: 'Scirocco'
+        });
+        this.images.push({
+            source: '/assets/data/images/cars/Touareg.png',
+            alt: 'This is a seventh car',
+            title: 'Touareg'
+        });
+    }
+    
+    onImageClicked($event: any) {
+        
+    }    
+
+    onChangeStep(label: string) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: label});
     }
 }

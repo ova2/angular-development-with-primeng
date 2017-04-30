@@ -27,8 +27,8 @@ export class DragDropComponent {
     drop(event: any) {
         if (this.draggedDoc) {
             // add draggable element to the deleted documents list 
-            this.deletedDocs.push(this.draggedDoc);
-            // remove draggable element from available documents list
+            this.deletedDocs = [...this.deletedDocs, this.draggedDoc];
+            // remove draggable element from the available documents list
             this.availableDocs = this.availableDocs.filter((e: Document) => e.id !== this.draggedDoc.id);
             this.draggedDoc = null;
         }
