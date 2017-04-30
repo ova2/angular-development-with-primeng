@@ -49,10 +49,10 @@ export class GalleriaComponent {
             title: 'Touareg'
         });
     }
-    
+
     onImageClicked($event: any) {
-        
-    }    
+        window.open($event.image.source, '_blank');
+    }
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
