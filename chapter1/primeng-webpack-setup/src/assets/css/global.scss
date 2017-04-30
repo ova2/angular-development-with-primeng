@@ -1,5 +1,13 @@
 body {
-    padding: 0 20px 0 20px;
+  padding: 0 20px 0 20px;
+}
+
+body pe-steps .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
+  width: 35px;
+}
+
+body pe-steps .ui-steps {
+    margin-top: -12px;
 }
 
 [hidden] {
