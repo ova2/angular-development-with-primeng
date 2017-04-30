@@ -238,10 +238,10 @@
                     Note: Grades are 3 types.A,B and C.
                 </p-footer>
             </p-dataList>
-            <p-dialog header="Browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()">
+            <p-dialog header="Browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="350" (onAfterHide)="onDialogHide()">
                 <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="selectedBrowser" style="font-size:16px;text-align:center;padding:20px">
                     <div class="ui-grid-row">
-                        <div class="ui-grid-col-12" style="text-align:center"><img src="/assets/data/images/{{browser.code}}.png" width="100" height="100"></div>
+                        <div class="ui-grid-col-12" style="text-align:center"><img src="/assets/data/images/{{selectedBrowser.code}}.png" width="50" height="70"></div>
                     </div>
                     <div class="ui-grid-row">
                         <div class="ui-grid-col-4">Engine: </div>
