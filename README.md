@@ -43,8 +43,9 @@ __Table of Contents__
   * Grouping content with tabs in TabView
   
 * [Chapter 5, Data Iteration Components](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter5)
+  * Multi feature DataTable
   * Selecting rows in DataTable
-  * Sorting and filtering data in DataTable
+  * Sorting, filtering and paginating data in DataTable
   * Resizing, reordering and toggling columns in DataTable
   * In-cell editing with DataTable
   * Making DataTable responsive
@@ -53,13 +54,15 @@ __Table of Contents__
   * Customizing cell content with templating
   * Row expansion by providing row template
   * Export data in CSV format
+  * DataTable events and methods
   * Listing data with DataList
   * Listing data with PickList
   * Listing data with OrderList
+  * Grid format data with DataGrid
+  * On demand data loading with DataScroller
   * Visualizing data with Tree
   * Visualizing data with TreeTable
-  * Managing events with Schedule by leveraging lazy loading
-  * Visualizing data with DataScroller
+  * Managing events with Schedule
   
 * [Chapter 6, Amazing Overlays and Messages](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter6)
   * Displaying content in Dialog
