@@ -6,6 +6,7 @@ interface Browser {
     version: any;
     code: any;
     grade: any;
+    rating: any;
 }
 
 export default Browser;

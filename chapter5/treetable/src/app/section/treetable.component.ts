@@ -8,6 +8,7 @@ import {TreeNodeService} from './service/treenodeservice';
 })
 export class TreeTableComponent {
     msgs: Message[] = [];
+
     activeIndex: number = 0;
 
     basicTreeTable: TreeNode[];

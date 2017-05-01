@@ -25,13 +25,17 @@ export class DataTableComponent {
 
     displayDialog: boolean;
 
+    stacked: boolean;
+
     newBrowser: boolean;
 
-    totalRecords: number;
+    totalRecords: number = 100;
 
-    platforms: SelectItem[];
+    engines: SelectItem[];
 
     grades: SelectItem[];
+
+    expandedRows: any[];
 
     cols: any[];
 
@@ -52,6 +56,18 @@ export class DataTableComponent {
         for (let col of this.cols) {
             this.columnOptions.push({label: col.header, value: col});
         }
+
+        this.engines = [];
+        this.engines.push({label: 'All engines', value: null});
+        this.engines.push({label: 'Trident', value: 'Trident'});
+        this.engines.push({label: 'Gecko', value: 'Gecko'});
+        this.engines.push({label: 'Webkit', value: 'Webkit'});
+
+        this.grades = [];
+        this.grades.push({label: 'A', value: 'A'});
+        this.grades.push({label: 'B', value: 'B'});
+        this.grades.push({label: 'C', value: 'C'});
+
     }
 
     onRowClick(event: any) {
@@ -135,7 +151,9 @@ export class DataTableComponent {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Sort field:', detail: event.field});
         this.msgs.push({severity: 'info', summary: 'Sort order: ', detail: event.order});
-        this.msgs.push({severity: 'info', summary: 'Multisort Meta data:', detail: event.multisortmeta});
+        if (event.multisortmeta) {
+            this.msgs.push({severity: 'info', summary: 'Multisort Meta data:', detail: event.multisortmeta});
+        }
     }
 
     onFilter(event: any) {
@@ -163,7 +181,6 @@ export class DataTableComponent {
     }
 
     loadBrowsersLazy(event: LazyLoadEvent) {
-        //in a real application, make a remote request to load data using state metadata from event
         //event.first = First row offset
         //event.rows = Number of rows per page
         //event.sortField = Field name to sort with
@@ -204,6 +221,10 @@ export class DataTableComponent {
     selectBrowser(browser: Browser) {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Browser selected', detail: 'Browser: ' + browser.browser});
+    }
+
+    toggle() {
+        this.stacked = !this.stacked;
     }
 
     onChangeStep(label: string) {

@@ -8,5 +8,4 @@ const router: Routes = [
     {path: '**', redirectTo: 'chapter5/treetable'}
 ];
 
-
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

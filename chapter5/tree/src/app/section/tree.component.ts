@@ -26,7 +26,6 @@ export class TreeComponent {
     dragDropTreeTwo: TreeNode[];
     programmaticTree: TreeNode[];
 
-
     selectedPlace: TreeNode;
 
     selectedPlaces: TreeNode;

@@ -11,8 +11,7 @@
         <!-- Singe Selection-->
         <pe-step label="Singe Selection">
             <p-treeTable [value]="singleSelectionTreeTable" selectionMode="single" [(selection)]="selectedTouristPlace"
-                         (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"
-                         [style]="{'margin-top':'50px'}">
+                         (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
                 <p-header>Singe Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="days" header="Days"></p-column>
@@ -23,8 +22,7 @@
         <!-- Multiple Selection -->
         <pe-step label="Multiple Selection">
             <p-treeTable [value]="multipleSelectionTreeTable" selectionMode="multiple" [(selection)]="selectedTouristPlaces"
-                         (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)"
-                         [style]="{'margin-top':'50px'}">
+                         (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
                 <p-header>Multiple Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="days" header="Days"></p-column>
@@ -34,8 +32,7 @@
         </pe-step>
         <!-- Checkbox Selection -->
         <pe-step label="Checkbox Selection">
-            <p-treeTable [value]="checkboxSelectionTreeTable" selectionMode="checkbox" [(selection)]="selectedMultiTouristPlaces"
-                         [style]="{'margin-top':'50px'}">
+            <p-treeTable [value]="checkboxSelectionTreeTable" selectionMode="checkbox" [(selection)]="selectedMultiTouristPlaces">
                 <p-header>Checkbox Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="days" header="Days"></p-column>
@@ -46,29 +43,28 @@
 
         <!-- Editable Cells with Templating -->
         <pe-step label="Editable Cells with Templating">
-            <p-treeTable [value]="templateTreeTable" [style]="{'margin-top':'50px'}">
+            <p-treeTable [value]="templateTreeTable">
                 <p-header>Editable Cells with Templating</p-header>
                 <p-column field="name" header="Name">
                     <ng-template let-node="rowData" pTemplate="body">
-                        <input type="text" [(ngModel)]="node.data.name" style="width:100%;border-width:0px 0px 1px 0px">
+                        <input type="text" [(ngModel)]="node.data.name" class="edit-input">
                     </ng-template>
                 </p-column>
                 <p-column field="days" header="Days">
                     <ng-template let-node="rowData" pTemplate="body">
-                        <input type="text" [(ngModel)]="node.data.days" style="width:100%;border-width:0px 0px 1px 0px">
+                        <input type="text" [(ngModel)]="node.data.days" class="edit-input">
                     </ng-template>
                 </p-column>
                 <p-column field="type" header="Type">
                     <ng-template let-node="rowData" pTemplate="body">
-                        <input type="text" [(ngModel)]="node.data.type" style="width:100%;border-width:0px 0px 1px 0px">
+                        <input type="text" [(ngModel)]="node.data.type" class="edit-input">
                     </ng-template>
                 </p-column>
             </p-treeTable>
         </pe-step>
         <!-- Context Menu -->
         <pe-step label="Context Menu">
-            <p-treeTable [value]="contextmenuTreeTable" selectionMode="single" [(selection)]="selectedPlace"
-                         [style]="{'margin-top':'50px'}" [contextMenu]="cm">
+            <p-treeTable [value]="contextmenuTreeTable" selectionMode="single" [(selection)]="selectedPlace" [contextMenu]="cm">
                 <p-header>Context Menu</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="days" header="Days"></p-column>
@@ -78,8 +74,7 @@
 
         <!-- Lazy Loading-->
         <pe-step label="Lazy Loading">
-            <p-treeTable [value]="lazyTreeTable" [style]="{'margin-top':'50px'}"
-                         (onNodeExpand)="nodeExpand($event)">
+            <p-treeTable [value]="lazyTreeTable" (onNodeExpand)="nodeExpand($event)">
                 <p-header>Lazy Loading</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="days" header="Days"></p-column>

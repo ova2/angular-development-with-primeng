@@ -1,3 +1,4 @@
+
 <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
     <!-- Basic -->
     <pe-step label="Basic">
@@ -103,10 +104,9 @@
     </pe-step>
     <!-- Selection events-->
     <pe-step label="Selection events">
-        <h3>Selection events</h3>
-        <p>DataTable provides onRowSelect and onRowUnselect as optional callbacks.</p>
         <p-dataTable [value]="basicBrowsers" selectionMode="single" [(selection)]="selectedBrowser"
-                     (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+                     (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)"
+                     (onRowClick)="onRowClick($event)" (onRowDblClick)="onRowDblClick($event)">
             <p-header>Selection with Events</p-header>
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
@@ -116,9 +116,6 @@
     </pe-step>
     <!-- RadioButton selection -->
     <pe-step label="RadioButton selection">
-        <h3>RadioButton</h3>
-        <p>Single selection can also be handled using radio buttons by enabling the selectionMode property of column
-            as "single".</p>
         <p-dataTable [value]="basicBrowsers" [(selection)]="selectedBrowser">
             <p-header> RadioButton selection (Single Selection)</p-header>
             <p-column [style]="{'width':'38px'}" selectionMode="single"></p-column>
@@ -136,9 +133,6 @@
     </pe-step>
     <!-- Checkbox selection -->
     <pe-step label="Checkbox selection">
-        <h3>Checkbox</h3>
-        <p>Multiple selection can also be handled using checkboxes by enabling the selectionMode property of column
-            as "multiple".</p>
         <p-dataTable [value]="basicBrowsers" [(selection)]="selectedBrowsers">
             <p-header>Multiple Selection</p-header>
             <p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>
@@ -159,14 +153,14 @@
     <!-- Sorting -->
     <pe-step label="Sorting">
         <h3 class="first">Single Column</h3>
-        <p-dataTable [value]="browsers">
+        <p-dataTable [value]="basicBrowsers" (onSort)="onSort($event)">
             <p-column field="engine" header="Engine" [sortable]="true"></p-column>
             <p-column field="browser" header="Browser" [sortable]="true"></p-column>
             <p-column field="platform" header="Platform" [sortable]="true"></p-column>
             <p-column field="grade" header="Grade" [sortable]="true"></p-column>
         </p-dataTable>
         <h3>Multiple Columns</h3>
-        <p-dataTable [value]="browsers" sortMode="multiple">
+        <p-dataTable [value]="basicBrowsers" sortMode="multiple" (onSort)="onSort($event)">
             <p-column field="engine" header="Engine" [sortable]="true"></p-column>
             <p-column field="browser" header="Browser" [sortable]="true"></p-column>
             <p-column field="platform" header="Platform" [sortable]="true"></p-column>
@@ -175,34 +169,35 @@
     </pe-step>
     <!-- Filtering -->
     <pe-step label="Filtering">
-        <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
-            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <div class="ui-widget-header align-globalfilter">
+            <i class="fa fa-search search-globalfilter"></i>
             <input #gb type="text" pInputText size="50" placeholder="Global Filter">
         </div>
-        <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [globalFilter]="gb" #datatable>
+        <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [globalFilter]="gb" #datatable (onFilter)="onFilter($event)">
             <p-header>List of Browsers</p-header>
-            <p-column field="engine" header="Engine (startsWith)" [filter]="true"
+            <p-column field="browser" header="Browser (contains)" [filter]="true" [filterMatchMode]="contains"
                       filterPlaceholder="Search"></p-column>
-            <p-column field="browser" header="Browser ({{browserFilter||'No Filter'}}" [filter]="true"
-                      filterMatchMode="equals">
+            <p-column field="platform" header="Platform (startsWith)" [filter]="true"
+                      filterPlaceholder="Search"></p-column>
+
+            <p-column field="rating" header="Rating ({{browserFilter||'No Filter'}}" [filter]="true"
+                      filterMatchMode="equals" [style]="{'overflow':'visible'}">
                 <ng-template pTemplate="filter" let-col>
                     <i class="fa fa-close"
-                       (click)="browserFilter=null;datatable.filter(null,col.field,col.filterMatchMode)"></i>
-                    <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="browserFilter" [min]="1970"
-                              [max]="2010"
+                       (click)="ratingFilter=null;datatable.filter(null,col.field,col.filterMatchMode)"></i>
+                    <p-slider [styleClass]="'slider-layout'" [(ngModel)]="ratingFilter" [min]="1"
+                              [max]="10"
                               (onSlideEnd)="datatable.filter($event.value,col.field,col.filterMatchMode)"></p-slider>
                 </ng-template>
             </p-column>
-            <p-column field="platform" header="Platform (Custom)" [filter]="true" [style]="{'overflow':'visible'}"
-                      filterMatchMode="equals">
+            <p-column field="engine" header="Engine (Custom)" [filter]="true" filterMatchMode="equals" [style]="{'overflow':'visible'}">
                 <ng-template pTemplate="filter" let-col>
-                    <p-dropdown [options]="platforms" [style]="{'width':'100%'}"
+                    <p-dropdown [options]="engines" [style]="{'width':'100%'}"
                                 (onChange)="datatable.filter($event.value,col.field,col.filterMatchMode)"
                                 styleClass="ui-column-filter"></p-dropdown>
                 </ng-template>
             </p-column>
-            <p-column field="grade" header="Grade (Custom)" [filter]="true" filterMatchMode="in"
-                      [style]="{'overflow':'visible'}">
+            <p-column field="grade" header="Grade (Custom)" [filter]="true" filterMatchMode="in" [style]="{'overflow':'visible'}">
                 <ng-template pTemplate="filter" let-col>
                     <p-multiSelect [options]="grades" defaultLabel="All grades"
                                    (onChange)="datatable.filter($event.value,col.field,col.filterMatchMode)"
@@ -211,15 +206,25 @@
             </p-column>
         </p-dataTable>
     </pe-step>
+    <!-- Pagination -->
+    <pe-step label="Pagination">
+        <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,15,20]" paginatorPosition="both" (onPage)="onPage($event)" >
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="browser" header="Browser"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
     <!-- Editable -->
     <pe-step label="Editable">
-        <p-dataTable [value]="browsers" [editable]="true">
-            <p-column field="engine" header="Engine" [editable]="true"></p-column>
+        <p-dataTable [value]="basicBrowsers" [editable]="true">
             <p-column field="browser" header="Browser" [editable]="true"></p-column>
-            <p-column field="platform" header="Platform" [editable]="true" [style]="{'overflow':'visible'}">
-                <ng-template let-col let-browser="rowData" pTemplate="editor">
-                    <p-dropdown [(ngModel)]="browser[col.field]" [options]="brands" [autoWidth]="false"
-                                [style]="{'width':'100%'}" required="true"></p-dropdown>
+            <p-column field="platform" header="Platform" [editable]="false"></p-column>
+            <p-column field="engine" header="Engine" [editable]="true" [style]="{'overflow':'visible'}">
+                <ng-template let-col let-browserRef="rowData" pTemplate="editor">
+                    <p-dropdown [(ngModel)]="browserRef[col.field]" [options]="engines" [autoWidth]="false"
+                                [style]="{'width':'100%'}"
+                                required="true"></p-dropdown>
                 </ng-template>
             </p-column>
             <p-column field="grade" header="Grade" [editable]="true"></p-column>
@@ -227,14 +232,14 @@
     </pe-step>
     <!-- Row expansion -->
     <pe-step label="Row expansion">
-        <p-dataTable [value]="browsers" expandableRows="true">
-            <p-column expander="true" styleClass="col-icon"></p-column>
+        <p-dataTable [value]="basicBrowsers" expandableRows="true" [expandedRows]="expandedRows">
+            <p-column expander="true" styleClass="col-icon" header="Toggle"></p-column>
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
             <p-column field="grade" header="Grade"></p-column>
             <ng-template let-browser pTemplate="rowexpansion">
-                <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px">
+                <div class="ui-grid ui-grid-responsive ui-fluid rowexpansion-layout">
                     <div class="ui-grid-row">
                         <div class="ui-grid-col-9">
                             <div class="ui-grid ui-grid-responsive ui-grid-pad">
@@ -251,6 +256,14 @@
                                     <div class="ui-grid-col-10">{{browser.platform}}</div>
                                 </div>
                                 <div class="ui-grid-row">
+                                    <div class="ui-grid-col-2 label">Version:</div>
+                                    <div class="ui-grid-col-10">{{browser.version}}</div>
+                                </div>
+                                <div class="ui-grid-row">
+                                    <div class="ui-grid-col-2 label">Rating:</div>
+                                    <div class="ui-grid-col-10">{{browser.rating}}</div>
+                                </div>
+                                <div class="ui-grid-row">
                                     <div class="ui-grid-col-2 label">Grade:</div>
                                     <div class="ui-grid-col-10">{{browser.grade}}</div>
                                 </div>
@@ -264,7 +277,7 @@
     <!-- Resizable -->
     <pe-step label="Resizable">
         <h3 class="first">Fit Mode</h3>
-        <p-dataTable [value]="browsers" resizableColumns="true">
+        <p-dataTable [value]="basicBrowsers" resizableColumns="true">
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
@@ -272,7 +285,7 @@
         </p-dataTable>
 
         <h3>Expand Mode</h3>
-        <p-dataTable [value]="browsers" resizableColumns="true" columnResizeMode="expand">
+        <p-dataTable [value]="basicBrowsers" resizableColumns="true" columnResizeMode="expand">
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
@@ -281,11 +294,80 @@
     </pe-step>
     <!-- Reorder -->
     <pe-step label="Reorder">
-        <p-dataTable [value]="browsers" reorderableColumns="true">
+        <p-dataTable [value]="basicBrowsers" reorderableColumns="true">
             <p-column field="engine" header="Engine"></p-column>
             <p-column field="browser" header="Browser"></p-column>
             <p-column field="platform" header="Platform"></p-column>
             <p-column field="grade" header="Grade"></p-column>
+        </p-dataTable>
+    </pe-step>
+    <!-- Column Grouping -->
+    <pe-step label="Column Grouping">
+        <p-dataTable [value]="basicBrowsers">
+            <p-headerColumnGroup>
+                <p-row>
+                    <p-column header="Browser" rowspan="3"></p-column>
+                    <p-column header="Details" colspan="4"></p-column>
+                </p-row>
+                <p-row>
+                    <p-column header="Environment" colspan="2"></p-column>
+                    <p-column header="Performance" colspan="2"></p-column>
+                </p-row>
+                <p-row>
+                    <p-column header="Engine"></p-column>
+                    <p-column header="Platform"></p-column>
+                    <p-column header="Rating"></p-column>
+                    <p-column header="Grade"></p-column>
+                </p-row>
+            </p-headerColumnGroup>
+
+            <p-column field="browser"></p-column>
+            <p-column field="engine"></p-column>
+            <p-column field="platform"></p-column>
+            <p-column field="rating"></p-column>
+            <p-column field="grade"></p-column>
+
+            <p-footerColumnGroup>
+                <p-row>
+                    <p-column footer="*Please note that Chrome browser details not included" colspan="5"></p-column>
+                </p-row>
+            </p-footerColumnGroup>
+        </p-dataTable>
+    </pe-step>
+    <!-- Row grouping -->
+    <pe-step label="Row grouping">
+        <p-dataTable [value]="browsers" sortField="browser" rowGroupMode="subheader" groupField="browser"
+                     expandableRowGroups="true"
+                     [sortableRowGroup]="false">
+            <p-header>Toggleable Row Groups with Footers</p-header>
+            <ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['browser']}}</ng-template>
+            <p-column field="engine" header="Engine"></p-column>
+            <p-column field="platform" header="Platform"></p-column>
+            <p-column field="rating" header="rating">
+                <ng-template let-col let-browser="rowData" pTemplate="body">
+                    <span>{{browser[col.field]}} 'Stars'</span>
+                </ng-template>
+            </p-column>
+            <ng-template pTemplate="rowgroupfooter" let-browser>
+                <td colspan="3" style="text-align:right">Chrome browsers are not included</td>
+            </ng-template>
+        </p-dataTable>
+
+        <p-dataTable [value]="browsers" sortField="engine" rowGroupMode="subheader" groupField="engine"
+                     [styleClass]="'rowgroup-padding'">
+            <p-header>Subheader</p-header>
+            <ng-template pTemplate="rowgroupheader" let-rowData>{{rowData['engine']}}</ng-template>
+            <p-column field="browser" header="Browser" sortable="true"></p-column>
+            <p-column field="platform" header="Platform" sortable="true"></p-column>
+            <p-column field="grade" header="Grade" sortable="true"></p-column>
+        </p-dataTable>
+
+        <p-dataTable [value]="browsers" sortField="engine" rowGroupMode="rowspan" [styleClass]="'rowgroup-padding'">
+            <p-header>RowSpan</p-header>
+            <p-column field="engine" header="Engine" sortable="true"></p-column>
+            <p-column field="platform" header="Platform" sortable="true"></p-column>
+            <p-column field="browser" header="Browser" sortable="true"></p-column>
+            <p-column field="grade" header="Grade" sortable="true"></p-column>
         </p-dataTable>
     </pe-step>
     <!-- Lazy loading -->
@@ -293,10 +375,10 @@
         <p-dataTable [value]="browsers" [lazy]="true" [rows]="10" [paginator]="true"
                      [totalRecords]="totalRecords" (onLazyLoad)="loadBrowsersLazy($event)">
             <p-header>List of browsers</p-header>
-            <p-column field="engine" header="Engine"></p-column>
-            <p-column field="browser" header="Browser"></p-column>
-            <p-column field="platform" header="Platform"></p-column>
-            <p-column field="grade" header="Grade"></p-column>
+            <p-column field="engine" header="Engine" [sortable]="true" [filter]="true"></p-column>
+            <p-column field="browser" header="Browser" [sortable]="true" [filter]="true"></p-column>
+            <p-column field="platform" header="Platform" [sortable]="true" [filter]="true"></p-column>
+            <p-column field="grade" header="Grade" [sortable]="true" [filter]="true"></p-column>
         </p-dataTable>
     </pe-step>
     <!-- Scrolling -->
@@ -340,9 +422,9 @@
 
     <!-- Responsive -->
     <pe-step label="Responsive">
-        <button pButton type="button" (click)="toggle()" style="margin-bottom:10px" label="Toggle"
+        <button pButton type="button" (click)="toggle()" class="responsive-toggle" label="Toggle"
                 icon="fa-list"></button>
-        <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [pageLinks]="3" [responsive]="true"
+        <p-dataTable [value]="browsers" [rows]="3" [paginator]="true" [pageLinks]="3" [responsive]="true"
                      [stacked]="stacked">
             <p-header>Responsive</p-header>
             <p-column field="engine" header="Engine"></p-column>
@@ -364,7 +446,7 @@
     </pe-step>
     <!-- Export-->
     <pe-step label="Export">
-        <p-dataTable #dt [value]="browsers" exportFilename="browsers">
+        <p-dataTable #dt [value]="basicBrowsers" exportFilename="browsers" csvSeparator=";">
             <p-header>
                 <div class="ui-helper-clearfix">
                     <button type="button" pButton icon="fa-file-o" iconPos="left" label="CSV"
@@ -436,11 +518,6 @@
         </p-dialog>
 
     </pe-step>
-    <pe-step>
-
-    </pe-step>
-
-
 </pe-steps>
 
 
