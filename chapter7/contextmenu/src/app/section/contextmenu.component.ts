@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
 import {MenuItem} from 'primeng/components/common/api';
-import {EmployeeService} from './service/employeeService';
+import {EmployeeService} from './service/employee.service';
 import Employee from './service/employee';
 
 @Component({

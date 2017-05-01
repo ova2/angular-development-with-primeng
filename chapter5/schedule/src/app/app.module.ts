@@ -19,7 +19,7 @@ import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {ScheduleComponent}  from './section/schedule.component';
-import {EventService} from './section/service/eventservice';
+import {EventService} from './section/service/event.service';
 import {routes} from './app-routing.module';
 
 @NgModule({

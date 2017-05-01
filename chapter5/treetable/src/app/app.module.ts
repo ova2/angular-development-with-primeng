@@ -14,7 +14,7 @@ import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {TreeTableComponent}  from './section/treetable.component';
-import {TreeNodeService} from './section/service/treenodeservice';
+import {TreeNodeService} from './section/service/treenode.service';
 import {routes} from './app-routing.module';
 
 @NgModule({

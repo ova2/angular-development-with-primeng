@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
-import {EventService} from './service/eventservice';
+import {EventService} from './service/event.service';
 import {MyEvent} from './event/event';
 
 @Component({

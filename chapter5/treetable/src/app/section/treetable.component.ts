@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Message,TreeNode,MenuItem} from 'primeng/components/common/api';
-import {TreeNodeService} from './service/treenodeservice';
+import {TreeNodeService} from './service/treenode.service';
 
 @Component({
     selector: 'section',

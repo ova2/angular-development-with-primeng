@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
-import {BrowserService} from './service/browserservice';
+import {BrowserService} from './service/browser.service';
 import Browser from './service/browser';
 
 @Component({

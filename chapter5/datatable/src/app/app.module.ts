@@ -19,7 +19,7 @@ import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {DataTableComponent}  from './section/datatable.component';
-import {BrowserService} from './section/service/browserservice';
+import {BrowserService} from './section/service/browser.service';
 import {routes} from './app-routing.module';
 
 @NgModule({

@@ -1,6 +1,6 @@
 import {Component,ViewChild} from '@angular/core';
 import {Message,TreeNode,MenuItem} from 'primeng/components/common/api';
-import {TreeNodeService} from './service/treenodeservice';
+import {TreeNodeService} from './service/treenode.service';
 import {Tree} from 'primeng/components/tree/tree';
 
 @Component({

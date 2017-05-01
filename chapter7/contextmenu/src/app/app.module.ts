@@ -13,7 +13,7 @@ import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {ContextMenuComponent}  from './section/contextmenu.component';
-import {EmployeeService} from './section/service/employeeService';
+import {EmployeeService} from './section/service/employee.service';
 import {routes} from './app-routing.module';
 
 @NgModule({
