@@ -20,7 +20,7 @@ export class ConfirmDialogComponent {
             icon: 'fa fa-question-circle',
             accept: () => {
                 this.msgs = [];
-                this.msgs.push({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+                this.msgs.push({severity: 'info', summary: 'Confirmed', detail: 'You have accepted'});
             }
         });
     }
@@ -32,7 +32,7 @@ export class ConfirmDialogComponent {
             icon: 'fa fa-trash',
             accept: () => {
                 this.msgs = [];
-                this.msgs.push({severity:'info', summary:'Confirmed', detail:'The record is deleted'});
+                this.msgs.push({severity: 'info', summary: 'Confirmed', detail: 'The record is deleted'});
             }
         });
     }
@@ -42,7 +42,7 @@ export class ConfirmDialogComponent {
             message: 'Do you like to use DataTable component?',
             accept: () => {
                 this.msgs = [];
-                this.msgs.push({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+                this.msgs.push({severity: 'info', summary: 'Confirmed', detail: 'You have accepted'});
             }
         });
     }
@@ -50,9 +50,5 @@ export class ConfirmDialogComponent {
     onChangeStep(label: string) {
         this.msgs.length = 0;
         this.msgs.push({severity: 'info', summary: label});
-    }
-
-    ngOnInit() {
-
     }
 }

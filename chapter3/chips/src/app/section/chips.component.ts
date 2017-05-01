@@ -14,7 +14,7 @@ export class ChipsComponent {
 
     complexcontacts: string[];
 
-    disabledcontacts:string[]=['PrimeTek','GeekoTek'];
+    disabledcontacts: string[] = ['PrimeTek','GeekoTek'];
 
     activeIndex: number = 0;
     
@@ -28,10 +28,6 @@ export class ChipsComponent {
         this.msgs.length = 0;
         this.msgs.push(
             {severity: 'info', summary: 'The contact is removed'});
-    }
-
-    ngOnInit() {
-
     }
 
     onChangeStep(label: string) {

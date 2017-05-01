@@ -10,10 +10,6 @@ export class PasswordComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    ngOnInit() {
-
-    }
-
     onChangeStep(label: string) {
         this.msgs.length = 0;
         this.msgs.push({severity: 'info', summary: label});

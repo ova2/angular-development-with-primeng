@@ -11,14 +11,14 @@ export class TabViewComponent {
 
     activeIndex: number = 0;
 
-    onTabChange(event:any) {
+    onTabChange(event: any) {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Tab Expanded', detail: 'Index: ' + event.index});
+        this.msgs.push({severity: 'info', summary: 'Tab Expanded', detail: 'Index: ' + event.index});
     }
 
-    onTabClose(event:any) {
+    onTabClose(event: any) {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Tab closed', detail: 'Index: ' + event.index});
+        this.msgs.push({severity: 'info', summary: 'Tab closed', detail: 'Index: ' + event.index});
     }
 
     onChangeStep(label: string) {

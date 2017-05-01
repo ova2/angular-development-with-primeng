@@ -7,10 +7,10 @@ import {MenuItem} from 'primeng/components/common/api';
     templateUrl: 'panelmenu.component.html'
 })
 export class PanelMenuComponent {
-    private items: MenuItem[];
-    private expandeditems: MenuItem[];
     activeIndex: number = 0;
     msgs: Message[] = [];
+    private items: MenuItem[];
+    private expandeditems: MenuItem[];
 
     ngOnInit() {
         this.items = [

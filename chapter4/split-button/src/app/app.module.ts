@@ -7,7 +7,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {SplitButtonModule} from 'primeng/components/splitbutton/splitbutton';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
-import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module'
+import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
 import {SplitButtonComponent}  from './section/splitbutton.component';

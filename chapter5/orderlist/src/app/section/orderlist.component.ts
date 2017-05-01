@@ -21,7 +21,7 @@ export class OrderListComponent {
         });
     }
 
-    onReorder(event:any){
+    onReorder(event: any) {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'onReorder Event', detail: event.items});

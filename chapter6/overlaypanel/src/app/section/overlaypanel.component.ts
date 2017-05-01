@@ -13,20 +13,19 @@ export class OverlayPanelComponent {
 
     marks: string;
     percentage: string;
-
-    constructor(private scoreService: ScoreService) { }
-
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    selectScore(event:any,score: Score, overlaypanel: OverlayPanel) {
+    constructor(private scoreService: ScoreService) { }
+
+    selectScore(event: any, score: Score, overlaypanel: OverlayPanel) {
         this.marks = score.marks;
-        this.percentage = score.percentage
+        this.percentage = score.percentage;
         overlaypanel.toggle(event);
     }
 
     ngOnInit() {
-        this.scoreService.getScores().subscribe((scores:Score[]) => this.scores = scores);
+        this.scoreService.getScores().subscribe((scores: Score[]) => this.scores = scores);
     }
 
     onChangeStep(label: string) {
@@ -34,23 +33,23 @@ export class OverlayPanelComponent {
         this.msgs.push({severity: 'info', summary: label});
     }
 
-    onBeforeShow(){
+    onBeforeShow() {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Show dialog', detail:'Before shown'});
+        this.msgs.push({severity: 'info', summary: 'Show dialog', detail: 'Before shown'});
     }
 
-    onAfterShow(){
+    onAfterShow() {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Show dialog', detail:'After shown'});
+        this.msgs.push({severity: 'info', summary: 'Show dialog', detail: 'After shown'});
     }
 
-    onBeforeHide(){
+    onBeforeHide() {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail:'Before hide'});
+        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail: 'Before hide'});
     }
 
-    onAfterHide(){
+    onAfterHide() {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail:'After hide'});
+        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail: 'After hide'});
     }
 }

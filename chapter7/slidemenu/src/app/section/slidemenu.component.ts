@@ -7,9 +7,9 @@ import {MenuItem} from 'primeng/components/common/api';
     templateUrl: 'slidemenu.component.html'
 })
 export class SlideMenuComponent {
-    private items: MenuItem[];
     activeIndex: number = 0;
     msgs: Message[] = [];
+    private items: MenuItem[];
 
     ngOnInit() {
         this.items = [

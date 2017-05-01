@@ -13,7 +13,8 @@ export class AutoCompleteComponent {
     topcountry: string;
     countryInstance: Country;
     customCountry: Country;
-    topAsiaCountries: string[] = ['Singapore', 'Hong Kong', 'South Korea', 'Japan', 'Israel', 'Brunei', 'Qatar', 'Cyprus', 'Saudi Arabia', 'United Arab Emirates'];
+    topAsiaCountries: string[] = ['Singapore', 'Hong Kong', 'South Korea', 'Japan', 'Israel',
+        'Brunei', 'Qatar', 'Cyprus', 'Saudi Arabia', 'United Arab Emirates'];
     filteredCountries: Country[];
     filteredCountriesMultiple: Country[];
     filteredTopAsiaCountries: string[];
@@ -27,23 +28,23 @@ export class AutoCompleteComponent {
     constructor(private countryService: CountryService) {
     }
 
-    onFocus(){
-        this.msgs=[];
+    onFocus() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The autocomplete gets focus'});
     }
 
-    onBlur(){
-        this.msgs=[];
+    onBlur() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The autocomplete loses focus'});
     }
 
-    onSelect(){
-        this.msgs=[];
+    onSelect() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The autocomplete suggestion is selected'});
     }
 
-    onUnselect(){
-        this.msgs=[];
+    onUnselect() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The autocomplete selected item is removed'});
     }
 
@@ -101,8 +102,6 @@ export class AutoCompleteComponent {
     }
 
     ngOnInit() {
-
-
         this.types = [];
         this.types.push({label: 'ReadOnly', value: 'readonly'});
         this.types.push({label: 'Disabled', value: 'disable'});

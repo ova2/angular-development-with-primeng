@@ -9,24 +9,20 @@ export class CheckboxComponent {
     msgs: Message[] = [];
 
     checked: boolean;
-    selectedVersions: string[]=['AngularJS1.0','AngularV4.0'];
-    status: any= true;
+    selectedVersions: string[] = ['AngularJS1.0','AngularV4.0'];
+    status: any = true;
     feature: boolean = true;
 
     activeIndex: number = 0;
 
     onChangeCheckbox() {
-        this.msgs=[];
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Checkbox status is changed'});
     }
 
     onChangeTristate() {
-        this.msgs=[];
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'Tristate Checkbox status is changed'});
-    }
-
-    ngOnInit() {
-
     }
 
     onChangeStep(label: string) {

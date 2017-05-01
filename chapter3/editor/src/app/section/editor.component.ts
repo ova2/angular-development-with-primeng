@@ -18,7 +18,6 @@ export class EditorComponent {
 
     activeIndex: number = 0;
 
-
     onTextChange() {
         this.msgs = [];
         this.msgs.push(
@@ -29,10 +28,6 @@ export class EditorComponent {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'The editor selected text is changed'});
-    }
-
-    ngOnInit() {
-
     }
 
     onChangeStep(label: string) {

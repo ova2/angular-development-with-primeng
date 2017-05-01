@@ -44,12 +44,12 @@ export class DialogComponent {
 
     showDialog() {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Show dialog', detail:'When dialog is shown'});
+        this.msgs.push({severity: 'info', summary: 'Show dialog', detail: 'When dialog is shown'});
     }
 
     hideDialog() {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail:'when dialog is hidden'});
+        this.msgs.push({severity: 'info', summary: 'Hide dialog', detail: 'when dialog is hidden'});
     }
 
     onComplete() {
@@ -62,7 +62,4 @@ export class DialogComponent {
         this.msgs.push({severity: 'info', summary: label});
     }
 
-    ngOnInit() {
-
-    }
 }

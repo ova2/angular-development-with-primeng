@@ -9,13 +9,13 @@ import Employee from './service/employee';
     templateUrl: 'contextmenu.component.html'
 })
 export class ContextMenuComponent {
-    private documentItems: MenuItem[];
-    private targetItems: MenuItem[];
-    private tableItems: MenuItem[];
     selectedEmployee: Employee;
     msgs: Message[] = [];
     activeIndex: number = 0;
     employees: Employee[];
+    private documentItems: MenuItem[];
+    private targetItems: MenuItem[];
+    private tableItems: MenuItem[];
 
     constructor(private employeeService: EmployeeService) {
     }
@@ -138,8 +138,8 @@ export class ContextMenuComponent {
 
     deleteEmployee(employee: Employee) {
         this.msgs = [];
-        for(let i = 0; i < this.employees.length; i++) {
-            if(this.employees[i].id == employee.id) {
+        for (let i = 0; i < this.employees.length; i++) {
+            if (this.employees[i].id === employee.id) {
                 this.employees.splice(i, 1);
                 this.msgs.push({severity: 'info', summary: 'Employee Deleted', detail: employee.name + ' - ' + employee.id});
                 break;

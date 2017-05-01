@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
 import {SelectItem} from 'primeng/components/common/api';
-import {CountryService} from './service/countryservice';
+import {CountryService} from './service/country.service';
 import Country from './service/country';
 
 @Component({
@@ -25,18 +25,18 @@ export class SelectComponent {
 
     }
 
-    onFocus(){
-        this.msgs=[];
+    onFocus() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The dropdown gets focus'});
     }
 
-    onBlur(){
-        this.msgs=[];
+    onBlur() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The dropwdown loses focus'});
     }
 
-    onChange(){
-        this.msgs=[];
+    onChange() {
+        this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The dropdown is changed'});
     }
 
@@ -45,19 +45,19 @@ export class SelectComponent {
         this.msgs.push({severity: 'info', summary: 'The Multiselect selection is changed'});
     }
 
-    generateCountries(countriesArray:Country[]) {
+    generateCountries(countriesArray: Country[]) {
         let countryList: any[] = [];
         let countryCodes: any[] = [];
         for (let country of countriesArray) {
-            countryList.push({label:country.name,value:{name:country.name,dial_code:country.dial_code,code:country.code}});
-            countryCodes.push({label:country.code,value:{name:country.name,dial_code:country.dial_code,code:country.code}});
+            countryList.push({label: country.name, value: {name: country.name, dial_code: country.dial_code, code: country.code}});
+            countryCodes.push({label: country.code, value: {name: country.name, dial_code: country.dial_code, code: country.code}});
         }
         this.countries = countryList;
         this.countrycodes = countryCodes;
     }
 
-    ngOnInit(){
-        this.countryService.getCountries().subscribe((countriesArray : Country[]) => {
+    ngOnInit() {
+        this.countryService.getCountries().subscribe((countriesArray: Country[]) => {
              this.generateCountries(countriesArray);
         });
     }

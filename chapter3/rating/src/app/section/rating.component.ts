@@ -14,22 +14,22 @@ export class RatingComponent {
 
     ember: number = 6;
 
-    knockout:number = 2;
+    knockout: number = 2;
 
     vuejs: number = 3;
 
     types: SelectItem[];
 
-    selectedType:string = 'readonly';
+    selectedType: string = 'readonly';
 
     activeIndex: number = 0;
 
-    handleRate(event:any) {
+    handleRate(event: any) {
         this.msgs.push(
             {severity: 'info', summary: 'You have rated with ' + event.value});
     }
 
-    handleCancel(event:any) {
+    handleCancel(event: any) {
     this.msgs.push(
         {severity: 'info', summary: 'Rating is Cancelled'});
     }

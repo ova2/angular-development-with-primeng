@@ -14,7 +14,7 @@ import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 
 import {AppComponent}  from './app.component';
-import {CountryService} from './section/service/countryservice';
+import {CountryService} from './section/service/country.service';
 import {SelectComponent}  from './section/select.component';
 import {routes} from './app-routing.module';
 

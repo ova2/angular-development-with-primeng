@@ -18,18 +18,18 @@ export class ToggleButtonComponent {
 
     activeIndex: number = 0;
 
-    onToggleButton(e:any) {
+    onToggleButton(e: any) {
         this.msgs = [];
-        if(e.checked) {
+        if (e.checked) {
             this.msgs.push({severity: 'info', summary: 'I confirm the booking'});
-        } else{
+        } else {
             this.msgs.push({severity: 'info', summary: 'I reject the booking'});
         }
     }
 
-    onChange(e:any) {
+    onChange(e: any) {
         this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'The selected options are '+e.value});
+        this.msgs.push({severity: 'info', summary: 'The selected options are ' + e.value});
     }
 
     onChangeStep(label: string) {

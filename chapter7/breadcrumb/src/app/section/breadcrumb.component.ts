@@ -7,10 +7,10 @@ import {MenuItem} from 'primeng/primeng';
     templateUrl: 'breadcrumb.component.html'
 })
 export class BreadcrumbComponent {
-    private items: MenuItem[];
     home: MenuItem;
     activeIndex: number = 0;
     msgs: Message[] = [];
+    private items: MenuItem[];
 
     ngOnInit() {
         this.items = [];
@@ -49,7 +49,7 @@ export class BreadcrumbComponent {
         this.home = {
             label: 'Home',icon: 'fa-globe', command: (event) => {
                 this.msgs.length = 0;
-                this.msgs.push({severity: 'info', summary: "Home"});
+                this.msgs.push({severity: 'info', summary: 'Home'});
             }
         };
     }

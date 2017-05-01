@@ -26,9 +26,9 @@ export class SelectButtonComponent {
         this.types.push({label: 'PrimeReact', value: 'PrimeReact'});
     }
 
-    onChange(e:any) {
+    onChange(e: any) {
         this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'The selected options are '+e.value});
+        this.msgs.push({severity: 'info', summary: 'The selected options are ' + e.value});
     }
 
     onChangeStep(label: string) {

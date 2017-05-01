@@ -9,20 +9,19 @@ export class AccordionComponent {
     msgs: Message[] = [];
     activeIndex: number = 0;
 
-    onTabClose(event:any) {
+    onTabClose(event: any) {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Tab Closed', detail: 'Index: ' + event.index});
+        this.msgs.push({severity: 'info', summary: 'Tab Closed', detail: 'Index: ' + event.index});
     }
 
-    onTabOpen(event:any) {
+    onTabOpen(event: any) {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Tab Expanded', detail: 'Index: ' + event.index});
+        this.msgs.push({severity: 'info', summary: 'Tab Expanded', detail: 'Index: ' + event.index});
     }
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
         this.msgs.push({severity: 'info', summary: label});
     }
-
 
 }

@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import needed PrimeNG modules here
 import {AccordionModule} from 'primeng/components/accordion/accordion';
@@ -19,6 +20,7 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
+        BrowserAnimationsModule,
         AccordionModule,
         SharedModule,
         WizardModule,

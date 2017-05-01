@@ -22,12 +22,12 @@ export class ValidationComponent {
 
     ngOnInit() {
         this.registrationform = this.formBuilder.group({
-            'firstname': new FormControl('', Validators.required),
-            'lastname': new FormControl('', Validators.required),
-            'password': new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
-            'address': new FormControl(''),
-            'phone': new FormControl(''),
-            'gender': new FormControl('', Validators.required)
+            firstname: new FormControl('', Validators.required),
+            lastname: new FormControl('', Validators.required),
+            password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
+            address: new FormControl(''),
+            phone: new FormControl(''),
+            gender: new FormControl('', Validators.required)
         });
 
         this.genders = [];

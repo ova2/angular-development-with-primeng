@@ -26,7 +26,7 @@ export class SliderComponent {
 
     types: SelectItem[];
 
-    selectedType:string = 'readonly';
+    selectedType: string = 'readonly';
 
     activeIndex: number = 0;
     

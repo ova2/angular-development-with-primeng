@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {APP_BASE_HREF} from '@angular/common';
 import {FormsModule,ReactiveFormsModule}    from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import needed PrimeNG modules here
 import {PanelModule} from 'primeng/components/panel/panel';
@@ -25,6 +26,7 @@ import {routes} from './app-routing.module';
         BrowserModule,
         routes,
         FormsModule,
+        BrowserAnimationsModule,
         CheckboxModule,
         TriStateCheckboxModule,
         WizardModule,

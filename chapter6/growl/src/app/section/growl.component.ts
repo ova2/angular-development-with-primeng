@@ -12,41 +12,38 @@ export class GrowlComponent {
 
     showMessage() {
         this.messages = [];
-        this.messages.push({severity:'info', summary:'Angular Message', detail:'Angular4 is ready'});
+        this.messages.push({severity: 'info', summary: 'Angular Message', detail: 'Angular4 is ready'});
     }
 
     showSuccess() {
         this.messages = [];
-        this.messages.push({severity:'info', summary:'Angular Message', detail:'Angular4 is ready'});
+        this.messages.push({severity: 'info', summary: 'Angular Message', detail: 'Angular4 is ready'});
     }
 
     showInfo() {
         this.messages = [];
-        this.messages.push({severity:'info', summary:'Info Message', detail:'PrimeNG4 is ready'});
+        this.messages.push({severity: 'info', summary: 'Info Message', detail: 'PrimeNG4 is ready'});
     }
 
     showWarn() {
         this.messages = [];
-        this.messages.push({severity:'warn', summary:'Warn Message', detail:'Upgrade to PrimeNG4 for more features'});
+        this.messages.push({severity: 'warn', summary: 'Warn Message', detail: 'Upgrade to PrimeNG4 for more features'});
     }
 
     showError() {
         this.messages = [];
-        this.messages.push({severity:'error', summary:'Error Message', detail:'PrimeNG4 is not compatible with Angular2.x'});
+        this.messages.push({severity: 'error', summary: 'Error Message', detail: 'PrimeNG4 is not compatible with Angular2.x'});
     }
 
     showMultiple() {
         this.messages = [];
-        this.messages.push({severity:'info', summary:'Message 1', detail:'TypeScript is awesome'});
-        this.messages.push({severity:'info', summary:'Message 2', detail:'Angular is awesome'});
-        this.messages.push({severity:'info', summary:'Message 3', detail:'PrimeNG is awesome'});
+        this.messages.push({severity: 'info', summary: 'Message 1', detail: 'TypeScript is awesome'});
+        this.messages.push({severity: 'info', summary: 'Message 2', detail: 'Angular is awesome'});
+        this.messages.push({severity: 'info', summary: 'Message 3', detail: 'PrimeNG is awesome'});
     }
 
     clear() {
         this.messages = [];
     }
 
-    ngOnInit() {
-
-    }
 }

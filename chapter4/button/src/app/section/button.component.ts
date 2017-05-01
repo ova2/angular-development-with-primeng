@@ -13,7 +13,7 @@ export class ButtonComponent {
     
     clickMe() {
         this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'The button is clicked '+(++this.clicks)+' times'});
+        this.msgs.push({severity: 'info', summary: 'The button is clicked ' + (++this.clicks) + ' times'});
     }
 
     onChangeStep(label: string) {

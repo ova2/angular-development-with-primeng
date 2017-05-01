@@ -19,7 +19,7 @@ export class CalendarComponent {
     eventsDateInput: Date;
     readonlyDateInput: Date;
     disableDateInput: Date;
-    invalidDates: Array<Date>;
+    invalidDates: Date[];
     minDate: Date;
     maxDate: Date;
     time: boolean;
@@ -28,7 +28,6 @@ export class CalendarComponent {
     selectedHourFormat: string = '12';
     msgs: Message[] = [];
     activeIndex: number = 0;
-
 
     onSelect() {
         this.msgs.push({severity: 'info', summary: 'The calendar date is selected'});

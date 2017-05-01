@@ -24,25 +24,25 @@ export class PickListComponent {
         this.targetCountries = [];
     }
 
-    onMoveToTarget(event:any){
+    onMoveToTarget(event: any) {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'onMoveToTarget Event', detail: event.items});
     }
 
-    onMoveToSource(event:any){
+    onMoveToSource(event: any) {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'onMoveToSource Event', detail: event.items});
     }
 
-    onSourceReorder(event:any){
+    onSourceReorder(event: any) {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'onSourceReorder Event', detail: event.items});
     }
 
-    onTargetReorder(event:any){
+    onTargetReorder(event: any) {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'onTargetReorder Event', detail: event.items});

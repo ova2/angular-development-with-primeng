@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Message} from 'primeng/components/common/api'
+import {Message} from 'primeng/components/common/api';
 import {UIChart} from 'primeng/primeng';
 ;
 
@@ -26,18 +26,6 @@ export class ChartComponent {
 
     activeIndex: number = 0;
 
-    /* @ViewChild('pie') pie: UIChart;
-     @ViewChild('bar') bar: UIChart;
-     @ViewChild('line') line: UIChart;
-
-
-     redrawChart() {
-     this.pie.reinit();
-     this.bar.reinit();
-     this.line.reinit();
-     }*/
-
-
     ngOnInit() {
         this.piedata = {
             labels: ['PrimeNG', 'PrimeUI', 'PrimeReact'],
@@ -45,14 +33,14 @@ export class ChartComponent {
                 {
                     data: [3000, 1000, 2000],
                     backgroundColor: [
-                        "#6544a9",
-                        "#51cc00",
-                        "#5d4361"
+                        '#6544a9',
+                        '#51cc00',
+                        '#5d4361'
                     ],
                     hoverBackgroundColor: [
-                        "#6544a9",
-                        "#51cc00",
-                        "#5d4361"
+                        '#6544a9',
+                        '#51cc00',
+                        '#5d4361'
                     ]
                 }]
         };
@@ -99,14 +87,14 @@ export class ChartComponent {
                 {
                     data: [3000, 1000, 2000],
                     backgroundColor: [
-                        "#6544a9",
-                        "#51cc00",
-                        "#5d4361"
+                        '#6544a9',
+                        '#51cc00',
+                        '#5d4361'
                     ],
                     hoverBackgroundColor: [
-                        "#6544a9",
-                        "#51cc00",
-                        "#5d4361"
+                        '#6544a9',
+                        '#51cc00',
+                        '#5d4361'
                     ]
                 }]
         };
@@ -140,11 +128,11 @@ export class ChartComponent {
         this.polardata = {
             datasets: [{
                 data: [45, 35, 10, 15, 5],
-                backgroundColor: ["#6544a9", "#51cc00", "#5d4361", "#E7E9ED", "#36A2EB"],
+                backgroundColor: ['#6544a9', '#51cc00', '#5d4361', '#E7E9ED', '#36A2EB'],
                 label: 'Prime Libraries'
             }],
-            labels: ["PrimeFaces", "PrimeNG", "PrimeReact", "PrimeUI", "PrimeMobile"]
-        }
+            labels: ['PrimeFaces', 'PrimeNG', 'PrimeReact', 'PrimeUI', 'PrimeMobile']
+        };
 
         this.options = {
             title: {
@@ -165,13 +153,12 @@ export class ChartComponent {
         this.msgs.push({severity: 'info', summary: label});
     }
 
-
     selectData(event: any) {
         this.msgs = [];
         this.msgs.push({
             severity: 'info',
             summary: 'Data Selected',
-            'detail': this.linedata.datasets[event.element._datasetIndex].data[event.element._index]
+            detail: this.linedata.datasets[event.element._datasetIndex].data[event.element._index]
         });
     }
 

@@ -38,17 +38,17 @@ export class SplitButtonComponent {
 
     create() {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Success', detail:'AngularConnect user account is created'});
+        this.msgs.push({severity: 'info', summary: 'Success', detail: 'AngularConnect user account is created'});
     }
 
     update() {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Success', detail:'AngularConnect user account is updated'});
+        this.msgs.push({severity: 'info', summary: 'Success', detail: 'AngularConnect user account is updated'});
     }
 
     delete() {
         this.msgs = [];
-        this.msgs.push({severity:'info', summary:'Success', detail:'AngularConnect user account is deleted'});
+        this.msgs.push({severity: 'info', summary: 'Success', detail: 'AngularConnect user account is deleted'});
     }
 
     onChangeStep(label: string) {

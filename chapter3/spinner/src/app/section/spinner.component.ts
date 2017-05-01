@@ -12,7 +12,7 @@ export class SpinnerComponent {
 
     custominput: number;
 
-    separatorinput:number;
+    separatorinput: number;
 
     eventsinput: number;
 
@@ -22,22 +22,20 @@ export class SpinnerComponent {
 
     types: SelectItem[];
 
-    selectedType:string = 'readonly';
+    selectedType: string = 'readonly';
 
     activeIndex: number = 0;
     
-    onChange(event:any) {
+    onChange(event: any) {
         this.msgs = [];
         this.msgs.push(
             {severity: 'info', summary: 'Spinner value is changed'});
     }
 
     ngOnInit() {
-
         this.types = [];
         this.types.push({label: 'ReadOnly', value: 'readonly'});
         this.types.push({label: 'Disabled', value: 'disable'});
-
     }
 
     onChangeStep(label: string) {

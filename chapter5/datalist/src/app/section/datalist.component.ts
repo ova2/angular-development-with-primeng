@@ -26,11 +26,11 @@ export class DataListComponent {
     constructor(private browserService: BrowserService) { }
 
     ngOnInit() {
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.basicBrowsers = browsers.slice(0,4));
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.facetBrowsers = browsers.slice(0,4));
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.paginationBrowsers = browsers);
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.eventsBrowsers = browsers);
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.advancedBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.basicBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.facetBrowsers = browsers.slice(0,4));
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.paginationBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.eventsBrowsers = browsers);
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.advancedBrowsers = browsers);
     }
 
     selectBrowser(browser: Browser) {
@@ -44,15 +44,15 @@ export class DataListComponent {
 
     onPagination($event: any) {
         this.msgs.length = 0;
-        this.msgs.push({severity: 'info', summary: "The first record  is "+$event.first+"th one.", detail:"There are " +$event.rows + " rows in this current page"});
+        this.msgs.push({severity: 'info', summary: 'The first record  is ' +
+         $event.first + 'th one.', detail: 'There are ' + $event.rows + ' rows in this current page'});
     }
 
     loadData(event: any) {
         let start = event.first;//event.first = First row offset
         let end = start + event.rows;//event.rows = Number of rows per page
-        this.browserService.getBrowsers().subscribe((browsers:any) => this.lazyloadingBrowsers = browsers.slice(start,end));
+        this.browserService.getBrowsers().subscribe((browsers: any) => this.lazyloadingBrowsers = browsers.slice(start,end));
     }
-
 
     onChangeStep(label: string) {
         this.msgs.length = 0;
