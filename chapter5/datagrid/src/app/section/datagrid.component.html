@@ -1,0 +1,129 @@
+<form novalidate>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);" [stepClass]="'layout-format'">
+        <!-- Basic -->
+        <pe-step label="Basic">
+            <p-dataGrid [value]="basicBrowsers">
+                <ng-template let-browser pTemplate="item">
+                    <div style="padding:3px" class="ui-g-12 ui-md-3">
+                        <p-panel [header]="browser.browser" [style]="{'text-align':'center'}">
+                            <img src="/assets/data/images/{{browser.code}}.png" width="50" height="50">
+                            <div >{{browser.engine}} - {{browser.version}}</div>
+                        </p-panel>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+
+        </pe-step>
+        <!-- Facets -->
+        <pe-step label="Facets">
+            <p-dataGrid [value]="facetBrowsers">
+                <p-header>
+                    List of Browsers
+                </p-header>
+                <ng-template let-browser pTemplate="item">
+                    <div style="padding:3px" class="ui-g-12 ui-md-3">
+                        <p-panel [header]="browser.browser" [style]="{'text-align':'center'}">
+                            <img src="/assets/data/images/{{browser.code}}.png" width="50" height="50">
+                            <div >{{browser.engine}} - {{browser.version}}</div>
+                        </p-panel>
+                    </div>
+                </ng-template>
+                <p-footer>
+                    Note: Grades are 3 types.A,B and C.
+                </p-footer>
+            </p-dataGrid>
+        </pe-step>
+        <!-- Pagination -->
+        <pe-step label="Pagination">
+            <p-dataGrid [value]="paginationBrowsers" [paginator]="true" [rows]="8" [pageLinks]="6"
+                        [rowsPerPageOptions]="[8,10,15]" [paginatorPosition]="both" (onPage)="onPagination($event)">
+                <p-header>
+                    List of Browsers
+                </p-header>
+                <ng-template let-browser pTemplate="item">
+                    <div style="padding:3px" class="ui-g-12 ui-md-3">
+                        <p-panel [header]="browser.browser" [style]="{'text-align':'center'}">
+                            <img src="/assets/data/images/{{browser.code}}.png" width="50" height="50">
+                            <div >{{browser.engine}} - {{browser.version}}</div>
+                        </p-panel>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+        </pe-step>
+        <!-- Lazy loading -->
+        <pe-step label="Lazy loading">
+            <p-dataGrid [value]="lazyloadingBrowsers" [paginator]="true" [rows]="8" [lazy]="true"
+                        (onLazyLoad)="loadData($event)" [totalRecords]="totalRecords">
+                <p-header>
+                    List of Browsers
+                </p-header>
+                <ng-template let-browser pTemplate="item">
+                    <div style="padding:3px" class="ui-g-12 ui-md-3">
+                        <p-panel [header]="browser.browser" [style]="{'text-align':'center'}">
+                            <img src="/assets/data/images/{{browser.code}}.png" width="50" height="50">
+                            <div >{{browser.engine}} - {{browser.version}}</div>
+                        </p-panel>
+                    </div>
+                </ng-template>
+            </p-dataGrid>
+        </pe-step>
+
+        <!-- Multi feature -->
+        <pe-step label="(Multi feature)">
+            <p-dataGrid [value]="advancedBrowsers" [paginator]="true" [rows]="8" (onPage)="onPagination($event)"
+                        [rowsPerPageOptions]="[8,10,15]" [paginatorPosition]="both">
+                <p-header>
+                    List of Browsers
+                </p-header>
+                <ng-template let-browser pTemplate="item">
+                    <div style="padding:3px" class="ui-g-12 ui-md-3">
+                        <p-panel [header]="browser.browser" [style]="{'text-align':'center'}">
+                            <img src="/assets/data/images/{{browser.code}}.png" width="50" height="50">
+                            <div >{{browser.engine}} - {{browser.version}}</div>
+                            <hr class="ui-widget-content" style="border-top:0">
+                            <i class="fa fa-search" (click)="selectBrowser(browser)" style="cursor:pointer"></i>
+                        </p-panel>
+                    </div>
+                </ng-template>
+                <p-footer>
+                    Note: Grades are 3 types.A,B and C.
+                </p-footer>
+            </p-dataGrid>
+            <p-dialog header="Browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade"
+                      [modal]="true" width="350" (onAfterHide)="onDialogHide()">
+                <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="selectedBrowser"
+                     style="font-size:16px;text-align:center;padding:20px">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12" style="text-align:center"><img
+                                src="/assets/data/images/{{selectedBrowser.code}}.png" width="50" height="50"
+                                height="100"></div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Engine:</div>
+                        <div class="ui-grid-col-8">{{selectedBrowser.engine}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Browser:</div>
+                        <div class="ui-grid-col-8">{{selectedBrowser.browser}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Platform:</div>
+                        <div class="ui-grid-col-8">{{selectedBrowser.platform}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Version:</div>
+                        <div class="ui-grid-col-8">{{selectedBrowser.version}}</div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4">Grade:</div>
+                        <div class="ui-grid-col-8">{{selectedBrowser.grade}}</div>
+                    </div>
+                </div>
+            </p-dialog>
+        </pe-step>
+
+
+    </pe-steps>
+</form>
+
+<p-growl [value]="msgs"></p-growl>
