@@ -58,7 +58,7 @@ __Table of Contents__
   * Listing data with DataList
   * Listing data with PickList
   * Listing data with OrderList
-  * Grid format data with DataGrid
+  * Grid-organized data with DataGrid
   * On demand data loading with DataScroller
   * Visualizing data with Tree
   * Visualizing data with TreeTable
