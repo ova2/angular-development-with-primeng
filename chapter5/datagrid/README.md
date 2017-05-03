@@ -1,4 +1,4 @@
-### Grid formatted data with DataGrid
+### Grid-Oriented data with DataGrid
 
 #### Prerequisites
 

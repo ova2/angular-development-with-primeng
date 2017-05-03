@@ -33,21 +33,21 @@
         <!-- Orientation -->
         <pe-step label="Orientation">
             <h3>Orientation</h3>
-            <p-slider [(ngModel)]="verticalinput" name="verticalinput" styleClass="slider-width"
+            <p-slider [(ngModel)]="verticalinput" name="verticalinput" styleClass="slider-height"
                       orientation="vertical"></p-slider>
         </pe-step>
 
         <!-- Events -->
         <pe-step label="Events" [styleClass]="'multicheckbox-height'">
             <h3>Events</h3>
-            <p-slider [(ngModel)]="eventsinput" name="basicinput" styleClass="slider-width" (onChange)="onChange()"
+            <p-slider [(ngModel)]="eventsinput" name="eventsinput" styleClass="slider-width" (onChange)="onChange()"
                       (onSlideEnd)="onSlideEnd()"></p-slider>
         </pe-step>
 
         <!-- Disabled -->
         <pe-step label="Disabled" [styleClass]="'multicheckbox-height'">
             <h3>Disabled</h3>
-            <p-slider [(ngModel)]="disabledinput" name="basicinput" styleClass="slider-width"
+            <p-slider [(ngModel)]="disabledinput" name="disabledinput" styleClass="slider-width"
                       disabled="true"></p-slider>
         </pe-step>
 
