@@ -4,24 +4,23 @@
         <pe-step label="Basic">
             <h3>Single selection</h3>
             <p-dropdown name="singleselect" [options]="countries" [(ngModel)]="selectedCountry"
-                        placeholder="Select a Country" [styleClass]="'dropdown-width'"></p-dropdown>
+                        placeholder="Select a Country" [autoWidth]="false"></p-dropdown>
         </pe-step>
 
         <!-- Editable dropdown -->
-        <pe-step label="Editable dropdown" [styleClass]="'multicheckbox-height'">
+        <pe-step label="Editable dropdown">
             <h3>Editable dropdown</h3>
             <p-dropdown name="editableselect" [options]="countries" [(ngModel)]="selectedCountry" editable="editable"
-                        [styleClass]="dropdown-width"
-                        placeholder="Select a Country"></p-dropdown>
+                        placeholder="Select a Country" [autoWidth]="false"></p-dropdown>
         </pe-step>
 
         <!-- Customized Selection -->
         <pe-step label="Customized Selection">
             <h3>Content with Filters</h3>
             <p-dropdown name="customizedselect" [options]="countrycodes" [(ngModel)]="selectedCountry"
-                        styleClass="dropdown-width" filter="filter">
+                        filter="filter" [autoWidth]="false" [style]="{'width':'150px'}">
                 <ng-template let-country pTemplate="item">
-                    <div class="ui-helper-clearfix" class="template-border">
+                    <div class="ui-helper-clearfix" style="'display': 'inline-block'">
                         <img src="/assets/data/images/country/{{country.label.toLowerCase()}}.png"
                              class="country-image"/>
                         <span class="country-text">{{country.label}}</span>
@@ -41,18 +40,18 @@
             <h3>Drodown Events:onFocus,onBlur,onChange</h3>
             <p-dropdown name="dropdownevents" [options]="countries" [(ngModel)]="selectedCountry"
                         placeholder="Select a Country" (onFocus)="onFocus()" (onBlur)="onBlur()"
-                        (onChange)="onChange()"></p-dropdown>
+                        (onChange)="onChange()" [autoWidth]="false"></p-dropdown>
             <br/>
             <h3>MultiSelect Events:onChange</h3>
             <p-multiSelect name="multiselectevents" [options]="countries" [(ngModel)]="selectedCountries"
-                           (onChange)="onChangeMultiselect()"></p-multiSelect>
+                           (onChange)="onChangeMultiselect()" ></p-multiSelect>
         </pe-step>
 
         <!-- Disabled -->
         <pe-step label="Disabled">
             <h3>Disabled</h3>
             <p-dropdown name="dropdowndisable" [options]="countries" [(ngModel)]="selectedCountry"
-                        placeholder="Select a Country" disabled="true"></p-dropdown>
+                        placeholder="Select a Country" disabled="true" [autoWidth]="false"></p-dropdown>
             <br/>
             <p-multiSelect name="multiselectdisable" [options]="countries" [(ngModel)]="selectedCountries"
                            disabled="true"></p-multiSelect>

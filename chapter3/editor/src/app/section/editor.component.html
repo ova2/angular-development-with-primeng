@@ -39,7 +39,7 @@
         <pe-step label="ReadOnly">
             <h3>ReadOnly</h3>
             <p-editor name="readonlyInput" [(ngModel)]="readonlytext" styleClass="editor-dimensions"
-                      readonly="true"></p-editor>
+                      [readOnly]="true"></p-editor>
             <br/><br/>
             <p>Content: {{readonlytext}}</p>
         </pe-step>

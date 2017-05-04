@@ -23,10 +23,10 @@
         <!-- Dropdown -->
         <pe-step label="Dropdown">
             <h3>Dropdown</h3>
-            <p-autoComplete [(ngModel)]="topcountry" name="dropdown" [suggestions]="filteredTopAsiaCountries"
+            <p-autoComplete [(ngModel)]="topAsianCountry" name="dropdown" [suggestions]="filteredTopAsiaCountries"
                             (completeMethod)="filterTopAsiaCountries($event)" [size]="30"
-                            [minLength]="1" placeholder="Type top asia country name" [dropdown]="true"
-                            (onDropdownClick)="handleDropdownClick($event)">
+                            [minLength]="1" placeholder="Type top asian country name" [dropdown]="true"
+                            (onDropdownClick)="handleDropdownClick($event)" >
             </p-autoComplete>
         </pe-step>
 
@@ -58,7 +58,7 @@
         <!-- Events -->
         <pe-step label="Events">
             <h3>Events:onFocus,onBur,onSelect,onUnselect</h3>
-            <p-autoComplete [(ngModel)]="topcountry" name="dropdown" [suggestions]="filteredTopAsiaCountries"
+            <p-autoComplete [(ngModel)]="topcountry" name="events" [suggestions]="filteredTopAsiaCountries"
                             (completeMethod)="filterTopAsiaCountries($event)"
                             [minLength]="1" placeholder="Type top asia country name" [dropdown]="true" [multiple]="true"
                             (onFocus)="onFocus()" (onBlur)="onBlur()" (onSelect)="onSelect()"

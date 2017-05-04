@@ -11,13 +11,14 @@ export class AutoCompleteComponent {
     country: Country;
     countries: Country[];
     topcountry: string;
+    topAsianCountry: string;
     countryInstance: Country;
     customCountry: Country;
     topAsiaCountries: string[] = ['Singapore', 'Hong Kong', 'South Korea', 'Japan', 'Israel',
         'Brunei', 'Qatar', 'Cyprus', 'Saudi Arabia', 'United Arab Emirates'];
     filteredCountries: Country[];
     filteredCountriesMultiple: Country[];
-    filteredTopAsiaCountries: string[];
+    filteredTopAsiaCountries: any[];
     filteredCountryInstances: Country[];
     filteredCustomCountries: Country[];
     selectedType: string = 'readonly';
@@ -49,8 +50,9 @@ export class AutoCompleteComponent {
     }
 
     filterCountryInstances(event: any) {
+        let query = event.query;
         this.countryService.getCountries().subscribe((countries: Country[]) => {
-            this.filteredCountryInstances = countries;
+            this.filteredCountryInstances = this.filterCountry(query, countries);;
         });
     }
 
