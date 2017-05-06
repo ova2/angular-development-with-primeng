@@ -3,6 +3,7 @@ import {Message,SelectItem} from 'primeng/components/common/api';
 import {LazyLoadEvent} from 'primeng/components/common/api';
 import {BrowserService} from './service/browser.service';
 import Browser from './service/browser';
+import MyBrowser from './service/mybrowser';
 
 @Component({
     selector: 'section',
@@ -193,7 +194,7 @@ export class DataTableComponent {
 
     addBrowser() {
         this.newBrowser = true;
-        this.browser = null;
+        this.browser = new MyBrowser();
         this.displayDialog = true;
     }
 
@@ -212,6 +213,20 @@ export class DataTableComponent {
         this.browsers.splice(this.findSelectedBrowserIndex(), 1);
         this.browser = null;
         this.displayDialog = false;
+    }
+
+    onRowSelectCRUD(event: any) {
+        this.newBrowser = false;
+        this.browser = this.cloneBrowser(event.data);
+        this.displayDialog = true;
+    }
+
+    cloneBrowser(b: Browser): Browser {
+        let browser = new MyBrowser();
+        Object.keys(b).map(key => {
+            browser[key] = b[key];
+        });
+        return browser;
     }
 
     findSelectedBrowserIndex(): number {

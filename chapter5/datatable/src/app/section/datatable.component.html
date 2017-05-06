@@ -474,8 +474,8 @@
     </pe-step>
     <!-- CRUD Operations -->
     <pe-step label="CRUD Operations">
-        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedbrowser"
-                     (onRowSelect)="onRowSelect($event)" [paginator]="true" rows="15" [responsive]="true">
+        <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedBrowser"
+                     (onRowSelect)="onRowSelectCRUD($event)" [paginator]="true" rows="15" [responsive]="true">
             <p-header>CRUD for browsers</p-header>
             <p-column field="engine" header="Engine" [sortable]="true"></p-column>
             <p-column field="browser" header="Browser" [sortable]="true"></p-column>

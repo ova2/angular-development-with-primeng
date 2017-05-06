@@ -10,6 +10,7 @@ import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {ButtonModule} from 'primeng/components/button/button';
 import {DialogModule} from 'primeng/components/dialog/dialog';
 import {ContextMenuModule} from 'primeng/components/contextmenu/contextmenu';
+import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {MultiSelectModule} from 'primeng/components/multiselect/multiselect';
 import {SliderModule} from 'primeng/components/slider/slider';
 import {DropdownModule} from 'primeng/components/dropdown/dropdown';
@@ -32,6 +33,7 @@ import {routes} from './app-routing.module';
         DataTableModule,
         ButtonModule,
         DialogModule,
+        InputTextModule,
         ContextMenuModule,
         SliderModule,
         DropdownModule,
