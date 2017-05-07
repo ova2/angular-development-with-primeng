@@ -31,7 +31,7 @@ function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, r
             if (connection.request.url.endsWith('/fake-backend/employees') &&
                 connection.request.method === RequestMethod.Post) {
                 let receivedEmployee = JSON.parse(connection.request.getBody());
-                let newEmployee = Object.assign({id: uuid.generate()}, receivedEmployee);
+                let newEmployee = Object.assign(receivedEmployee, {id: uuid.generate()});
                 data[data.length] = newEmployee;
 
                 localStorage.setItem('employees', JSON.stringify(data));

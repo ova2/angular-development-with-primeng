@@ -14,3 +14,53 @@
                 [disabled]="!selectedEmployee"></button>
     </p-footer>
 </p-dataTable>
+
+<p-dialog header="Employee Details" [(visible)]="displayDialog"
+          [responsive]="true" showEffect="fade" [modal]="true">
+    <form #employeeForm="ngForm" novalidate>
+        <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="employeeForDialog">
+            <div class="ui-g ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-md-3 ui-label">
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="ui-g-12 ui-md-9">
+                    <input pInputText id="fname" name="fname" required
+                           [(ngModel)]="employeeForDialog.firstName"/>
+                </div>
+            </div>
+            <div class="ui-g ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-md-3 ui-label">
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="ui-g-12 ui-md-9">
+                    <input pInputText id="lname" name="lname" required
+                           [(ngModel)]="employeeForDialog.lastName"/>
+                </div>
+            </div>
+            <div class="ui-g ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-md-3 ui-label">
+                    <label for="prof">Profession</label>
+                </div>
+                <div class="ui-g-12 ui-md-9">
+                    <input pInputText id="prof" name="prof" required
+                           [(ngModel)]="employeeForDialog.profession"/>
+                </div>
+            </div>
+            <div class="ui-g ui-g-12 ui-g-nopad">
+                <div class="ui-g-12 ui-md-3 ui-label">
+                    <label for="depart">Department</label>
+                </div>
+                <div class="ui-g-12 ui-md-9">
+                    <input pInputText id="depart" name="depart" required
+                           [(ngModel)]="employeeForDialog.department"/>
+                </div>
+            </div>
+        </div>
+        <p-footer>
+            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                <button type="submit" pButton icon="fa-check" (click)="save()"
+                        label="Save" [disabled]="!employeeForm.form.valid"></button>
+            </div>
+        </p-footer>
+    </form>
+</p-dialog>

@@ -2,3 +2,24 @@ body .ui-datatable .ui-datatable-thead > tr > th,
 body .ui-datatable .ui-datatable-tfoot > tr > td {
   padding: .45em;
 }
+
+.ui-dialog .ui-grid {
+  max-width: 450px;
+}
+
+.ui-dialog .ui-fluid .ui-g div {
+  text-align: left;
+  border: none;
+}
+
+.ui-dialog .ui-fluid .ui-g .ui-label {
+  text-align: right;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+  .ui-dialog .ui-fluid .ui-g .ui-label {
+    text-align: left;
+  }
+}
