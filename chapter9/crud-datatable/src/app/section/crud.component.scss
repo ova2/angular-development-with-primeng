@@ -1,3 +1,4 @@
-/*
- * Specific settings for the book samples
- */
+body .ui-datatable .ui-datatable-thead > tr > th,
+body .ui-datatable .ui-datatable-tfoot > tr > td {
+  padding: .45em;
+}

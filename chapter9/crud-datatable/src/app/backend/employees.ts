@@ -1,6 +1,6 @@
 import {uuid} from './uuid';
 
-export let employess = [
+export let employees = [
     {
         id: uuid.generate(),
         firstName: 'Max',

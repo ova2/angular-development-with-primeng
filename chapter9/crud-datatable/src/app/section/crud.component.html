@@ -1,0 +1,16 @@
+<p-messages [value]="msgs"></p-messages>
+
+<p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee"
+             [paginator]="true" rows="15" [responsive]="true">
+    <p-column field="firstName" header="First Name" [sortable]="true"></p-column>
+    <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
+    <p-column field="profession" header="Profession" [sortable]="true"></p-column>
+    <p-column field="department" header="Department" [sortable]="true"></p-column>
+    <p-footer class="ui-helper-clearfix" style="width:100%">
+        <button pButton type="button" label="Add" icon="fa-plus" (click)="add()"></button>
+        <button pButton type="button" label="Edit" icon="fa-pencil" (click)="edit()"
+                [disabled]="!selectedEmployee"></button>
+        <button pButton type="button" label="Remove" icon="fa-trash-o" (click)="remove()"
+                [disabled]="!selectedEmployee"></button>
+    </p-footer>
+</p-dataTable>
