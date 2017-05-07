@@ -1,10 +1,10 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {SectionComponent} from './section/section.component';
+import {DataTableCrudComponent} from './section/crud.component';
 
 const router: Routes = [
     {path: '', redirectTo: 'chapter/crud', pathMatch: 'full'},
-    {path: 'chapter/crud', component: SectionComponent},
+    {path: 'chapter/crud', component: DataTableCrudComponent},
     {path: '**', redirectTo: 'chapter/crud'}
 ];
 

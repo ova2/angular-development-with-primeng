@@ -14,6 +14,10 @@ import {AppComponent}  from './app.component';
 import {DataTableCrudComponent}  from './section/crud.component';
 import {routes} from './app-routing.module';
 
+import {MockBackend} from '@angular/http/testing';
+import {BaseRequestOptions} from '@angular/http';
+import {fakeBackendProvider} from './backend/fake-backend';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -26,7 +30,12 @@ import {routes} from './app-routing.module';
         DialogModule
     ],
     declarations: [AppComponent, DataTableCrudComponent],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+    providers: [
+        {provide: APP_BASE_HREF, useValue: '/'},
+        fakeBackendProvider,
+        MockBackend,
+        BaseRequestOptions
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
