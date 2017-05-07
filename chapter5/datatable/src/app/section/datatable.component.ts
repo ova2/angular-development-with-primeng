@@ -7,14 +7,23 @@ import MyBrowser from './service/mybrowser';
 
 @Component({
     selector: 'section',
-    templateUrl: 'datatable.component.html'
+    templateUrl: 'datatable.component.html',
+    styles: [`
+        .ui-grid-row div {
+            padding: 4px 10px
+        }
+
+        .ui-grid-row div label {
+            font-weight: bold;
+        }
+    `]
 })
 export class DataTableComponent {
     msgs: Message[] = [];
 
     activeIndex: number = 0;
 
-    browser: Browser;
+    browser: Browser = new MyBrowser();
 
     basicBrowsers: Browser[];
 
@@ -199,34 +208,28 @@ export class DataTableComponent {
     }
 
     save() {
+        let browsers = [...this.browsers];
         if (this.newBrowser) {
-            this.browsers.push(this.browser);
+            browsers.push(this.browser);
         } else {
-            this.browsers[this.findSelectedBrowserIndex()] = this.browser;
+            browsers[this.findSelectedBrowserIndex()] = this.browser;
         }
-
+        this.browsers = browsers;
         this.browser = null;
         this.displayDialog = false;
     }
 
     delete() {
-        this.browsers.splice(this.findSelectedBrowserIndex(), 1);
+        let index = this.findSelectedBrowserIndex();
+        this.browsers = this.browsers.filter( (val,i) => i !== index);
         this.browser = null;
         this.displayDialog = false;
     }
 
     onRowSelectCRUD(event: any) {
         this.newBrowser = false;
-        this.browser = this.cloneBrowser(event.data);
+        this.browser = Object.assign({}, event.data);
         this.displayDialog = true;
-    }
-
-    cloneBrowser(b: Browser): Browser {
-        let browser = new MyBrowser();
-        Object.keys(b).map(key => {
-            browser[key] = b[key];
-        });
-        return browser;
     }
 
     findSelectedBrowserIndex(): number {

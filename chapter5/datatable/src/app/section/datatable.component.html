@@ -475,7 +475,7 @@
     <!-- CRUD Operations -->
     <pe-step label="CRUD Operations">
         <p-dataTable [value]="browsers" selectionMode="single" [(selection)]="selectedBrowser"
-                     (onRowSelect)="onRowSelectCRUD($event)" [paginator]="true" rows="15" [responsive]="true">
+                     (onRowSelect)="onRowSelectCRUD($event)" [paginator]="true" [rows]="10" [responsive]="true">
             <p-header>CRUD for browsers</p-header>
             <p-column field="engine" header="Engine" [sortable]="true"></p-column>
             <p-column field="browser" header="Browser" [sortable]="true"></p-column>
@@ -489,7 +489,7 @@
             </p-footer>
         </p-dataTable>
 
-        <p-dialog header="browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade"
+        <p-dialog header="Browser Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade"
                   [modal]="true">
             <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="browser">
                 <div class="ui-grid-row">
