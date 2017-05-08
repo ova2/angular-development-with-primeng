@@ -32,7 +32,7 @@ __Table of Contents__
   * Spinner and Slider – different ways to provide input
   * Text editing with rich and in-place editors
   * Password and star-based rating inputs
-  * Validation with model driven forms
+  * Validation with Input and Select components
   
 * [Chapter 4, Button and Panel Components](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter4)
   * Enhanced Button, RadioButton and SplitButton
@@ -46,12 +46,12 @@ __Table of Contents__
   * Multi feature DataTable
   * Selecting rows in DataTable
   * Sorting, filtering and paginating data in DataTable
+  * Customizing cell content with templating
   * Resizing, reordering and toggling columns in DataTable
   * In-cell editing with DataTable
   * Making DataTable responsive
   * Using column and row grouping
   * Handling tons of data with lazy DataTable
-  * Customizing cell content with templating
   * Row expansion by providing row template
   * Export data in CSV format
   * DataTable events and methods
