@@ -6,7 +6,7 @@
     <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
     <p-column field="profession" header="Profession" [sortable]="true"></p-column>
     <p-column field="department" header="Department" [sortable]="true"></p-column>
-    <p-footer class="ui-helper-clearfix" style="width:100%">
+    <p-footer>
         <button pButton type="button" label="Add" icon="fa-plus" (click)="add()"></button>
         <button pButton type="button" label="Edit" icon="fa-pencil" (click)="edit()"
                 [disabled]="!selectedEmployee"></button>
