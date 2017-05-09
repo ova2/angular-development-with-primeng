@@ -1,0 +1,36 @@
+<p-messages [value]="msgs"></p-messages>
+
+<p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee"
+             [paginator]="true" rows="15" [responsive]="true" #dtable>
+    <p-column field="firstName" header="First Name" [sortable]="true"></p-column>
+    <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
+    <p-column field="profession" header="Profession" [sortable]="true"></p-column>
+    <p-column field="department" header="Department" [sortable]="true"></p-column>
+    <p-footer>
+        <button pButton type="button" label="Reload" icon="fa-refresh" (click)="reload()"></button>
+        <button pButton type="button" label="Remove" icon="fa-trash-o" (click)="remove()"
+                [disabled]="!selectedEmployee"></button>
+    </p-footer>
+</p-dataTable>
+
+<p-blockUI [blocked]="blockedTable" [target]="dtable">
+    <div class="center">
+        <div class="box">
+            <div class="content">
+                <img src="/assets/data/images/loader.svg"/>
+                <h1>Loading...</h1>
+            </div>
+        </div>
+    </div>
+</p-blockUI>
+
+<p-blockUI [blocked]="blockedPage">
+    <div class="center">
+        <div class="box">
+            <div class="content">
+                <img src="/assets/data/images/loader.svg"/>
+                <h1>Loading...</h1>
+            </div>
+        </div>
+    </div>
+</p-blockUI>
