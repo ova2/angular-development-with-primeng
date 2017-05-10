@@ -5,14 +5,11 @@ import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
-import {ButtonModule} from 'primeng/components/button/button';
-import {InputTextModule} from 'primeng/components/inputtext/inputtext';
+import {ProgressBarModule} from 'primeng/components/progressbar/progressbar';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
-import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
-
 import {AppComponent}  from './app.component';
-import {SectionComponent}  from './section/section.component';
+import {ProgressBarComponent}  from './section/progressbar.component';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -21,12 +18,10 @@ import {routes} from './app-routing.module';
         BrowserAnimationsModule,
         routes,
         FormsModule,
-        ButtonModule,
-        InputTextModule,
-        WizardModule,
+        ProgressBarModule,
         GrowlModule
     ],
-    declarations: [AppComponent, SectionComponent],
+    declarations: [AppComponent, ProgressBarComponent],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]
 })
