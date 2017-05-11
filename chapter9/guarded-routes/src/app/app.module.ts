@@ -4,15 +4,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {APP_BASE_HREF} from '@angular/common';
 
-// import needed PrimeNG modules here
 import {ButtonModule} from 'primeng/components/button/button';
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
-import {GrowlModule} from 'primeng/components/growl/growl';
-
-import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
+import {ConfirmDialogModule} from 'primeng/components/confirmdialog/confirmdialog';
+import {ConfirmationService} from 'primeng/components/common/api';
 
 import {AppComponent}  from './app.component';
-import {SectionComponent}  from './section/section.component';
+import {FirstViewComponent} from './first-view/first-view.component';
+import {SecondViewComponent} from './second-view/second-view.component';
+import {UnsavedChangesGuard} from './shared/unsaved-changes.guard';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -23,11 +23,10 @@ import {routes} from './app-routing.module';
         FormsModule,
         ButtonModule,
         InputTextModule,
-        WizardModule,
-        GrowlModule
+        ConfirmDialogModule
     ],
-    declarations: [AppComponent, SectionComponent],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+    declarations: [AppComponent, FirstViewComponent, SecondViewComponent],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, ConfirmationService, UnsavedChangesGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {
