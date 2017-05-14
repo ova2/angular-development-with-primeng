@@ -74,7 +74,6 @@ __Attributes__
 | -----------|---------| --------| ------------------------------------ |
 | styleClass | string  | null    | Style class of single step component |
 | label      | string  | null    | Label of this step shown above       |
-| active     | boolean | false   | Flag if this step is currently shown |
 
 __Styling__
 
