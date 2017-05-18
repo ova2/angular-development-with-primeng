@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {StoreModule} from '@ngrx/store';
 import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
@@ -20,11 +21,14 @@ import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions} from '@angular/http';
 import {fakeBackendProvider} from './backend/fake-backend';
 import {EmployeeService} from './section/service/employee.service';
+import {CrudActions} from './redux/crud.actions';
+import {crudReducer} from './redux/crud.reducer';
 
 @NgModule({
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        StoreModule.provideStore({crudReducer}),
         routes,
         FormsModule,
         HttpModule,
@@ -38,6 +42,7 @@ import {EmployeeService} from './section/service/employee.service';
     providers: [
         {provide: APP_BASE_HREF, useValue: '/'},
         EmployeeService,
+        CrudActions,
         fakeBackendProvider,
         MockBackend,
         BaseRequestOptions

@@ -1,8 +1,10 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, ChangeDetectionStrategy} from '@angular/core';
 import {EmployeeService} from './service/employee.service';
 import {Employee} from '../model/employee';
 import {Message} from 'primeng/components/common/api';
 import {Subscription} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {AppStore} from '../redux/app.store';
 import 'rxjs/add/operator/finally';
 
 @Component({
@@ -17,22 +19,27 @@ export class DataTableCrudComponent implements OnInit, OnDestroy {
     displayDialog: boolean;
     msgs: Message[] = [];
 
+    employees$: Subscription;
     get$: Subscription;
     add$: Subscription;
     edit$: Subscription;
     delete$: Subscription;
 
-    constructor(private employeeService: EmployeeService) {
+    constructor(private store: Store<AppStore>, private employeeService: EmployeeService) {
     }
 
     ngOnInit(): void {
+        this.employees$ = this.store.select('crudReducer').subscribe(
+            (store: AppStore) => this.employees = store.employees);
+
         this.get$ = this.employeeService.getEmployees().subscribe(
-            employees => this.employees = employees,
+            action => this.store.dispatch(action),
             error => this.showError(error)
         );
     }
 
     ngOnDestroy() {
+        this.employees$.unsubscribe();
         this.get$.unsubscribe();
         this.add$.unsubscribe();
         this.edit$.unsubscribe();
@@ -44,7 +51,7 @@ export class DataTableCrudComponent implements OnInit, OnDestroy {
         this.employeeForDialog = {
             id: null, firstName: null, lastName: null, profession: null, department: null
         };
-        
+
         this.displayDialog = true;
     }
 
@@ -70,9 +77,8 @@ export class DataTableCrudComponent implements OnInit, OnDestroy {
                 this.selectedEmployee = null;
             })
             .subscribe(
-                () => {
-                    this.employees = this.employees.filter(
-                        (element: Employee) => element.id !== this.selectedEmployee.id);
+                (action) => {
+                    this.store.dispatch(action);
                     this.showSuccess('Employee was successfully removed');
                 },
                 error => this.showError(error)
