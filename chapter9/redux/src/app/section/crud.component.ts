@@ -1,11 +1,12 @@
-import {Component, OnInit, OnDestroy, ChangeDetectionStrategy} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {EmployeeService} from './service/employee.service';
 import {Employee} from '../model/employee';
 import {Message} from 'primeng/components/common/api';
-import {Subscription} from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 import {Store} from '@ngrx/store';
 import {AppStore} from '../redux/app.store';
 import 'rxjs/add/operator/finally';
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
     selector: 'section',
@@ -19,31 +20,27 @@ export class DataTableCrudComponent implements OnInit, OnDestroy {
     displayDialog: boolean;
     msgs: Message[] = [];
 
-    employees$: Subscription;
-    get$: Subscription;
-    add$: Subscription;
-    edit$: Subscription;
-    delete$: Subscription;
+    destroy$: Subject<boolean> = new Subject<boolean>();
 
     constructor(private store: Store<AppStore>, private employeeService: EmployeeService) {
     }
 
     ngOnInit(): void {
-        this.employees$ = this.store.select('crudReducer').subscribe(
-            (store: AppStore) => this.employees = store.employees);
+        this.store.select('crudReducer').takeUntil(this.destroy$).subscribe(
+            (store: AppStore) => {
+                this.employees = store.employees;
+                this.selectedEmployee = store.selectedEmployee;
+            });
 
-        this.get$ = this.employeeService.getEmployees().subscribe(
+        this.employeeService.getEmployees().takeUntil(this.destroy$).subscribe(
             action => this.store.dispatch(action),
             error => this.showError(error)
         );
     }
 
     ngOnDestroy() {
-        this.employees$.unsubscribe();
-        this.get$.unsubscribe();
-        this.add$.unsubscribe();
-        this.edit$.unsubscribe();
-        this.delete$.unsubscribe();
+        this.destroy$.next(true);
+        this.destroy$.unsubscribe();
     }
 
     add() {
@@ -71,11 +68,11 @@ export class DataTableCrudComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this.delete$ = this.employeeService.deleteEmployee(this.selectedEmployee.id)
+        this.employeeService.deleteEmployee(this.selectedEmployee.id)
             .finally(() => {
                 this.employeeForDialog = null;
-                this.selectedEmployee = null;
             })
+            .takeUntil(this.destroy$)
             .subscribe(
                 (action) => {
                     this.store.dispatch(action);
@@ -88,36 +85,30 @@ export class DataTableCrudComponent implements OnInit, OnDestroy {
     save() {
         if (this.employeeForDialog.id) {
             // update
-            this.edit$ = this.employeeService.updateEmployee(this.employeeForDialog)
+            this.employeeService.updateEmployee(this.employeeForDialog)
                 .finally(() => {
                     this.employeeForDialog = null;
                     this.displayDialog = false;
                 })
+                .takeUntil(this.destroy$)
                 .subscribe(
-                    () => {
-                        this.employees.some((element: Employee, index: number) => {
-                            if (element.id === this.employeeForDialog.id) {
-                                this.employees[index] = Object.assign({}, this.employeeForDialog);
-                                this.employees = [...this.employees];
-                                this.selectedEmployee = this.employees[index];
-                                return true;
-                            }
-                        });
+                    (action) => {
+                        this.store.dispatch(action);
                         this.showSuccess('Employee was successfully updated');
                     },
                     error => this.showError(error)
                 );
         } else {
             // create
-            this.add$ = this.employeeService.createEmployee(this.employeeForDialog)
+            this.employeeService.createEmployee(this.employeeForDialog)
                 .finally(() => {
                     this.employeeForDialog = null;
-                    this.selectedEmployee = null;
                     this.displayDialog = false;
                 })
+                .takeUntil(this.destroy$)
                 .subscribe(
-                    (employee: Employee) => {
-                        this.employees = [...this.employees, employee];
+                    (action) => {
+                        this.store.dispatch(action);
                         this.showSuccess('Employee was successfully created');
                     },
                     error => this.showError(error)

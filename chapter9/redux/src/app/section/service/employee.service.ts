@@ -34,25 +34,29 @@ export class EmployeeService {
 
     getEmployees(): Observable<Action> {
         return this.http.get('/fake-backend/employees')
-            .map(response => this.crudActions.loadEmployees(<Employee[]>response.json()))
+            .map(response => response.json() as Employee[])
+            .map(employees => this.crudActions.loadEmployees(employees))
             .catch(EmployeeService.handleError);
     }
 
-    createEmployee(employee: Employee): Observable<Employee> {
+    createEmployee(employee: Employee): Observable<Action> {
         return this.http.post('/fake-backend/employees', employee)
             .map(response => response.json() as Employee)
+            .map(createdEmployee => this.crudActions.createEmployee(createdEmployee))
             .catch(EmployeeService.handleError);
     }
 
-    updateEmployee(employee: Employee): Observable<any> {
+    updateEmployee(employee: Employee): Observable<Action> {
         return this.http.put('/fake-backend/employees', employee)
-            .map(response => response.json())
+            .map(response => response.json())   // this line is not really needed
+            .map(() => this.crudActions.updateEmployee(employee))
             .catch(EmployeeService.handleError);
     }
 
     deleteEmployee(id: string): Observable<Action> {
         return this.http.delete('/fake-backend/employees/' + id)
-            .map(response => this.crudActions.deleteEmployee(id))
+            .map(response => response.json())   // this line is not really needed
+            .map(() => this.crudActions.deleteEmployee(id))
             .catch(EmployeeService.handleError);
     }
 }
