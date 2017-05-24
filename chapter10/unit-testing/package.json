@@ -78,6 +78,11 @@
     "prebuild:prod": "npm run ngc",
     "build:prod": "webpack --config config/webpack.prod.js --progress --display-error-details",
     "prestart:prod": "npm run prebuild:prod",
-    "start:prod": "webpack-dev-server --config config/webpack.prod.js --inline --open"
+    "start:prod": "webpack-dev-server --config config/webpack.prod.js --inline --open",
+    "test": "karma start ./config/karma.conf.js",
+    "test:headless": "karma start ./config/karma.conf.js --browsers PhantomJS",
+    "test:chrome": "karma start ./config/karma.conf.js --browsers Chrome",
+    "test:headless:grep": "karma start ./config/karma.conf.js --browsers PhantomJS --autoWatch true --singleRun false --grep",
+    "test:chrome:grep": "karma start ./config/karma.conf.js --browsers Chrome --autoWatch true --singleRun false --grep"
   }
 }

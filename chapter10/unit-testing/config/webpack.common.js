@@ -84,6 +84,7 @@ module.exports = {
         },
         stats: {
             colors: true
-        }
+        },
+        noInfo: true
     }
 };
