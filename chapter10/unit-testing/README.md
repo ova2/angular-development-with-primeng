@@ -1,4 +1,4 @@
-## Setup unit testing with Jasmine and Karma and testing Components and Services
+## Setup unit testing with Jasmine and Karma, and testing Components and Services
 
 ### Prerequisites
 
@@ -38,4 +38,48 @@ or
 
 ```sh
 npm run build:prod
+```
+
+### Run all tests (single run)
+
+In Chrome and PhantomJS.
+
+```sh
+npm run test
+```
+
+Only in Chrome.
+
+```sh
+npm run test:chrome
+```
+
+Only in PhantomJS.
+
+```sh
+npm run test:headless
+```
+
+### Run concrete tests in watch mode
+
+```sh
+test:chrome:grep -- app/section/section.component.spec.ts
+```
+
+or
+
+```sh
+test:headless:grep -- app/section/section.component.spec.ts
+```
+
+### Run tests within a folder in watch mode
+
+```sh
+test:chrome:grep -- app/section
+```
+
+or
+
+```sh
+test:headless:grep -- app/section
 ```

@@ -13,9 +13,7 @@ module.exports = config => {
         singleRun: true,
         browsers: ['Chrome', 'PhantomJS'],
         basePath: '.',
-        /*
-         * list of files to load in the browser is built via spec-bundle.js
-         */
+        /* List of files to load in the browser. This file is processed by Webpack. */
         files: [
             'spec-bundle.js'
         ],
