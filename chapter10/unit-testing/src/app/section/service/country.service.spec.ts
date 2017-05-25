@@ -1,7 +1,7 @@
 import {TestBed, inject} from '@angular/core/testing';
 import {HttpModule, XHRBackend, Response, ResponseOptions} from '@angular/http';
-import {CountryService} from './country.service';
 import {MockBackend, MockConnection} from '@angular/http/testing';
+import {CountryService} from './country.service';
 import Country from './country';
 
 describe('CountryService (MockBackend)', () => {
