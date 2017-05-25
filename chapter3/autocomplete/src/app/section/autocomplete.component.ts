@@ -52,7 +52,7 @@ export class AutoCompleteComponent {
     filterCountryInstances(event: any) {
         let query = event.query;
         this.countryService.getCountries().subscribe((countries: Country[]) => {
-            this.filteredCountryInstances = this.filterCountry(query, countries);;
+            this.filteredCountryInstances = this.filterCountry(query, countries);
         });
     }
 

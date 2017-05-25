@@ -10,6 +10,7 @@ import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 
 import {AppComponent}  from './app.component';
 import {SectionComponent}  from './section/section.component';
+import {CountryService} from './section/service/country.service';
 import {routes} from './app-routing.module';
 
 @NgModule({
@@ -22,7 +23,7 @@ import {routes} from './app-routing.module';
         InputTextModule
     ],
     declarations: [AppComponent, SectionComponent],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, CountryService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
