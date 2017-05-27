@@ -63,23 +63,25 @@ npm run test:headless
 ### Run concrete tests in watch mode
 
 ```sh
-test:chrome:grep -- app/section/section.component.spec.ts
+npm run test:chrome:grep -- app/section/section.component.spec.ts
+npm run test:chrome:grep -- app/section/service/country.service.spec.ts
 ```
 
 or
 
 ```sh
-test:headless:grep -- app/section/section.component.spec.ts
+npm run test:headless:grep -- app/section/section.component.spec.ts
+npm run test:headless:grep -- app/section/service/country.service.spec.ts
 ```
 
 ### Run tests within a folder in watch mode
 
 ```sh
-test:chrome:grep -- app/section
+npm run test:chrome:grep -- app/section
 ```
 
 or
 
 ```sh
-test:headless:grep -- app/section
+npm run test:headless:grep -- app/section
 ```
