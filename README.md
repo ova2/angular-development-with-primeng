@@ -92,7 +92,7 @@ __Table of Contents__
   * Various uses cases with GMap component
   
 * [Chapter 9, Miscellaneous Use Cases and Best Practices](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter9)
-  * Cutting-edge file uploading at a glance
+  * File uploading in all its glory
   * Learning Draggable and Droppable directives
   * Displaying collection of images with Galleria
   * CRUD sample implementation with DataTable
@@ -103,8 +103,9 @@ __Table of Contents__
   * Introduction to state management with @ngrx/store
   
 * [Chapter 10, Creating Robust Applications](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter10)
-  * Setup unit testing with Jasmine and Karma
+  * Setting up unit testing with Jasmine and Karma
   * Unit testing of Components and Services
   * Tip how to speed up unit testing
-  * Hands-on setup and e2e testing with Protractor
+  * Setting up e2e test environment with Protractor
+  * Writing automated UI tests at a glance
   * Exploring PrimeNG application with Augury
