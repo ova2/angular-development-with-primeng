@@ -1,4 +1,4 @@
-## Setup unit testing with Jasmine and Karma, and testing Components and Services
+## Unit testing with Jasmine and Karma
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ or
 npm run build:prod
 ```
 
-### Run all tests (single run)
+### Run all unit tests (single run)
 
 In Chrome and PhantomJS.
 

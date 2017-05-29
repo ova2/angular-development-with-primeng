@@ -1,4 +1,4 @@
-### Cutting-edge file uploading at a glance
+### File uploading in all its glory
 
 #### Prerequisites
 
