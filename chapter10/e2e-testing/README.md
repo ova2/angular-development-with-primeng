@@ -26,20 +26,10 @@ npm run start:prod
 
 Running application is available at [http://localhost:3000/](http://localhost:3000/). It runs in the watch mode.
 
-### Distribution
-
-Distributed application can be found in the `dist` folder after running
-
-```sh
-npm run build
-```
-
-or
-
-```sh
-npm run build:prod
-```
-
 ### Run e2e tests
 
-TBD
+Ensure that the application is running at [http://localhost:3000/](http://localhost:3000/). In the second console, run
+
+```sh
+npm run e2e
+```
