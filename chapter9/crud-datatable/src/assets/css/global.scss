@@ -7,7 +7,11 @@ body pe-steps .ui-steps .ui-steps-item .ui-menuitem-link .ui-steps-number {
 }
 
 body pe-steps .ui-steps {
-    margin-top: -12px;
+  margin-top: -12px;
+}
+
+body .ui-dialog .ui-dialog-buttonpane {
+  border-top: none;
 }
 
 [hidden] {

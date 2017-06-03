@@ -1,7 +1,7 @@
 <p-messages [value]="msgs"></p-messages>
 
 <p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee"
-             [paginator]="true" rows="15" [responsive]="true">
+             [paginator]="true" rows="15" [responsive]="true" alwaysShowPaginator="false">
     <p-column field="firstName" header="First Name" [sortable]="true"></p-column>
     <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
     <p-column field="profession" header="Profession" [sortable]="true"></p-column>
@@ -56,11 +56,11 @@
                 </div>
             </div>
         </div>
-        <p-footer>
-            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-                <button type="submit" pButton icon="fa-check" (click)="save()"
-                        label="Save" [disabled]="!employeeForm.form.valid"></button>
-            </div>
-        </p-footer>
     </form>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="submit" pButton icon="fa-check" (click)="save()"
+                    label="Save" [disabled]="!employeeForm.form.valid"></button>
+        </div>
+    </p-footer>
 </p-dialog>
