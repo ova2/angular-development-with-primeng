@@ -1,7 +1,7 @@
 <p-messages [value]="msgs"></p-messages>
 
 <p-dataTable [value]="employees" selectionMode="single" [(selection)]="selectedEmployee"
-             [paginator]="true" rows="15" [responsive]="true" alwaysShowPaginator="false">
+             [paginator]="true" rows="15" [responsive]="true" [alwaysShowPaginator]="false">
     <p-column field="firstName" header="First Name" [sortable]="true"></p-column>
     <p-column field="lastName" header="Last Name" [sortable]="true"></p-column>
     <p-column field="profession" header="Profession" [sortable]="true"></p-column>
