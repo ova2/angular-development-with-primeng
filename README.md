@@ -96,8 +96,10 @@ __Table of Contents__
   * Learning Draggable and Droppable directives
   * Displaying collection of images with Galleria
   * CRUD sample implementation with DataTable
+  * Deferring mechanism to optimize page loading
   * Blocking page pieces during long-running AJAX calls
   * Process status indicator in action
+  * Selecting colors with ColorPicker
   * Displaying confirmation dialog with guarded routes
   * Implementing custom wizard component with Steps
   * Introduction to state management with @ngrx/store
