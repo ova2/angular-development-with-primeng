@@ -108,4 +108,4 @@ __Table of Contents__
   * Tip how to speed up unit testing
   * Setting up e2e test environment with Protractor
   * Writing automated UI tests at a glance
-  * Exploring PrimeNG application with Augury
+  * Exploring PrimeNG application with Augury and ng.probe
