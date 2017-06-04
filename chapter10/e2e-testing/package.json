@@ -47,6 +47,7 @@
     "rimraf": "~2.6.1",
     "sass-loader": "~6.0.3",
     "style-loader": "~0.16.1",
+    "ts-node": "~3.0.4",
     "tslib": "~1.6.0",
     "tslint": "~5.1.0",
     "tslint-loader": "~3.5.3",
@@ -70,6 +71,9 @@
     "build:prod": "webpack --config config/webpack.prod.js --progress --display-error-details",
     "prestart:prod": "npm run prebuild:prod",
     "start:prod": "webpack-dev-server --config config/webpack.prod.js --inline --open",
+    "rimraf:e2e": "rimraf dist-e2e",
+    "prebuild:e2e": "npm run rimraf:e2e",
+    "build:e2e": "tsc -p ./e2e",
     "e2e": "protractor ./config/protractor.conf.js"
   }
 }

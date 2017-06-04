@@ -1,4 +1,4 @@
-var SpecReporter = require('jasmine-spec-reporter');
+var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
 exports.config = {
     allScriptsTimeout: 11000,
@@ -18,7 +18,7 @@ exports.config = {
     },
     beforeLaunch: function () {
         require('ts-node').register({
-            project: 'e2e'
+            project: '../e2e/tsconfig.json'
         });
     },
     onPrepare() {

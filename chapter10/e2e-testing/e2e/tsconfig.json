@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../dist-e2e",
+    "rootDir": "./",
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  },
+  "include": [
+    "./**/*"
+  ]
+}
