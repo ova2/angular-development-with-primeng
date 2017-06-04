@@ -1,3 +1,4 @@
+var path = require('path');
 var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 
 exports.config = {
@@ -18,7 +19,7 @@ exports.config = {
     },
     beforeLaunch: function () {
         require('ts-node').register({
-            project: '../e2e/tsconfig.json'
+            project: path.resolve(__dirname, '../e2e')
         });
     },
     onPrepare() {

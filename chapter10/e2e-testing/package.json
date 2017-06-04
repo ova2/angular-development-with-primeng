@@ -74,6 +74,7 @@
     "rimraf:e2e": "rimraf dist-e2e",
     "prebuild:e2e": "npm run rimraf:e2e",
     "build:e2e": "tsc -p ./e2e",
+    "pree2e": "webdriver-manager update",
     "e2e": "protractor ./config/protractor.conf.js"
   }
 }
