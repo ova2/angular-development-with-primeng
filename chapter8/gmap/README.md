@@ -1,4 +1,4 @@
-### Integration with Google Map API and uses cases with GMap component
+### Integration with Google Map API and use cases with GMap component
 
 #### Prerequisites
 
