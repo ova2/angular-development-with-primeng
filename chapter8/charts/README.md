@@ -1,4 +1,4 @@
-### Create Awesome types of charts
+### Data representation with various types of charts (line, bar, pie, doughnut, radar, polar area)
 
 #### Prerequisites
 

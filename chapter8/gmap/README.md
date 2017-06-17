@@ -1,4 +1,4 @@
-### GMap-Creating Maps using Google Maps API
+### Integration with Google Map API and uses cases with GMap component
 
 #### Prerequisites
 
