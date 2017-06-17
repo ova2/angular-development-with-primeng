@@ -1,4 +1,4 @@
-### Selecting colors with ColorPicker
+### Drawing organization chart for relationship hierarchy
 
 #### Prerequisites
 

@@ -1,0 +1,33 @@
+<form novalidate>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event)">
+        <!-- Basic -->
+        <pe-step label="Basic" [styleClass]="'colorpicker-height'">
+            <p-colorPicker name="basic" [(ngModel)]="color1"></p-colorPicker>
+        </pe-step>
+
+        <!-- inline -->
+        <pe-step label="inline" >
+            <p-colorPicker name="inline" [(ngModel)]="color2" inline="true"></p-colorPicker>
+        </pe-step>
+
+        <!-- Format -->
+        <pe-step label="format" >
+            <p-colorPicker name="hex" [(ngModel)]="colorFormat1" format="hex"></p-colorPicker>
+            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat1}">{{colorFormat1}}</span></p>
+            <p-colorPicker name="rgb" [(ngModel)]="colorFormat2" format="rgb"></p-colorPicker>
+            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat2}">{{colorFormat2 | json}}</span></p>
+            <p-colorPicker name="hsb" [(ngModel)]="colorFormat3" format="hsb"></p-colorPicker>
+            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat3}">{{colorFormat3 | json}}</span></p>
+        </pe-step>
+
+        <!-- events -->
+        <pe-step label="events" [styleClass]="'colorpicker-height'">
+            <p-colorPicker name="events" [(ngModel)]="color3" (onChange)="onChangeColor($event)"></p-colorPicker>
+        </pe-step>
+
+
+    </pe-steps>
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>

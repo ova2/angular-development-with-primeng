@@ -88,6 +88,7 @@ __Table of Contents__
   * Data representation with line and bar charts
   * Data representation with pie and doughnut charts
   * Data representation with radar and polar area charts
+  * Drawing organization chart for relationship hierarchy
   * Basic integration with Google Map API
   * Various uses cases with GMap component
   
