@@ -3,9 +3,10 @@ import {Message} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
-    templateUrl: 'colorpicker.component.html'
+    templateUrl: 'orgchart.component.html'
 })
-export class ColorPickerComponent {
+export class OrgChartComponent {
+    
     msgs: Message[] = [];
     color1: string = '55ff66';
 
