@@ -11,6 +11,7 @@ export class AutoCompleteComponent {
     country: Country;
     countries: Country[];
     topcountry: string;
+    topcountrySingle: string;
     topAsianCountry: string;
     countryInstance: Country;
     customCountry: Country;
@@ -47,6 +48,11 @@ export class AutoCompleteComponent {
     onUnselect() {
         this.msgs = [];
         this.msgs.push({severity: 'info', summary: 'The autocomplete selected item is removed'});
+    }
+
+    onClearInput(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'The autocomplete input is cleared'});
     }
 
     filterCountryInstances(event: any) {

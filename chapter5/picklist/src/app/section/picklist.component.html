@@ -59,6 +59,31 @@
             </p-pickList>
         </pe-step>
 
+        <!-- Filters -->
+        <pe-step label="Filters" >
+            <p-pickList [source]="sourceCountries" [target]="targetCountries" sourceHeader="Available" targetHeader="Selected" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}" [responsive]="true" filterBy="name,code" sourceFilterPlaceholder="Search by country" targetFilterPlaceholder="Search by country">
+                <ng-template let-country pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />
+                        <span class="content-format">{{country.flag}} {{country.name}}({{country.dial_code}})</span>
+                    </div>
+                </ng-template>
+            </p-pickList>
+        </pe-step>
+
+        <!-- Drag&Drop -->
+        <pe-step label="Drag&Drop" >
+            <p-pickList [source]="sourceCountries" [target]="targetCountries" sourceHeader="Available" targetHeader="Selected" [dragdrop]="true" dragdropScope="name">
+                <ng-template let-country pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />
+                        <span class="content-format">{{country.flag}} {{country.name}}({{country.dial_code}})</span>
+                    </div>
+                </ng-template>
+            </p-pickList>
+        </pe-step>
+
+
         <!-- Events -->
         <pe-step label="Events">
             <p-pickList [source]="sourceCountries" [target]="targetCountries" sourceHeader="Available" targetHeader="Selected" (onMoveToTarget)="onMoveToTarget($event)" (onMoveToSource)="onMoveToSource($event)" (onSourceReorder)="onSourceReorder($event)" (onSourceReorder)="onSourceReorder($event)" [sourceStyle]="{'height':'350px'}" [targetStyle]="{'height':'350px'}">
@@ -73,7 +98,7 @@
 
         <!-- Customized-->
         <pe-step label="(Customized)">
-            <p-pickList [source]="sourceCountries" [target]="targetCountries" sourceHeader="Available" targetHeader="Selected" [responsive]="true" (onMoveToTarget)="onMoveToTarget($event)" (onMoveToSource)="onMoveToSource($event)" (onSourceReorder)="onSourceReorder($event)" (onSourceReorder)="onSourceReorder($event)" [sourceStyle]="{'width':'400px','height':'300px'}" [targetStyle]="{'width':'400px','height':'300px'}">
+            <p-pickList [source]="sourceCountries" [target]="targetCountries" sourceHeader="Available" targetHeader="Selected" [responsive]="true" (onMoveToTarget)="onMoveToTarget($event)" (onMoveToSource)="onMoveToSource($event)" (onSourceReorder)="onSourceReorder($event)" (onSourceReorder)="onSourceReorder($event)" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}">
                 <ng-template let-country pTemplate="item">
                     <div class="ui-helper-clearfix">
                         <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />

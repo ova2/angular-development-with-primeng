@@ -47,6 +47,30 @@
             </p-orderList>
         </pe-step>
 
+        <!-- Filters -->
+        <pe-step label="Filters" >
+            <p-orderList [value]="countries" [responsive]="true" filterBy="name,code" filterPlaceHolder="Search country">
+                <ng-template let-country pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />
+                        <span class="content-format">{{country.flag}} {{country.name}}({{country.dial_code}})</span>
+                    </div>
+                </ng-template>
+            </p-orderList>
+        </pe-step>
+
+        <!-- Drag&Drop -->
+        <pe-step label="Drag&Drop" >
+            <p-orderList [value]="countries" [dragdrop]="true" dragdropScope="name">
+                <ng-template let-country pTemplate="item">
+                    <div class="ui-helper-clearfix">
+                        <img src="/assets/data/images/country/{{country.code.toLowerCase()}}.png" />
+                        <span class="content-format">{{country.flag}} {{country.name}}({{country.dial_code}})</span>
+                    </div>
+                </ng-template>
+            </p-orderList>
+        </pe-step>
+
         <!-- Events -->
         <pe-step label="Events">
             <p-orderList [value]="countries" (onReorder)="onReorder($event)">

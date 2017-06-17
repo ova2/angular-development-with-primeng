@@ -57,14 +57,22 @@
 
         <!-- Events -->
         <pe-step label="Events">
-            <h3>Events:onFocus,onBur,onSelect,onUnselect</h3>
-            <p-autoComplete [(ngModel)]="topcountry" name="events" [suggestions]="filteredTopAsiaCountries"
+            <h3>Events:onFocus,onBur,onSelect,onUnselect,onClear</h3>
+            <div style="display: inline-block">
+            <p-autoComplete [(ngModel)]="topcountrySingle" name="eventsSingle" [suggestions]="filteredTopAsiaCountries"
+                            (completeMethod)="filterTopAsiaCountries($event)"
+                            [minLength]="1" placeholder="Type top asia country name"
+                            (onClear)="onClearInput($event)">
+            </p-autoComplete>
+            <p-autoComplete [(ngModel)]="topcountry" name="eventsMultiple" [suggestions]="filteredTopAsiaCountries"
                             (completeMethod)="filterTopAsiaCountries($event)"
                             [minLength]="1" placeholder="Type top asia country name" [dropdown]="true" [multiple]="true"
                             (onFocus)="onFocus()" (onBlur)="onBlur()" (onSelect)="onSelect()"
-                            (onUnselect)="onUnselect()"
+                            (onUnselect)="onUnselect()" (onClear)="onClearInput($event)"
                             (onDropdownClick)="handleDropdownClick($event)">
             </p-autoComplete>
+            </div>
+
         </pe-step>
 
         <!-- ReadOnly/Disabled -->

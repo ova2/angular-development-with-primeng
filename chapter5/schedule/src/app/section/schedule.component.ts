@@ -126,6 +126,11 @@ export class ScheduleComponent {
         this.msgs.push({severity: 'info', summary: 'Event mouse over'});
     }
 
+    handleViewDestroy(event: any) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'The view is about to be removed from the DOM'});
+    }
+
     saveEvent() {
         //update
         if ( this.event.id) {

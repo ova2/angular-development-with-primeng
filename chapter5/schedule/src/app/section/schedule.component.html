@@ -76,7 +76,7 @@
                     (onEventDragStart)="handleEventDragStart($event)" (onEventDragStop)="handleEventDragStop($event)"
                     (onEventDrop)="handleEventDrop($event)" (onEventResizeStart)="handleEventResizeStart($event)"
                     (onEventResizeStop)="handleEventResizeStop($event)" (onEventResize)="handleEventResize($event)"
-                    (onViewRender)="loadEvents($event)" (onDrop)="handleDrop($event)" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
+                    (onViewRender)="loadEvents($event)" (onViewDestroy)="handleViewDestroy($event)" (onDrop)="handleDrop($event)" [height]="700" [styleClass]="'schedule-width'"></p-schedule>
 
         <p-dialog header="Event Details" [(visible)]="dialogVisible" [responsive]="true" showEffect="fade"
                   [modal]="false" [contentStyle]="{'overflow':'visible'}"
