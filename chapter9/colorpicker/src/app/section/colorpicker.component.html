@@ -15,9 +15,9 @@
             <p-colorPicker name="hex" [(ngModel)]="colorFormat1" format="hex"></p-colorPicker>
             <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat1}">{{colorFormat1}}</span></p>
             <p-colorPicker name="rgb" [(ngModel)]="colorFormat2" format="rgb"></p-colorPicker>
-            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat2}">{{colorFormat2}}</span></p>
+            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat2}">{{colorFormat2 | json}}</span></p>
             <p-colorPicker name="hsb" [(ngModel)]="colorFormat3" format="hsb"></p-colorPicker>
-            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat3}">{{colorFormat3}}</span></p>
+            <p style="margin-top:.5em">Selected Color: <span [ngStyle]="{'color':'#' + colorFormat3}">{{colorFormat3 | json}}</span></p>
         </pe-step>
 
         <!-- events -->
