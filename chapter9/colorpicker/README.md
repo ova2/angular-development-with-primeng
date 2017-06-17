@@ -1,4 +1,4 @@
-### Learning Draggable and Droppable directives
+### Learning ColorPicker components
 
 #### Prerequisites
 
