@@ -1,1 +1,32 @@
+.node-header,
+.node-content {
+  padding: .5em .7em;
+}
 
+.node-header {
+  background-color: #bb0066;
+  color: #ffffff;
+}
+
+.node-content {
+  text-align: center;
+  border: 1px solid #bb0066;
+}
+
+.company .org-dept {
+  padding: 0 !important;
+  border: 0 none !important;
+}
+
+.org-role {
+  background-color: #00b60d;
+  color: #ffffff;
+}
+
+.org-dept .ui-node-toggler {
+  color: #bb0066 !important;
+}
+
+.org-role .ui-node-toggler {
+  color: #00b60d !important;
+}

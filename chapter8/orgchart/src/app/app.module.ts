@@ -8,11 +8,13 @@ import {APP_BASE_HREF} from '@angular/common';
 // import needed PrimeNG modules here
 import {OrganizationChartModule} from 'primeng/components/organizationchart/organizationchart';
 import {GrowlModule} from 'primeng/components/growl/growl';
+import {DialogModule} from 'primeng/components/dialog/dialog';
 
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
 import {AppComponent}  from './app.component';
 import {OrgChartComponent}  from './section/orgchart.component';
 import {routes} from './app-routing.module';
+import {VCardService} from './section/service/vcard.service';
 
 @NgModule({
     imports: [
@@ -23,13 +25,14 @@ import {routes} from './app-routing.module';
         HttpModule,
         OrganizationChartModule,
         WizardModule,
-        GrowlModule
+        GrowlModule,
+        DialogModule
     ],
     declarations: [
         AppComponent,
         OrgChartComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, VCardService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

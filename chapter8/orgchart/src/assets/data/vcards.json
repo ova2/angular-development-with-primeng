@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "fullName": "Alex Konradi",
+      "birthday": "12.23.1968",
+      "address": "259 Rocky Road, Lansdale",
+      "email": "alex.konradi@gmail.com"
+    },
+    {
+      "id": "2",
+      "fullName": "Sara Schmidt",
+      "birthday": "01.02.1977",
+      "address": "4422 Cimmaron Road, Anaheim",
+      "email": "sara.schmidt@gmail.com"
+    },
+    {
+      "id": "3",
+      "fullName": "Veronica Schiefel",
+      "birthday": "05.10.1980",
+      "address": "2465 Harley Brook Lane, Huntingdon",
+      "email": "vero.schiefel@gmail.com"
+    },
+    {
+      "id": "4",
+      "fullName": "Max Mustermann",
+      "birthday": "11.06.1979",
+      "address": "4712 Dola Mine Road, Durham",
+      "email": "max.mustermann@gmail.com"
+    }
+  ]
+}
