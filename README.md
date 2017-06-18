@@ -90,7 +90,7 @@ __Table of Contents__
   * Data representation with radar and polar area charts
   * Drawing organization chart for relationship hierarchy
   * Basic integration with Google Map API
-  * Various uses cases with GMap component
+  * Various use cases with GMap component
   
 * [Chapter 9, Miscellaneous Use Cases and Best Practices](https://github.com/ova2/angular-development-with-primeng/tree/master/chapter9)
   * File uploading in all its glory
