@@ -1,0 +1,24 @@
+<form novalidate>
+    <pe-steps [(activeIndex)]="activeIndex" (change)="onChangeStep($event);">
+        <!-- Basic -->
+        <pe-step label="Basic" >
+            <p-menu [model]="items"></p-menu>
+        </pe-step>
+        <!-- Popup -->
+        <pe-step label="Popup" [styleClass]="'layout-format'">
+            <p-menu #popmenu [model]="items" [popup]="true"></p-menu>
+            <button type="button" pButton icon="fa fa-list" label="Show" (click)="popmenu.toggle($event)"></button>
+        </pe-step>
+
+        <!-- Methods -->
+        <pe-step label="Methods" [styleClass]="'layout-format'">
+            <p-menu #menu [model]="items" [popup]="true"></p-menu>
+            <button type="button" pButton icon="fa fa-list" label="Toggle" (click)="menu.toggle($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Show" (click)="menu.show($event)"></button>
+            <button type="button" pButton icon="fa fa-list" label="Hide" (click)="menu.hide()"></button>
+        </pe-step>
+    </pe-steps>
+
+</form>
+
+<p-growl [value]="msgs"></p-growl>

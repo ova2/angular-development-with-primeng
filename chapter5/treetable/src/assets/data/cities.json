@@ -1,0 +1,176 @@
+{
+  "data": [
+    {
+      "data": {
+        "name": "Asia",
+        "days": "15",
+        "type": "Continent"
+      },
+      "children": [
+        {
+          "data": {
+            "name": "India",
+            "days": "6",
+            "type": "Country"
+          },
+          "children": [
+            {
+              "data": {
+                "name": "Goa",
+                "days": "2",
+                "type": "City"
+              }
+            },
+            {
+              "data": {
+                "name": "Mumbai",
+                "days": "2",
+                "type": "City"
+              }
+            },
+            {
+              "data": {
+                "name": "Hyderabad",
+                "days": "2",
+                "type": "City"
+              }
+            }
+          ]
+        },
+        {
+          "data": {
+            "name": "Singapore",
+            "days": "3",
+            "type": "Country"
+          },
+          "children": [
+            {
+              "data": {
+                "name": "Woodlands",
+                "days": "3",
+                "type": "City"
+              }
+            }
+          ]
+        },
+        {
+          "data": {
+            "name": "Indonesia",
+            "days": "6",
+            "type": "Country"
+          },
+          "children": [
+            {
+              "data": {
+                "name": "Bali",
+                "days": "2",
+                "type": "City"
+              }
+            },
+            {
+              "data": {
+                "name": "Lombok",
+                "days": "2",
+                "type": "City"
+              }
+            },
+            {
+              "data": {
+                "name": "Batam",
+                "days": "2",
+                "type": "City"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "data": {
+        "name": "Australia",
+        "days": "9",
+        "type": "Continent"
+      },
+      "children": [
+        {
+          "data": {
+            "name": "Perth",
+            "days": "3",
+            "type": "City"
+          }
+        },
+        {
+          "data": {
+            "name": "Brisbane",
+            "days": "3",
+            "type": "City"
+          }
+        },
+        {
+          "data": {
+            "name": "Sydney",
+            "days": "3",
+            "type": "City"
+          }
+        }
+      ]
+    },
+    {
+    "data":
+    {
+      "name": "Europe",
+      "days": "8",
+      "type": "Continent"
+    },
+    "children": [
+    {
+      "data": {
+        "name": "Germany",
+        "days":"4",
+        "type": "Country"
+      },
+      "children":[
+      {
+        "data": {
+          "name": "Hamburg",
+          "days":"2",
+          "type": "City"
+        }
+      },
+      {
+        "data": {
+          "name": "Berlin",
+          "days": "2",
+          "type": "City"
+        }
+      } ]},
+
+    {
+        "data": {
+          "name": "UK",
+          "days": "4",
+          "type": "Country"
+        },
+      "children":[
+      {
+         "data": {
+           "name": "Hamburg",
+           "days":"2",
+           "type": "City"
+         }
+      },
+      {
+         "data": {
+            "name": "Berlin",
+            "days": "2",
+            "type": "City"
+          }
+      }]
+    }
+    ]
+  }
+    ]
+}
+
+
+
