@@ -112,3 +112,8 @@ __Table of Contents__
   * Setting up e2e test environment with Protractor
   * Writing automated UI tests at a glance
   * Exploring PrimeNG application with Augury and ng.probe
+
+Miscellaneous:
+
+ The internationalization support for Angular and PrimeNG using ngx-translate is explained here http://sudheerjonna.com/blog/2017/06/26/angular-and-primeng-internationalization-using-ng2-translate/
+ and the Github project is created here https://github.com/sudheerj/angular-primeng-ngxtranslate
