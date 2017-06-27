@@ -2,7 +2,7 @@
 
 Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj). Powered by the dream team - __Angular 4__ and __PrimeNG 4__. :dizzy:
 
-__Book on Packt Publishing's website:__ https://www.packtpub.com/web-development/learning-angular-ui-development-primeng 
+__Book on Packt's website:__ https://www.packtpub.com/web-development/learning-angular-ui-development-primeng
 
 __Table of Contents__
 
