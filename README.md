@@ -2,7 +2,7 @@
 
 Written by [Oleg Varaksin](https://github.com/ova2) and [Sudheer Jonna](https://github.com/sudheerj). Powered by the dream team - __Angular 4__ and __PrimeNG 4__. :dizzy:
 
-__Book on Packt Publishing's website:__ coming soon... 
+__Book on Packt Publishing's website:__ https://www.packtpub.com/web-development/learning-angular-ui-development-primeng 
 
 __Table of Contents__
 
@@ -113,7 +113,8 @@ __Table of Contents__
   * Writing automated UI tests at a glance
   * Exploring PrimeNG application with Augury and ng.probe
 
-Miscellaneous:
+__Additional Resources__:
 
- The internationalization support for Angular and PrimeNG using ngx-translate is explained here http://sudheerjonna.com/blog/2017/06/26/angular-and-primeng-internationalization-using-ng2-translate/
- and the Github project is created here https://github.com/sudheerj/angular-primeng-ngxtranslate
+ The internationalization support for Angular and PrimeNG using __ngx-translate__ is explained in
+ [this blog post](http://sudheerjonna.com/blog/2017/06/26/angular-and-primeng-internationalization-using-ng2-translate/)
+ and the GitHub project is available here: https://github.com/sudheerj/angular-primeng-ngxtranslate
