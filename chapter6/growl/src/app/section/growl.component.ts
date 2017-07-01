@@ -42,6 +42,11 @@ export class GrowlComponent {
         this.messages.push({severity: 'info', summary: 'Message 3', detail: 'PrimeNG is awesome'});
     }
 
+    onClickMessage(event: any) {
+        this.messages = [];
+        this.messages.push({severity: 'info', summary: 'Info Message', detail: 'The message is selected'});
+    }
+
     clear() {
         this.messages = [];
     }

@@ -16,7 +16,7 @@
         <!-- Events-->
         <pe-step label="Events">
             <p-gmap #gmap [options]="options" [overlays]="overlaysEvents"
-                    (onMapReady)="handleMapReady($event)" (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)" (onOverlayDragStart)="handleDragStart($event)" (onOverlayDragEnd)="handleDragEnd($event)" [styleClass]="'dimensions'"></p-gmap>
+                    (onMapReady)="handleMapReady($event)" (onMapClick)="handleMapClick($event)" (onOverlayClick)="handleOverlayClick($event)" (onOverlayDragStart)="handleDragStart($event)" (onOverlayDragEnd)="handleDragEnd($event)" (onZoomChanged)="handleZoomChanged($event)" (onMapDragEnd)="handleMapDragEnd($event)" [styleClass]="'dimensions'"></p-gmap>
             <button type="button" pButton label="Clear" icon="fa-close" (click)="clear()"></button>
             <button type="button" pButton label="Reset" icon="fa-map-marker" (click)="initOverlays()" ></button>
             <button type="button" pButton label="Zoom In" icon="fa-search-plus" (click)="zoomIn(gmap.getMap())"></button>

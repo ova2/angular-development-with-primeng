@@ -37,6 +37,12 @@
             <button type="button" pButton (click)="showMessage()" label="ClickMe"></button>
         </pe-step>
 
+        <!-- Events-->
+        <pe-step label="Events">
+            <p-growl [value]="messages" name="sticky" sticky="false" (onClick)="onClickMessage($event)"></p-growl>
+            <button type="button" pButton (click)="showMessage()" label="ClickMe"></button>
+        </pe-step>
+
     </pe-steps>
 
 </form>

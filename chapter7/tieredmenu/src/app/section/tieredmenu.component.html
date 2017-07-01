@@ -10,6 +10,12 @@
             <button type="button" pButton icon="fa fa-list" label="Show" (click)="popmenu.toggle($event)"></button>
         </pe-step>
 
+        <!-- AppendTo -->
+        <pe-step label="AppendTo" [styleClass]="'layout-format'">
+            <p-tieredMenu [model]="items" [appendTo]="btn"></p-tieredMenu>
+            <button type="button" pButton icon="fa fa-list" label="Show" #btn></button>
+        </pe-step>
+
         <!-- Methods -->
         <pe-step label="Methods" [styleClass]="'layout-format'">
             <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>

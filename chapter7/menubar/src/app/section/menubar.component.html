@@ -5,6 +5,14 @@
             <p-menubar [model]="items"></p-menubar>
         </pe-step>
 
+        <!-- Customization -->
+        <pe-step label="Customization" [styleClass]="'layout-format'">
+            <p-menubar [model]="items">
+                <input type="text" pInputText placeholder="Search">
+                <button pButton label="Logout" icon="fa-sign-out"></button>
+            </p-menubar>
+        </pe-step>
+
     </pe-steps>
 </form>
 

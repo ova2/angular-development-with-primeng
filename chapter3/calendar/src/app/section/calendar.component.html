@@ -64,7 +64,7 @@
         <!-- Events -->
         <pe-step label="Events">
             <h3>Events</h3>
-            <p-calendar [(ngModel)]="eventsDateInput" name="events" (onSelect)="onSelect()" (onFocus)="onFocus()"
+            <p-calendar [(ngModel)]="eventsDateInput" name="events" (onSelect)="onSelect()" (onFocus)="onFocus()" (onClose)="onClose($event)"
                         (onBlur)="onBlur()">
             </p-calendar>
         </pe-step>

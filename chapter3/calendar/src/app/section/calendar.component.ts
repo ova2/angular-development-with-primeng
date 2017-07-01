@@ -41,6 +41,11 @@ export class CalendarComponent {
         this.msgs.push({severity: 'info', summary: 'Calendar got the focus'});
     }
 
+    onClear() {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'The Calendar is closed'});
+    }
+
     set hourFormat(hourFormat: string) {
         this.selectedHourFormat = hourFormat;
         if (this.timeDateInput) {

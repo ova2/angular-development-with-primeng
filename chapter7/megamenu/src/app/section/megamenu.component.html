@@ -6,7 +6,16 @@
         </pe-step>
         <!-- Customization -->
         <pe-step label="Customization" [styleClass]="'layout-format'">
-            <p-megaMenu [model]="items" orientation="vertical"></p-megaMenu>
+            <p-megaMenu [model]="items" orientation="vertical">
+            </p-megaMenu>
+        </pe-step>
+
+        <!-- Customized Forms -->
+        <pe-step label="Customized Forms" [styleClass]="'layout-format'">
+            <p-megaMenu [model]="items">
+                <input type="text" pInputText placeholder="Search">
+                <button pButton label="Logout" icon="fa-sign-out"></button>
+            </p-megaMenu>
         </pe-step>
     </pe-steps>
 
