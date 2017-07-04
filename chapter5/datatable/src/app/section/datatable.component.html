@@ -175,7 +175,7 @@
         </div>
         <p-dataTable [value]="browsers" [rows]="10" [paginator]="true" [globalFilter]="gb" #datatable (onFilter)="onFilter($event)">
             <p-header>List of Browsers</p-header>
-            <p-column field="browser" header="Browser (contains)" [filter]="true" [filterMatchMode]="contains"
+            <p-column field="browser" header="Browser (contains)" [filter]="true" [filterMatchMode]="'contains'"
                       filterPlaceholder="Search"></p-column>
             <p-column field="platform" header="Platform (startsWith)" [filter]="true"
                       filterPlaceholder="Search"></p-column>
