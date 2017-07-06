@@ -9,7 +9,7 @@
         </pe-step>
         <!-- GoogleMap API -->
         <pe-step label="GoogleMap API">
-            <p-gmap #gmapObject [options]="options"></p-gmap>
+            <p-gmap #gmapObject [options]="options" [styleClass]="'dimensions'"></p-gmap>
             <button type="button" pButton label="Zoom In" icon="fa-search-plus" (click)="zoomIn(gmapObject.getMap())"></button>
         </pe-step>
 
