@@ -120,3 +120,6 @@ __Additional Resources__:
  and the GitHub project is available here: https://github.com/sudheerj/angular-primeng-ngxtranslate
  2. PrimeNG 4.1 RELEASE changes(new components, new features, bug fixes and improvements) are explained in
  [this blog post](http://sudheerjonna.com/blog/2017/06/26/whats-new-in-primeng-4-1-release//) and the GitHub project is avialable here: https://github.com/sudheerj/primeng-4.1
+ 3. The PrimeNG dataTable supporting JSON nested structure is explained in
+  [this blog post](http://sudheerjonna.com/blog/2017/07/06/nested-json-structure-usage-with-primeng-datatable/)
+  and the GitHub project is available here: https://github.com/sudheerj/Datatable-NestedJSON
