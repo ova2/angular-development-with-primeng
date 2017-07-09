@@ -115,11 +115,14 @@ __Table of Contents__
 
 __Additional Resources__:
 
- 1. The internationalization support for Angular and PrimeNG using __ngx-translate__ is explained in
+ 1. The Angular's official internationalization support powered by PrimeNG components is explained in
+ [this blog post](http://sudheerjonna.com/blog/2017/07/09/angulars-official-internationalizationi18n-support/)
+  and the GitHub project is available here: https://github.com/sudheerj/angular-primeng-i18n
+ 2. The internationalization support for Angular and PrimeNG using __ngx-translate__ is explained in
  [this blog post](http://sudheerjonna.com/blog/2017/06/26/angular-and-primeng-internationalization-using-ng2-translate/)
  and the GitHub project is available here: https://github.com/sudheerj/angular-primeng-ngxtranslate
- 2. PrimeNG 4.1 RELEASE changes(new components, new features, bug fixes and improvements) are explained in
+ 3. PrimeNG 4.1 RELEASE changes(new components, new features, bug fixes and improvements) are explained in
  [this blog post](http://sudheerjonna.com/blog/2017/06/26/whats-new-in-primeng-4-1-release//) and the GitHub project is avialable here: https://github.com/sudheerj/primeng-4.1
- 3. The PrimeNG dataTable supporting JSON nested structure is explained in
+ 4. The PrimeNG dataTable supporting JSON nested structure is explained in
   [this blog post](http://sudheerjonna.com/blog/2017/07/06/nested-json-structure-usage-with-primeng-datatable/)
   and the GitHub project is available here: https://github.com/sudheerj/Datatable-NestedJSON
