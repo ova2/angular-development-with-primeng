@@ -16,6 +16,18 @@
             </p-chips>
         </pe-step>
 
+        <!-- Styles -->
+        <pe-step label="Styles">
+            <h3>Enter contacts</h3>
+            <p-chips [(ngModel)]="contactnames" name="styles" [inputStyle]="{'width':'100%','color':'blue'}"></p-chips>
+        </pe-step>
+
+        <!-- Duplicates -->
+        <pe-step label="Duplicates ">
+            <h3>Enter contacts</h3>
+            <p-chips [(ngModel)]="contactnames" name="duplicate" [allowDuplicate]="false"></p-chips>
+        </pe-step>
+
         <!-- Events -->
         <pe-step label="Events">
             <h3>Events</h3>

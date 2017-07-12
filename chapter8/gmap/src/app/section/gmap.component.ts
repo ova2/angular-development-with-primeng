@@ -70,6 +70,16 @@ export class GMapComponent {
         }
     }
 
+    handleZoomChanged(event: any) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'The map zoom options are changed'});
+    }
+
+    handleMapDragEnd(event: any) {
+        this.msgs.length = 0;
+        this.msgs.push({severity: 'info', summary: 'The map drag is reached end'});
+    }
+
     addMarker() {
         this.overlaysEvents.push(new google.maps.Marker({position: {lat: this.selectedPosition.lat(),
             lng: this.selectedPosition.lng()}, title: this.markerTitle, draggable: this.draggable}));

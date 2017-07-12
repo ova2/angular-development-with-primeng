@@ -67,6 +67,11 @@ export class TreeTableComponent {
         this.msgs.push({severity: 'info', summary: 'Node Unselected', detail: event.node.data.name});
     }
 
+    onRowDblclick(event: any) {
+        this.msgs = [];
+        this.msgs.push({severity: 'info', summary: 'Node Selected', detail: "The TreeTable row double click is invoked"});
+    }
+
     nodeExpand(event: any) {
         if (event.node) {
             //in a real application, make a call to a remote url to load children of the current node and add the new nodes as children

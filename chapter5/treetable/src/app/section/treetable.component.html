@@ -11,7 +11,7 @@
         <!-- Singe Selection-->
         <pe-step label="Singe Selection">
             <p-treeTable [value]="singleSelectionTreeTable" selectionMode="single" [(selection)]="selectedTouristPlace"
-                         (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
+                         (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)" (onRowDblclick)="onRowDblclick($event)" >
                 <p-header>Singe Selection</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="days" header="Days"></p-column>

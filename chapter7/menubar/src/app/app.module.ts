@@ -5,6 +5,8 @@ import {APP_BASE_HREF} from '@angular/common';
 
 // import needed PrimeNG modules here
 import {MenubarModule} from 'primeng/components/menubar/menubar';
+import {InputTextModule} from 'primeng/components/inputtext/inputtext';
+import {ButtonModule} from 'primeng/components/button/button';
 import {GrowlModule} from 'primeng/components/growl/growl';
 
 import {WizardModule} from 'primeng-extensions-wizard/components/wizard.module';
@@ -17,6 +19,8 @@ import {routes} from './app-routing.module';
     imports: [
         BrowserModule,
         routes,
+        InputTextModule,
+        ButtonModule,
         FormsModule,
         MenubarModule,
         WizardModule,
