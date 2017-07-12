@@ -3,6 +3,7 @@ var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackMd5Hash = require('webpack-md5-hash');
+var ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
 var HashedModuleIdsPlugin = require('webpack/lib/HashedModuleIdsPlugin');
@@ -48,6 +49,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new ModuleConcatenationPlugin(),
         new CopyWebpackPlugin([
             {from: 'assets/data', to: 'assets/data'}
         ]),
@@ -79,7 +81,9 @@ module.exports = {
     ],
     devServer: {
         host: 'localhost',
+        compress: true,
         port: 3000,
+        overlay: true,
         historyApiFallback: true,
         contentBase: 'dist/',
         watchOptions: {
@@ -87,6 +91,7 @@ module.exports = {
             poll: 300
         },
         stats: {
+            modules: false,
             colors: true
         }
     }
