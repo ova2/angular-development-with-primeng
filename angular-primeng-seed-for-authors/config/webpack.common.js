@@ -86,10 +86,6 @@ module.exports = {
         overlay: true,
         historyApiFallback: true,
         contentBase: 'dist/',
-        watchOptions: {
-            aggregateTimeout: 100,
-            poll: 300
-        },
         stats: {
             modules: false,
             colors: true
