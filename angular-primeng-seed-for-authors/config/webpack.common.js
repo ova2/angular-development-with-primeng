@@ -1,16 +1,16 @@
-var path = require('path');
+const path = require('path');
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
-var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-var OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
-var HashedModuleIdsPlugin = require('webpack/lib/HashedModuleIdsPlugin');
-var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+const OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
+const HashedModuleIdsPlugin = require('webpack/lib/HashedModuleIdsPlugin');
+const ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var ROOT = path.resolve(__dirname, '..');
-var CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
+const ROOT = path.resolve(__dirname, '..');
+const CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
 
 // Common configuration for development and production
 module.exports = {
@@ -67,8 +67,8 @@ module.exports = {
                 removeComments: true
             },
             chunksSortMode: function (a, b) {
-                var idxA = CHUNKS_SORT_ORDER.indexOf(a.names[0]);
-                var idxB = CHUNKS_SORT_ORDER.indexOf(b.names[0]);
+                const idxA = CHUNKS_SORT_ORDER.indexOf(a.names[0]);
+                const idxB = CHUNKS_SORT_ORDER.indexOf(b.names[0]);
                 return idxA - idxB;
             }
         }),
