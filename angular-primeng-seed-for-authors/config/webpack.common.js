@@ -2,7 +2,6 @@ var path = require('path');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var WebpackMd5Hash = require('webpack-md5-hash');
 var ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
@@ -60,7 +59,6 @@ module.exports = {
             minChunks: Infinity
         }),
         new HashedModuleIdsPlugin(),
-        new WebpackMd5Hash(),
         new OccurrenceOrderPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
