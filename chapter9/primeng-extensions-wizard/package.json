@@ -1,6 +1,6 @@
 {
   "name": "primeng-extensions-wizard",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "license": "MIT",
   "author": {
     "name": "Oleg Varaksin",
@@ -22,29 +22,29 @@
     "wizard component"
   ],
   "dependencies": {
-    "@angular/animations": "~4.1.0",
-    "@angular/common": "~4.1.0",
-    "@angular/compiler": "~4.1.0",
-    "@angular/compiler-cli": "~4.1.0",
-    "@angular/core": "~4.1.0",
-    "@angular/forms": "~4.1.0",
-    "@angular/http": "~4.1.0",
-    "@angular/platform-browser": "~4.1.0",
-    "@angular/platform-browser-dynamic": "~4.1.0",
-    "@angular/platform-server": "~4.1.0",
-    "@angular/router": "~4.1.0",
+    "@angular/animations": "~4.3.0",
+    "@angular/common": "~4.3.0",
+    "@angular/compiler": "~4.3.0",
+    "@angular/compiler-cli": "~4.3.0",
+    "@angular/core": "~4.3.0",
+    "@angular/forms": "~4.3.0",
+    "@angular/http": "~4.3.0",
+    "@angular/platform-browser": "~4.3.0",
+    "@angular/platform-browser-dynamic": "~4.3.0",
+    "@angular/platform-server": "~4.3.0",
+    "@angular/router": "~4.3.0",
     "core-js": "~2.4.1",
-    "rxjs": "~5.3.0",
-    "zone.js": "~0.8.9",
-    "primeng": "~4.0.0",
+    "rxjs": "~5.4.2",
+    "zone.js": "~0.8.13",
+    "primeng": "~4.1.0",
     "font-awesome": "~4.7.0"
   },
   "devDependencies": {
-    "@types/node": "~6.0.46",
-    "del-cli": "~0.2.1",
-    "tslib": "~1.6.0",
-    "tslint": "~5.1.0",
-    "typescript": "~2.3.2"
+    "@types/node": "~8.0.13",
+    "del-cli": "~1.1.0",
+    "tslib": "~1.7.1",
+    "tslint": "~5.5.0",
+    "typescript": "~2.4.1"
   },
   "scripts": {
     "tsc": "tsc",
@@ -52,6 +52,6 @@
     "clean": "del-cli aot components/**/*.d.ts components/**/*.js src/**/*.js.map components/**/*.metadata.json",
     "prengc": "npm run clean",
     "ngc": "ngc -p tsconfig.json",
-    "update": "npm run ngc && npm version patch && npm publish && npm run clean"
+    "update": "npm run ngc && npm version minor && npm publish && npm run clean"
   }
 }
