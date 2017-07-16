@@ -1,7 +1,6 @@
 {
   "name": "angular-development-with-primeng",
   "version": "1.0.0",
-  "description": "Setup PrimeNG project with SystemJS",
   "author": "Oleg Varaksin, Sudheer Jonna",
   "license": "MIT",
   "private": true,
@@ -10,28 +9,28 @@
     "url": "git+https://github.com/ova2/angular-development-with-primeng.git"
   },
   "dependencies": {
-    "@angular/animations": "~4.1.0",
-    "@angular/common": "~4.1.0",
-    "@angular/compiler": "~4.1.0",
-    "@angular/compiler-cli": "~4.1.0",
-    "@angular/core": "~4.1.0",
-    "@angular/forms": "~4.1.0",
-    "@angular/http": "~4.1.0",
-    "@angular/platform-browser": "~4.1.0",
-    "@angular/platform-browser-dynamic": "~4.1.0",
-    "@angular/platform-server": "~4.1.0",
-    "@angular/router": "~4.1.0",
+    "@angular/animations": "~4.3.0",
+    "@angular/common": "~4.3.0",
+    "@angular/compiler": "~4.3.0",
+    "@angular/compiler-cli": "~4.3.0",
+    "@angular/core": "~4.3.0",
+    "@angular/forms": "~4.3.0",
+    "@angular/http": "~4.3.0",
+    "@angular/platform-browser": "~4.3.0",
+    "@angular/platform-browser-dynamic": "~4.3.0",
+    "@angular/platform-server": "~4.3.0",
+    "@angular/router": "~4.3.0",
     "core-js": "~2.4.1",
-    "rxjs": "~5.3.0",
-    "zone.js": "~0.8.9",
-    "primeng": "~4.0.0",
-    "systemjs": "0.19.39"
+    "rxjs": "~5.4.2",
+    "zone.js": "~0.8.13",
+    "primeng": "~4.1.0",
+    "systemjs": "~0.19.39"
   },
   "devDependencies": {
-    "@types/node": "~6.0.46",
-    "typescript": "~2.3.2",
+    "@types/node": "~8.0.13",
+    "typescript": "~2.4.1",
     "live-server": "~1.2.0",
-    "tslint": "~5.1.0"
+    "tslint": "~5.5.0"
   },
   "scripts": {
     "start": "live-server --entry-file=src/index.html"
