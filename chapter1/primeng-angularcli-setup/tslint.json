@@ -95,7 +95,8 @@
       "check-decl",
       "check-operator",
       "check-separator",
-      "check-type"
+      "check-type",
+      "check-preblock"
     ],
 
     "directive-selector": [true, "attribute", "app", "camelCase"],

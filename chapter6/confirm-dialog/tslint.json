@@ -12,8 +12,9 @@
       "check-branch",
       "check-decl",
       "check-operator",
-      "check-module",
-      "check-type"
+      "check-separator",
+      "check-type",
+      "check-preblock"
     ],
     "no-string-literal": false,
     "interface-name": false,
@@ -29,6 +30,8 @@
     "no-console": false,
     "no-angle-bracket-type-assertion": false,
     "import-spacing": false,
-    "prefer-const": false
+    "prefer-const": false,
+    "max-line-length": [true, 140],
+    "no-bitwise": false
   }
 }
