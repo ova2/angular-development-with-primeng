@@ -7,7 +7,6 @@ const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const OccurrenceOrderPlugin = require('webpack/lib/optimize/OccurrenceOrderPlugin');
 const HashedModuleIdsPlugin = require('webpack/lib/HashedModuleIdsPlugin');
 const ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ROOT = path.resolve(__dirname, '..');
 const CHUNKS_SORT_ORDER = ['manifest', 'polyfill', 'main'];
@@ -49,9 +48,6 @@ module.exports = {
     },
     plugins: [
         new ModuleConcatenationPlugin(),
-        new CopyWebpackPlugin([
-            {from: 'assets/data', to: 'assets/data'}
-        ]),
         // move webpack runtime code to a separate manifest file in order to support long-term caching.
         // this will avoid hash recreation for vendor files when only application files are changed.
         new CommonsChunkPlugin({
