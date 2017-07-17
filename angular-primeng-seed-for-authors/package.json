@@ -54,7 +54,7 @@
     "typescript": "~2.4.1",
     "url-loader": "~0.5.9",
     "webpack": "~3.3.0",
-    "webpack-closure-compiler": "~2.1.4",
+    "webpack-closure-compiler": "~2.1.5",
     "webpack-dev-server": "~2.5.1",
     "webpack-merge": "~4.1.0"
   },
