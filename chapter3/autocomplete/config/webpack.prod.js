@@ -1,13 +1,15 @@
-var path = require('path');
+const path = require('path');
 
 // used to merge webpack configs
-var webpackMerge = require('webpack-merge');
-var commonConfig = require('./webpack.common.js');
+const webpackMerge = require('webpack-merge');
+const commonConfig = require('./webpack.common.js');
 
-var AotPlugin = require('@ngtools/webpack').AotPlugin;
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin');
-var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const AotPlugin = require('@ngtools/webpack').AotPlugin;
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const NoEmitOnErrorsPlugin = require('webpack/lib/NoEmitOnErrorsPlugin');
+const ClosureCompilerPlugin = require('webpack-closure-compiler');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const cssnano = require('cssnano');
 
 module.exports = webpackMerge(commonConfig, {
     entry: {
@@ -40,24 +42,24 @@ module.exports = webpackMerge(commonConfig, {
         }),
         new NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin({
-            filename: "[name].[chunkhash].css"
+            filename: "[name].[contenthash].css"
         }),
-        new NoEmitOnErrorsPlugin(),
-        new UglifyJsPlugin({
-            compress: {
-                dead_code: true,
-                unused: true,
-                warnings: false,
-                screw_ie8: true
+        new OptimizeCSSAssetsPlugin({
+            cssProcessor: cssnano,
+            cssProcessorOptions: {
+                discardComments: {
+                    removeAll: true
+                },
+                safe: true
+            }
+        }),
+        new ClosureCompilerPlugin({
+            compiler: {
+                language_in: 'ECMASCRIPT6',
+                language_out: 'ECMASCRIPT5',
+                compilation_level: 'SIMPLE'
             },
-            mangle: {
-                screw_ie8: true,
-                keep_fnames: true
-            },
-            output: {
-                comments: false
-            },
-            drop_console: true
+            concurrency: 3,
         })
     ]
 });

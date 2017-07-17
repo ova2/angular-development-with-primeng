@@ -1,9 +1,9 @@
 // used to merge webpack configs
-var webpackMerge = require('webpack-merge');
-var commonConfig = require('./webpack.common.js');
+const webpackMerge = require('webpack-merge');
+const commonConfig = require('./webpack.common.js');
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var SourceMapDevToolPlugin = require('webpack/lib/SourceMapDevToolPlugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const SourceMapDevToolPlugin = require('webpack/lib/SourceMapDevToolPlugin');
 
 module.exports = webpackMerge(commonConfig, {
     entry: {
