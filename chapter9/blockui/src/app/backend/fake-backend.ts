@@ -5,7 +5,6 @@
 import {Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions} from '@angular/http';
 import {MockBackend, MockConnection} from '@angular/http/testing';
 import {employees} from './employees';
-import {uuid} from './uuid';
 import {Employee} from '../model/employee';
 
 function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
