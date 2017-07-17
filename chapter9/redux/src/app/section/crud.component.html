@@ -56,11 +56,9 @@
                 </div>
             </div>
         </div>
-        <p-footer>
-            <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
-                <button type="submit" pButton icon="fa-check" (click)="save()"
-                        label="Save" [disabled]="!employeeForm.form.valid"></button>
-            </div>
-        </p-footer>
     </form>
+    <p-footer>
+        <button type="submit" pButton icon="fa-check" (click)="save()"
+                label="Save" [disabled]="!employeeForm.form.valid"></button>
+    </p-footer>
 </p-dialog>
