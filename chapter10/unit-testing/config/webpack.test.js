@@ -1,6 +1,6 @@
-var path = require('path');
+const path = require('path');
 
-var ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
+const ContextReplacementPlugin = require("webpack/lib/ContextReplacementPlugin");
 
 module.exports = {
     devtool: 'inline-source-map',
