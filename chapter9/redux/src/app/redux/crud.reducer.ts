@@ -9,7 +9,7 @@ export const crudReducer: ActionReducer<AppStore> = (state: AppStore = initialSt
     switch (action.type) {
         case CrudActions.LOAD_EMPLOYEES:
             return {
-                employees: action.payload,
+                employees: [...action.payload],
                 selectedEmployee: null
             };
 
