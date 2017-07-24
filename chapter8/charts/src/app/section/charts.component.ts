@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Message} from 'primeng/components/common/api';
 import {UIChart} from 'primeng/primeng';
-;
 
 @Component({
     selector: 'section',

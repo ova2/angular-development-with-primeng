@@ -40,7 +40,7 @@ export class PanelMenuComponent {
                     {label: 'Paste', icon: 'fa-paste'},
                     {label: 'Undo', icon: 'fa-mail-forward'},
                     {label: 'Redo', icon: 'fa-mail-reply'},
-                    {label: 'Find', icon: 'fa-search',items: [
+                    {label: 'Find', icon: 'fa-search', items: [
                         {label: 'Find Next'},
                         {label: 'Find Previous'},
                     ]}
@@ -106,13 +106,13 @@ export class PanelMenuComponent {
                     label: 'New',
                     icon: 'fa-plus',
                     items: [
-                        {label: 'Project',expanded : true},
-                        {label: 'Other',expanded : true},
+                        {label: 'Project', expanded : true},
+                        {label: 'Other', expanded : true},
                     ],
                     expanded : true
                 },
-                    {label: 'Open',expanded : true},
-                    {label: 'Quit',expanded : true}
+                    {label: 'Open', expanded : true},
+                    {label: 'Quit', expanded : true}
                 ],
                 expanded : true
             },

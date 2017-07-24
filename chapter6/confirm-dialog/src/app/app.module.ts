@@ -33,7 +33,7 @@ import {routes} from './app-routing.module';
         AppComponent,
         ConfirmDialogComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'},ConfirmationService],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, ConfirmationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

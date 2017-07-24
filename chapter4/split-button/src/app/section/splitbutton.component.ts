@@ -22,7 +22,7 @@ export class SplitButtonComponent {
             {label: 'Delete', command: () => {
                 this.delete();
             }},
-            {label: 'AngularConnect',url: 'https://www.angularconnect.com'}
+            {label: 'AngularConnect', url: 'https://www.angularconnect.com'}
         ];
 
         this.itemsIcons = [

@@ -31,7 +31,7 @@ import {routes} from './app-routing.module';
         AppComponent,
         ContextMenuComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'},EmployeeService],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, EmployeeService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
