@@ -90,7 +90,7 @@ export class CalendarComponent {
 
         let invalidDate = new Date();
         invalidDate.setDate(today.getDate() - 3);
-        this.invalidDates = [today,invalidDate];
+        this.invalidDates = [today, invalidDate];
 
     }
 
