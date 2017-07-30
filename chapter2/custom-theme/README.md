@@ -22,7 +22,7 @@ npm start
 ### Build the new theme for distribution
 
 ```sh
-npm build:css
+npm run build:css
 ```
 
 The path to the new theme: `src/assets/themes/crazy/theme.min.css`.
