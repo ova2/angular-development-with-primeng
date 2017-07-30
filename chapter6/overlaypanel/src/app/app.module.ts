@@ -33,7 +33,7 @@ import {routes} from './app-routing.module';
         AppComponent,
         OverlayPanelComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'},ScoreService],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, ScoreService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

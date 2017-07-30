@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Message,MenuItem} from 'primeng/components/common/api';
+import {Message, MenuItem} from 'primeng/components/common/api';
 
 @Component({
     selector: 'section',
@@ -36,7 +36,7 @@ export class MenuBarComponent {
                     {label: 'Paste', icon: 'fa-paste'},
                     {label: 'Undo', icon: 'fa-mail-forward'},
                     {label: 'Redo', icon: 'fa-mail-reply'},
-                    {label: 'Find', icon: 'fa-search',items: [
+                    {label: 'Find', icon: 'fa-search', items: [
                         {label: 'Find Next'},
                         {label: 'Find Previous'},
                     ]}
