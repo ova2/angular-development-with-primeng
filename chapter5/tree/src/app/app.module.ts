@@ -34,7 +34,7 @@ import {routes} from './app-routing.module';
         AppComponent,
         TreeComponent
     ],
-    providers: [{provide: APP_BASE_HREF, useValue: '/'},TreeDragDropService,TreeNodeService],
+    providers: [{provide: APP_BASE_HREF, useValue: '/'}, TreeDragDropService, TreeNodeService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
