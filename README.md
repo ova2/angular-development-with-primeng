@@ -126,3 +126,4 @@ __Additional Resources__:
  4. The PrimeNG dataTable supporting JSON nested structure is explained in
   [this blog post](http://sudheerjonna.com/blog/2017/07/06/nested-json-structure-usage-with-primeng-datatable/)
   and the GitHub project is available here: https://github.com/sudheerj/Datatable-NestedJSON
+  5. JHipster-PrimeNG module is explained in [this blog post](http://sudheerjonna.com/blog/2017/10/09/jhipster-meets-primeng-or-primeng-meets-jhipster/) and the GitHub project is available here:  https://github.com/sudheerj/generator-jhipster-primeng
